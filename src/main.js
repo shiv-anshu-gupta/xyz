@@ -5224,11 +5224,14 @@ window.addEventListener("message", (ev) => {
         
         showProgress(0, `Changing group for ${channelName}...`);
         
-        // Store progress callback in state for subscriber access
+        // Store progress callback BOTH in global and in state for subscriber access
         const progressCallback = (percent, message) => {
           updateProgress(percent, message);
           if (percent >= 100) setTimeout(() => hideProgress(), 800);
         };
+        // Set global progress callback (used by handleChannelUpdate)
+        setProgressCallback(progressCallback);
+        // Also store in channelState for chartManager subscriber
         if (!channelState._meta) channelState._meta = {};
         channelState._meta.progressCallback = progressCallback;
         
@@ -5623,6 +5626,10 @@ window.addEventListener("message", (ev) => {
       }
       /* Removed CALLBACK_TYPE.ADD_CHANNEL mechanism to avoid unintended re-renders and message acks */
       case CALLBACK_TYPE.DELETE: {
+        // ✅ Get channel name for progress bar
+        const deleteChannelName = payload?.name || payload?.row?.name || payload?.id || "Channel";
+        showProgress(0, `Deleting ${deleteChannelName}...`);
+        
         console.group(`[DELETE CALLBACK] 🗑️ DELETE MESSAGE RECEIVED`);
         console.log(`Payload received:`, payload);
         console.log(`Payload type:`, typeof payload);
@@ -5663,6 +5670,7 @@ window.addEventListener("message", (ev) => {
           console.log(
             `[DELETE CALLBACK] 📍 Deleting by channelID: ${channelID}`
           );
+          updateProgress(25, `Removing ${deleteChannelName} from state...`);
           try {
             const deleted = deleteChannelByID(channelID);
             console.log(
@@ -5672,6 +5680,7 @@ window.addEventListener("message", (ev) => {
             );
 
             if (deleted) {
+              updateProgress(50, `Rebuilding charts...`);
               // ✅ FIX: Call renderComtradeCharts DIRECTLY instead of relying on subscribers
               // Subscribers fire too early, before all deletions are complete
               // Direct call ensures proper cleanup of empty containers
@@ -5696,6 +5705,8 @@ window.addEventListener("message", (ev) => {
                     TIME_UNIT
                   );
                   updateExportButtonState();
+                  updateProgress(100, `${deleteChannelName} deleted successfully!`);
+                  setTimeout(() => hideProgress(), 800);
                   console.log(
                     `[DELETE CALLBACK] ✅ Charts rebuilt successfully - empty containers removed`
                   );
@@ -5704,6 +5715,7 @@ window.addEventListener("message", (ev) => {
                     `[DELETE CALLBACK] ❌ Failed to rebuild charts:`,
                     err
                   );
+                  hideProgress();
                 }
               })();
               return;
@@ -5713,6 +5725,7 @@ window.addEventListener("message", (ev) => {
               `[DELETE CALLBACK] ❌ Error deleting by channelID:`,
               err
             );
+            hideProgress();
           }
           // fall through to legacy if delete by ID failed
         }
@@ -5722,6 +5735,7 @@ window.addEventListener("message", (ev) => {
           console.warn(
             `[DELETE CALLBACK] ❌ No channelID and no row data, aborting`
           );
+          hideProgress();
           return;
         }
 
@@ -5733,6 +5747,8 @@ window.addEventListener("message", (ev) => {
           index: oi,
           name: row.name,
         });
+        
+        updateProgress(25, `Removing ${row.name || 'channel'} from state...`);
 
         const perChannelArrays = [
           "yLabels",
@@ -5791,6 +5807,7 @@ window.addEventListener("message", (ev) => {
         };
 
         const triggerRebuild = async () => {
+          updateProgress(50, `Rebuilding charts...`);
           try {
             const { renderComtradeCharts } = await import(
               "./components/renderComtradeCharts.js"
@@ -5807,12 +5824,15 @@ window.addEventListener("message", (ev) => {
               TIME_UNIT
             );
             updateExportButtonState();
+            updateProgress(100, `Channel deleted successfully!`);
+            setTimeout(() => hideProgress(), 800);
             console.log(`[DELETE CALLBACK] ✅ Charts rebuilt successfully`);
           } catch (err) {
             console.error(
               `[DELETE CALLBACK] ❌ Failed to rebuild charts:`,
               err
             );
+            hideProgress();
           }
         };
 
@@ -5831,6 +5851,7 @@ window.addEventListener("message", (ev) => {
           console.log(`[DELETE CALLBACK] ✅ Deleting computed channel by name: ${row.name || row.id}`);
           const computedId = row.id || row.name || row.channelID;
           if (computedId) {
+            updateProgress(30, `Removing computed channel...`);
             const deleted = deleteChannelByID(computedId);
             if (deleted) {
               triggerRebuild();
@@ -5838,6 +5859,7 @@ window.addEventListener("message", (ev) => {
             }
           }
           console.warn(`[DELETE CALLBACK] ❌ Could not find computed channel to delete`);
+          hideProgress();
         } else {
           // fallback: delete by label match
           console.log(`[DELETE CALLBACK] 🔍 Fallback: Searching by label...`);
@@ -5861,6 +5883,7 @@ window.addEventListener("message", (ev) => {
             }
           }
           console.warn(`[DELETE CALLBACK] ❌ Could not find channel to delete`);
+          hideProgress();
         }
         break;
       }

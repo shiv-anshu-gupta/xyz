@@ -233,9 +233,14 @@ export function subscribeChartUpdates(
   // ✅ Flag to prevent dataState subscriber from interfering during deletion
   let isHandlingDeletion = false;
 
-  // ✅ FIX: Helper to get progress callback from state
+  // ✅ FIX: Helper to get progress callback from state or global
   const callProgress = (percent, message) => {
-    const callback = channelState?._meta?.progressCallback;
+    // Try channelState._meta first
+    let callback = channelState?._meta?.progressCallback;
+    // Fallback to global progress callback getter
+    if (!callback && typeof getProgressCallback === "function") {
+      callback = getProgressCallback();
+    }
     console.log(`[callProgress] percent=${percent}%, message="${message}", hasCallback=${typeof callback === "function"}`);
     if (typeof callback === "function") {
       console.log(`[callProgress] ✅ Invoking callback with ${percent}%`);
