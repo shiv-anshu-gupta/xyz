@@ -1,3 +1,49 @@
+/**
+ * @file constants.js
+ * @module utils/constants
+ * 
+ * @description
+ * <h3>Application-Wide Constants & Color Palettes</h3>
+ * 
+ * <p>Centralized constants for colors, SI units, and theme-related values
+ * used throughout the COMTRADE viewer application.</p>
+ * 
+ * <h4>Exported Constants</h4>
+ * <table>
+ *   <tr><th>Constant</th><th>Description</th></tr>
+ *   <tr><td>crosshairColors</td><td>Colors for vertical line markers (red, blue, green...)</td></tr>
+ *   <tr><td>SI_UNITS</td><td>SI prefix table from pico (p) to tera (T)</td></tr>
+ *   <tr><td>analogPalette</td><td>2D array of colors for light/dark backgrounds</td></tr>
+ *   <tr><td>digitalPalette</td><td>Colors for digital channel traces</td></tr>
+ *   <tr><td>computedPalette</td><td>Colors for computed channels</td></tr>
+ * </table>
+ * 
+ * <h4>SI Units Table</h4>
+ * <table>
+ *   <tr><th>Value</th><th>Symbol</th><th>Name</th></tr>
+ *   <tr><td>10⁻¹²</td><td>p</td><td>pico</td></tr>
+ *   <tr><td>10⁻⁹</td><td>n</td><td>nano</td></tr>
+ *   <tr><td>10⁻⁶</td><td>µ</td><td>micro</td></tr>
+ *   <tr><td>10⁻³</td><td>m</td><td>milli</td></tr>
+ *   <tr><td>10³</td><td>k</td><td>kilo</td></tr>
+ *   <tr><td>10⁶</td><td>M</td><td>mega</td></tr>
+ *   <tr><td>10⁹</td><td>G</td><td>giga</td></tr>
+ *   <tr><td>10¹²</td><td>T</td><td>tera</td></tr>
+ * </table>
+ * 
+ * @example
+ * import { SI_UNITS, crosshairColors, analogPalette } from './constants.js';
+ * 
+ * // Get appropriate SI prefix for a value
+ * const prefix = SI_UNITS.find(u => Math.abs(value) >= u.value);
+ * 
+ * // Get color for vertical line
+ * const color = crosshairColors[lineIndex % crosshairColors.length];
+ * 
+ * // Get color for analog channel (dark background)
+ * const channelColor = analogPalette[1][channelIndex % analogPalette[1].length];
+ */
+
 import { tailwindColors } from "./tailwindColors.js";
 
 export const crosshairColors = [

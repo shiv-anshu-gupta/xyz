@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/DeltaTable</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Context_ThemeContext.html">Context/ThemeContext</a></li><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-chartUpdateHelpers.html">chartUpdateHelpers</a></li><li><a href="module-components_AnalysisSidebar.html">components/AnalysisSidebar</a></li><li><a href="module-components_ChannelList.html">components/ChannelList</a></li><li><a href="module-components_ComputedChannelsSidebar.html">components/ComputedChannelsSidebar</a></li><li><a href="module-components_DeltaDrawer.html">components/DeltaDrawer</a></li><li><a href="module-components_DeltaTable.html">components/DeltaTable</a></li><li><a href="module-components_DeltaTableDataFormatter.html">components/DeltaTableDataFormatter</a></li><li><a href="module-components_DeltaTableRenderer.html">components/DeltaTableRenderer</a></li><li><a href="module-components_EquationEvaluatorInChannelList.html">components/EquationEvaluatorInChannelList</a></li><li><a href="module-components_PolarChart.html">components/PolarChart</a></li><li><a href="module-components_PolarChartCanvas.html">components/PolarChartCanvas</a></li><li><a href="module-components_ProgressBar.html">components/ProgressBar</a></li><li><a href="module-components_ResizableGroup.html">components/ResizableGroup</a></li><li><a href="module-components_SidebarResizer.html">components/SidebarResizer</a></li><li><a href="module-components_Tooltip.html">components/Tooltip</a></li><li><a href="module-components_debugPanelLite.html">components/debugPanelLite</a></li><li><a href="module-components_renderComputedChart.html">components/renderComputedChart</a></li><li><a href="module-components_renderComtradeCharts.html">components/renderComtradeCharts</a></li><li><a href="module-components_renderDigitalCharts.html">components/renderDigitalCharts</a></li><li><a href="module-components_renderSingleAnalogChart.html">components/renderSingleAnalogChart</a></li><li><a href="module-components_renderSingleDigitalChart.html">components/renderSingleDigitalChart</a></li><li><a href="module-components_setupPolarChartIntegration.html">components/setupPolarChartIntegration</a></li><li><a href="module-components_showError.html">components/showError</a></li><li><a href="module-components_verticalLineControl.html">components/verticalLineControl</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-eventListenerManager.html">eventListenerManager</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-plugins_autoUnitScalePlugin.html">plugins/autoUnitScalePlugin</a></li><li><a href="module-plugins_axisLinesPlugin.html">plugins/axisLinesPlugin</a></li><li><a href="module-plugins_deltaBoxPlugin.html">plugins/deltaBoxPlugin</a></li><li><a href="module-plugins_horizontalZoomPanPlugin.html">plugins/horizontalZoomPanPlugin</a></li><li><a href="module-plugins_verticalLinePlugin.html">plugins/verticalLinePlugin</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-services_computedChannels.html">services/computedChannels</a></li><li><a href="module-services_computedChannels_dataPreparation.html">services/computedChannels/dataPreparation</a></li><li><a href="module-services_computedChannels_eventHandling.html">services/computedChannels/eventHandling</a></li><li><a href="module-services_computedChannels_expressionConversion.html">services/computedChannels/expressionConversion</a></li><li><a href="module-services_computedChannels_resultProcessing.html">services/computedChannels/resultProcessing</a></li><li><a href="module-services_computedChannels_stateUpdate.html">services/computedChannels/stateUpdate</a></li><li><a href="module-services_computedChannels_validators.html">services/computedChannels/validators</a></li><li><a href="module-services_computedChannels_workerManagement.html">services/computedChannels/workerManagement</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-utils_autoGroupChannels.html">utils/autoGroupChannels</a></li><li><a href="module-utils_chartDomUtils.html">utils/chartDomUtils</a></li><li><a href="module-utils_chartMetadataStore.html">utils/chartMetadataStore</a></li><li><a href="module-utils_computedChannelMetadata.html">utils/computedChannelMetadata</a></li><li><a href="module-utils_constants.html">utils/constants</a></li><li><a href="module-utils_helpers.html">utils/helpers</a></li><li><a href="module-utils_sidebarStore.html">utils/sidebarStore</a></li><li><a href="module-workers_computedChannelWorker.html">workers/computedChannelWorker</a></li></ul><h3>Classes</h3><ul><li><a href="module-components_PolarChartCanvas.PolarChartCanvas.html">PolarChartCanvas</a></li><li><a href="module-utils_computedChannelMetadata-ComputedChannelMetadata.html">ComputedChannelMetadata</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_CFG_KEY">STORAGE_CFG_KEY</a></li><li><a href="global.html#ZOOM_ICONS">ZOOM_ICONS</a></li><li><a href="global.html#adjustMainContent">adjustMainContent</a></li><li><a href="global.html#appendComputedChannelToStorage">appendComputedChannelToStorage</a></li><li><a href="global.html#applyZoom">applyZoom</a></li><li><a href="global.html#attachChartContainer">attachChartContainer</a></li><li><a href="global.html#attachChartEventHandlers">attachChartEventHandlers</a></li><li><a href="global.html#attachChartPlugins">attachChartPlugins</a></li><li><a href="global.html#attachComputedChartContainer">attachComputedChartContainer</a></li><li><a href="global.html#attachComputedChartEventHandlers">attachComputedChartEventHandlers</a></li><li><a href="global.html#attachComputedChartPlugins">attachComputedChartPlugins</a></li><li><a href="global.html#broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li><a href="global.html#buildChartData">buildChartData</a></li><li><a href="global.html#buildChartOptions">buildChartOptions</a></li><li><a href="global.html#buildComputedChannelLabels">buildComputedChannelLabels</a></li><li><a href="global.html#buildComputedChartOptions">buildComputedChartOptions</a></li><li><a href="global.html#buildGroupsWithAutoGrouping">buildGroupsWithAutoGrouping</a></li><li><a href="global.html#buildGroupsWithUserAssignments">buildGroupsWithUserAssignments</a></li><li><a href="global.html#buildUnitChartData">buildUnitChartData</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#cleanupOldComputedCharts">cleanupOldComputedCharts</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#closeAnalysisDrawer">closeAnalysisDrawer</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#computeChartDataDimensions">computeChartDataDimensions</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartMetadata">createChartMetadata</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChartMetadata">createComputedChartMetadata</a></li><li><a href="global.html#createComputedClickHandler">createComputedClickHandler</a></li><li><a href="global.html#createComputedMousemoveHandler">createComputedMousemoveHandler</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createGroupDragBar">createGroupDragBar</a></li><li><a href="global.html#createMousemoveHandler">createMousemoveHandler</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createVerticalLineClickHandler">createVerticalLineClickHandler</a></li><li><a href="global.html#createZoomControlsHTML">createZoomControlsHTML</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#deleteComputedChannelFromStorage">deleteComputedChannelFromStorage</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#extractChannelMetadata">extractChannelMetadata</a></li><li><a href="global.html#extractChannelNameFromEquation">extractChannelNameFromEquation</a></li><li><a href="global.html#extractGroupId">extractGroupId</a></li><li><a href="global.html#extractMathExpression">extractMathExpression</a></li><li><a href="global.html#filterGroupsWithChannels">filterGroupsWithChannels</a></li><li><a href="global.html#filterUnassignedComputedChannels">filterUnassignedComputedChannels</a></li><li><a href="global.html#filterValidIndices">filterValidIndices</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#formatScaledValue">formatScaledValue</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelById">getComputedChannelById</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getComputedChannelsState">getComputedChannelsState</a></li><li><a href="global.html#getElementWidth">getElementWidth</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#getZoomLevel">getZoomLevel</a></li><li><a href="global.html#groupChannelsByUnit">groupChannelsByUnit</a></li><li><a href="global.html#handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li><li><a href="global.html#handleVerticalLineAddition">handleVerticalLineAddition</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#initComputedChannelsState">initComputedChannelsState</a></li><li><a href="global.html#initializeChartInstance">initializeChartInstance</a></li><li><a href="global.html#initializeComputedChartInstance">initializeComputedChartInstance</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#initializeZoomControls">initializeZoomControls</a></li><li><a href="global.html#injectZoomControls">injectZoomControls</a></li><li><a href="global.html#isMathJaxLoaded">isMathJaxLoaded</a></li><li><a href="global.html#listenForComputedChannelChanges">listenForComputedChannelChanges</a></li><li><a href="global.html#loadComputedChannelsForGroup">loadComputedChannelsForGroup</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#loadMathJax">loadMathJax</a></li><li><a href="global.html#mathJaxPromise">mathJaxPromise</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogAndComputedMetadata">mergeAnalogAndComputedMetadata</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openAnalysisDrawer">openAnalysisDrawer</a></li><li><a href="global.html#openBothSidebars">openBothSidebars</a></li><li><a href="global.html#openDeltaWindow">openDeltaWindow</a></li><li><a href="global.html#openPhasorDiagram">openPhasorDiagram</a></li><li><a href="global.html#prepareChartDataContext">prepareChartDataContext</a></li><li><a href="global.html#processEquationInput">processEquationInput</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderChannelLabelContainer">renderChannelLabelContainer</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderLatex">renderLatex</a></li><li><a href="global.html#resetZoom">resetZoom</a></li><li><a href="global.html#resizeChartsToContainers">resizeChartsToContainers</a></li><li><a href="global.html#resolveGroupIndices">resolveGroupIndices</a></li><li><a href="global.html#resolveTimeArray">resolveTimeArray</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#setZoomLevel">setZoomLevel</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#syncComputedChannelsWithParent">syncComputedChannelsWithParent</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#updateComputedChannelGroupInStorage">updateComputedChannelGroupInStorage</a></li><li><a href="global.html#updateComputedChannelInStorage">updateComputedChannelInStorage</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateMainZoomPosition">updateMainZoomPosition</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateZoomDisplay">updateZoomDisplay</a></li><li><a href="global.html#validateChannelName">validateChannelName</a></li><li><a href="global.html#validateGroupIndices">validateGroupIndices</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li><li><a href="global.html#zoomIn">zoomIn</a></li><li><a href="global.html#zoomOut">zoomOut</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Module</p>
+                    <h1>components/DeltaTable</h1>
+                </header>
+                
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><h3>Delta Table HTML Builder</h3><p>Pure functional module for constructing HTML table structures to displaydelta measurements between vertical line positions in COMTRADE waveform charts.This module generates complete table markup without performing DOM manipulation,following a functional programming approach for testability and reusability.</p><h4>Design Philosophy</h4><table>  <tr><th>Principle</th><th>Description</th></tr>  <tr><td>Pure Functions</td><td>All functions return HTML strings without side effects</td></tr>  <tr><td>Separation of Concerns</td><td>HTML generation separate from DOM rendering</td></tr>  <tr><td>Dynamic Columns</td><td>Table structure adapts to number of vertical lines</td></tr>  <tr><td>Theming Support</td><td>Uses CSS variables for dark/light mode compatibility</td></tr></table><h4>Key Features</h4><ul>  <li><strong>Dynamic Header Generation</strong> — Creates columns for each vertical line value and delta pairs</li>  <li><strong>Color-coded Columns</strong> — Uses crosshair colors to visually link values to chart cursors</li>  <li><strong>Delta Calculations Display</strong> — Shows absolute delta and percentage change between consecutive lines</li>  <li><strong>Channel Color Indicators</strong> — Color squares identify channels matching chart series</li>  <li><strong>Time Row Support</strong> — Special handling for time reference row at top of table</li>  <li><strong>Search/Filter Ready</strong> — Includes filterTableRows utility for channel filtering</li></ul><h4>Table Structure</h4><pre>| Channel | Line1 Val | Line2 Val | ... | Δ(1→2) | %(1→2) | Δ(2→3) | %(2→3) | ...|---------|-----------|-----------|-----|--------|--------|--------|--------|| Time    | T1        | T2        | ... | ΔT     | —      | ΔT     | —      || Ch1     | V1        | V2        | ... | ΔV     | %      | ΔV     | %      |</pre><div class="mermaid">graph TD
+    subgraph "DeltaTable.js - HTML Generation Flow"
+        A["buildTableHTML()"] --> B["buildTableHeader()"]
+        A --> C["buildTableBody()"]
+        
+        B --> D["Generate Channel Column"]
+        B --> E["Generate Value Columns<br/>(1 per vertical line)"]
+        B --> F["Generate Delta Columns<br/>(pairs of Δ and %)"]
+        
+        D --> G["Apply crosshairColors"]
+        E --> G
+        F --> G
+        
+        C --> H{"tableData empty?"}
+        H -->|Yes| I["Return 'No data' row"]
+        H -->|No| J["Map rows to HTML"]
+        
+        J --> K{"Is Time Row?"}
+        K -->|Yes| L["Render time values<br/>No percentage"]
+        K -->|No| M["Render channel with<br/>color indicator"]
+        
+        M --> N["Add value cells"]
+        N --> O["Add delta cells"]
+        O --> P["Add percentage cells<br/>(color-coded +/-)"]
+        
+        G --> Q["&lt;thead&gt; HTML"]
+        L --> R["&lt;tbody&gt; HTML"]
+        P --> R
+        
+        Q --> S["Complete &lt;table&gt; HTML"]
+        R --> S
+    end
+    
+    subgraph "Helper Functions"
+        T["getColorHex()"] --> U["Convert color name<br/>to hex code"]
+        V["filterTableRows()"] --> W["Filter by channel name"]
+    end
+    
+    style A fill:#e0f2fe,stroke:#0284c7
+    style S fill:#dcfce7,stroke:#16a34a
+    style T fill:#fef3c7,stroke:#d97706
+    style V fill:#fef3c7,stroke:#d97706</div></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="module-components_DeltaTableDataFormatter.html">module:components/DeltaTableDataFormatter</a> - Formats raw delta data for table consumption</li>
+        
+            <li><a href="module-components_DeltaTableRenderer.html">module:components/DeltaTableRenderer</a> - Renders generated HTML to DOM</li>
+        
+            <li><a href="module-components_DeltaDrawer.html">module:components/DeltaDrawer</a> - Parent drawer component</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="components_DeltaTable.js.html" class="button">View Source</a>
+            <span>
+                <a href="components_DeltaTable.js.html">components/DeltaTable.js</a>, <a href="components_DeltaTable.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>// Build a complete delta tableimport { buildTableHTML, filterTableRows } from './DeltaTable.js';const tableData = [  { channel: '__TIME_ROW__', v0: '0.00 μs', v1: '10.00 μs', delta0: '10.00 μs' },  { channel: 'Voltage_A', color: '#ef4444', v0: '120.5', v1: '118.2', delta0: '-2.3', percentage0: -1.9 }];const html = buildTableHTML(tableData, 2, ['0.00 μs', '10.00 μs'], ['red', 'blue']);container.innerHTML = html;// Filter by channel nameconst filtered = filterTableRows(tableData, 'Voltage');</code></pre>
+    
+
+
+
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Methods</h1>
+            <div class="members">
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".buildTableBody">
+        <a class="href-link" href="#.buildTableBody">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                buildTableBody<span class="signature">(tableData, verticalLinesCount)</span><span class="type-signature"> &rarr; {string}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        Build table body rows from delta data
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>tableData</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array.&lt;Object></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Formatted table data</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>verticalLinesCount</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Number of vertical lines</td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="components_DeltaTable.js.html" class="button">View Source</a>
+            <span>
+                <a href="components_DeltaTable.js.html">components/DeltaTable.js</a>, <a href="components_DeltaTable.js.html#line171">line 171</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'>HTML string for <tbody></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">string</code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".buildTableHTML">
+        <a class="href-link" href="#.buildTableHTML">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                buildTableHTML<span class="signature">(tableData, verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        Build complete table HTML
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>tableData</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array.&lt;Object></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Formatted table data</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>verticalLinesCount</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Number of vertical lines</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>verticalLineTimes</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array.&lt;string></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Time values</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>crosshairColors</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array.&lt;string></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Colors array</td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="components_DeltaTable.js.html" class="button">View Source</a>
+            <span>
+                <a href="components_DeltaTable.js.html">components/DeltaTable.js</a>, <a href="components_DeltaTable.js.html#line259">line 259</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'>Complete table HTML</div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">string</code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".buildTableHeader">
+        <a class="href-link" href="#.buildTableHeader">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                buildTableHeader<span class="signature">(verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        Build table header row with dynamic columns
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>verticalLinesCount</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Number of vertical lines</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>verticalLineTimes</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array.&lt;string></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Time values for each line</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>crosshairColors</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array.&lt;string></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Array of colors for lines</td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="components_DeltaTable.js.html" class="button">View Source</a>
+            <span>
+                <a href="components_DeltaTable.js.html">components/DeltaTable.js</a>, <a href="components_DeltaTable.js.html#line110">line 110</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'>HTML string for <thead></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">string</code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".filterTableRows">
+        <a class="href-link" href="#.filterTableRows">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                filterTableRows<span class="signature">(tableData, searchQuery)</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        Filter table rows based on search query
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>tableData</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array.&lt;Object></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Table data to filter</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>searchQuery</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Search text</td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="components_DeltaTable.js.html" class="button">View Source</a>
+            <span>
+                <a href="components_DeltaTable.js.html">components/DeltaTable.js</a>, <a href="components_DeltaTable.js.html#line315">line 315</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'>Filtered table data</div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Array.&lt;Object></code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="~getColorHex">
+        <a class="href-link" href="#~getColorHex">#</a>
+        
+            
+                <span class='tag'>inner</span>
+            
+        
+        <span class="code-name">
+            
+                getColorHex<span class="signature">(colorName)</span><span class="type-signature"> &rarr; {string}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        Convert color name to hex
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>colorName</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Color from crosshairColors</td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="components_DeltaTable.js.html" class="button">View Source</a>
+            <span>
+                <a href="components_DeltaTable.js.html">components/DeltaTable.js</a>, <a href="components_DeltaTable.js.html#line293">line 293</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'>Hex color code</div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">string</code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ 
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: { useMaxWidth: false },
+    securityLevel: 'loose'
+  });
+</script>
+
+</body>
+</html>

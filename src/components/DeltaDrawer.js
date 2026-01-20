@@ -1,10 +1,127 @@
 /**
- * Delta Display Drawer Component
- * Shows detailed crosshair values in a slide-out drawer (sidebar)
- * Uses plain HTML table with createState subscriptions for auto-updates
- *
- * HTML structure is pre-built in index.html
- * This file only handles styling and behavior
+ * @file DeltaDrawer.js
+ * @module components/DeltaDrawer
+ * 
+ * @description
+ * <h3>Delta Values Sidebar Drawer</h3>
+ * 
+ * <p>A slide-out sidebar component that displays detailed crosshair/vertical line values
+ * in a searchable, formatted table. Shows measurement data at vertical marker positions
+ * placed on charts using Alt+1 keyboard shortcut.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Pre-built HTML</td><td>DOM structure defined in index.html, component handles behavior only</td></tr>
+ *   <tr><td>CSS Variable Layout</td><td>Uses --main-content-width and --sidebar-width for responsive resizing</td></tr>
+ *   <tr><td>Deduplication</td><td>Hash-based comparison prevents redundant table re-renders</td></tr>
+ *   <tr><td>Lazy Loading</td><td>Table renderer created on-demand when drawer is opened</td></tr>
+ *   <tr><td>Store Integration</td><td>Registered with sidebarStore for single-sidebar-at-a-time behavior</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Vertical Line Values</strong> — Displays channel values at each vertical marker position</li>
+ *   <li><strong>Delta Calculations</strong> — Shows differences between consecutive vertical lines</li>
+ *   <li><strong>Time Headers</strong> — Dynamic column headers showing actual timestamp values (μs)</li>
+ *   <li><strong>Search Filtering</strong> — Real-time search to filter table rows by channel name</li>
+ *   <li><strong>Resizable Width</strong> — Percentage-based width (15-70%) controlled via CSS variables</li>
+ *   <li><strong>Empty State</strong> — Helpful message when no vertical lines are placed</li>
+ * </ul>
+ * 
+ * <h4>Data Flow Pipeline</h4>
+ * <ol>
+ *   <li>User places vertical lines on chart (Alt+1)</li>
+ *   <li>verticalLinesX state updates with new positions</li>
+ *   <li>Parent calls deltaDrawer.update(deltaData, lineCount)</li>
+ *   <li>Hash comparison checks if data changed</li>
+ *   <li>formatTableData() transforms sections into row format</li>
+ *   <li>DeltaTableRenderer creates/updates HTML table</li>
+ *   <li>Search input filters visible rows in real-time</li>
+ * </ol>
+ * 
+ * <h4>DOM Structure</h4>
+ * <pre>
+ * #delta-drawer (sidebar container)
+ *   └─ #delta-drawer-panel (content panel)
+ *       ├─ .delta-drawer-header (title + close button)
+ *       │   ├─ #delta-table-search (search input)
+ *       │   └─ #delta-table-search-btn (search button)
+ *       └─ .delta-table-container (table wrapper)
+ *           └─ [DeltaTableRenderer output]
+ * </pre>
+ * 
+ * @see {@link module:components/DeltaTableRenderer} - Table rendering engine
+ * @see {@link module:components/DeltaTableDataFormatter} - Data transformation utilities
+ * @see {@link module:utils/sidebarStore} - Global sidebar coordination
+ * @see {@link module:main} - verticalLinesX state management
+ * 
+ * @example
+ * // Initialize and register with store
+ * const deltaDrawer = createDeltaDrawer();
+ * deltaDrawer.init();
+ * deltaDrawer.registerWithStore();
+ * 
+ * // Show drawer with data
+ * deltaDrawer.show();
+ * deltaDrawer.update(deltaData, verticalLinesCount);
+ * 
+ * // Toggle visibility
+ * deltaDrawer.toggle();
+ * 
+ * @example
+ * // deltaData format (from crosshair calculations)
+ * const deltaData = [
+ *   {
+ *     sectionTitle: "Analog Channels",
+ *     rows: [
+ *       { name: "IA", values: [100.5, 102.3], deltas: [1.8] },
+ *       { name: "IB", values: [98.2, 99.1], deltas: [0.9] }
+ *     ]
+ *   }
+ * ];
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph User_Triggers
+ *         A[User Places Vertical Line<br/>Alt+1] --> B[verticalLinesX State Updates]
+ *         C[User Opens Delta Drawer] --> D[show method called]
+ *     end
+ *     
+ *     subgraph Drawer_Lifecycle
+ *         D --> E[Remove hidden class]
+ *         E --> F[Set CSS Variables<br/>--main-content-width<br/>--sidebar-width]
+ *         F --> G[Add sidebar-resized class]
+ *         G --> H[Setup Search Listeners]
+ *     end
+ *     
+ *     subgraph Data_Update_Flow
+ *         B --> I[update method called]
+ *         I --> J{Data Hash Changed?}
+ *         J -->|No| K[Skip Render]
+ *         J -->|Yes| L[Extract Time Values<br/>from verticalLinesX]
+ *         L --> M[formatTableData]
+ *         M --> N{Has Data?}
+ *         N -->|No| O[Show Empty State<br/>Add vertical lines using Alt+1]
+ *         N -->|Yes| P[Create DeltaTableRenderer]
+ *         P --> Q[Render Table]
+ *         Q --> R[Store currentTableData<br/>for Search]
+ *     end
+ *     
+ *     subgraph Search_Flow
+ *         S[User Types in Search] --> T[filterTableRows]
+ *         T --> U[Re-render Filtered Data]
+ *     end
+ *     
+ *     subgraph Hide_Flow
+ *         V[hide method called] --> W[Reset CSS Variables]
+ *         W --> X[Remove sidebar-resized class]
+ *         X --> Y[Add hidden class<br/>after 300ms]
+ *     end
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style Q fill:#2196F3,color:white
+ *     style O fill:#FF9800,color:white
  */
 
 import { sidebarStore } from "../utils/sidebarStore.js";

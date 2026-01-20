@@ -1,7 +1,103 @@
 /**
  * @file DeltaTable.js
- * @description Functional HTML table builder for Delta Drawer
- * Builds table structure from delta data without any DOM manipulation
+ * @module components/DeltaTable
+ * 
+ * @description
+ * <h3>Delta Table HTML Builder</h3>
+ * <p>Pure functional module for constructing HTML table structures to display
+ * delta measurements between vertical line positions in COMTRADE waveform charts.
+ * This module generates complete table markup without performing DOM manipulation,
+ * following a functional programming approach for testability and reusability.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Pure Functions</td><td>All functions return HTML strings without side effects</td></tr>
+ *   <tr><td>Separation of Concerns</td><td>HTML generation separate from DOM rendering</td></tr>
+ *   <tr><td>Dynamic Columns</td><td>Table structure adapts to number of vertical lines</td></tr>
+ *   <tr><td>Theming Support</td><td>Uses CSS variables for dark/light mode compatibility</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Dynamic Header Generation</strong> — Creates columns for each vertical line value and delta pairs</li>
+ *   <li><strong>Color-coded Columns</strong> — Uses crosshair colors to visually link values to chart cursors</li>
+ *   <li><strong>Delta Calculations Display</strong> — Shows absolute delta and percentage change between consecutive lines</li>
+ *   <li><strong>Channel Color Indicators</strong> — Color squares identify channels matching chart series</li>
+ *   <li><strong>Time Row Support</strong> — Special handling for time reference row at top of table</li>
+ *   <li><strong>Search/Filter Ready</strong> — Includes filterTableRows utility for channel filtering</li>
+ * </ul>
+ * 
+ * <h4>Table Structure</h4>
+ * <pre>
+ * | Channel | Line1 Val | Line2 Val | ... | Δ(1→2) | %(1→2) | Δ(2→3) | %(2→3) | ...
+ * |---------|-----------|-----------|-----|--------|--------|--------|--------|
+ * | Time    | T1        | T2        | ... | ΔT     | —      | ΔT     | —      |
+ * | Ch1     | V1        | V2        | ... | ΔV     | %      | ΔV     | %      |
+ * </pre>
+ * 
+ * @see {@link module:components/DeltaTableDataFormatter} - Formats raw delta data for table consumption
+ * @see {@link module:components/DeltaTableRenderer} - Renders generated HTML to DOM
+ * @see {@link module:components/DeltaDrawer} - Parent drawer component
+ * 
+ * @example
+ * // Build a complete delta table
+ * import { buildTableHTML, filterTableRows } from './DeltaTable.js';
+ * 
+ * const tableData = [
+ *   { channel: '__TIME_ROW__', v0: '0.00 μs', v1: '10.00 μs', delta0: '10.00 μs' },
+ *   { channel: 'Voltage_A', color: '#ef4444', v0: '120.5', v1: '118.2', delta0: '-2.3', percentage0: -1.9 }
+ * ];
+ * 
+ * const html = buildTableHTML(tableData, 2, ['0.00 μs', '10.00 μs'], ['red', 'blue']);
+ * container.innerHTML = html;
+ * 
+ * // Filter by channel name
+ * const filtered = filterTableRows(tableData, 'Voltage');
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph "DeltaTable.js - HTML Generation Flow"
+ *         A["buildTableHTML()"] --> B["buildTableHeader()"]
+ *         A --> C["buildTableBody()"]
+ *         
+ *         B --> D["Generate Channel Column"]
+ *         B --> E["Generate Value Columns<br/>(1 per vertical line)"]
+ *         B --> F["Generate Delta Columns<br/>(pairs of Δ and %)"]
+ *         
+ *         D --> G["Apply crosshairColors"]
+ *         E --> G
+ *         F --> G
+ *         
+ *         C --> H{"tableData empty?"}
+ *         H -->|Yes| I["Return 'No data' row"]
+ *         H -->|No| J["Map rows to HTML"]
+ *         
+ *         J --> K{"Is Time Row?"}
+ *         K -->|Yes| L["Render time values<br/>No percentage"]
+ *         K -->|No| M["Render channel with<br/>color indicator"]
+ *         
+ *         M --> N["Add value cells"]
+ *         N --> O["Add delta cells"]
+ *         O --> P["Add percentage cells<br/>(color-coded +/-)"]
+ *         
+ *         G --> Q["&lt;thead&gt; HTML"]
+ *         L --> R["&lt;tbody&gt; HTML"]
+ *         P --> R
+ *         
+ *         Q --> S["Complete &lt;table&gt; HTML"]
+ *         R --> S
+ *     end
+ *     
+ *     subgraph "Helper Functions"
+ *         T["getColorHex()"] --> U["Convert color name<br/>to hex code"]
+ *         V["filterTableRows()"] --> W["Filter by channel name"]
+ *     end
+ *     
+ *     style A fill:#e0f2fe,stroke:#0284c7
+ *     style S fill:#dcfce7,stroke:#16a34a
+ *     style T fill:#fef3c7,stroke:#d97706
+ *     style V fill:#fef3c7,stroke:#d97706
  */
 
 /**

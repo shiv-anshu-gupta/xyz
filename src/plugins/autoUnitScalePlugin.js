@@ -1,42 +1,89 @@
 /**
- * uPlot Plugin: Auto Unit & SI Prefix Scaling
- *
- * Features:
- * - Automatically applies the best SI prefix (e.g., m, k, M) to axis labels and tick values based on data range.
- * - Supports both x and y axes, and multiple y axes.
- * - Customizable user scaling for each axis.
- * - Preserves original axis label and unit for correct relabeling.
- * - Robust to missing or custom axis/tick definitions.
- * - Defensive programming for safe integration.
- *
- * Nuances, Limitations, and Known Issues:
- * - Assumes axis labels contain units in parentheses, e.g., 'Voltage (V)'.
- * - If axis.ticks is not a function, falls back to 8 evenly spaced ticks.
- * - User scale (opts.axesScales) must be an array: [xScale, y0Scale, y1Scale, ...].
- *   - userScale is a multiplicative factor applied to the raw axis values before SI prefix selection and tick label formatting.
- *   - For example, if your data is in millivolts but you want to display as volts, set userScale to 0.001 for that axis.
- *   - This allows you to convert or normalize units (e.g., from ms to s, or from kA to A) for display, without modifying your raw data.
- *   - The plugin will then choose the best SI prefix for the scaled values, and update axis labels and tick values accordingly.
- * - If axis label/unit is missing, SI prefix is still applied but unit may be omitted.
- * - Does not support dynamic unit changes after chart creation (unless axis.label is reset externally).
- * - If axis.values is already set by another plugin, this will override it.
- *
- * @param {Object} [opts]
- *   Plugin options.
- * @param {number[]} [opts.axesScales] - User scale factors for axes: [xScale, y0Scale, y1Scale, ...].
- *   - Each entry is a multiplicative factor for the corresponding axis (see above for details).
- *
- * @returns {Object} uPlot plugin object with hooks for init, setScale, and ready.
- *
- * @example <caption>Basic usage</caption>
+ * @file autoUnitScalePlugin.js
+ * @module plugins/autoUnitScalePlugin
+ * 
+ * @description
+ * <h3>uPlot Plugin: Auto Unit & SI Prefix Scaling</h3>
+ * 
+ * <p>Automatically applies the best SI prefix (p, n, µ, m, k, M, G, T) to axis labels
+ * and tick values based on the visible data range. Supports both X and Y axes with
+ * user-configurable scale factors for unit conversion.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Auto-Scaling</td><td>Dynamically selects SI prefix based on visible data magnitude</td></tr>
+ *   <tr><td>User Override</td><td>axesScales allows manual unit conversion (mV→V, ms→s)</td></tr>
+ *   <tr><td>Label Preservation</td><td>Original axis labels stored and restored with prefix updates</td></tr>
+ *   <tr><td>Defensive Coding</td><td>Gracefully handles missing axis definitions and custom ticks</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>SI Prefix Auto-Selection</strong> — p, n, µ, m, (base), k, M, G, T</li>
+ *   <li><strong>Multi-Axis Support</strong> — Works with X and multiple Y axes</li>
+ *   <li><strong>User Scale Factors</strong> — Multiply raw values before prefix selection</li>
+ *   <li><strong>Dynamic Updates</strong> — Recalculates on zoom/pan via setScale hook</li>
+ *   <li><strong>Label Format</strong> — Expects "Label (Unit)" format, e.g., "Voltage (V)"</li>
+ * </ul>
+ * 
+ * <h4>User Scale Explanation</h4>
+ * <p>The <code>axesScales</code> array provides multiplicative factors for each axis:</p>
+ * <ul>
+ *   <li><code>[1, 0.001, 1]</code> — Y0 axis data is in mV, display as V</li>
+ *   <li><code>[0.001, 1, 1]</code> — X axis data is in ms, display as s</li>
+ * </ul>
+ * 
+ * <h4>Limitations</h4>
+ * <ul>
+ *   <li>Assumes axis labels contain units in parentheses</li>
+ *   <li>Does not support dynamic unit changes after chart creation</li>
+ *   <li>Overrides any existing axis.values function</li>
+ * </ul>
+ * 
+ * @see {@link module:utils/scaleUtils} - SI prefix calculation utilities
+ * @see {@link module:utils/constants} - SI_UNITS table
+ * 
+ * @example
  * import autoUnitScalePlugin from './plugins/autoUnitScalePlugin.js';
- *
+ * 
  * const opts = {
  *   ...otherUplotOptions,
- *   plugins: [autoUnitScalePlugin({ scales: [1, 0.001, 1] })] // e.g., y0 axis in mV, display as V
+ *   plugins: [autoUnitScalePlugin({ axesScales: [1, 0.001, 1] })]
+ *   // Y0 axis: data in mV, displayed as V with appropriate SI prefix
  * };
  * new uPlot(opts, data, target);
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph Plugin_Hooks
+ *         A[init hook] --> B[Store original axis labels]
+ *         B --> C[Setup axis.values functions]
+ *         
+ *         D[setScale hook] --> E[Get visible range]
+ *         E --> F[Apply user scale factor]
+ *         F --> G[Calculate best SI prefix]
+ *         G --> H[Update axis label with prefix]
+ *     end
+ *     
+ *     subgraph SI_Prefix_Selection
+ *         I[Visible Range: 0.001 to 0.005] --> J[Apply userScale: 1]
+ *         J --> K[Magnitude: ~0.003]
+ *         K --> L[Select: m (milli)]
+ *         L --> M[Label: Voltage mV]
+ *     end
+ *     
+ *     subgraph Tick_Formatting
+ *         N[Raw Value: 0.00345] --> O[Apply userScale]
+ *         O --> P[Divide by SI prefix]
+ *         P --> Q[Format: 3.45]
+ *     end
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style G fill:#2196F3,color:white
+ *     style Q fill:#FF9800,color:white
  */
+
 import { extractUnit } from "../utils/helpers.js";
 import { getSiPrefix } from "../utils/scaleUtils.js";
 import { SI_UNITS } from "../utils/constants.js";

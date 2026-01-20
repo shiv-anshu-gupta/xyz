@@ -1,6 +1,102 @@
 /**
- * EquationEvaluatorInChannelList.js
- * Equation evaluator UI integrated into Channel List popup window
+ * @file EquationEvaluatorInChannelList.js
+ * @module components/EquationEvaluatorInChannelList
+ * 
+ * @description
+ * <h3>Equation Evaluator UI for Channel List</h3>
+ * 
+ * <p>An integrated equation evaluator UI component embedded within the Channel List popup window.
+ * Allows users to create computed channels by entering mathematical expressions that operate
+ * on existing analog channel data. Supports LaTeX input via MathLive, real-time preview,
+ * and COMTRADE binary export of computed results.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>LaTeX Input</td><td>MathLive provides professional math equation editor</td></tr>
+ *   <tr><td>Real-time Preview</td><td>Live evaluation shows computed values as user types</td></tr>
+ *   <tr><td>math.js Backend</td><td>Powerful mathematical expression evaluation engine</td></tr>
+ *   <tr><td>Binary Export</td><td>Export computed channels to COMTRADE Binary32/64 format</td></tr>
+ *   <tr><td>Performance Monitoring</td><td>Shows evaluation time and statistics</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>MathLive Editor</strong> — LaTeX equation input with autocomplete</li>
+ *   <li><strong>Channel Variables</strong> — Reference analog channels by name (IA, IB, VA, etc.)</li>
+ *   <li><strong>Built-in Functions</strong> — sin, cos, sqrt, abs, log, exp, and more</li>
+ *   <li><strong>Color Palette</strong> — Automatic color assignment from computed palette</li>
+ *   <li><strong>Statistics Display</strong> — Min, max, mean, RMS of computed data</li>
+ *   <li><strong>Binary Export</strong> — Generate COMTRADE Binary32/64 CFG+DAT files</li>
+ *   <li><strong>Undo/Clear</strong> — Reset computation or clear all inputs</li>
+ * </ul>
+ * 
+ * <h4>Expression Syntax</h4>
+ * <table>
+ *   <tr><th>Expression</th><th>Description</th></tr>
+ *   <tr><td>IA + IB + IC</td><td>Sum of three phase currents</td></tr>
+ *   <tr><td>sqrt(IA^2 + IB^2)</td><td>Magnitude calculation</td></tr>
+ *   <tr><td>VA * cos(30 deg)</td><td>Trigonometric with unit conversion</td></tr>
+ *   <tr><td>abs(IA - IB)</td><td>Absolute difference</td></tr>
+ * </table>
+ * 
+ * @see {@link module:utils/computedChannelOptimization} - Expression compilation and evaluation
+ * @see {@link module:utils/binaryExportUtils} - COMTRADE binary export utilities
+ * @see {@link module:utils/computedChannelMetadata} - Computed channel metadata store
+ * 
+ * @example
+ * // Create evaluator in popup window
+ * createEquationEvaluatorInChannelList(
+ *   cfg,           // COMTRADE config object
+ *   data,          // COMTRADE data arrays
+ *   containerEl,   // Container element to attach to
+ *   popupWindow    // Popup window reference (optional)
+ * );
+ * 
+ * @example
+ * // User workflow:
+ * // 1. Enter LaTeX: I_{sum} = I_A + I_B + I_C
+ * // 2. Click "Preview" to see computed values
+ * // 3. Click "Add Channel" to create computed channel
+ * // 4. Export to Binary32 COMTRADE format
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph UI_Creation
+ *         A[createEquationEvaluatorInChannelList] --> B[Create Section Container]
+ *         B --> C[Create MathLive Input Field]
+ *         C --> D[Create Preview Button]
+ *         D --> E[Create Add Channel Button]
+ *         E --> F[Create Export Button]
+ *     end
+ *     
+ *     subgraph Expression_Evaluation
+ *         G[User Enters LaTeX] --> H[Convert LaTeX to math.js]
+ *         H --> I[getCompiledExpression]
+ *         I --> J[createScopeTemplate<br/>with channel values]
+ *         J --> K[evaluateExpression<br/>for each sample]
+ *         K --> L[calculateStats<br/>min, max, mean, RMS]
+ *         L --> M[Display Preview Results]
+ *     end
+ *     
+ *     subgraph Channel_Creation
+ *         N[User Clicks Add Channel] --> O[Assign Color from Palette]
+ *         O --> P[Store in computedChannelMetadata]
+ *         P --> Q[postMessage to Parent<br/>callback_addChannel]
+ *         Q --> R[Parent Updates channelState]
+ *         R --> S[Charts Re-render]
+ *     end
+ *     
+ *     subgraph Binary_Export
+ *         T[User Clicks Export] --> U[generateCFGContentBinary32]
+ *         U --> V[generateDATContentBinary32]
+ *         V --> W[createBinaryBlob]
+ *         W --> X[Download CFG + DAT Files]
+ *     end
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style M fill:#2196F3,color:white
+ *     style S fill:#FF9800,color:white
  */
 
 import {

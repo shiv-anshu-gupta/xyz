@@ -1,7 +1,70 @@
 /**
- * Global Sidebar/Drawer Store
- * Manages visibility state of all sidebars/drawers to ensure only one is visible at a time
- * Provides common functions for showing/hiding sidebars globally
+ * @file sidebarStore.js
+ * @module utils/sidebarStore
+ * 
+ * @description
+ * <h3>Global Sidebar State Manager</h3>
+ * 
+ * <p>Manages visibility state of all sidebars/drawers to ensure only one is visible
+ * at a time. Provides a centralized API for registering, showing, and hiding sidebar
+ * components with mutual exclusion enforcement.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Single Active</td><td>Only one sidebar can be visible at any time</td></tr>
+ *   <tr><td>Registry Pattern</td><td>Sidebars register themselves with show/hide/isOpen methods</td></tr>
+ *   <tr><td>Auto-Close</td><td>Opening one sidebar automatically closes any other open sidebar</td></tr>
+ *   <tr><td>Escape Handling</td><td>Global escape key listener closes active sidebar</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Registration</strong> — Sidebars register with show/hide/isOpen callbacks</li>
+ *   <li><strong>Mutual Exclusion</strong> — Automatically hides other sidebars when one opens</li>
+ *   <li><strong>Query API</strong> — Check if any sidebar is open, get active sidebar ID</li>
+ *   <li><strong>Escape Key</strong> — Global keyboard handler for closing sidebars</li>
+ *   <li><strong>Debug Support</strong> — getRegisteredSidebars() for troubleshooting</li>
+ * </ul>
+ * 
+ * @see {@link module:components/DeltaDrawer} - Delta values sidebar
+ * @see {@link module:components/AnalysisSidebar} - Phasor analysis sidebar
+ * 
+ * @example
+ * import { sidebarStore } from './sidebarStore.js';
+ * 
+ * // Register a sidebar
+ * sidebarStore.register('delta-drawer', {
+ *   show: () => drawer.show(),
+ *   hide: () => drawer.hide(),
+ *   isOpen: () => drawer.isOpen()
+ * });
+ * 
+ * // Show a sidebar (auto-hides others)
+ * sidebarStore.show('delta-drawer');
+ * 
+ * // Check active sidebar
+ * if (sidebarStore.getActiveSidebar() === 'delta-drawer') {
+ *   console.log('Delta drawer is active');
+ * }
+ * 
+ * @mermaid
+ * graph TD
+ *     A[register sidebar] --> B[Store in Map]
+ *     
+ *     C[sidebarStore.show id] --> D{Is Another Open?}
+ *     D -->|Yes| E[Hide Active Sidebar]
+ *     E --> F[Show Requested Sidebar]
+ *     D -->|No| F
+ *     F --> G[Set activeSidebar = id]
+ *     
+ *     H[Escape Key Pressed] --> I{Any Sidebar Open?}
+ *     I -->|Yes| J[Hide Active Sidebar]
+ *     I -->|No| K[Do Nothing]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style F fill:#2196F3,color:white
+ *     style J fill:#FF9800,color:white
  */
 
 class SidebarStore {

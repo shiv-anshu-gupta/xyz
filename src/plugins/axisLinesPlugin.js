@@ -1,7 +1,41 @@
 /**
- * Plugin to draw Y-axis lines at chart edges
- * uPlot doesn't draw vertical axis lines by default
+ * @file axisLinesPlugin.js
+ * @module plugins/axisLinesPlugin
+ * 
+ * @description
+ * <h3>uPlot Plugin: Y-Axis Vertical Lines</h3>
+ * 
+ * <p>Draws vertical lines at the left edge of Y-axes since uPlot doesn't render
+ * axis spine lines by default. Supports multiple Y-axes with theme-aware colors.</p>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>SVG Lines</strong> — Creates SVG line elements for crisp rendering</li>
+ *   <li><strong>Theme Support</strong> — Reads --chart-axis CSS variable for color</li>
+ *   <li><strong>Multi-Axis</strong> — Draws line for each Y-axis</li>
+ *   <li><strong>Auto-Position</strong> — Updates on resize via ready hook</li>
+ * </ul>
+ * 
+ * @example
+ * import { axisLinesPlugin } from './plugins/axisLinesPlugin.js';
+ * 
+ * const opts = {
+ *   plugins: [axisLinesPlugin()]
+ * };
+ * 
+ * @mermaid
+ * graph LR
+ *     A[init hook] --> B[Count Y-Axes]
+ *     B --> C[Create SVG Lines]
+ *     C --> D[Append to Chart]
+ *     
+ *     E[ready hook] --> F[Get Axis Positions]
+ *     F --> G[Update Line Coordinates]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style G fill:#2196F3,color:white
  */
+
 export function axisLinesPlugin() {
   let axisLines = [];
 

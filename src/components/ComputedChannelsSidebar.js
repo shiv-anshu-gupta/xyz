@@ -1,7 +1,62 @@
 /**
- * ComputedChannelsSidebar.js
- * Display computed channels with LaTeX equations in uPlot sidebar
- * Shows channel name, color indicator, and equation in LaTeX format
+ * @file ComputedChannelsSidebar.js
+ * @module components/ComputedChannelsSidebar
+ * 
+ * @description
+ * <h3>Computed Channels Sidebar</h3>
+ * 
+ * <p>A sidebar component that displays computed/derived channels with their LaTeX equations
+ * in a formatted panel adjacent to uPlot charts. Shows channel name, color indicator,
+ * and mathematical expression in rendered LaTeX format using MathLive.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>LaTeX Rendering</td><td>Equations displayed with MathLive for professional math notation</td></tr>
+ *   <tr><td>Color Linking</td><td>Color squares match chart series for visual association</td></tr>
+ *   <tr><td>Metadata-Driven</td><td>Reads from computedChannelMetadata store for channel info</td></tr>
+ *   <tr><td>Scroll Support</td><td>Overflow-y auto for many computed channels</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>LaTeX Equations</strong> — Displays math expressions in proper notation</li>
+ *   <li><strong>Color Indicators</strong> — Small colored squares match trace colors</li>
+ *   <li><strong>Channel Names</strong> — Shows computed channel labels</li>
+ *   <li><strong>Scrollable List</strong> — Handles many computed channels gracefully</li>
+ *   <li><strong>Dynamic Updates</strong> — Refreshes when computed channels change</li>
+ * </ul>
+ * 
+ * @see {@link module:utils/computedChannelMetadata} - Metadata store for computed channels
+ * @see {@link module:components/EquationEvaluatorInChannelList} - Equation editor UI
+ * 
+ * @example
+ * // Create sidebar in chart container
+ * const sidebar = createComputedChannelsSidebar(
+ *   chartContainer,  // uPlot container element
+ *   cfg,             // COMTRADE config
+ *   data             // COMTRADE data
+ * );
+ * 
+ * @mermaid
+ * graph TD
+ *     A[createComputedChannelsSidebar] --> B[Get Container Element]
+ *     B --> C[Create Sidebar Container]
+ *     C --> D[Create Header with Icon]
+ *     D --> E[Read computedChannelMetadata]
+ *     E --> F{Has Computed Channels?}
+ *     F -->|No| G[Show Empty Message]
+ *     F -->|Yes| H[For Each Channel]
+ *     H --> I[Create Channel Row]
+ *     I --> J[Add Color Square]
+ *     J --> K[Add Channel Name]
+ *     K --> L[Render LaTeX Equation<br/>with MathLive]
+ *     L --> M[Append to Sidebar]
+ *     M --> N[Return Sidebar Element]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style L fill:#2196F3,color:white
+ *     style N fill:#FF9800,color:white
  */
 
 import { computedChannelMetadata } from "../utils/computedChannelMetadata.js";

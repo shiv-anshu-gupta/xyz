@@ -1,3 +1,90 @@
+/**
+ * @file chartMetadataStore.js
+ * @module utils/chartMetadataStore
+ * 
+ * @description
+ * <h3>Chart Metadata State Store</h3>
+ * 
+ * <p>Centralized reactive store for managing chart metadata including channel assignments,
+ * group IDs, and chart instance references. Built on createState for automatic UI updates
+ * when chart configurations change.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Reactive State</td><td>Uses createState proxy for automatic subscription notifications</td></tr>
+ *   <tr><td>Unique ID Generation</td><td>Auto-increments IDs for groups, analog, digital, computed channels</td></tr>
+ *   <tr><td>Group Management</td><td>Tracks user-assigned group IDs (G0, G1, G2...) with gap-filling</td></tr>
+ *   <tr><td>Chart Registry</td><td>Maintains array of all active chart instances with metadata</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>addChart</strong> — Register new chart with auto-generated IDs</li>
+ *   <li><strong>removeChart</strong> — Unregister chart by ID</li>
+ *   <li><strong>getChartMetadataState</strong> — Access raw state for subscriptions</li>
+ *   <li><strong>clearAllCharts</strong> — Reset all chart metadata</li>
+ *   <li><strong>findNextAvailableGroupIndex</strong> — Smart group ID allocation with gap-filling</li>
+ * </ul>
+ * 
+ * <h4>State Structure</h4>
+ * <pre>
+ * {
+ *   charts: [
+ *     { userGroupId: "G0", chartType: "analog", channels: [...], uPlotInstance: ... },
+ *     { userGroupId: "G1", chartType: "digital", channels: [...], uPlotInstance: ... }
+ *   ],
+ *   nextUserGroupId: 2,
+ *   nextAnalogId: 5,
+ *   nextDigitalId: 3,
+ *   nextComputedId: 1
+ * }
+ * </pre>
+ * 
+ * @see {@link module:components/createState} - Reactive state factory
+ * @see {@link module:components/chartManager} - Subscribes to metadata changes
+ * 
+ * @example
+ * import { addChart, getChartMetadataState, clearAllCharts } from './chartMetadataStore.js';
+ * 
+ * // Add a new chart
+ * addChart({
+ *   chartType: 'analog',
+ *   channels: [{ channelID: 'A1', name: 'VA' }],
+ *   uPlotInstance: chart
+ * });
+ * 
+ * // Get state for subscriptions
+ * const state = getChartMetadataState();
+ * state.subscribe((change) => console.log('Chart changed:', change));
+ * 
+ * // Clear all on file reload
+ * clearAllCharts();
+ * 
+ * @mermaid
+ * graph TD
+ *     A[addChart called] --> B[Extract Group Index]
+ *     B --> C{Group ID Provided?}
+ *     C -->|Yes| D[Use Provided Group]
+ *     C -->|No| E[findNextAvailableGroupIndex]
+ *     E --> F[Generate G{n} ID]
+ *     D --> G[Create Chart Entry]
+ *     F --> G
+ *     G --> H[Push to charts array]
+ *     H --> I[Subscribers Notified]
+ *     
+ *     J[removeChart called] --> K[Filter charts array]
+ *     K --> L[Subscribers Notified]
+ *     
+ *     M[clearAllCharts] --> N[Reset charts to empty]
+ *     N --> O[Reset all ID counters]
+ *     O --> P[Subscribers Notified]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style I fill:#2196F3,color:white
+ *     style P fill:#FF9800,color:white
+ */
+
 import { createState } from "../components/createState.js";
 
 const chartMetadataState = createState({

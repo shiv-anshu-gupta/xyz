@@ -1,7 +1,122 @@
 /**
  * @file DeltaTableRenderer.js
- * @description DOM renderer for Delta Table
- * Uses createState subscriptions for automatic updates
+ * @module components/DeltaTableRenderer
+ * 
+ * @description
+ * <h3>Delta Table DOM Renderer</h3>
+ * <p>Reactive rendering component that manages the DOM lifecycle for delta measurement tables.
+ * Integrates with the application's reactive state system (createState) to automatically
+ * re-render tables when vertical line positions change, ensuring the displayed data
+ * always reflects the current cursor positions.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Reactive Updates</td><td>Subscribes to state changes for automatic re-rendering</td></tr>
+ *   <tr><td>Factory Pattern</td><td>createDeltaTableRenderer returns API object with methods</td></tr>
+ *   <tr><td>Clean Lifecycle</td><td>Provides destroy() for proper cleanup of subscriptions</td></tr>
+ *   <tr><td>State Encapsulation</td><td>Internal state tracks current data and line count</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Automatic Re-rendering</strong> — Subscribes to verticalLinesX state changes</li>
+ *   <li><strong>Time Extraction</strong> — Converts numeric positions to formatted time strings</li>
+ *   <li><strong>Flexible State Access</strong> — Handles multiple state API patterns (asArray, value, direct)</li>
+ *   <li><strong>Fallback Placeholders</strong> — Generates T1, T2... labels when times unavailable</li>
+ *   <li><strong>Debug Logging</strong> — Comprehensive console output for troubleshooting</li>
+ *   <li><strong>Resource Cleanup</strong> — destroy() method unsubscribes and clears DOM</li>
+ * </ul>
+ * 
+ * <h4>Component Lifecycle</h4>
+ * <pre>
+ * Create: createDeltaTableRenderer(container, state)
+ *    ↓
+ * Auto-subscribe to verticalLinesX state
+ *    ↓
+ * render(tableData, lineCount) → DOM update
+ *    ↓
+ * State changes → auto re-render
+ *    ↓
+ * destroy() → unsubscribe + clear DOM
+ * </pre>
+ * 
+ * @see {@link module:components/DeltaTable} - Generates HTML consumed by this renderer
+ * @see {@link module:components/DeltaTableDataFormatter} - Formats data before rendering
+ * @see {@link module:components/createState} - Reactive state system for subscriptions
+ * @see {@link module:utils/constants} - crosshairColors array for table styling
+ * 
+ * @example
+ * // Create and use a delta table renderer
+ * import { createDeltaTableRenderer } from './DeltaTableRenderer.js';
+ * import { createState } from './createState.js';
+ * 
+ * const container = document.getElementById('delta-table-container');
+ * const verticalLinesXState = createState([]);
+ * 
+ * const renderer = createDeltaTableRenderer(container, verticalLinesXState);
+ * 
+ * // Render table data
+ * const tableData = formatTableData(deltaData, 2, times);
+ * renderer.render(tableData, 2);
+ * 
+ * // Access current state
+ * console.log(renderer.currentData);       // Current table data
+ * console.log(renderer.currentLinesCount); // Number of lines
+ * 
+ * // Cleanup when done
+ * renderer.destroy();
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph "createDeltaTableRenderer() - Renderer Lifecycle"
+ *         A["createDeltaTableRenderer()<br/>Factory Function"] --> B["Initialize internal state<br/>currentTableData, currentVerticalLinesCount"]
+ *         B --> C["subscribeToStateChanges()"]
+ *         
+ *         C --> D{"verticalLinesXState<br/>has subscribe?"}
+ *         D -->|Yes| E["Subscribe to changes"]
+ *         D -->|No| F["Skip subscription"]
+ *         
+ *         E --> G["Store unsubscribe function"]
+ *         
+ *         G --> H["Return API Object"]
+ *         F --> H
+ *     end
+ *     
+ *     subgraph "render() - DOM Update Flow"
+ *         I["render(tableData, lineCount)"] --> J["Store current data"]
+ *         J --> K["Extract time values<br/>from verticalLinesXState"]
+ *         
+ *         K --> L{"Lines available?"}
+ *         L -->|Yes| M["Format as 'X.XX μs'"]
+ *         L -->|No| N["Generate T1, T2... placeholders"]
+ *         
+ *         M --> O["buildTableHTML()"]
+ *         N --> O
+ *         
+ *         O --> P["container.innerHTML = html"]
+ *         P --> Q["Log render complete"]
+ *     end
+ *     
+ *     subgraph "State Change Handler"
+ *         R["verticalLinesX changes"] --> S["Subscription callback"]
+ *         S --> T{"Has current data?"}
+ *         T -->|Yes| U["Re-render with<br/>current data"]
+ *         T -->|No| V["Skip render"]
+ *     end
+ *     
+ *     subgraph "destroy() - Cleanup"
+ *         W["destroy()"] --> X["Call unsubscribe()"]
+ *         X --> Y["Clear container innerHTML"]
+ *         Y --> Z["Log destroyed"]
+ *     end
+ *     
+ *     H --> I
+ *     E -.-> R
+ *     
+ *     style A fill:#e0f2fe,stroke:#0284c7
+ *     style H fill:#dcfce7,stroke:#16a34a
+ *     style W fill:#fee2e2,stroke:#dc2626
  */
 
 import { buildTableHTML } from "./DeltaTable.js";

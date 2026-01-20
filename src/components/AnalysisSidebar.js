@@ -1,8 +1,138 @@
 /**
- * Analysis/Phasor Sidebar Component
- * Displays phasor diagram and analysis tools in a slide-out sidebar
- * HTML structure is defined in index.html alongside the delta drawer markup
- * Uses percentage-based resizing controlled by resizeDivider in main.js
+ * @file AnalysisSidebar.js
+ * @module components/AnalysisSidebar
+ * 
+ * @description
+ * <h3>Analysis & Phasor Sidebar Panel</h3>
+ * 
+ * <p>A slide-out sidebar component that hosts the polar/phasor diagram and analysis tools.
+ * Provides a dedicated space for power system visualization alongside the main waveform charts.
+ * Shares layout mechanics with DeltaDrawer using CSS variable-based responsive resizing.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>HTML-Defined Structure</td><td>DOM markup in index.html, JS handles behavior and state</td></tr>
+ *   <tr><td>CSS Variable Layout</td><td>Uses --main-content-width and --sidebar-width-right for flex sizing</td></tr>
+ *   <tr><td>Width Persistence</td><td>User's preferred width saved to localStorage</td></tr>
+ *   <tr><td>Smooth Transitions</td><td>Transform-based animations for open/close (translate-x-0/full)</td></tr>
+ *   <tr><td>Single Sidebar Policy</td><td>Registers with sidebarStore to ensure one sidebar at a time</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Resizable Width</strong> — 15-70% range with localStorage persistence</li>
+ *   <li><strong>Keyboard Dismiss</strong> — Escape key closes the sidebar</li>
+ *   <li><strong>Phasor Chart Host</strong> — Contains PolarChart component container</li>
+ *   <li><strong>Coordinated Layout</strong> — Adjusts main content width via CSS variables</li>
+ *   <li><strong>Store Integration</strong> — Works with sidebarStore for mutual exclusion</li>
+ *   <li><strong>Smooth Animation</strong> — 320ms slide transition with pointer-events control</li>
+ * </ul>
+ * 
+ * <h4>Layout Configuration</h4>
+ * <table>
+ *   <tr><th>Property</th><th>Value</th><th>Description</th></tr>
+ *   <tr><td>Default Width</td><td>20%</td><td>Initial sidebar width</td></tr>
+ *   <tr><td>Min Width</td><td>15%</td><td>Minimum resize limit</td></tr>
+ *   <tr><td>Max Width</td><td>70%</td><td>Maximum resize limit</td></tr>
+ *   <tr><td>Storage Key</td><td>analysis-sidebar-panel-width</td><td>localStorage key</td></tr>
+ * </table>
+ * 
+ * <h4>DOM Element IDs</h4>
+ * <pre>
+ * #analysis-sidebar       — Outer sidebar container
+ * #analysis-sidebar-panel — Inner content panel (slides in/out)
+ * #analysis-sidebar-close — Close button
+ * #resizeDivider          — Shared resize handle (from index.html)
+ * #mainContent            — Main chart area (width adjusts)
+ * </pre>
+ * 
+ * <h4>Lifecycle Methods</h4>
+ * <ol>
+ *   <li><code>init()</code> — Attach event listeners, apply saved width</li>
+ *   <li><code>show()</code> — Open sidebar with animation</li>
+ *   <li><code>hide()</code> — Close sidebar with animation</li>
+ *   <li><code>toggle()</code> — Switch between open/closed states</li>
+ *   <li><code>registerWithStore()</code> — Enable single-sidebar coordination</li>
+ *   <li><code>unregisterFromStore()</code> — Cleanup on destroy</li>
+ * </ol>
+ * 
+ * @see {@link module:components/PolarChart} - Phasor diagram component
+ * @see {@link module:components/DeltaDrawer} - Companion sidebar (delta values)
+ * @see {@link module:utils/sidebarStore} - Sidebar coordination store
+ * 
+ * @example
+ * // Initialize and show sidebar
+ * const analysisSidebar = createAnalysisSidebar();
+ * analysisSidebar.init();
+ * analysisSidebar.registerWithStore();
+ * 
+ * // Open sidebar
+ * analysisSidebar.show();
+ * 
+ * // Check state
+ * if (analysisSidebar.isOpen()) {
+ *   console.log('Sidebar is visible');
+ * }
+ * 
+ * // Toggle visibility
+ * analysisSidebar.toggle();
+ * 
+ * // Cleanup
+ * analysisSidebar.unregisterFromStore();
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph Initialization
+ *         A[createAnalysisSidebar] --> B[Create API Object]
+ *         B --> C[init called]
+ *         C --> D[Read Saved Width<br/>from localStorage]
+ *         D --> E[Attach Event Listeners<br/>close btn, escape, resize]
+ *         E --> F[Set Initial Width to 0%]
+ *     end
+ *     
+ *     subgraph Show_Flow
+ *         G[show called] --> H[Get DOM Elements]
+ *         H --> I[Read Saved Width]
+ *         I --> J[Set CSS Variables<br/>--main-content-width<br/>--sidebar-width-right]
+ *         J --> K[Remove hidden class]
+ *         K --> L[Add sidebar-resized class]
+ *         L --> M[requestAnimationFrame]
+ *         M --> N[Remove translate-x-full<br/>Add translate-x-0]
+ *         N --> O[Show resizeDivider]
+ *         O --> P[isOpen = true]
+ *     end
+ *     
+ *     subgraph Hide_Flow
+ *         Q[hide called] --> R[isOpen = false]
+ *         R --> S[Add translate-x-full<br/>Remove translate-x-0]
+ *         S --> T[Reset CSS Variables<br/>to 100% / 0%]
+ *         T --> U[Remove sidebar-resized class]
+ *         U --> V[Hide resizeDivider]
+ *         V --> W[setTimeout 320ms]
+ *         W --> X[Add hidden class]
+ *         X --> Y[Set width = 0%<br/>pointer-events = none]
+ *     end
+ *     
+ *     subgraph Resize_Flow
+ *         Z[User Drags Divider] --> AA[mouseup Event]
+ *         AA --> AB[handleResizeCommit]
+ *         AB --> AC[Calculate % Width<br/>from Pixel Width]
+ *         AC --> AD[syncSidebarWidth]
+ *         AD --> AE[Clamp to 15-70%]
+ *         AE --> AF[Update CSS Variables]
+ *         AF --> AG[storeWidth to localStorage]
+ *     end
+ *     
+ *     subgraph Store_Integration
+ *         AH[registerWithStore] --> AI[sidebarStore.register<br/>analysis-sidebar]
+ *         AI --> AJ[Provide show/hide/isOpen]
+ *         AK[Other Sidebar Opens] --> AL[sidebarStore Closes This]
+ *     end
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style P fill:#2196F3,color:white
+ *     style Y fill:#FF9800,color:white
  */
 
 import { sidebarStore } from "../utils/sidebarStore.js";

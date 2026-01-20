@@ -1,3 +1,134 @@
+/**
+ * @file chartDomUtils.js
+ * @module utils/chartDomUtils
+ * 
+ * @description
+ * <h3>Chart DOM Utilities</h3>
+ * <p>Core utility module providing DOM abstractions for chart container creation and
+ * uPlot chart initialization. Handles the complex layout requirements of COMTRADE
+ * waveform visualization including labeled containers, drag handles for reordering,
+ * and responsive chart sizing with ResizeObserver integration.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Container Composition</td><td>Builds chart layouts from reusable container primitives</td></tr>
+ *   <tr><td>Responsive by Default</td><td>All charts auto-resize with ResizeObserver</td></tr>
+ *   <tr><td>Type Identification</td><td>data-chart-type attributes enable selective DOM operations</td></tr>
+ *   <tr><td>Visual Hierarchy</td><td>Labels show channel type, group ID, and individual channels</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Chart Container Factory</strong> — Creates parent containers with label, drag bar, and chart div</li>
+ *   <li><strong>Channel Label Display</strong> — Vertical stack of channel names with color indicators</li>
+ *   <li><strong>Type Labels</strong> — "Analog Channels", "Digital Channels", "Computed" headers</li>
+ *   <li><strong>Group ID Display</strong> — Shows G0, G1 groupings below type label</li>
+ *   <li><strong>uPlot Initialization</strong> — Creates charts with dynamic width calculation</li>
+ *   <li><strong>ResizeObserver Integration</strong> — Auto-resizes charts on container changes</li>
+ *   <li><strong>Debounced Resize</strong> — 50ms debounce prevents resize loops during animations</li>
+ * </ul>
+ * 
+ * <h4>Container Structure</h4>
+ * <pre>
+ * chart-parent-container [data-chart-type="analog|digital|computed"]
+ * ├── chart-label
+ * │   ├── Type Label (e.g., "ANALOG CHANNELS")
+ * │   ├── Group ID (e.g., "G0")
+ * │   └── Channel entries (color dot + name) × N
+ * ├── drag-bar (from createDragBar)
+ * └── chart-container
+ *     └── uPlot chart instance
+ * </pre>
+ * 
+ * @see {@link module:components/renderAnalogCharts} - Uses createChartContainer for analog charts
+ * @see {@link module:components/renderDigitalCharts} - Uses createChartContainer for digital charts
+ * @see {@link module:components/renderComputedChart} - Uses createChartContainer for computed charts
+ * @see {@link module:components/createDragBar} - Provides drag handles for chart reordering
+ * @see {@link module:utils/helpers} - createCustomElement utility
+ * 
+ * @example
+ * // Create a chart container with labels
+ * import { createChartContainer, initUPlotChart } from './chartDomUtils.js';
+ * import { createDragBar } from '../components/createDragBar.js';
+ * 
+ * const dragBar = createDragBar();
+ * const { parentDiv, chartDiv } = createChartContainer(
+ *   dragBar,
+ *   'chart-container',
+ *   ['Voltage_A', 'Voltage_B', 'Voltage_C'],  // Channel names
+ *   ['#ef4444', '#3b82f6', '#22c55e'],         // Colors
+ *   'Analog Channels',                         // Type label
+ *   'G0',                                      // Group ID
+ *   'analog'                                   // Chart type
+ * );
+ * 
+ * document.getElementById('charts').appendChild(parentDiv);
+ * 
+ * // Initialize uPlot chart
+ * const chart = initUPlotChart(chartOptions, chartData, chartDiv, chartsArray);
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph "createChartContainer() - Layout Construction"
+ *         A["createChartContainer()"] --> B["Create parent div<br/>chart-parent-container"]
+ *         B --> C["Set data-chart-type attribute"]
+ *         
+ *         C --> D{{"label provided?"}}
+ *         D -->|No| E["Skip label div"]
+ *         D -->|Yes| F["Create chart-label div"]
+ *         
+ *         F --> G{{"label is Array?"}}
+ *         G -->|No| H["Set textContent"]
+ *         G -->|Yes| I["Create flex column layout"]
+ *         
+ *         I --> J["Add type label<br/>(ANALOG CHANNELS)"]
+ *         J --> K{{"groupId?"}}
+ *         K -->|Yes| L["Add group ID span"]
+ *         K -->|No| M["Add border to type label"]
+ *         
+ *         L --> N["For each channel name"]
+ *         M --> N
+ *         N --> O["Create color dot"]
+ *         O --> P["Create name span"]
+ *         P --> Q["Append to label div"]
+ *         
+ *         E --> R["Append dragBar"]
+ *         Q --> R
+ *         R --> S["Create chart-container div"]
+ *         S --> T["Return { parentDiv, chartDiv }"]
+ *     end
+ *     
+ *     subgraph "initUPlotChart() - Chart Initialization"
+ *         U["initUPlotChart()"] --> V["computeContentWidth()"]
+ *         V --> W["Calculate width from container"]
+ *         W --> X["Set opts.width if not provided"]
+ *         
+ *         X --> Y["new uPlot(opts, data, div)"]
+ *         Y --> Z["Store _seriesColors"]
+ *         Z --> AA["Push to charts array"]
+ *         
+ *         AA --> AB["Create ResizeObserver"]
+ *         AB --> AC["Debounce resize (50ms)"]
+ *         AC --> AD["Use contentBoxSize if available"]
+ *         AD --> AE["Only resize if dimensions changed"]
+ *         AE --> AF["chart.setSize()"]
+ *         
+ *         AF --> AG["Observe chartDiv"]
+ *         AG --> AH["Return chart instance"]
+ *     end
+ *     
+ *     subgraph "createSimpleContainer()"
+ *         AI["createSimpleContainer()"] --> AJ["Create div with class"]
+ *         AJ --> AK["Return container"]
+ *     end
+ *     
+ *     style A fill:#e0f2fe,stroke:#0284c7
+ *     style T fill:#dcfce7,stroke:#16a34a
+ *     style U fill:#e0f2fe,stroke:#0284c7
+ *     style AH fill:#dcfce7,stroke:#16a34a
+ */
+
 // chartDomUtils.js
 // Small abstractions for chart container and uPlot chart setup
 import { createCustomElement } from "./helpers.js";

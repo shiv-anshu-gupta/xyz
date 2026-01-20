@@ -1,3 +1,78 @@
+/**
+ * @file ThemeContext.js
+ * @module Context/ThemeContext
+ * 
+ * @description
+ * <h3>Application Theme Manager</h3>
+ * 
+ * <p>Singleton class that manages light/dark theme state across the application.
+ * Supports localStorage persistence, cross-window synchronization via BroadcastChannel,
+ * and automatic system preference detection.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Singleton</td><td>Single instance exported as themeContext</td></tr>
+ *   <tr><td>Persistence</td><td>Theme saved to localStorage for session continuity</td></tr>
+ *   <tr><td>Cross-Window Sync</td><td>BroadcastChannel syncs popup windows</td></tr>
+ *   <tr><td>System Preference</td><td>Falls back to prefers-color-scheme media query</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>CSS Variable Updates</strong> — Sets all --bg-*, --text-*, --chart-* variables</li>
+ *   <li><strong>Subscriber Notification</strong> — Components can subscribe to theme changes</li>
+ *   <li><strong>Chart Re-render</strong> — Triggers chart color updates on theme change</li>
+ *   <li><strong>BroadcastChannel</strong> — Syncs theme across popup windows</li>
+ * </ul>
+ * 
+ * <h4>CSS Variables Set</h4>
+ * <table>
+ *   <tr><th>Variable</th><th>Light</th><th>Dark</th></tr>
+ *   <tr><td>--bg-primary</td><td>#f5f5f5</td><td>#1a1a1a</td></tr>
+ *   <tr><td>--bg-secondary</td><td>#ffffff</td><td>#2d2d2d</td></tr>
+ *   <tr><td>--text-primary</td><td>#1a1a1a</td><td>#ffffff</td></tr>
+ *   <tr><td>--chart-bg</td><td>#ffffff</td><td>#252525</td></tr>
+ *   <tr><td>--chart-grid</td><td>#e0e0e0</td><td>#404040</td></tr>
+ * </table>
+ * 
+ * @example
+ * import { themeContext } from './Context/ThemeContext.js';
+ * 
+ * // Get current theme
+ * const isDark = themeContext.getTheme() === 'dark';
+ * 
+ * // Toggle theme
+ * themeContext.toggleTheme();
+ * 
+ * // Subscribe to changes
+ * themeContext.subscribe((newTheme) => {
+ *   console.log('Theme changed to:', newTheme);
+ * });
+ * 
+ * @mermaid
+ * graph TD
+ *     A[new ThemeContext] --> B[_init]
+ *     B --> C[Load from localStorage]
+ *     C --> D{Found?}
+ *     D -->|Yes| E[Use Stored Theme]
+ *     D -->|No| F[Check System Preference]
+ *     F --> G[Set Default Theme]
+ *     E --> H[Apply CSS Variables]
+ *     G --> H
+ *     H --> I[Setup BroadcastChannel]
+ *     
+ *     J[toggleTheme] --> K[Switch light/dark]
+ *     K --> L[Save to localStorage]
+ *     L --> M[Apply CSS Variables]
+ *     M --> N[Notify Subscribers]
+ *     N --> O[Broadcast to Other Windows]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style H fill:#2196F3,color:white
+ *     style N fill:#FF9800,color:white
+ */
+
 class ThemeContext {
   constructor() {
     this.THEMES = {

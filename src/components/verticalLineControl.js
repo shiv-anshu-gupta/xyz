@@ -1,7 +1,87 @@
 /**
- * Vertical Line Control Component
- * Provides a range slider to adjust vertical line position across charts
- * @module verticalLineControl
+ * @file verticalLineControl.js
+ * @module components/verticalLineControl
+ * 
+ * @description
+ * <h3>Vertical Line Position Control</h3>
+ * 
+ * <p>A UI control panel component that provides a range slider and numeric input
+ * for precisely positioning vertical measurement lines across all charts. Enables
+ * users to select specific time points for detailed waveform analysis.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Dual Input</td><td>Both slider and numeric field for coarse/fine control</td></tr>
+ *   <tr><td>Synchronized</td><td>Slider and input always show same value</td></tr>
+ *   <tr><td>Callback-Based</td><td>External handlers for slider and input changes</td></tr>
+ *   <tr><td>Configurable Range</td><td>Min/max/step values from COMTRADE time range</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Range Slider</strong> — Drag to quickly navigate time range</li>
+ *   <li><strong>Numeric Input</strong> — Type exact time values with precision</li>
+ *   <li><strong>Step Control</strong> — Configurable step increment (default 0.001)</li>
+ *   <li><strong>Value Clamping</strong> — Enforces min/max boundaries</li>
+ *   <li><strong>Live Updates</strong> — Callbacks fire on every value change</li>
+ *   <li><strong>Programmatic API</strong> — setValue() for external control</li>
+ * </ul>
+ * 
+ * <h4>Control Panel Layout</h4>
+ * <pre>
+ * ┌────────────────────────────────────┐
+ * │ Vertical Line Position             │
+ * │ [═══════●══════════════] [0.500  ] │
+ * │  min                max    input   │
+ * └────────────────────────────────────┘
+ * </pre>
+ * 
+ * @see {@link module:components/initVerticalLineControl} - Initialization wrapper
+ * @see {@link module:components/handleVerticalLineShortcuts} - Keyboard shortcuts
+ * 
+ * @example
+ * const control = createVerticalLineControl({
+ *   containerId: 'control-panel',
+ *   minValue: 0,
+ *   maxValue: 1.5,        // From COMTRADE duration
+ *   step: 0.001,
+ *   initialValue: 0.75,
+ *   onSliderChange: (value) => {
+ *     updateAllCharts(value);
+ *   },
+ *   onInputChange: (value) => {
+ *     updateAllCharts(value);
+ *   }
+ * });
+ * 
+ * // Programmatic update
+ * control.setValue(0.5);
+ * 
+ * @mermaid
+ * graph TD
+ *     A[createVerticalLineControl] --> B[Get Container Element]
+ *     B --> C{Container Found?}
+ *     C -->|No| D[Return null]
+ *     C -->|Yes| E[Create Panel HTML]
+ *     E --> F[Get Slider Element]
+ *     F --> G[Get Input Element]
+ *     G --> H[Attach Event Listeners]
+ *     
+ *     I[Slider Change] --> J[Update Input Value]
+ *     J --> K[Call onSliderChange]
+ *     
+ *     L[Input Change] --> M[Validate Value]
+ *     M --> N[Clamp to Min/Max]
+ *     N --> O[Update Slider Position]
+ *     O --> P[Call onInputChange]
+ *     
+ *     Q[setValue API] --> R[Update Both Controls]
+ *     R --> S[Trigger Callbacks]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style H fill:#2196F3,color:white
+ *     style S fill:#FF9800,color:white
  */
 
 /**

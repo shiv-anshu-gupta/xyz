@@ -1,7 +1,91 @@
 /**
- * uPlot Plugin: Vertical Line & Crosshair Points
- * FIXED: Prevents selection box during drag using event capture phase
+ * @file verticalLinePlugin.js
+ * @module plugins/verticalLinePlugin
+ * 
+ * @description
+ * <h3>uPlot Plugin: Vertical Line & Crosshair Points</h3>
+ * 
+ * <p>Enables placing, dragging, and visualizing vertical measurement lines on uPlot charts.
+ * Lines are synchronized across all charts and display crosshair points where they intersect
+ * series data. Used for delta calculations and time-point analysis.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Reactive State</td><td>Lines stored in verticalLinesXState, auto-syncs across charts</td></tr>
+ *   <tr><td>Drag Support</td><td>Lines can be dragged to new positions with mouse</td></tr>
+ *   <tr><td>Event Capture</td><td>Uses capture phase to prevent selection box during drag</td></tr>
+ *   <tr><td>Debounced Updates</td><td>Delta calculations debounced to prevent UI freezing</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Add Lines</strong> — Alt+1 adds vertical line at cursor position</li>
+ *   <li><strong>Drag Lines</strong> — Click and drag to reposition lines</li>
+ *   <li><strong>Crosshair Points</strong> — Colored dots at series intersections</li>
+ *   <li><strong>Line Colors</strong> — Configurable colors from crosshairColors palette</li>
+ *   <li><strong>Chart Sync</strong> — All charts show same vertical lines</li>
+ *   <li><strong>Delta Display</strong> — Triggers delta calculations on line change</li>
+ * </ul>
+ * 
+ * <h4>Keyboard Shortcuts</h4>
+ * <table>
+ *   <tr><th>Shortcut</th><th>Action</th></tr>
+ *   <tr><td>Alt+0</td><td>Clear all vertical lines</td></tr>
+ *   <tr><td>Alt+1</td><td>Add vertical line at cursor</td></tr>
+ *   <tr><td>Alt+2</td><td>Go to previous line</td></tr>
+ *   <tr><td>Alt+3</td><td>Go to next line</td></tr>
+ *   <tr><td>Alt+4</td><td>Delete current line</td></tr>
+ * </table>
+ * 
+ * @see {@link module:components/handleVerticalLineShortcuts} - Keyboard handler
+ * @see {@link module:utils/calculateDeltas} - Delta calculation utilities
+ * 
+ * @example
+ * import verticalLinePlugin from './plugins/verticalLinePlugin.js';
+ * 
+ * const opts = {
+ *   plugins: [
+ *     verticalLinePlugin(verticalLinesXState, getCharts, {
+ *       lineColors: ['red', 'blue', 'green'],
+ *       lineWidth: 2,
+ *       pointRadius: 5
+ *     })
+ *   ]
+ * };
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph User_Actions
+ *         A[Alt+1: Add Line] --> B[Get Cursor X Position]
+ *         B --> C[Push to verticalLinesXState]
+ *         
+ *         D[Mouse Down on Line] --> E[Start Drag]
+ *         E --> F[Track Mouse Move]
+ *         F --> G[Update Line Position]
+ *         G --> H[Mouse Up: End Drag]
+ *     end
+ *     
+ *     subgraph Drawing_Hooks
+ *         I[draw hook] --> J[Clear Previous Lines]
+ *         J --> K[For Each Line in State]
+ *         K --> L[Draw Vertical Line]
+ *         L --> M[Find Series Intersections]
+ *         M --> N[Draw Crosshair Points]
+ *         N --> K
+ *     end
+ *     
+ *     subgraph State_Sync
+ *         O[verticalLinesXState Changes] --> P[Subscribe Callback]
+ *         P --> Q[Trigger Chart Redraw]
+ *         Q --> R[Update Delta Calculations]
+ *     end
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style L fill:#2196F3,color:white
+ *     style R fill:#FF9800,color:white
  */
+
 import { crosshairColors } from "../utils/constants.js";
 import { getNearestIndex } from "../utils/helpers.js";
 import { debounce } from "../utils/computedChannelOptimization.js";

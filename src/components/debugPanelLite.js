@@ -1,3 +1,70 @@
+/**
+ * @file debugPanelLite.js
+ * @module components/debugPanelLite
+ * 
+ * @description
+ * <h3>Lightweight Debug Panel</h3>
+ * 
+ * <p>A minimalistic debug logging panel that displays tagged log entries in a floating
+ * sidebar overlay. Designed for development-time debugging with performance safeguards
+ * to prevent UI freezes from excessive DOM operations.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Disable by Default</td><td>_enabled = false prevents all DOM work in production</td></tr>
+ *   <tr><td>Throttled Logging</td><td>300ms throttle prevents spam from rapid repeated logs</td></tr>
+ *   <tr><td>Tag Filtering</td><td>_importantPrefixes filters logs to relevant categories</td></tr>
+ *   <tr><td>Instant Bailout</td><td>When disabled, log() returns immediately with no overhead</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Toggle Enable</strong> — Set _enabled = true to activate (WARNING: causes freezes)</li>
+ *   <li><strong>Tag Prefixes</strong> — Filter by prefix array (e.g., ['[Chart]', '[State]'])</li>
+ *   <li><strong>Throttle Control</strong> — Adjust _throttleMs for spam prevention</li>
+ *   <li><strong>Floating Panel</strong> — Fixed position overlay for log display</li>
+ *   <li><strong>Timestamp</strong> — Each entry shows time for chronological analysis</li>
+ *   <li><strong>Object Stringify</strong> — Automatically formats object data</li>
+ * </ul>
+ * 
+ * <h4>Performance Warning</h4>
+ * <p><strong>⚠️ CRITICAL:</strong> When _enabled = true, this panel can cause 500ms+ freezes
+ * due to DOM thrashing. Only enable during active debugging sessions.</p>
+ * 
+ * @see {@link module:main} - Main application imports this for debug logging
+ * 
+ * @example
+ * // Enable debug panel (development only!)
+ * debugLite._enabled = true;
+ * debugLite._importantPrefixes = ['[Chart]', '[State]'];
+ * 
+ * // Log a message
+ * debugLite.log('[Chart] Render', { chartId: 'chart-1', duration: 15 });
+ * 
+ * // Force log even when throttled
+ * debugLite.log('[Critical] Error', { error: err, _force: true });
+ * 
+ * @mermaid
+ * graph TD
+ *     A[debugLite.log called] --> B{_enabled?}
+ *     B -->|No| C[Return Immediately<br/>Zero Overhead]
+ *     B -->|Yes| D{Has Prefix Filter?}
+ *     D -->|Yes| E{Tag Matches Prefix?}
+ *     E -->|No| F[Skip Log]
+ *     E -->|Yes| G[Continue]
+ *     D -->|No| G
+ *     G --> H{Throttle Check}
+ *     H -->|Within Throttle| I[Skip Duplicate]
+ *     H -->|Outside Throttle| J[Update Timestamp]
+ *     J --> K[Create DOM Entry]
+ *     K --> L[Append to Panel]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style C fill:#FF9800,color:white
+ *     style L fill:#2196F3,color:white
+ */
+
 export const debugLite = {
   _inited: false,
   // ⚡ PERFORMANCE FIX: Disable debugLite in production to prevent UI freezes

@@ -1,7 +1,121 @@
 /**
- * PolarChart Component
- * Displays phasor diagram using uPlot circular/polar chart
- * Shows three-phase currents and voltages as vectors in polar coordinates
+ * @file PolarChart.js
+ * @module components/PolarChart
+ * 
+ * @description
+ * <h3>Phasor Diagram Component</h3>
+ * 
+ * <p>An SVG-based polar/phasor chart that visualizes three-phase electrical quantities
+ * (currents and voltages) as vectors in polar coordinates. Displays magnitude and phase
+ * angle relationships for power system analysis.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>SVG Rendering</td><td>Pure SVG implementation since uPlot lacks native polar support</td></tr>
+ *   <tr><td>Auto-Scaling</td><td>Magnitudes automatically scaled to fit 70% of chart radius</td></tr>
+ *   <tr><td>Debounced Updates</td><td>100ms debounce prevents UI freezing from rapid cursor movements</td></tr>
+ *   <tr><td>Batched DOM Ops</td><td>Uses DocumentFragment for optimal render performance</td></tr>
+ *   <tr><td>Graceful Fallback</td><td>Shows mock data if real COMTRADE data unavailable</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Three-Phase Display</strong> — Shows IA/IB/IC currents and VA/VB/VC voltages</li>
+ *   <li><strong>Vector Arrows</strong> — Magnitude represented by length, angle by direction</li>
+ *   <li><strong>Grid Circles</strong> — Reference circles at 20%, 40%, 60%, 80%, 100% radius</li>
+ *   <li><strong>Axis Labels</strong> — 0°, 90°, 180°, 270° degree markers</li>
+ *   <li><strong>Color Coding</strong> — Distinct colors for each phase (Cyan/Blue/Green for I, Orange/Yellow/Red for V)</li>
+ *   <li><strong>Dynamic Time Index</strong> — Update phasors at any sample point in the waveform</li>
+ *   <li><strong>Phasor Limiting</strong> — Caps at 12 phasors to maintain performance</li>
+ * </ul>
+ * 
+ * <h4>Rendering Pipeline</h4>
+ * <ol>
+ *   <li>Clear container and calculate SVG dimensions</li>
+ *   <li>Create DocumentFragment for batched operations</li>
+ *   <li>Draw background circle and grid circles</li>
+ *   <li>Draw axis lines and degree labels</li>
+ *   <li>Calculate max magnitude for auto-scaling</li>
+ *   <li>Draw phasor vectors with arrows and labels</li>
+ *   <li>Append entire fragment to DOM in single operation</li>
+ *   <li>Log render time for performance monitoring</li>
+ * </ol>
+ * 
+ * <h4>Phase Angle Convention</h4>
+ * <table>
+ *   <tr><th>Phase</th><th>Angle</th><th>Description</th></tr>
+ *   <tr><td>A</td><td>0°</td><td>Reference phase</td></tr>
+ *   <tr><td>B</td><td>240°</td><td>Lags A by 120°</td></tr>
+ *   <tr><td>C</td><td>120°</td><td>Leads A by 120°</td></tr>
+ * </table>
+ * 
+ * @see {@link module:components/AnalysisSidebar} - Parent sidebar container
+ * @see {@link module:components/setupPolarChartIntegration} - Chart cursor synchronization
+ * 
+ * @example
+ * // Initialize polar chart
+ * const polarChart = new PolarChart('polar-chart-container');
+ * polarChart.init();
+ * 
+ * // Update with COMTRADE data at specific time
+ * polarChart.updatePhasorAtTimeIndex(cfg, data, timeIndex);
+ * 
+ * // Or update with custom phasor data
+ * polarChart.updateData([
+ *   { label: 'IA', magnitude: 100, angle: 0, color: '#00d9ff' },
+ *   { label: 'IB', magnitude: 95, angle: 240, color: '#2196f3' },
+ *   { label: 'IC', magnitude: 98, angle: 120, color: '#10b981' }
+ * ]);
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph Initialization
+ *         A[new PolarChart<br/>containerId] --> B[Get Container Element]
+ *         B --> C[Generate Mock Phasor Data]
+ *         C --> D[init called]
+ *         D --> E[Show Waiting for data...]
+ *     end
+ *     
+ *     subgraph Data_Extraction
+ *         F[updatePhasorAtTimeIndex<br/>cfg, data, timeIndex] --> G{Has Computed Channels?}
+ *         G -->|Yes| H[Use computedChannels + computedData]
+ *         G -->|No| I[Use analogChannels + analogData]
+ *         H --> J[Find Phasor Channels<br/>IA, IB, IC, VA, VB, VC]
+ *         I --> J
+ *         J --> K[Extract Magnitude at timeIndex]
+ *         K --> L[Assign Phase Angles<br/>A=0, B=240, C=120]
+ *         L --> M{Count > 12?}
+ *         M -->|Yes| N[Limit to 12 Phasors]
+ *         M -->|No| O[Return phasorData]
+ *         N --> O
+ *     end
+ *     
+ *     subgraph Rendering
+ *         O --> P[updateData]
+ *         P --> Q[renderSVGPolarChartDebounced]
+ *         Q --> R{Already Rendering?}
+ *         R -->|Yes| S[Skip]
+ *         R -->|No| T[Wait 100ms Debounce]
+ *         T --> U[renderSVGPolarChart]
+ *     end
+ *     
+ *     subgraph SVG_Construction
+ *         U --> V[Create SVG + Fragment]
+ *         V --> W[Draw Grid Circles<br/>20% 40% 60% 80% 100%]
+ *         W --> X[Draw Axis Lines<br/>0 90 180 270]
+ *         X --> Y[Calculate Scale Factor<br/>maxMag to 70% radius]
+ *         Y --> Z[For Each Phasor]
+ *         Z --> AA[Draw Vector Line]
+ *         AA --> AB[Draw Arrow Head]
+ *         AB --> AC[Draw Label]
+ *         AC --> AD[Append Fragment to DOM]
+ *         AD --> AE[Log Render Time]
+ *     end
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style U fill:#2196F3,color:white
+ *     style AD fill:#FF9800,color:white
  */
 
 export class PolarChart {

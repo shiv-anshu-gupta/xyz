@@ -1,8 +1,45 @@
 /**
- * Delta Box Plugin for uPlot
- * Displays time and value deltas between selected regions
- * Shows interpolated values for multiple sampling rates
+ * @file deltaBoxPlugin.js
+ * @module plugins/deltaBoxPlugin
+ * 
+ * @description
+ * <h3>uPlot Plugin: Delta Box Display</h3>
+ * 
+ * <p>Displays time and value deltas between selected regions on the chart.
+ * Shows interpolated values for analysis of multi-rate sampling data.</p>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Selection Display</strong> — Shows deltas when region is selected</li>
+ *   <li><strong>Interpolation</strong> — Handles different sampling rates</li>
+ *   <li><strong>Overlay Box</strong> — Positioned overlay with delta information</li>
+ *   <li><strong>Auto-Hide</strong> — Disappears when selection cleared</li>
+ * </ul>
+ * 
+ * @see {@link module:utils/calculateDeltas} - Delta calculation utilities
+ * 
+ * @example
+ * import { deltaBoxPlugin } from './plugins/deltaBoxPlugin.js';
+ * 
+ * const opts = {
+ *   plugins: [deltaBoxPlugin()]
+ * };
+ * 
+ * @mermaid
+ * graph TD
+ *     A[init hook] --> B[Create Delta Box Element]
+ *     B --> C[Append to Chart Overlay]
+ *     
+ *     D[setSelect hook] --> E{Selection Active?}
+ *     E -->|Yes| F[Calculate Delta Values]
+ *     F --> G[Format Display]
+ *     G --> H[Show Delta Box]
+ *     E -->|No| I[Hide Delta Box]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style H fill:#2196F3,color:white
  */
+
 import { getNearestIndex } from "../utils/helpers.js";
 
 export function deltaBoxPlugin() {

@@ -1,3 +1,89 @@
+/**
+ * @file main.js
+ * @module main
+ * 
+ * @description
+ * <h3>COMTRADE Viewer Application Entry Point</h3>
+ * 
+ * <p>Main application logic for the COMTRADE waveform viewer. Handles file loading,
+ * chart rendering, state management, and cross-window communication with popup editors.</p>
+ * 
+ * <h4>Core Responsibilities</h4>
+ * <table>
+ *   <tr><th>Area</th><th>Description</th></tr>
+ *   <tr><td>File Loading</td><td>Parse CFG/DAT files, initialize data structures</td></tr>
+ *   <tr><td>Chart Rendering</td><td>Create uPlot instances for analog/digital/computed channels</td></tr>
+ *   <tr><td>State Management</td><td>Maintain channelState for colors, groups, labels</td></tr>
+ *   <tr><td>Message Handling</td><td>Process postMessage from popup Channel List window</td></tr>
+ *   <tr><td>UI Updates</td><td>Progress bar, stats cards, sidebar coordination</td></tr>
+ * </table>
+ * 
+ * <h4>Message Types (from Popup Windows)</h4>
+ * <table>
+ *   <tr><th>Type</th><th>Action</th></tr>
+ *   <tr><td>callback_color</td><td>Update channel trace color</td></tr>
+ *   <tr><td>callback_channelName</td><td>Update channel display name</td></tr>
+ *   <tr><td>callback_update</td><td>Generic field update (unit, scale, etc.)</td></tr>
+ *   <tr><td>callback_addChannel</td><td>Add new computed channel</td></tr>
+ *   <tr><td>callback_delete</td><td>Delete computed channel</td></tr>
+ *   <tr><td>callback_group</td><td>Change channel group assignment</td></tr>
+ * </table>
+ * 
+ * <h4>Key Exports to Window</h4>
+ * <ul>
+ *   <li><strong>window.channelState</strong> — Reactive state for channel properties</li>
+ *   <li><strong>window.globalCfg</strong> — Parsed COMTRADE configuration</li>
+ *   <li><strong>window.globalData</strong> — Parsed COMTRADE data arrays</li>
+ *   <li><strong>window.charts</strong> — Array of uPlot chart instances</li>
+ * </ul>
+ * 
+ * @see {@link module:components/chartManager} - Centralized chart update handling
+ * @see {@link module:components/renderComtradeCharts} - Chart rendering orchestrator
+ * @see {@link module:services/computedChannels} - Computed channel evaluation
+ * 
+ * @example
+ * // Application lifecycle:
+ * // 1. User drops CFG/DAT files
+ * // 2. Files parsed via parseCFG/parseDAT
+ * // 3. channelState initialized with colors, groups
+ * // 4. renderComtradeCharts creates uPlot instances
+ * // 5. User opens Channel List popup
+ * // 6. Popup sends postMessage on changes
+ * // 7. main.js message handler updates state
+ * // 8. Charts re-render via chartManager
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph File_Loading
+ *         A[User Drops Files] --> B[parseCFG]
+ *         B --> C[parseDAT]
+ *         C --> D[Initialize channelState]
+ *         D --> E[renderComtradeCharts]
+ *     end
+ *     
+ *     subgraph Message_Handling
+ *         F[Popup Window] -->|postMessage| G[window.onmessage]
+ *         G --> H{Message Type}
+ *         H -->|callback_color| I[Update Color]
+ *         H -->|callback_group| J[Change Group]
+ *         H -->|callback_addChannel| K[Add Computed]
+ *         H -->|callback_delete| L[Delete Channel]
+ *     end
+ *     
+ *     subgraph State_Updates
+ *         I --> M[channelState Update]
+ *         J --> M
+ *         K --> M
+ *         L --> M
+ *         M --> N[chartManager Notified]
+ *         N --> O[Charts Re-render]
+ *     end
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style G fill:#2196F3,color:white
+ *     style O fill:#FF9800,color:white
+ */
+
 import {
   createChartOptions,
   updateAllChartAxisColors,

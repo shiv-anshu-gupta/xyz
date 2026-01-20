@@ -1,7 +1,62 @@
 /**
- * Phasor Chart Integration with Vertical Lines
- * Updates polar chart when vertical line moves on the timeline
+ * @file setupPolarChartIntegration.js
+ * @module components/setupPolarChartIntegration
+ * 
+ * @description
+ * <h3>Phasor Chart Cursor Integration</h3>
+ * 
+ * <p>Connects the polar/phasor chart to the main waveform charts via vertical line positions.
+ * When users place vertical measurement lines on waveforms, this module updates the phasor
+ * diagram to show the instantaneous phasor values at that specific time point.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Time Synchronization</td><td>Phasor updates match vertical line position</td></tr>
+ *   <tr><td>Nearest Index</td><td>Binary search finds closest sample to cursor position</td></tr>
+ *   <tr><td>Debounced Updates</td><td>Prevents excessive phasor redraws during drag</td></tr>
+ *   <tr><td>State Subscription</td><td>Listens to verticalLinesX reactive state changes</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Automatic Updates</strong> — Phasor diagram updates on vertical line change</li>
+ *   <li><strong>Time Index Lookup</strong> — Finds nearest sample index to cursor X position</li>
+ *   <li><strong>Multiple Line Support</strong> — Works with any number of vertical markers</li>
+ *   <li><strong>Cursor Tracking</strong> — Can also update from chart cursor movement</li>
+ * </ul>
+ * 
+ * @see {@link module:components/PolarChart} - SVG phasor diagram
+ * @see {@link module:components/PolarChartCanvas} - Canvas phasor diagram
+ * @see {@link module:components/AnalysisSidebar} - Host sidebar
+ * 
+ * @example
+ * // Setup integration after charts are rendered
+ * setupPolarChartWithVerticalLines(
+ *   polarChart,      // PolarChart instance
+ *   cfg,             // COMTRADE config
+ *   data,            // COMTRADE data
+ *   verticalLinesX,  // Reactive state for vertical line positions
+ *   charts           // Array of uPlot chart instances
+ * );
+ * 
+ * @mermaid
+ * graph TD
+ *     A[setupPolarChartWithVerticalLines] --> B[Validate Parameters]
+ *     B --> C[Create updatePolarFromVerticalLine]
+ *     C --> D[Subscribe to verticalLinesX]
+ *     
+ *     E[Vertical Line Moved] --> F[Get New X Position]
+ *     F --> G[findNearestTimeIndex<br/>Binary Search]
+ *     G --> H[Get Time Array Index]
+ *     H --> I[polarChart.updatePhasorAtTimeIndex]
+ *     I --> J[Phasor Diagram Redraws]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style G fill:#2196F3,color:white
+ *     style J fill:#FF9800,color:white
  */
+
 import { debounce } from "../utils/computedChannelOptimization.js";
 
 export function setupPolarChartWithVerticalLines(

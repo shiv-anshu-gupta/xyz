@@ -1,3 +1,121 @@
+/**
+ * @file ChannelList.js
+ * @module components/ChannelList
+ * 
+ * @description
+ * <h3>Channel List Editor Component</h3>
+ * 
+ * <p>A comprehensive Tabulator-based channel management interface for viewing, editing, 
+ * and organizing COMTRADE analog, digital, and computed channels. Supports both embedded 
+ * and popup window modes with real-time synchronization to parent application state.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Dual Communication</td><td>Supports both direct callbacks and postMessage for popup window scenarios</td></tr>
+ *   <tr><td>State Synchronization</td><td>Changes propagate to parent window's channelState via structured messages</td></tr>
+ *   <tr><td>Dynamic Grouping</td><td>Auto-detects and assigns unique group IDs to prevent conflicts</td></tr>
+ *   <tr><td>Persistence</td><td>Computed channels are saved/loaded from localStorage for session continuity</td></tr>
+ *   <tr><td>Touch-Friendly</td><td>Prevents resize conflicts during cell editing for mobile compatibility</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Tabulator Integration</strong> — Full-featured data grid with sorting, filtering, pagination</li>
+ *   <li><strong>Inline Editing</strong> — Edit channel names, units, groups, colors, and scales directly</li>
+ *   <li><strong>Computed Channels</strong> — Create mathematical expressions using MathLive LaTeX editor</li>
+ *   <li><strong>Color Picker</strong> — Visual color selection for channel trace customization</li>
+ *   <li><strong>Group Management</strong> — Auto-grouping with unique ID generation</li>
+ *   <li><strong>Drag & Drop</strong> — Reorder rows with movable row support</li>
+ *   <li><strong>Search/Filter</strong> — Header-based filtering for quick channel lookup</li>
+ * </ul>
+ * 
+ * <h4>Channel Processing Pipeline</h4>
+ * <ol>
+ *   <li>Load analog/digital channels from CFG configuration</li>
+ *   <li>Load persisted computed channels from localStorage</li>
+ *   <li>Merge and normalize all channel data into tableData array</li>
+ *   <li>Sort channels: Analog → Computed(Analog) → Digital → Computed(Digital)</li>
+ *   <li>Initialize Tabulator with column definitions and formatters</li>
+ *   <li>Setup event handlers for edits, deletes, and color changes</li>
+ *   <li>Propagate changes via callback or postMessage to parent</li>
+ * </ol>
+ * 
+ * <h4>Message Protocol (Child → Parent)</h4>
+ * <table>
+ *   <tr><th>Type</th><th>Payload</th></tr>
+ *   <tr><td>callback_color</td><td>{ field: 'color', row: {...}, newValue: '#rrggbb' }</td></tr>
+ *   <tr><td>callback_channelName</td><td>{ field: 'name', row: {...}, newValue: 'Label' }</td></tr>
+ *   <tr><td>callback_update</td><td>{ field: string, row: {...}, newValue: any }</td></tr>
+ *   <tr><td>callback_addChannel</td><td>{ ...newChannelRow }</td></tr>
+ *   <tr><td>callback_delete</td><td>{ ...deletedRow }</td></tr>
+ * </table>
+ * 
+ * @see {@link module:utils/autoGroupChannels} - Automatic channel grouping utility
+ * @see {@link module:utils/computedChannelStorage} - LocalStorage persistence for computed channels
+ * @see {@link module:components/showChannelListWindow} - Popup window launcher
+ * 
+ * @example
+ * // Create channel list in popup window
+ * const channelList = createChannelList(
+ *   cfg,                    // COMTRADE config with analogChannels, digitalChannels
+ *   onChannelUpdate,        // Callback for local changes
+ *   TabulatorInstance,      // Tabulator constructor from popup
+ *   popupDocument,          // Popup window document
+ *   containerElement,       // Element to attach table to
+ *   data,                   // Parsed COMTRADE data
+ *   parentWindow            // Reference to opener window
+ * );
+ * 
+ * @example
+ * // Add computed channel with expression
+ * // User enters LaTeX: I_{A} + I_{B}
+ * // Converted to math.js: IA + IB
+ * // Evaluated against analogData arrays
+ * 
+ * @mermaid
+ * graph TD
+ *     subgraph Initialization
+ *         A[createChannelList Called] --> B[Resolve Parent Window]
+ *         B --> C[Load Computed Channels<br/>from localStorage]
+ *         C --> D[Merge Analog + Digital + Computed]
+ *         D --> E[Sort by displayGroup]
+ *     end
+ *     
+ *     subgraph Table_Setup
+ *         E --> F[Create Tabulator Instance]
+ *         F --> G[Configure Columns<br/>ID, Name, Unit, Group, Color, Scale]
+ *         G --> H[Setup Custom Formatters<br/>Color Picker, MathLive Editor]
+ *         H --> I[Attach Event Handlers]
+ *     end
+ *     
+ *     subgraph User_Interactions
+ *         I --> J{User Action}
+ *         J -->|Edit Cell| K[cellEdited Handler]
+ *         J -->|Change Color| L[Color Input Handler]
+ *         J -->|Delete Row| M[Delete Button Handler]
+ *         J -->|Add Computed| N[MathLive Expression Editor]
+ *     end
+ *     
+ *     subgraph State_Propagation
+ *         K --> O[Build Message Payload]
+ *         L --> O
+ *         M --> O
+ *         N --> P[evaluateAndSaveComputedChannel]
+ *         P --> O
+ *         O --> Q{Running in Popup?}
+ *         Q -->|Yes| R[postMessage to Parent]
+ *         Q -->|No| S[Direct Callback]
+ *         R --> T[Parent Updates channelState]
+ *         S --> T
+ *         T --> U[Charts Re-render]
+ *     end
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style T fill:#2196F3,color:white
+ *     style U fill:#FF9800,color:white
+ */
+
 // src/components/ChannelList.js
 // import { createCustomElement } from '../utils/helpers.js';
 import { autoGroupChannels } from "../utils/autoGroupChannels.js";

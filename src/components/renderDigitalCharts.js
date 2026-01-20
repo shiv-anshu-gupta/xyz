@@ -1,3 +1,81 @@
+/**
+ * @file renderDigitalCharts.js
+ * @module components/renderDigitalCharts
+ * 
+ * @description
+ * <h3>Digital Channel Chart Renderer</h3>
+ * 
+ * <p>Renders binary/digital channel waveforms as stepped graphs showing HIGH (1) and LOW (0)
+ * states over time. Each digital group gets its own chart with channels stacked vertically.
+ * Uses a specialized fill plugin for clear state visualization.</p>
+ * 
+ * <h4>Design Philosophy</h4>
+ * <table>
+ *   <tr><th>Principle</th><th>Description</th></tr>
+ *   <tr><td>Group Rendering</td><td>One chart per digital group with stacked channels</td></tr>
+ *   <tr><td>Smart Filtering</td><td>Skips channels with no HIGH values (all zeros)</td></tr>
+ *   <tr><td>Fill Plugin</td><td>Visual state indication via filled regions</td></tr>
+ *   <tr><td>Drag Support</td><td>Drag bars for chart reordering</td></tr>
+ * </table>
+ * 
+ * <h4>Key Features</h4>
+ * <ul>
+ *   <li><strong>Binary Display</strong> — Shows 0/1 states as stepped waveforms</li>
+ *   <li><strong>Stacked Layout</strong> — Multiple channels per chart with vertical offset</li>
+ *   <li><strong>Empty Channel Skip</strong> — Filters out channels with no state changes</li>
+ *   <li><strong>Fill Plugin</strong> — Visual fills for HIGH state regions</li>
+ *   <li><strong>Vertical Lines</strong> — Supports measurement markers</li>
+ *   <li><strong>Drag Bar</strong> — Reorderable via drag handle</li>
+ * </ul>
+ * 
+ * <h4>Data Validation</h4>
+ * <table>
+ *   <tr><th>Check</th><th>Action</th></tr>
+ *   <tr><td>Channel has all zeros</td><td>Skip rendering (no meaningful data)</td></tr>
+ *   <tr><td>Group has no visible channels</td><td>Skip entire chart</td></tr>
+ *   <tr><td>Invalid data array</td><td>Log warning and skip</td></tr>
+ * </table>
+ * 
+ * @see {@link module:plugins/digitalFillPlugin} - Visual fill plugin
+ * @see {@link module:components/renderComtradeCharts} - Parent orchestrator
+ * @see {@link module:utils/digitalChannelUtils} - Digital channel utilities
+ * 
+ * @example
+ * // Render digital charts for a specific group
+ * renderDigitalCharts(
+ *   cfg,              // COMTRADE config
+ *   data,             // COMTRADE data
+ *   chartsContainer,  // DOM container
+ *   charts,           // Chart instances array
+ *   verticalLinesX,   // Vertical lines state
+ *   channelState,     // Channel state object
+ *   { name: "G1", indices: [0, 1, 2] }  // Optional group
+ * );
+ * 
+ * @mermaid
+ * graph TD
+ *     A[renderDigitalCharts] --> B{Group Provided?}
+ *     B -->|Yes| C[Use Provided Group]
+ *     B -->|No| D[Get All Digital Indices]
+ *     C --> E[filterIndicesWithData]
+ *     D --> E
+ *     E --> F{Any Visible Channels?}
+ *     F -->|No| G[Return - Nothing to Render]
+ *     F -->|Yes| H[createChartContainer]
+ *     H --> I[Create Drag Bar]
+ *     I --> J[Create uPlot Options]
+ *     J --> K[Add digitalFillPlugin]
+ *     K --> L[Add verticalLinePlugin]
+ *     L --> M[Build Series Array]
+ *     M --> N[New uPlot Instance]
+ *     N --> O[addChart to Metadata Store]
+ *     O --> P[Return Chart Instance]
+ *     
+ *     style A fill:#4CAF50,color:white
+ *     style N fill:#2196F3,color:white
+ *     style P fill:#FF9800,color:white
+ */
+
 import { createChartOptions } from "./chartComponent.js";
 import { createDragBar } from "./createDragBar.js";
 import { createDigitalFillPlugin } from "../plugins/digitalFillPlugin.js";
