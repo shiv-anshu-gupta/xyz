@@ -2,6 +2,9 @@
   "buildCommand": "npm run build:all",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "trailingSlash": true,
-  "cleanUrls": true
+  "trailingSlash": false,
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/docs", "destination": "/docs/index.html" }
+  ]
 }
