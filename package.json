@@ -16,7 +16,8 @@
     "mmd2svg": "mmdc -i docs/classDiagram.mmd -o docs/classDiagram.svg",
     "fix-docs": "node scripts/fix-docs-mermaid.js",
     "docs": "jsdoc -c jsdoc.json && npm run fix-docs",
-    "all-docs": "npm run docs && npm run mermaid && npm run mmd2svg"
+    "all-docs": "npm run docs && npm run mermaid && npm run mmd2svg",
+    "build:all": "npm run build && npm run docs && cp -r docs dist/docs"
   },
   "devDependencies": {
     "vite": "^7.2.4",
