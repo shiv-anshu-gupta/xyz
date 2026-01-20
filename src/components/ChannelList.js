@@ -150,7 +150,11 @@ function generateUniqueComputedGroup(cfg, sourceWindow) {
   // Extract group numbers from channelState (source of truth)
   if (channelState) {
     // Get all group IDs from analog channels
-    const analogGroups = channelState.analog?.groups || [];
+    // ✅ Convert to plain array to handle Proxy objects from parent window
+    const analogGroupsRaw = channelState.analog?.groups;
+    const analogGroups = Array.isArray(analogGroupsRaw) 
+      ? [...analogGroupsRaw] 
+      : (analogGroupsRaw ? Array.from(analogGroupsRaw) : []);
     console.log("[generateUniqueComputedGroup] 📊 analogGroups:", analogGroups);
     analogGroups.forEach((groupId) => {
       if (typeof groupId === "string" && groupId.startsWith("G")) {
@@ -162,7 +166,11 @@ function generateUniqueComputedGroup(cfg, sourceWindow) {
     });
 
     // Get all group IDs from digital channels
-    const digitalGroups = channelState.digital?.groups || [];
+    // ✅ Convert to plain array to handle Proxy objects from parent window
+    const digitalGroupsRaw = channelState.digital?.groups;
+    const digitalGroups = Array.isArray(digitalGroupsRaw) 
+      ? [...digitalGroupsRaw] 
+      : (digitalGroupsRaw ? Array.from(digitalGroupsRaw) : []);
     console.log(
       "[generateUniqueComputedGroup] 📊 digitalGroups:",
       digitalGroups
@@ -178,8 +186,12 @@ function generateUniqueComputedGroup(cfg, sourceWindow) {
   }
 
   // Also check already-created computed channels
+  // ✅ Convert to plain array to handle Proxy objects from parent window
   if (cfg?.computedChannels) {
-    cfg.computedChannels.forEach((ch) => {
+    const computedChannelsArr = Array.isArray(cfg.computedChannels)
+      ? cfg.computedChannels
+      : (cfg.computedChannels ? Array.from(cfg.computedChannels) : []);
+    computedChannelsArr.forEach((ch) => {
       if (
         ch.group &&
         typeof ch.group === "string" &&
@@ -1940,19 +1952,22 @@ function createAnalogChannelGroupMap(analogChannels) {
     const autoGroups = autoGroupChannels(autoChannels);
 
     // Map auto-group indices back to global indices
-    autoGroups.forEach((group) => {
-      group.indices.forEach((localIdx) => {
-        const globalIdx = autoIndices[localIdx];
-        groupMap[globalIdx] = group.groupId; // Use groupId: "G0", "G1", "G2", etc.
-      });
+    // ✅ autoGroupChannels returns an object { "G0": [indices], "G1": [indices], ... }
+    // Not an array, so we need to iterate over Object.entries
+    Object.entries(autoGroups).forEach(([groupId, indices]) => {
+      if (Array.isArray(indices)) {
+        indices.forEach((localIdx) => {
+          const globalIdx = autoIndices[localIdx];
+          groupMap[globalIdx] = groupId; // Use groupId: "G0", "G1", "G2", etc.
+        });
+      }
     });
 
     console.log(
       "[createAnalogChannelGroupMap] Auto-grouping assigned groups:",
-      autoGroups.map((g) => ({
-        groupId: g.groupId,
-        name: g.name,
-        count: g.indices.length,
+      Object.entries(autoGroups).map(([groupId, indices]) => ({
+        groupId,
+        count: indices?.length || 0,
       }))
     );
   } else {
@@ -2089,11 +2104,11 @@ export function createChannelList(
 
   // Create mapping of analog channel indices to their numeric group IDs
   const analogGroupMap = createAnalogChannelGroupMap(cfg.analogChannels || []);
-  const digitalGroupsFromState = Array.isArray(
-    parentWindow?.channelState?.digital?.groups
-  )
-    ? parentWindow.channelState.digital.groups
-    : [];
+  // ✅ Convert to plain array to handle Proxy objects from parent window
+  const digitalGroupsRaw = parentWindow?.channelState?.digital?.groups;
+  const digitalGroupsFromState = Array.isArray(digitalGroupsRaw)
+    ? [...digitalGroupsRaw]
+    : (digitalGroupsRaw ? Array.from(digitalGroupsRaw) : []);
 
   // 💾 LOAD persisted computed channels from localStorage if not already in cfg
   if (!cfg.computedChannels || cfg.computedChannels.length === 0) {

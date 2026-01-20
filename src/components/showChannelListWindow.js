@@ -700,17 +700,22 @@ export function showChannelListWindow(
       channelState?.computed?.channelIDs &&
       channelState.computed.channelIDs.length > 0
     ) {
-      channelState.computed.channelIDs.forEach((id, idx) => {
+      // ✅ Convert to plain array to handle Proxy objects from parent window
+      const computedChannelIDs = Array.isArray(channelState.computed.channelIDs)
+        ? [...channelState.computed.channelIDs]
+        : Array.from(channelState.computed.channelIDs);
+      
+      computedChannelIDs.forEach((id, idx) => {
         // Only add if not already in computedChannels
         if (!computedChannels.some((ch) => ch.id === id)) {
           computedChannels.push({
             id,
             channelID: id, // alias for uniformity
-            name: channelState.computed.yLabels[idx] || id,
+            name: channelState.computed.yLabels?.[idx] || id,
             type: "Computed",
-            unit: channelState.computed.yUnits[idx] || "",
-            group: channelState.computed.groups[idx] || "Computed",
-            color: channelState.computed.lineColors[idx] || "#FF6B6B",
+            unit: channelState.computed.yUnits?.[idx] || "",
+            group: channelState.computed.groups?.[idx] || "Computed",
+            color: channelState.computed.lineColors?.[idx] || "#FF6B6B",
             idx: computedChannels.length,
           });
         }
