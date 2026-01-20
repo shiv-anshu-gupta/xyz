@@ -1,0 +1,859 @@
+flowchart TB
+  src_components_ChannelList_js --> ___utils_helpers_js
+  src_components_ChannelList_js --> createCustomElement
+  src_components_ChannelList_js --> createCustomElement
+  src_components_ChannelList_js --> createCustomElement
+  src_components_ChannelList_js --> createCustomElement
+  src_components_ChannelList_js --> createCustomElement
+  src_components_ChannelList_js --> createCustomElement
+  src_components_ChannelList_js --> onChannelDrop
+  src_components_ChannelList_js --> createCustomElement
+  src_components_ChannelList_js --> onChannelDrop
+  src_components_ChannelList_js --> parseInt
+  src_components_ChannelList_js --> createList
+  src_components_ChannelList_js --> createList
+  src_components_chartComponent_js --> ___utils_scaleUtils_js
+  src_components_chartComponent_js --> ___utils_helpers_js
+  src_components_chartComponent_js --> __createState_js
+  src_components_chartComponent_js --> ___utils_calculateDeltas_js
+  src_components_chartComponent_js --> ___utils_constants_js
+  src_components_chartComponent_js --> ___plugins_autoUnitScalePlugin_js
+  src_components_chartComponent_js --> ___plugins_verticalLinePlugin_js
+  src_components_chartComponent_js --> ___plugins_horizontalZoomPanPlugin_js
+  src_components_chartComponent_js --> unwrap
+  src_components_chartComponent_js --> makeAxisValueFormatter
+  src_components_chartComponent_js --> extractUnit
+  src_components_chartComponent_js --> extractUnit
+  src_components_chartComponent_js --> getSiPrefix
+  src_components_chartComponent_js --> makeAxisValueFormatter
+  src_components_chartComponent_js --> extractUnit
+  src_components_chartComponent_js --> extractUnit
+  src_components_chartComponent_js --> getSiPrefix
+  src_components_chartComponent_js --> makeAxisValueFormatter
+  src_components_chartComponent_js --> autoUnitScalePlugin
+  src_components_chartComponent_js --> horizontalZoomPanPlugin
+  src_components_chartComponent_js --> verticalLinePlugin
+  src_components_chartDomUtils_js --> ___utils_helpers_js
+  src_components_chartDomUtils_js --> createCustomElement
+  src_components_chartDomUtils_js --> createCustomElement
+  src_components_chartManager_js --> __chartComponent_js
+  src_components_chartManager_js --> createChartOptions
+  src_components_chartManager_js --> recreateChart
+  src_components_chartManager_js --> recreateChart
+  src_components_chartManager_js --> updateVerticalLinesOverlay
+  src_components_comtradeUtils_js --> Number
+  src_components_comtradeUtils_js --> Number
+  src_components_comtradeUtils_js --> Number
+  src_components_comtradeUtils_js --> parseInt
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> parseInt
+  src_components_comtradeUtils_js --> Number
+  src_components_comtradeUtils_js --> parseInt
+  src_components_comtradeUtils_js --> parseInt
+  src_components_comtradeUtils_js --> Number
+  src_components_comtradeUtils_js --> Number
+  src_components_comtradeUtils_js --> Number
+  src_components_comtradeUtils_js --> Number
+  src_components_comtradeUtils_js --> parseTime
+  src_components_comtradeUtils_js --> parseTime
+  src_components_comtradeUtils_js --> isNaN
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> parseInt
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> parseInt
+  src_components_comtradeUtils_js --> parseFloat
+  src_components_comtradeUtils_js --> isNaN
+  src_components_comtradeUtils_js --> parseInt
+  src_components_createDragBar_js --> ___utils_helpers_js
+  src_components_createDragBar_js --> createCustomElement
+  src_components_createState_copy_2_js --> isMap
+  src_components_createState_copy_2_js --> isObject
+  src_components_createState_copy_2_js --> createDeepProxy
+  src_components_createState_copy_2_js --> fn
+  src_components_createState_copy_2_js --> fn
+  src_components_createState_copy_2_js --> fn
+  src_components_createState_copy_2_js --> isObject
+  src_components_createState_copy_2_js --> createDeepProxy
+  src_components_createState_copy_2_js --> isObject
+  src_components_createState_copy_2_js --> createDeepProxy
+  src_components_createState_copy_2_js --> fn
+  src_components_createState_copy_2_js --> isObject
+  src_components_createState_copy_2_js --> createDeepProxy
+  src_components_createState_copy_2_js --> createDeepProxy
+  src_components_createState_copy_2_js --> fn
+  src_components_createState_copy_2_js --> isMap
+  src_components_createState_copy_2_js --> isMap
+  src_components_createState_copy_2_js --> isMap
+  src_components_createState_copy_2_js --> getByPath
+  src_components_createState_copy_2_js --> updateDOM
+  src_components_createState_copy_2_js --> updateDOM
+  src_components_createState_copy_2_js --> setByPath
+  src_components_createState_copy_js --> isObject
+  src_components_createState_copy_js --> createDeepProxy
+  src_components_createState_copy_js --> fn
+  src_components_createState_copy_js --> isObject
+  src_components_createState_copy_js --> createDeepProxy
+  src_components_createState_copy_js --> createDeepProxy
+  src_components_createState_copy_js --> getByPath
+  src_components_createState_copy_js --> updateDOM
+  src_components_createState_copy_js --> updateDOM
+  src_components_createState_copy_js --> setByPath
+  src_components_createState_js --> requestAnimationFrame
+  src_components_createState_js --> fn
+  src_components_createState_js --> fn
+  src_components_createState_js --> isMap
+  src_components_createState_js --> isObject
+  src_components_createState_js --> createDeepProxy
+  src_components_createState_js --> fn
+  src_components_createState_js --> fn
+  src_components_createState_js --> fn
+  src_components_createState_js --> isObject
+  src_components_createState_js --> createDeepProxy
+  src_components_createState_js --> isObject
+  src_components_createState_js --> createDeepProxy
+  src_components_createState_js --> fn
+  src_components_createState_js --> isObject
+  src_components_createState_js --> createDeepProxy
+  src_components_createState_js --> createDeepProxy
+  src_components_createState_js --> fn
+  src_components_createState_js --> selector
+  src_components_createState_js --> selector
+  src_components_createState_js --> fn
+  src_components_createState_js --> fn
+  src_components_createState_js --> requestAnimationFrame
+  src_components_createState_js --> fn
+  src_components_createState_js --> fn
+  src_components_createState_js --> computeFn
+  src_components_createState_js --> computeFn
+  src_components_createState_js --> mw
+  src_components_createState_js --> isMap
+  src_components_createState_js --> isObject
+  src_components_createState_js --> createDeepProxy
+  src_components_createState_js --> fn
+  src_components_createState_js --> fn
+  src_components_createState_js --> fn
+  src_components_createState_js --> isObject
+  src_components_createState_js --> createDeepProxy
+  src_components_createState_js --> isObject
+  src_components_createState_js --> createDeepProxy
+  src_components_createState_js --> applyMiddlewares
+  src_components_createState_js --> notify
+  src_components_createState_js --> isObject
+  src_components_createState_js --> createDeepProxy
+  src_components_createState_js --> isMap
+  src_components_createState_js --> isMap
+  src_components_createState_js --> isMap
+  src_components_createState_js --> getByPath
+  src_components_createState_js --> updateDOM
+  src_components_createState_js --> updateDOM
+  src_components_createState_js --> setByPath
+  src_components_handleVerticalLineShortcuts_js --> calculateDeltas
+  src_components_handleVerticalLineShortcuts_js --> calculateDeltas
+  src_components_renderAnalogCharts_js --> __chartComponent_js
+  src_components_renderAnalogCharts_js --> __createDragBar_js
+  src_components_renderAnalogCharts_js --> ___utils_helpers_js
+  src_components_renderAnalogCharts_js --> ___utils_chartDomUtils_js
+  src_components_renderAnalogCharts_js --> ___plugins_verticalLinePlugin_js
+  src_components_renderAnalogCharts_js --> autoGroupChannels
+  src_components_renderAnalogCharts_js --> createDragBar
+  src_components_renderAnalogCharts_js --> createChartContainer
+  src_components_renderAnalogCharts_js --> createChartOptions
+  src_components_renderAnalogCharts_js --> verticalLinePlugin
+  src_components_renderAnalogCharts_js --> initUPlotChart
+  src_components_renderComtradeCharts_js --> __chartComponent_js
+  src_components_renderComtradeCharts_js --> __createDragBar_js
+  src_components_renderComtradeCharts_js --> __setupChartDragAndDrop_js
+  src_components_renderComtradeCharts_js --> __renderAnalogCharts_js
+  src_components_renderComtradeCharts_js --> __renderDigitalCharts_js
+  src_components_renderComtradeCharts_js --> ___utils_chartUtils_js
+  src_components_renderComtradeCharts_js --> ___utils_autoGroupChannels_js
+  src_components_renderComtradeCharts_js --> ___plugins_digitalFillPlugin_js
+  src_components_renderComtradeCharts_js --> __createState_js
+  src_components_renderComtradeCharts_js --> setupChartDragAndDrop
+  src_components_renderComtradeCharts_js --> renderAnalogCharts
+  src_components_renderComtradeCharts_js --> renderDigitalCharts
+  src_components_renderComtradeCharts_js --> calculateDeltas
+  src_components_renderDigitalCharts_js --> __chartComponent_js
+  src_components_renderDigitalCharts_js --> __createDragBar_js
+  src_components_renderDigitalCharts_js --> ___plugins_digitalFillPlugin_js
+  src_components_renderDigitalCharts_js --> ___utils_digitalChannelUtils_js
+  src_components_renderDigitalCharts_js --> ___utils_helpers_js
+  src_components_renderDigitalCharts_js --> ___plugins_verticalLinePlugin_js
+  src_components_renderDigitalCharts_js --> createCustomElement
+  src_components_renderDigitalCharts_js --> findChangedDigitalChannelIndices
+  src_components_renderDigitalCharts_js --> createDragBar
+  src_components_renderDigitalCharts_js --> createCustomElement
+  src_components_renderDigitalCharts_js --> createChartOptions
+  src_components_renderDigitalCharts_js --> createDigitalFillPlugin
+  src_components_renderDigitalCharts_js --> verticalLinePlugin
+  src_components_showChannelListWindow_js --> __ChannelList_js
+  src_components_showChannelListWindow_js --> createChannelList
+  src_components_showChannelListWindow_js --> onChannelColorChange
+  src_components_showChannelListWindow_js --> onChannelDrop
+  src_components_showChannelListWindow_js --> renderList
+  src_components_showChannelListWindow_js --> renderList
+  src_components_showError_js --> alert
+  src_main_js --> __components_chartComponent_js
+  src_main_js --> __components_comtradeUtils_js
+  src_main_js --> __components_createState_js
+  src_main_js --> __utils_calculateDeltas_js
+  src_main_js --> __utils_autoGroupChannels_js
+  src_main_js --> __components_createDragBar_js
+  src_main_js --> __components_setupChartDragAndDrop_js
+  src_main_js --> __components_handleVerticalLineShortcuts_js
+  src_main_js --> __components_showError_js
+  src_main_js --> __components_renderComtradeCharts_js
+  src_main_js --> __components_ResizableGroup_js
+  src_main_js --> __components_showChannelListWindow_js
+  src_main_js --> __utils_helpers_js
+  src_main_js --> __utils_constants_js
+  src_main_js --> __components_chartManager_js
+  src_main_js --> createState
+  src_main_js --> createState
+  src_main_js --> createState
+  src_main_js --> createState
+  src_main_js --> handleVerticalLineShortcuts
+  src_main_js --> createCustomElement
+  src_main_js --> showChannelListWindow
+  src_main_js --> renderComtradeCharts
+  src_main_js --> renderComtradeCharts
+  src_main_js --> showError
+  src_main_js --> showError
+  src_main_js --> parseCFG
+  src_main_js --> showError
+  src_main_js --> parseDAT
+  src_main_js --> showError
+  src_main_js --> initializeChannelState
+  src_main_js --> renderComtradeCharts
+  src_main_js --> subscribeChartUpdates
+  src_main_js --> showError
+  src_plugins_autoUnitScalePlugin_js --> ___utils_helpers_js
+  src_plugins_autoUnitScalePlugin_js --> ___utils_scaleUtils_js
+  src_plugins_autoUnitScalePlugin_js --> ___utils_constants_js
+  src_plugins_autoUnitScalePlugin_js --> parseInt
+  src_plugins_autoUnitScalePlugin_js --> extractUnit
+  src_plugins_autoUnitScalePlugin_js --> getUserScale
+  src_plugins_autoUnitScalePlugin_js --> getTickVals
+  src_plugins_autoUnitScalePlugin_js --> findBestSiUnit
+  src_plugins_autoUnitScalePlugin_js --> tickLabelFormatter
+  src_plugins_autoUnitScalePlugin_js --> defaultTickLabelFormatter
+  src_plugins_autoUnitScalePlugin_js --> extractUnit
+  src_plugins_autoUnitScalePlugin_js --> autoScaleAxis
+  src_plugins_autoUnitScalePlugin_js --> autoScaleAxis
+  src_plugins_autoUnitScalePlugin_js --> autoScaleAxis
+  src_plugins_digitalFillPlugin_js --> isNaN
+  src_plugins_digitalFillPlugin_js --> isNaN
+  src_plugins_horizontalZoomPanPlugin_js --> getCharts
+  src_plugins_horizontalZoomPanPlugin_js --> calcNewRange
+  src_plugins_horizontalZoomPanPlugin_js --> applyZoomPanToCharts
+  src_plugins_horizontalZoomPanPlugin_js --> calcNewRange
+  src_plugins_horizontalZoomPanPlugin_js --> applyZoomPanToCharts
+  src_plugins_verticalLinePlugin_js --> ___utils_constants_js
+  src_plugins_verticalLinePlugin_js --> ___utils_helpers_js
+  src_plugins_verticalLinePlugin_js --> ___utils_calculateDeltas_js
+  src_plugins_verticalLinePlugin_js --> isHoveringLine
+  src_plugins_verticalLinePlugin_js --> getCharts
+  src_plugins_verticalLinePlugin_js --> calculateDeltas
+  src_plugins_verticalLinePlugin_js --> setTimeout
+  src_plugins_verticalLinePlugin_js --> getNearestIndex
+  src_plugins_verticalLinePlugin_js --> labelFormatter
+  src_utils_calculateDeltas_js --> __constants_js
+  src_utils_calculateDeltas_js --> __helpers_js
+  src_utils_calculateDeltas_js --> getNearestIndex
+  src_utils_calculateDeltas_js --> getNearestIndex
+  src_utils_calculateDeltas_js --> createCustomElement
+  src_utils_calculateDeltas_js --> createCustomElement
+  src_utils_chartDomUtils_js --> __helpers_js
+  src_utils_chartDomUtils_js --> createCustomElement
+  src_utils_chartDomUtils_js --> createCustomElement
+  src_utils_constants_js --> __tailwindColors_js
+  src_utils_scaleUtils_js --> __constants_js
+  src_utils_scaleUtils_js --> isNaN
+  src_utils_scaleUtils_js --> Number
+  src_utils_scaleUtils_js --> siFormat
+  subgraph src_components_ChannelList_js
+    ___utils_helpers_js
+    createCustomElement
+    ___utils_helpers_js --> createCustomElement
+    createCustomElement
+    createCustomElement --> createCustomElement
+    createCustomElement
+    createCustomElement --> createCustomElement
+    createCustomElement
+    createCustomElement --> createCustomElement
+    createCustomElement
+    createCustomElement --> createCustomElement
+    createCustomElement
+    createCustomElement --> createCustomElement
+    onChannelDrop
+    createCustomElement --> onChannelDrop
+    createCustomElement
+    onChannelDrop --> createCustomElement
+    onChannelDrop
+    createCustomElement --> onChannelDrop
+    parseInt
+    onChannelDrop --> parseInt
+    createList
+    parseInt --> createList
+    createList
+    createList --> createList
+  end
+  subgraph src_components_chartComponent_js
+    ___utils_scaleUtils_js
+    ___utils_helpers_js
+    ___utils_scaleUtils_js --> ___utils_helpers_js
+    __createState_js
+    ___utils_helpers_js --> __createState_js
+    ___utils_calculateDeltas_js
+    __createState_js --> ___utils_calculateDeltas_js
+    ___utils_constants_js
+    ___utils_calculateDeltas_js --> ___utils_constants_js
+    ___plugins_autoUnitScalePlugin_js
+    ___utils_constants_js --> ___plugins_autoUnitScalePlugin_js
+    ___plugins_verticalLinePlugin_js
+    ___plugins_autoUnitScalePlugin_js --> ___plugins_verticalLinePlugin_js
+    ___plugins_horizontalZoomPanPlugin_js
+    ___plugins_verticalLinePlugin_js --> ___plugins_horizontalZoomPanPlugin_js
+    unwrap
+    ___plugins_horizontalZoomPanPlugin_js --> unwrap
+    makeAxisValueFormatter
+    unwrap --> makeAxisValueFormatter
+    extractUnit
+    makeAxisValueFormatter --> extractUnit
+    extractUnit
+    extractUnit --> extractUnit
+    getSiPrefix
+    extractUnit --> getSiPrefix
+    makeAxisValueFormatter
+    getSiPrefix --> makeAxisValueFormatter
+    extractUnit
+    makeAxisValueFormatter --> extractUnit
+    extractUnit
+    extractUnit --> extractUnit
+    getSiPrefix
+    extractUnit --> getSiPrefix
+    makeAxisValueFormatter
+    getSiPrefix --> makeAxisValueFormatter
+    autoUnitScalePlugin
+    makeAxisValueFormatter --> autoUnitScalePlugin
+    horizontalZoomPanPlugin
+    autoUnitScalePlugin --> horizontalZoomPanPlugin
+    verticalLinePlugin
+    horizontalZoomPanPlugin --> verticalLinePlugin
+  end
+  subgraph src_components_chartDomUtils_js
+    ___utils_helpers_js
+    createCustomElement
+    ___utils_helpers_js --> createCustomElement
+    createCustomElement
+    createCustomElement --> createCustomElement
+  end
+  subgraph src_components_chartManager_js
+    __chartComponent_js
+    createChartOptions
+    __chartComponent_js --> createChartOptions
+    recreateChart
+    createChartOptions --> recreateChart
+    recreateChart
+    recreateChart --> recreateChart
+    updateVerticalLinesOverlay
+    recreateChart --> updateVerticalLinesOverlay
+  end
+  subgraph src_components_comtradeUtils_js
+    Number
+    Number
+    Number --> Number
+    Number
+    Number --> Number
+    parseInt
+    Number --> parseInt
+    parseFloat
+    parseInt --> parseFloat
+    parseFloat
+    parseFloat --> parseFloat
+    parseFloat
+    parseFloat --> parseFloat
+    parseFloat
+    parseFloat --> parseFloat
+    parseFloat
+    parseFloat --> parseFloat
+    parseFloat
+    parseFloat --> parseFloat
+    parseFloat
+    parseFloat --> parseFloat
+    parseInt
+    parseFloat --> parseInt
+    Number
+    parseInt --> Number
+    parseInt
+    Number --> parseInt
+    parseInt
+    parseInt --> parseInt
+    Number
+    parseInt --> Number
+    Number
+    Number --> Number
+    Number
+    Number --> Number
+    Number
+    Number --> Number
+    parseTime
+    Number --> parseTime
+    parseTime
+    parseTime --> parseTime
+    isNaN
+    parseTime --> isNaN
+    parseFloat
+    isNaN --> parseFloat
+    parseInt
+    parseFloat --> parseInt
+    parseFloat
+    parseInt --> parseFloat
+    parseInt
+    parseFloat --> parseInt
+    parseFloat
+    parseInt --> parseFloat
+    isNaN
+    parseFloat --> isNaN
+    parseInt
+    isNaN --> parseInt
+  end
+  subgraph src_components_createDragBar_js
+    ___utils_helpers_js
+    createCustomElement
+    ___utils_helpers_js --> createCustomElement
+  end
+  subgraph src_components_createState_copy_2_js
+    isMap
+    isObject
+    isMap --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    fn
+    createDeepProxy --> fn
+    fn
+    fn --> fn
+    fn
+    fn --> fn
+    isObject
+    fn --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    isObject
+    createDeepProxy --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    fn
+    createDeepProxy --> fn
+    isObject
+    fn --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    createDeepProxy
+    createDeepProxy --> createDeepProxy
+    fn
+    createDeepProxy --> fn
+    isMap
+    fn --> isMap
+    isMap
+    isMap --> isMap
+    isMap
+    isMap --> isMap
+    getByPath
+    isMap --> getByPath
+    updateDOM
+    getByPath --> updateDOM
+    updateDOM
+    updateDOM --> updateDOM
+    setByPath
+    updateDOM --> setByPath
+  end
+  subgraph src_components_createState_copy_js
+    isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    fn
+    createDeepProxy --> fn
+    isObject
+    fn --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    createDeepProxy
+    createDeepProxy --> createDeepProxy
+    getByPath
+    createDeepProxy --> getByPath
+    updateDOM
+    getByPath --> updateDOM
+    updateDOM
+    updateDOM --> updateDOM
+    setByPath
+    updateDOM --> setByPath
+  end
+  subgraph src_components_createState_js
+    requestAnimationFrame
+    fn
+    requestAnimationFrame --> fn
+    fn
+    fn --> fn
+    isMap
+    fn --> isMap
+    isObject
+    isMap --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    fn
+    createDeepProxy --> fn
+    fn
+    fn --> fn
+    fn
+    fn --> fn
+    isObject
+    fn --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    isObject
+    createDeepProxy --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    fn
+    createDeepProxy --> fn
+    isObject
+    fn --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    createDeepProxy
+    createDeepProxy --> createDeepProxy
+    fn
+    createDeepProxy --> fn
+    selector
+    fn --> selector
+    selector
+    selector --> selector
+    fn
+    selector --> fn
+    fn
+    fn --> fn
+    requestAnimationFrame
+    fn --> requestAnimationFrame
+    fn
+    requestAnimationFrame --> fn
+    fn
+    fn --> fn
+    computeFn
+    fn --> computeFn
+    computeFn
+    computeFn --> computeFn
+    mw
+    computeFn --> mw
+    isMap
+    mw --> isMap
+    isObject
+    isMap --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    fn
+    createDeepProxy --> fn
+    fn
+    fn --> fn
+    fn
+    fn --> fn
+    isObject
+    fn --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    isObject
+    createDeepProxy --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    applyMiddlewares
+    createDeepProxy --> applyMiddlewares
+    notify
+    applyMiddlewares --> notify
+    isObject
+    notify --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    isMap
+    createDeepProxy --> isMap
+    isMap
+    isMap --> isMap
+    isMap
+    isMap --> isMap
+    getByPath
+    isMap --> getByPath
+    updateDOM
+    getByPath --> updateDOM
+    updateDOM
+    updateDOM --> updateDOM
+    setByPath
+    updateDOM --> setByPath
+  end
+  subgraph src_components_handleVerticalLineShortcuts_js
+    calculateDeltas
+    calculateDeltas
+    calculateDeltas --> calculateDeltas
+  end
+  subgraph src_components_renderAnalogCharts_js
+    __chartComponent_js
+    __createDragBar_js
+    __chartComponent_js --> __createDragBar_js
+    ___utils_helpers_js
+    __createDragBar_js --> ___utils_helpers_js
+    ___utils_chartDomUtils_js
+    ___utils_helpers_js --> ___utils_chartDomUtils_js
+    ___plugins_verticalLinePlugin_js
+    ___utils_chartDomUtils_js --> ___plugins_verticalLinePlugin_js
+    autoGroupChannels
+    ___plugins_verticalLinePlugin_js --> autoGroupChannels
+    createDragBar
+    autoGroupChannels --> createDragBar
+    createChartContainer
+    createDragBar --> createChartContainer
+    createChartOptions
+    createChartContainer --> createChartOptions
+    verticalLinePlugin
+    createChartOptions --> verticalLinePlugin
+    initUPlotChart
+    verticalLinePlugin --> initUPlotChart
+  end
+  subgraph src_components_renderComtradeCharts_js
+    __chartComponent_js
+    __createDragBar_js
+    __chartComponent_js --> __createDragBar_js
+    __setupChartDragAndDrop_js
+    __createDragBar_js --> __setupChartDragAndDrop_js
+    __renderAnalogCharts_js
+    __setupChartDragAndDrop_js --> __renderAnalogCharts_js
+    __renderDigitalCharts_js
+    __renderAnalogCharts_js --> __renderDigitalCharts_js
+    ___utils_chartUtils_js
+    __renderDigitalCharts_js --> ___utils_chartUtils_js
+    ___utils_autoGroupChannels_js
+    ___utils_chartUtils_js --> ___utils_autoGroupChannels_js
+    ___plugins_digitalFillPlugin_js
+    ___utils_autoGroupChannels_js --> ___plugins_digitalFillPlugin_js
+    __createState_js
+    ___plugins_digitalFillPlugin_js --> __createState_js
+    setupChartDragAndDrop
+    __createState_js --> setupChartDragAndDrop
+    renderAnalogCharts
+    setupChartDragAndDrop --> renderAnalogCharts
+    renderDigitalCharts
+    renderAnalogCharts --> renderDigitalCharts
+    calculateDeltas
+    renderDigitalCharts --> calculateDeltas
+  end
+  subgraph src_components_renderDigitalCharts_js
+    __chartComponent_js
+    __createDragBar_js
+    __chartComponent_js --> __createDragBar_js
+    ___plugins_digitalFillPlugin_js
+    __createDragBar_js --> ___plugins_digitalFillPlugin_js
+    ___utils_digitalChannelUtils_js
+    ___plugins_digitalFillPlugin_js --> ___utils_digitalChannelUtils_js
+    ___utils_helpers_js
+    ___utils_digitalChannelUtils_js --> ___utils_helpers_js
+    ___plugins_verticalLinePlugin_js
+    ___utils_helpers_js --> ___plugins_verticalLinePlugin_js
+    createCustomElement
+    ___plugins_verticalLinePlugin_js --> createCustomElement
+    findChangedDigitalChannelIndices
+    createCustomElement --> findChangedDigitalChannelIndices
+    createDragBar
+    findChangedDigitalChannelIndices --> createDragBar
+    createCustomElement
+    createDragBar --> createCustomElement
+    createChartOptions
+    createCustomElement --> createChartOptions
+    createDigitalFillPlugin
+    createChartOptions --> createDigitalFillPlugin
+    verticalLinePlugin
+    createDigitalFillPlugin --> verticalLinePlugin
+  end
+  subgraph src_components_showChannelListWindow_js
+    __ChannelList_js
+    createChannelList
+    __ChannelList_js --> createChannelList
+    onChannelColorChange
+    createChannelList --> onChannelColorChange
+    onChannelDrop
+    onChannelColorChange --> onChannelDrop
+    renderList
+    onChannelDrop --> renderList
+    renderList
+    renderList --> renderList
+  end
+  subgraph src_components_showError_js
+    alert
+  end
+  subgraph src_main_js
+    __components_chartComponent_js
+    __components_comtradeUtils_js
+    __components_chartComponent_js --> __components_comtradeUtils_js
+    __components_createState_js
+    __components_comtradeUtils_js --> __components_createState_js
+    __utils_calculateDeltas_js
+    __components_createState_js --> __utils_calculateDeltas_js
+    __utils_autoGroupChannels_js
+    __utils_calculateDeltas_js --> __utils_autoGroupChannels_js
+    __components_createDragBar_js
+    __utils_autoGroupChannels_js --> __components_createDragBar_js
+    __components_setupChartDragAndDrop_js
+    __components_createDragBar_js --> __components_setupChartDragAndDrop_js
+    __components_handleVerticalLineShortcuts_js
+    __components_setupChartDragAndDrop_js --> __components_handleVerticalLineShortcuts_js
+    __components_showError_js
+    __components_handleVerticalLineShortcuts_js --> __components_showError_js
+    __components_renderComtradeCharts_js
+    __components_showError_js --> __components_renderComtradeCharts_js
+    __components_ResizableGroup_js
+    __components_renderComtradeCharts_js --> __components_ResizableGroup_js
+    __components_showChannelListWindow_js
+    __components_ResizableGroup_js --> __components_showChannelListWindow_js
+    __utils_helpers_js
+    __components_showChannelListWindow_js --> __utils_helpers_js
+    __utils_constants_js
+    __utils_helpers_js --> __utils_constants_js
+    __components_chartManager_js
+    __utils_constants_js --> __components_chartManager_js
+    createState
+    __components_chartManager_js --> createState
+    createState
+    createState --> createState
+    createState
+    createState --> createState
+    createState
+    createState --> createState
+    handleVerticalLineShortcuts
+    createState --> handleVerticalLineShortcuts
+    createCustomElement
+    handleVerticalLineShortcuts --> createCustomElement
+    showChannelListWindow
+    createCustomElement --> showChannelListWindow
+    renderComtradeCharts
+    showChannelListWindow --> renderComtradeCharts
+    renderComtradeCharts
+    renderComtradeCharts --> renderComtradeCharts
+    showError
+    renderComtradeCharts --> showError
+    showError
+    showError --> showError
+    parseCFG
+    showError --> parseCFG
+    showError
+    parseCFG --> showError
+    parseDAT
+    showError --> parseDAT
+    showError
+    parseDAT --> showError
+    initializeChannelState
+    showError --> initializeChannelState
+    renderComtradeCharts
+    initializeChannelState --> renderComtradeCharts
+    subscribeChartUpdates
+    renderComtradeCharts --> subscribeChartUpdates
+    showError
+    subscribeChartUpdates --> showError
+  end
+  subgraph src_plugins_autoUnitScalePlugin_js
+    ___utils_helpers_js
+    ___utils_scaleUtils_js
+    ___utils_helpers_js --> ___utils_scaleUtils_js
+    ___utils_constants_js
+    ___utils_scaleUtils_js --> ___utils_constants_js
+    parseInt
+    ___utils_constants_js --> parseInt
+    extractUnit
+    parseInt --> extractUnit
+    getUserScale
+    extractUnit --> getUserScale
+    getTickVals
+    getUserScale --> getTickVals
+    findBestSiUnit
+    getTickVals --> findBestSiUnit
+    tickLabelFormatter
+    findBestSiUnit --> tickLabelFormatter
+    defaultTickLabelFormatter
+    tickLabelFormatter --> defaultTickLabelFormatter
+    extractUnit
+    defaultTickLabelFormatter --> extractUnit
+    autoScaleAxis
+    extractUnit --> autoScaleAxis
+    autoScaleAxis
+    autoScaleAxis --> autoScaleAxis
+    autoScaleAxis
+    autoScaleAxis --> autoScaleAxis
+  end
+  subgraph src_plugins_digitalFillPlugin_js
+    isNaN
+    isNaN
+    isNaN --> isNaN
+  end
+  subgraph src_plugins_horizontalZoomPanPlugin_js
+    getCharts
+    calcNewRange
+    getCharts --> calcNewRange
+    applyZoomPanToCharts
+    calcNewRange --> applyZoomPanToCharts
+    calcNewRange
+    applyZoomPanToCharts --> calcNewRange
+    applyZoomPanToCharts
+    calcNewRange --> applyZoomPanToCharts
+  end
+  subgraph src_plugins_verticalLinePlugin_js
+    ___utils_constants_js
+    ___utils_helpers_js
+    ___utils_constants_js --> ___utils_helpers_js
+    ___utils_calculateDeltas_js
+    ___utils_helpers_js --> ___utils_calculateDeltas_js
+    isHoveringLine
+    ___utils_calculateDeltas_js --> isHoveringLine
+    getCharts
+    isHoveringLine --> getCharts
+    calculateDeltas
+    getCharts --> calculateDeltas
+    setTimeout
+    calculateDeltas --> setTimeout
+    getNearestIndex
+    setTimeout --> getNearestIndex
+    labelFormatter
+    getNearestIndex --> labelFormatter
+  end
+  subgraph src_utils_calculateDeltas_js
+    __constants_js
+    __helpers_js
+    __constants_js --> __helpers_js
+    getNearestIndex
+    __helpers_js --> getNearestIndex
+    getNearestIndex
+    getNearestIndex --> getNearestIndex
+    createCustomElement
+    getNearestIndex --> createCustomElement
+    createCustomElement
+    createCustomElement --> createCustomElement
+  end
+  subgraph src_utils_chartDomUtils_js
+    __helpers_js
+    createCustomElement
+    __helpers_js --> createCustomElement
+    createCustomElement
+    createCustomElement --> createCustomElement
+  end
+  subgraph src_utils_constants_js
+    __tailwindColors_js
+  end
+  subgraph src_utils_scaleUtils_js
+    __constants_js
+    isNaN
+    __constants_js --> isNaN
+    Number
+    isNaN --> Number
+    siFormat
+    Number --> siFormat
+  end

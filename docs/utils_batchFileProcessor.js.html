@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> utils/batchFileProcessor.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartDomUtils.html">chartDomUtils</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-performanceMonitor.html">performanceMonitor</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li></ul><h3>Classes</h3><ul><li><a href="ComputedChannelMetadata.html">ComputedChannelMetadata</a></li><li><a href="PolarChart.html">PolarChart</a></li><li><a href="module-performanceMonitor-PhaseTracker.html">PhaseTracker</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_KEY">STORAGE_KEY</a></li><li><a href="global.html#THEMES">THEMES</a></li><li><a href="global.html#applyTheme">applyTheme</a></li><li><a href="global.html#autoGroupChannels">autoGroupChannels</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#clearCaches">clearCaches</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelsLabels">createComputedChannelsLabels</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createDebouncedRender">createDebouncedRender</a></li><li><a href="global.html#createDeltaWindow">createDeltaWindow</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportAsASCII">exportAsASCII</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getCurrentTheme">getCurrentTheme</a></li><li><a href="global.html#getCurrentThemeColors">getCurrentThemeColors</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getMemoryInfo">getMemoryInfo</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#getThemeColor">getThemeColor</a></li><li><a href="global.html#groupCfgDatFiles">groupCfgDatFiles</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initTheme">initTheme</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#processFilesInBatches">processFilesInBatches</a></li><li><a href="global.html#processInChunks">processInChunks</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderComtradeCharts">renderComtradeCharts</a></li><li><a href="global.html#saveComputedChannelToGlobals">saveComputedChannelToGlobals</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#separateComputedFiles">separateComputedFiles</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#setupPolarChartWithVerticalLines">setupPolarChartWithVerticalLines</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#sortFilePairs">sortFilePairs</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#toggleTheme">toggleTheme</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateSampleRates">validateSampleRates</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li><li><a href="global.html#yieldToEventLoop">yieldToEventLoop</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>utils/batchFileProcessor.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Batch File Processor - Optimized multi-file loading with deferred rendering
+ * Prevents application crashes by parsing files without recreating charts
+ * until all merging is complete
+ *
+ * Key Features:
+ * - Parse files in chunks with thread yielding
+ * - Progress reporting without UI recreation
+ * - Single render cycle after all files processed
+ * - Automatic memory management
+ */
+
+/**
+ * Parse and merge files with progress reporting
+ * Does NOT trigger any chart recreation during parsing
+ *
+ * @param {FileList} fileInput - Files from input element
+ * @param {number} TIME_UNIT - Time unit for parsing
+ * @param {Function} onProgress - Callback for progress: {phase, current, total, message}
+ * @returns {Promise&lt;{cfg, data, isMerged, fileCount, filenames, error}>}
+ */
+export async function processFilesInBatches(
+  fileInput,
+  TIME_UNIT = 1,
+  onProgress = null
+) {
+  try {
+    // Import here to avoid circular dependencies
+    const { parseCFG, parseDAT } = await import("../components/comtradeUtils.js");
+
+    // Phase 1: Validate input
+    const files = Array.from(fileInput);
+    if (files.length === 0) {
+      throw new Error("No files selected");
+    }
+
+    reportProgress(onProgress, {
+      phase: "validation",
+      current: 0,
+      total: files.length,
+      message: `Validating ${files.length} files...`,
+    });
+
+    // Phase 2: Parse and merge with progress
+    console.log(
+      "[batchFileProcessor] Starting batch file processing:",
+      files.length,
+      "files"
+    );
+
+    reportProgress(onProgress, {
+      phase: "parsing",
+      current: 0,
+      total: files.length,
+      message: `Parsing files (0/${files.length})...`,
+    });
+
+    // Read and parse files
+    const parsedFiles = [];
+    const filenames = [];
+
+    for (let i = 0; i &lt; files.length; i++) {
+      const file = files[i];
+      
+      // Skip DAT files - we'll read them when processing CFG
+      if (file.name.toLowerCase().endsWith(".dat")) {
+        continue;
+      }
+      
+      // Only process CFG files
+      if (!file.name.toLowerCase().endsWith(".cfg")) {
+        continue;
+      }
+      
+      // Read CFG file using FileReader
+      const cfgText = await readFileAsText(file);
+      
+      // Parse CFG
+      const cfg = parseCFG(cfgText, TIME_UNIT);
+      
+      // Find corresponding DAT file
+      const baseName = file.name.replace(/\.(cfg|dat)$/i, "");
+      const datFile = files.find(f => 
+        f.name.toLowerCase().startsWith(baseName.toLowerCase()) &amp;&amp; 
+        f.name.toLowerCase().endsWith(".dat")
+      );
+      
+      if (!datFile) {
+        console.warn(`[batchFileProcessor] No matching DAT file for ${file.name}`);
+        continue;
+      }
+
+      // Read DAT file using FileReader
+      const datText = await readFileAsText(datFile);
+      
+      // Parse DAT
+      const { time, analogData, digitalData } = parseDAT(datText, cfg, "ASCII", TIME_UNIT);
+      
+      parsedFiles.push({
+        cfg,
+        time,
+        analogData,
+        digitalData,
+        fileName: baseName,
+      });
+      
+      filenames.push(baseName);
+      
+      reportProgress(onProgress, {
+        phase: "parsing",
+        current: parsedFiles.length,
+        total: Math.ceil(files.length / 2), // Rough estimate (pairs)
+        message: `Parsing files (${parsedFiles.length} pair(s))...`,
+      });
+
+      // Yield to event loop
+      await yieldToEventLoop(10);
+    }
+
+    if (parsedFiles.length === 0) {
+      throw new Error("No valid CFG/DAT file pairs found");
+    }
+
+    // Merge parsed files if multiple
+    let cfg = parsedFiles[0].cfg;
+    let data;
+
+    if (parsedFiles.length === 1) {
+      // Single file - no merging needed
+      data = {
+        time: parsedFiles[0].time,
+        analogData: parsedFiles[0].analogData,
+        digitalData: parsedFiles[0].digitalData,
+      };
+    } else {
+      // Multiple files - merge by time
+      data = mergeFilesByTime(parsedFiles);
+    }
+
+    console.log(
+      "[batchFileProcessor] ✅ All files parsed and merged successfully"
+    );
+    reportProgress(onProgress, {
+      phase: "complete",
+      current: files.length,
+      total: files.length,
+      message: `Ready to render (${parsedFiles.length} file(s))`,
+    });
+
+    return {
+      cfg,
+      data,
+      isMerged: parsedFiles.length > 1,
+      fileCount: parsedFiles.length,
+      filenames,
+      error: null,
+    };
+  } catch (err) {
+    console.error("[batchFileProcessor] ✗ Error:", err.message);
+    reportProgress(onProgress, {
+      phase: "error",
+      current: 0,
+      total: 0,
+      message: `Error: ${err.message}`,
+    });
+
+    return {
+      cfg: null,
+      data: null,
+      isMerged: false,
+      fileCount: 0,
+      filenames: [],
+      error: err.message,
+    };
+  }
+}
+
+/**
+ * Merge multiple parsed files by time
+ * @private
+ */
+function mergeFilesByTime(parsedFiles) {
+  // Simple merge: concatenate data from all files
+  const mergedTime = [];
+  const mergedAnalogData = [];
+  const mergedDigitalData = [];
+  
+  let timeOffset = 0;
+  
+  parsedFiles.forEach((file, idx) => {
+    const timeDelta = idx === 0 ? 0 : timeOffset;
+    
+    file.time.forEach((t) => {
+      mergedTime.push(t + timeDelta);
+    });
+    
+    file.analogData.forEach((analogSample) => {
+      mergedAnalogData.push(analogSample);
+    });
+    
+    file.digitalData.forEach((digitalSample) => {
+      mergedDigitalData.push(digitalSample);
+    });
+    
+    // Update offset for next file
+    if (file.time.length > 0) {
+      timeOffset = mergedTime[mergedTime.length - 1];
+    }
+  });
+  
+  return {
+    time: mergedTime,
+    analogData: mergedAnalogData,
+    digitalData: mergedDigitalData,
+  };
+}
+
+/**
+ * Read file as text using FileReader
+ * Ensures compatibility across all browsers
+ * @private
+ */
+function readFileAsText(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        resolve(e.target.result);
+      } catch (err) {
+        reject(err);
+      }
+    };
+    reader.onerror = () => {
+      reject(new Error(`Failed to read file: ${file.name}`));
+    };
+    reader.readAsText(file);
+  });
+}
+
+/**
+ * Yield to event loop to prevent UI blocking
+ * Allows browser to process UI events during heavy processing
+ *
+ * @param {number} ms - Milliseconds to wait
+ */
+export function yieldToEventLoop(ms = 0) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Process large arrays in chunks to prevent blocking
+ *
+ * @param {Array} items - Items to process
+ * @param {Function} processor - Async function to process each item
+ * @param {number} chunkSize - How many items per batch
+ * @param {Function} onProgress - Progress callback
+ */
+export async function processInChunks(
+  items,
+  processor,
+  chunkSize = 5,
+  onProgress = null
+) {
+  const results = [];
+  const total = items.length;
+
+  for (let i = 0; i &lt; items.length; i += chunkSize) {
+    const chunk = items.slice(i, i + chunkSize);
+    const chunkResults = await Promise.all(chunk.map(processor));
+    results.push(...chunkResults);
+
+    // Yield to event loop
+    await yieldToEventLoop(10);
+
+    // Report progress
+    if (onProgress) {
+      onProgress({
+        current: Math.min(i + chunkSize, total),
+        total,
+        percentage: Math.round((Math.min(i + chunkSize, total) / total) * 100),
+      });
+    }
+  }
+
+  return results;
+}
+
+/**
+ * Debounced chart rendering
+ * Prevents multiple chart render cycles
+ *
+ * @param {Function} renderFn - Function to call to render charts
+ * @param {number} delay - Milliseconds to wait before rendering
+ * @returns {Function} - Debounced render function
+ */
+export function createDebouncedRender(renderFn, delay = 500) {
+  let timeoutId = null;
+  let isScheduled = false;
+
+  return async function debouncedRender() {
+    if (isScheduled) {
+      console.log("[batchFileProcessor] Render already scheduled, skipping...");
+      return;
+    }
+
+    isScheduled = true;
+
+    if (timeoutId !== null) {
+      clearTimeout(timeoutId);
+    }
+
+    timeoutId = setTimeout(async () => {
+      console.log("[batchFileProcessor] Executing debounced render");
+      try {
+        await renderFn();
+      } finally {
+        isScheduled = false;
+        timeoutId = null;
+      }
+    }, delay);
+  };
+}
+
+/**
+ * Report progress to callback
+ * @private
+ */
+function reportProgress(callback, info) {
+  if (typeof callback === "function") {
+    try {
+      callback(info);
+    } catch (err) {
+      console.error("[batchFileProcessor] Progress callback error:", err);
+    }
+  }
+}
+
+/**
+ * Get memory usage estimate (if available)
+ * @returns {Object|null} - Memory info or null if not available
+ */
+export function getMemoryInfo() {
+  if (performance &amp;&amp; performance.memory) {
+    return {
+      usedJSHeapSize:
+        (performance.memory.usedJSHeapSize / 1048576).toFixed(2) + " MB",
+      totalJSHeapSize:
+        (performance.memory.totalJSHeapSize / 1048576).toFixed(2) + " MB",
+      jsHeapSizeLimit:
+        (performance.memory.jsHeapSizeLimit / 1048576).toFixed(2) + " MB",
+    };
+  }
+  return null;
+}
+
+/**
+ * Clear memory caches
+ * Call this after charts are rendered to free up memory
+ */
+export function clearCaches() {
+  console.log("[batchFileProcessor] Clearing caches to free memory");
+
+  // Force garbage collection hint (non-standard, doesn't actually GC but helps)
+  if (global.gc) {
+    global.gc();
+    console.log("[batchFileProcessor] Garbage collection triggered");
+  }
+
+  // Clear any temporary arrays
+  // (Implementation depends on your data structures)
+}
+
+export default {
+  processFilesInBatches,
+  yieldToEventLoop,
+  processInChunks,
+  createDebouncedRender,
+  getMemoryInfo,
+  clearCaches,
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

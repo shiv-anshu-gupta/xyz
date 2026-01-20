@@ -1,0 +1,47 @@
+/**
+ * Debug Panel - Development debug panel
+ * Dark theme for development visibility
+ */
+
+#debug-panel-lite {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  width: 360px;
+  max-height: 40vh;
+  background: rgba(0, 0, 0, 0.75);
+  color: #e6f2ff;
+  font-family: monospace;
+  font-size: 12px;
+  z-index: 999999;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#debug-panel-lite .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+#debug-panel-lite button {
+  background: transparent;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+#debug-panel-lite .content {
+  padding: 6px 8px;
+  overflow: auto;
+  flex: 1;
+  white-space: nowrap;
+}

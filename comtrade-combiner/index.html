@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COMTRADE File Combiner - Separate Tool</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <h1>⚙️ COMTRADE File Combiner</h1>
+        <p class="subtitle">
+          Combine multiple COMTRADE files with time-window based merging
+        </p>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Left Panel: Settings -->
+        <div class="panel settings-panel">
+          <h2>📋 Settings & Configuration</h2>
+
+          <!-- File Upload -->
+          <div class="form-group">
+            <label>Select COMTRADE Files</label>
+            <input type="file" id="fileInput" multiple accept=".cfg,.dat" />
+            <small>Select .cfg and .dat file pairs</small>
+          </div>
+
+          <!-- Time Window Setting -->
+          <div class="form-group">
+            <label>Time Window (seconds)</label>
+            <input
+              type="number"
+              id="timeWindow"
+              value="2"
+              min="0.1"
+              step="0.1"
+            />
+            <small
+              >Files with timestamps within this window will be combined</small
+            >
+          </div>
+
+          <!-- Channel Filtering Options -->
+          <div class="form-group checkbox-group">
+            <label>
+              <input type="checkbox" id="removeDuplicates" checked />
+              ✓ Remove Duplicate Channels
+            </label>
+            <small>Remove channels with identical names</small>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label>
+              <input type="checkbox" id="removeSimilar" checked />
+              ✓ Remove Similar Channels
+            </label>
+            <small
+              >Detect and remove channels with nearly identical values</small
+            >
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label>
+              Similarity Threshold:
+              <input
+                type="number"
+                id="similarityThreshold"
+                value="0.95"
+                min="0.5"
+                max="1"
+                step="0.01"
+              />
+            </label>
+            <small
+              >0.5 = 50% similar, 1.0 = 100% identical (higher = more
+              strict)</small
+            >
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="button-group">
+            <button id="analyzeBtn" class="btn btn-primary">
+              🔍 Analyze Files
+            </button>
+            <button id="combineBtn" class="btn btn-success" disabled>
+              ✅ Combine & Export
+            </button>
+            <button id="resetBtn" class="btn btn-secondary">🔄 Reset</button>
+          </div>
+        </div>
+
+        <!-- Right Panel: Preview & Results -->
+        <div class="panel preview-panel">
+          <h2>📊 Preview & Analysis Results</h2>
+
+          <!-- Tabs for different views -->
+          <div class="tabs">
+            <button class="tab-button active" data-tab="files">📁 Files</button>
+            <button class="tab-button" data-tab="analysis">📈 Analysis</button>
+            <button class="tab-button" data-tab="groups">🔗 Groups</button>
+            <button class="tab-button" data-tab="report">📋 Report</button>
+            <button class="tab-button" data-tab="preview">👁️ Preview</button>
+          </div>
+
+          <!-- File List Tab -->
+          <div class="tab-content active" id="files-tab">
+            <div class="section">
+              <h3>Uploaded Files</h3>
+              <div id="fileList" class="file-list">
+                <p class="placeholder">No files selected yet</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Analysis Results Tab -->
+          <div class="tab-content" id="analysis-tab">
+            <div class="section">
+              <h3>Analysis Results</h3>
+              <div id="analysisResults" class="analysis-results">
+                <p class="placeholder">Click "Analyze Files" to see results</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Combined Groups Tab -->
+          <div class="tab-content" id="groups-tab">
+            <div class="section">
+              <h3>Combine Groups Preview</h3>
+              <div id="combineGroups" class="combine-groups">
+                <p class="placeholder">Results will appear here</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Report Tab -->
+          <div class="tab-content" id="report-tab">
+            <div class="section">
+              <h3>Combination Report</h3>
+              <div id="detailedReport" class="detailed-report">
+                <p class="placeholder">Generate report after combination</p>
+              </div>
+              <button
+                id="downloadReportBtn"
+                class="btn btn-secondary"
+                style="margin-top: 10px; display: none"
+              >
+                📥 Download Report (JSON)
+              </button>
+            </div>
+          </div>
+
+          <!-- Preview Tab -->
+          <div class="tab-content" id="preview-tab">
+            <div class="section">
+              <h3>Data Preview Chart</h3>
+              <div
+                id="previewChart"
+                class="preview-chart"
+                style="
+                  height: 300px;
+                  border: 1px solid var(--border-color);
+                  border-radius: 6px;
+                "
+              >
+                <p class="placeholder">Preview will appear after combining</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <div class="status-bar">
+        <span id="statusText">Ready</span>
+      </div>
+    </div>
+
+    <!-- Modal for detailed info -->
+    <div id="detailsModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle">Details</h2>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

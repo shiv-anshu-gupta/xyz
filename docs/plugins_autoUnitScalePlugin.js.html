@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> plugins/autoUnitScalePlugin.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-chartUpdateHelpers.html">chartUpdateHelpers</a></li><li><a href="module-components_renderComputedChart.html">components/renderComputedChart</a></li><li><a href="module-components_renderComtradeCharts.html">components/renderComtradeCharts</a></li><li><a href="module-components_renderSingleAnalogChart.html">components/renderSingleAnalogChart</a></li><li><a href="module-components_renderSingleDigitalChart.html">components/renderSingleDigitalChart</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-eventListenerManager.html">eventListenerManager</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-services_computedChannels.html">services/computedChannels</a></li><li><a href="module-services_computedChannels_dataPreparation.html">services/computedChannels/dataPreparation</a></li><li><a href="module-services_computedChannels_eventHandling.html">services/computedChannels/eventHandling</a></li><li><a href="module-services_computedChannels_expressionConversion.html">services/computedChannels/expressionConversion</a></li><li><a href="module-services_computedChannels_resultProcessing.html">services/computedChannels/resultProcessing</a></li><li><a href="module-services_computedChannels_stateUpdate.html">services/computedChannels/stateUpdate</a></li><li><a href="module-services_computedChannels_validators.html">services/computedChannels/validators</a></li><li><a href="module-services_computedChannels_workerManagement.html">services/computedChannels/workerManagement</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-utils_autoGroupChannels.html">utils/autoGroupChannels</a></li><li><a href="module-utils_computedChannelMetadata.html">utils/computedChannelMetadata</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li><li><a href="module-workers_computedChannelWorker.html">workers/computedChannelWorker</a></li></ul><h3>Classes</h3><ul><li><a href="PolarChart.html">PolarChart</a></li><li><a href="PolarChartCanvas.html">PolarChartCanvas</a></li><li><a href="SidebarStore.html">SidebarStore</a></li><li><a href="module-utils_computedChannelMetadata-ComputedChannelMetadata.html">ComputedChannelMetadata</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_CFG_KEY">STORAGE_CFG_KEY</a></li><li><a href="global.html#adjustMainContent">adjustMainContent</a></li><li><a href="global.html#appendComputedChannelToStorage">appendComputedChannelToStorage</a></li><li><a href="global.html#attachChartContainer">attachChartContainer</a></li><li><a href="global.html#attachChartEventHandlers">attachChartEventHandlers</a></li><li><a href="global.html#attachChartPlugins">attachChartPlugins</a></li><li><a href="global.html#attachComputedChartContainer">attachComputedChartContainer</a></li><li><a href="global.html#attachComputedChartEventHandlers">attachComputedChartEventHandlers</a></li><li><a href="global.html#attachComputedChartPlugins">attachComputedChartPlugins</a></li><li><a href="global.html#axisLinesPlugin">axisLinesPlugin</a></li><li><a href="global.html#broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li><a href="global.html#buildChartData">buildChartData</a></li><li><a href="global.html#buildChartOptions">buildChartOptions</a></li><li><a href="global.html#buildComputedChannelLabels">buildComputedChannelLabels</a></li><li><a href="global.html#buildComputedChartOptions">buildComputedChartOptions</a></li><li><a href="global.html#buildGroupsWithAutoGrouping">buildGroupsWithAutoGrouping</a></li><li><a href="global.html#buildGroupsWithUserAssignments">buildGroupsWithUserAssignments</a></li><li><a href="global.html#buildTableBody">buildTableBody</a></li><li><a href="global.html#buildTableHTML">buildTableHTML</a></li><li><a href="global.html#buildTableHeader">buildTableHeader</a></li><li><a href="global.html#buildUnitChartData">buildUnitChartData</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#cleanupOldComputedCharts">cleanupOldComputedCharts</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#closeAnalysisDrawer">closeAnalysisDrawer</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#computeChartDataDimensions">computeChartDataDimensions</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartMetadata">createChartMetadata</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createComputedChartMetadata">createComputedChartMetadata</a></li><li><a href="global.html#createComputedClickHandler">createComputedClickHandler</a></li><li><a href="global.html#createComputedMousemoveHandler">createComputedMousemoveHandler</a></li><li><a href="global.html#createDeltaTableRenderer">createDeltaTableRenderer</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createGroupDragBar">createGroupDragBar</a></li><li><a href="global.html#createMousemoveHandler">createMousemoveHandler</a></li><li><a href="global.html#createProgressBar">createProgressBar</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSidebarResizer">createSidebarResizer</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#createVerticalLineClickHandler">createVerticalLineClickHandler</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#detectGroupFromExpression">detectGroupFromExpression</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#extractChannelMetadata">extractChannelMetadata</a></li><li><a href="global.html#extractChannelNameFromEquation">extractChannelNameFromEquation</a></li><li><a href="global.html#extractGroupId">extractGroupId</a></li><li><a href="global.html#extractMathExpression">extractMathExpression</a></li><li><a href="global.html#filterGroupsWithChannels">filterGroupsWithChannels</a></li><li><a href="global.html#filterIndicesWithData">filterIndicesWithData</a></li><li><a href="global.html#filterTableRows">filterTableRows</a></li><li><a href="global.html#filterUnassignedComputedChannels">filterUnassignedComputedChannels</a></li><li><a href="global.html#filterValidIndices">filterValidIndices</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#formatScaledValue">formatScaledValue</a></li><li><a href="global.html#formatTableData">formatTableData</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getColorHex">getColorHex</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelById">getComputedChannelById</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getComputedChannelsState">getComputedChannelsState</a></li><li><a href="global.html#getElementWidth">getElementWidth</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#groupChannelsByUnit">groupChannelsByUnit</a></li><li><a href="global.html#handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li><li><a href="global.html#handleVerticalLineAddition">handleVerticalLineAddition</a></li><li><a href="global.html#hasDigitalData">hasDigitalData</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideProgress">hideProgress</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initComputedChannelsState">initComputedChannelsState</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeChartInstance">initializeChartInstance</a></li><li><a href="global.html#initializeComputedChartInstance">initializeComputedChartInstance</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#isMathJaxLoaded">isMathJaxLoaded</a></li><li><a href="global.html#listenForComputedChannelChanges">listenForComputedChannelChanges</a></li><li><a href="global.html#loadComputedChannelsForGroup">loadComputedChannelsForGroup</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#loadMathJax">loadMathJax</a></li><li><a href="global.html#mathJaxPromise">mathJaxPromise</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogAndComputedMetadata">mergeAnalogAndComputedMetadata</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openAnalysisDrawer">openAnalysisDrawer</a></li><li><a href="global.html#openBothSidebars">openBothSidebars</a></li><li><a href="global.html#openDeltaWindow">openDeltaWindow</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#openPhasorDiagram">openPhasorDiagram</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#prepareChartDataContext">prepareChartDataContext</a></li><li><a href="global.html#processEquationInput">processEquationInput</a></li><li><a href="global.html#readFileAsText">readFileAsText</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderChannelLabelContainer">renderChannelLabelContainer</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderLatex">renderLatex</a></li><li><a href="global.html#resizeChartsToContainers">resizeChartsToContainers</a></li><li><a href="global.html#resolveGroupIndices">resolveGroupIndices</a></li><li><a href="global.html#resolveTimeArray">resolveTimeArray</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#showProgress">showProgress</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#syncComputedChannelsWithParent">syncComputedChannelsWithParent</a></li><li><a href="global.html#themeContext">themeContext</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#updateComputedChannelGroupInStorage">updateComputedChannelGroupInStorage</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateProgress">updateProgress</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateChannelName">validateChannelName</a></li><li><a href="global.html#validateGroupIndices">validateGroupIndices</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>plugins/autoUnitScalePlugin.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * uPlot Plugin: Auto Unit &amp; SI Prefix Scaling
+ *
+ * Features:
+ * - Automatically applies the best SI prefix (e.g., m, k, M) to axis labels and tick values based on data range.
+ * - Supports both x and y axes, and multiple y axes.
+ * - Customizable user scaling for each axis.
+ * - Preserves original axis label and unit for correct relabeling.
+ * - Robust to missing or custom axis/tick definitions.
+ * - Defensive programming for safe integration.
+ *
+ * Nuances, Limitations, and Known Issues:
+ * - Assumes axis labels contain units in parentheses, e.g., 'Voltage (V)'.
+ * - If axis.ticks is not a function, falls back to 8 evenly spaced ticks.
+ * - User scale (opts.axesScales) must be an array: [xScale, y0Scale, y1Scale, ...].
+ *   - userScale is a multiplicative factor applied to the raw axis values before SI prefix selection and tick label formatting.
+ *   - For example, if your data is in millivolts but you want to display as volts, set userScale to 0.001 for that axis.
+ *   - This allows you to convert or normalize units (e.g., from ms to s, or from kA to A) for display, without modifying your raw data.
+ *   - The plugin will then choose the best SI prefix for the scaled values, and update axis labels and tick values accordingly.
+ * - If axis label/unit is missing, SI prefix is still applied but unit may be omitted.
+ * - Does not support dynamic unit changes after chart creation (unless axis.label is reset externally).
+ * - If axis.values is already set by another plugin, this will override it.
+ *
+ * @param {Object} [opts]
+ *   Plugin options.
+ * @param {number[]} [opts.axesScales] - User scale factors for axes: [xScale, y0Scale, y1Scale, ...].
+ *   - Each entry is a multiplicative factor for the corresponding axis (see above for details).
+ *
+ * @returns {Object} uPlot plugin object with hooks for init, setScale, and ready.
+ *
+ * @example &lt;caption>Basic usage&lt;/caption>
+ * import autoUnitScalePlugin from './plugins/autoUnitScalePlugin.js';
+ *
+ * const opts = {
+ *   ...otherUplotOptions,
+ *   plugins: [autoUnitScalePlugin({ scales: [1, 0.001, 1] })] // e.g., y0 axis in mV, display as V
+ * };
+ * new uPlot(opts, data, target);
+ */
+import { extractUnit } from "../utils/helpers.js";
+import { getSiPrefix } from "../utils/scaleUtils.js";
+import { SI_UNITS } from "../utils/constants.js";
+
+function getUserScale(userScales, scaleKey) {
+  /**
+   * Get the user scale for a given axis.
+   * @param {number[]} userScales - Array of user scale factors.
+   * @param {string} scaleKey - Axis scale key (e.g., 'x', 'y0').
+   * @returns {number} The scale factor for the axis.
+   */
+  if (scaleKey === "x") return userScales[0] || 1;
+  if (scaleKey.startsWith("y")) {
+    const idx = parseInt(scaleKey.slice(1), 10);
+    return userScales[idx + 1] || 1;
+  }
+  return 1;
+}
+
+function getTickVals(axis, u, scaleKey, scale) {
+  /**
+   * Get tick values for an axis.
+   * @param {Object} axis - uPlot axis object.
+   * @param {Object} u - uPlot chart instance.
+   * @param {string} scaleKey - Axis scale key.
+   * @param {Object} scale - uPlot scale object.
+   * @returns {number[]} Array of tick values.
+   */
+  if (typeof axis.ticks === "function") {
+    return axis.ticks(u, scaleKey, scale.min, scale.max);
+  }
+  // Fallback: generate 8 ticks evenly spaced
+  const n = 8;
+  const step = (scale.max - scale.min) / (n - 1);
+  return Array.from({ length: n }, (_, i) => scale.min + i * step);
+}
+
+function findBestSiUnit(tickVals, userScale) {
+  /**
+   * Find the best SI unit for tick values.
+   * @param {number[]} tickVals - Array of tick values.
+   * @param {number} userScale - User scale factor for the axis.
+   * @returns {Object} The best SI unit object.
+   */
+  let bestIdx = 0;
+  for (let siIdx = 0; siIdx &lt; SI_UNITS.length; ++siIdx) {
+    const scaledTicks = tickVals.map(v => v * userScale / SI_UNITS[siIdx].value);
+    let minDiff = Infinity;
+    for (let i = 1; i &lt; scaledTicks.length; ++i) {
+      let diff = Math.abs(scaledTicks[i] - scaledTicks[i - 1]);
+      if (diff &lt; minDiff) minDiff = diff;
+    }
+    if (minDiff > 0.5) bestIdx = siIdx;
+  }
+  return SI_UNITS[bestIdx];
+}
+
+// Helper: format tick label (first/last full, others LSB digits, configurable decimals)
+function defaultTickLabelFormatter(scaled, i, total, lsbDigits = 3, decimals = 1) {
+  /**
+   * Default tick label formatter for the axis.
+   * @param {number} scaled - The scaled tick value.
+   * @param {number} i - The index of the tick.
+   * @param {number} total - Total number of ticks.
+   * @param {number} [lsbDigits=3] - Number of least significant digits for inner ticks.
+   * @param {number} [decimals=1] - Number of decimals for formatting.
+   * @returns {string} The formatted tick label.
+   */
+  if (i === 0 || i === total - 1) {
+    return scaled.toFixed(decimals);
+  }
+  const absStr = Math.abs(scaled.toFixed(decimals)).toString();
+  const lsb = absStr.slice(-lsbDigits);
+  return (scaled &lt; 0 ? '-' : '') + lsb;
+}
+
+function autoScaleAxis(u, scaleKey, userScales, lsbDigits = 3, decimals = 1, tickLabelFormatter, autoScaleUnit) {
+  /**
+   * Automatically scale axis and update label/formatter.
+   * @param {Object} u - uPlot chart instance.
+   * @param {string} scaleKey - Axis scale key.
+   * @param {number[]} userScales - Array of user scale factors.
+   * @param {number} [lsbDigits=3] - Number of least significant digits for inner ticks.
+   * @param {number} [decimals=1] - Number of decimals for formatting.
+   * @param {Function} [tickLabelFormatter] - Custom tick label formatter.
+   * @param {Object} [autoScaleUnit] - Object with x/y boolean flags for scaling.
+   */
+  const scale = u.scales[scaleKey];
+  const axis = u.axes.find(a => a.scale === scaleKey);
+  if (!axis || !scale) return;
+  // Check autoScaleUnit property
+  if (autoScaleUnit) {
+    if (scaleKey === 'x' &amp;&amp; autoScaleUnit.x === false) return;
+    if (scaleKey.startsWith('y') &amp;&amp; autoScaleUnit.y === false) return;
+  }
+
+  // Store the original label and unit if not already done
+  if (!axis._labelOriginal) {
+    axis._labelOriginal = axis.label || "";
+    axis._unitOriginal = extractUnit(axis._labelOriginal);
+  }
+
+  const userScale = getUserScale(userScales, scaleKey);
+  const tickVals = getTickVals(axis, u, scaleKey, scale);
+  const bestSi = findBestSiUnit(tickVals, userScale);
+
+  // Update axis label with SI prefix and original unit
+  const baseLabel = axis._labelOriginal.split("(")[0].trim();
+  const unit = axis._unitOriginal || "";
+  axis.label = unit ? `${baseLabel} (${bestSi.symbol}${unit})` : baseLabel;
+
+  // Update axis value formatter: use custom or default formatter
+  axis.values = (u, vals) => {
+    if (!Array.isArray(vals) || vals.length === 0) return [];
+    return vals.map((v, i) => {
+      const scaled = (v * userScale / bestSi.value);
+      if (typeof tickLabelFormatter === 'function') {
+        return tickLabelFormatter(scaled, i, vals.length, lsbDigits, decimals);
+      }
+      return defaultTickLabelFormatter(scaled, i, vals.length, lsbDigits, decimals);
+    });
+  };
+}
+
+/**
+ * uPlot Plugin: Auto Unit &amp; SI Prefix Scaling
+ * @param {Object} [opts]
+ *   @param {number[]} [opts.axesScales] - User scale factors for axes: [xScale, y0Scale, y1Scale, ...].
+ *   @param {number} [opts.lsbDigits=3] - Number of least significant digits for inner ticks.
+ *   @param {number} [opts.decimals=1] - Number of decimals for formatting.
+ *   @param {Function} [opts.tickLabelFormatter] - Custom tick label formatter: (scaled, i, total, lsbDigits, decimals) => string
+ *   @param {Object} [opts.autoScaleUnit] - Object with x/y boolean flags for scaling (e.g., {x: true, y: false})
+ * @returns {Object} uPlot plugin object
+ */
+export default function autoUnitScalePlugin(opts = {}) {
+  /**
+   * uPlot Plugin: Auto Unit &amp; SI Prefix Scaling
+   * @param {Object} [opts]
+   *   @param {number[]} [opts.axesScales] - User scale factors for axes: [xScale, y0Scale, y1Scale, ...].
+   *   @param {number} [opts.lsbDigits=3] - Number of least significant digits for inner ticks.
+   *   @param {number} [opts.decimals=1] - Number of decimals for formatting.
+   *   @param {Function} [opts.tickLabelFormatter] - Custom tick label formatter: (scaled, i, total, lsbDigits, decimals) => string
+   *   @param {Object} [opts.autoScaleUnit] - Object with x/y boolean flags for scaling (e.g., {x: true, y: false})
+   * @returns {Object} uPlot plugin object
+   */
+  const userScales = Array.isArray(opts.axesScales) ? opts.axesScales : [];
+  const lsbDigits = typeof opts.lsbDigits === 'number' ? opts.lsbDigits : 3;
+  const decimals = typeof opts.decimals === 'number' ? opts.decimals : 1;
+  const tickLabelFormatter = typeof opts.tickLabelFormatter === 'function' ? opts.tickLabelFormatter : undefined;
+  const autoScaleUnit = typeof opts.autoScaleUnit === 'object' ? opts.autoScaleUnit : { x: true, y: true };
+
+  return {
+    id: 'autoUnitScalePlugin',
+    hooks: {
+      init: u => {
+        u.axes.forEach(axis => {
+          if (!axis._labelOriginal) {
+            axis._labelOriginal = axis.label || "";
+            axis._unitOriginal = extractUnit(axis._labelOriginal);
+          }
+        });
+      },
+      setScale: (u, scaleKey) => {
+        autoScaleAxis(u, scaleKey, userScales, lsbDigits, decimals, tickLabelFormatter, autoScaleUnit);
+      },
+      ready: u => {
+        if (autoScaleUnit.x !== false) autoScaleAxis(u, "x", userScales, lsbDigits, decimals, tickLabelFormatter, autoScaleUnit);
+        u.axes.forEach(axis => {
+          if (axis.scale.startsWith("y") &amp;&amp; autoScaleUnit.y !== false) autoScaleAxis(u, axis.scale, userScales, lsbDigits, decimals, tickLabelFormatter, autoScaleUnit);
+        });
+      }
+    }
+  };
+}
+// This plugin automatically applies SI prefixes to axis labels and tick values
+// based on the data range, enhancing readability and usability of uPlot charts.</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

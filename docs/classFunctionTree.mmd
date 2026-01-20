@@ -1,0 +1,208 @@
+flowchart TB
+  subgraph src_components_ChannelList_js
+    createChannelList[function: createChannelList]
+    createList[function: createList]
+    createChannelList --> createList
+  end
+  subgraph src_components_chartComponent_js
+    createChartOptions[function: createChartOptions]
+    logScalesDiagnostics[function: logScalesDiagnostics]
+    createChartOptions --> logScalesDiagnostics
+  end
+  subgraph src_components_chartDomUtils_js
+    createChartContainer[function: createChartContainer]
+    initUPlotChart[function: initUPlotChart]
+    createChartContainer --> initUPlotChart
+  end
+  subgraph src_components_chartManager_js
+    subscribeChartUpdates[function: subscribeChartUpdates]
+    recreateChart[function: recreateChart]
+    subscribeChartUpdates --> recreateChart
+    updateVerticalLinesOverlay[function: updateVerticalLinesOverlay]
+    recreateChart --> updateVerticalLinesOverlay
+  end
+  subgraph src_components_comtradeUtils_js
+    parseCFG[function: parseCFG]
+    parseTime[function: parseTime]
+    parseCFG --> parseTime
+    parseDAT[function: parseDAT]
+    parseTime --> parseDAT
+    convertTime[function: convertTime]
+    parseDAT --> convertTime
+  end
+  subgraph src_components_createDragBar_js
+    createDragBar[function: createDragBar]
+  end
+  subgraph src_components_createState_copy_2_js
+    createState[function: createState]
+    isObject[function: isObject]
+    createState --> isObject
+    isMap[function: isMap]
+    isObject --> isMap
+    createDeepProxy[function: createDeepProxy]
+    isMap --> createDeepProxy
+    wrapped[function: wrapped]
+    createDeepProxy --> wrapped
+    getByPath[function: getByPath]
+    wrapped --> getByPath
+    setByPath[function: setByPath]
+    getByPath --> setByPath
+    updateDOM[function: updateDOM]
+    setByPath --> updateDOM
+    listener[function: listener]
+    updateDOM --> listener
+    handler[function: handler]
+    listener --> handler
+    unwrap[function: unwrap]
+    handler --> unwrap
+  end
+  subgraph src_components_createState_copy_js
+    createState[function: createState]
+    isObject[function: isObject]
+    createState --> isObject
+    createDeepProxy[function: createDeepProxy]
+    isObject --> createDeepProxy
+    getByPath[function: getByPath]
+    createDeepProxy --> getByPath
+    setByPath[function: setByPath]
+    getByPath --> setByPath
+    updateDOM[function: updateDOM]
+    setByPath --> updateDOM
+    listener[function: listener]
+    updateDOM --> listener
+    handler[function: handler]
+    listener --> handler
+    unwrap[function: unwrap]
+    handler --> unwrap
+  end
+  subgraph src_components_createState_js
+    createState[function: createState]
+    notify[function: notify]
+    createState --> notify
+    isObject[function: isObject]
+    notify --> isObject
+    isMap[function: isMap]
+    isObject --> isMap
+    createDeepProxy[function: createDeepProxy]
+    isMap --> createDeepProxy
+    notify[function: notify]
+    createDeepProxy --> notify
+    applyMiddlewares[function: applyMiddlewares]
+    notify --> applyMiddlewares
+    createDeepProxy[function: createDeepProxy]
+    applyMiddlewares --> createDeepProxy
+    getByPath[function: getByPath]
+    createDeepProxy --> getByPath
+    setByPath[function: setByPath]
+    getByPath --> setByPath
+    updateDOM[function: updateDOM]
+    setByPath --> updateDOM
+    listener[function: listener]
+    updateDOM --> listener
+    handler[function: handler]
+    listener --> handler
+    unwrap[function: unwrap]
+    handler --> unwrap
+  end
+  subgraph src_components_handleVerticalLineShortcuts_js
+    handleVerticalLineShortcuts[function: handleVerticalLineShortcuts]
+  end
+  subgraph src_components_renderAnalogCharts_js
+    renderAnalogCharts[function: renderAnalogCharts]
+  end
+  subgraph src_components_renderComtradeCharts_js
+    renderComtradeCharts[function: renderComtradeCharts]
+  end
+  subgraph src_components_renderDigitalCharts_js
+    renderDigitalCharts[function: renderDigitalCharts]
+  end
+  subgraph src_components_ResizableGroup_js
+    ResizableGroup[class: ResizableGroup]
+    onMouseMove[function: onMouseMove]
+    ResizableGroup --> onMouseMove
+    onMouseUp[function: onMouseUp]
+    onMouseMove --> onMouseUp
+  end
+  subgraph src_components_setupChartDragAndDrop_js
+    setupChartDragAndDrop[function: setupChartDragAndDrop]
+  end
+  subgraph src_components_showChannelListWindow_js
+    showChannelListWindow[function: showChannelListWindow]
+    renderList[function: renderList]
+    showChannelListWindow --> renderList
+  end
+  subgraph src_components_showError_js
+    showError[function: showError]
+  end
+  subgraph src_main_js
+    handleLoadFiles[function: handleLoadFiles]
+    initializeChannelState[function: initializeChannelState]
+    handleLoadFiles --> initializeChannelState
+  end
+  subgraph src_plugins_autoUnitScalePlugin_js
+    getUserScale[function: getUserScale]
+    getTickVals[function: getTickVals]
+    getUserScale --> getTickVals
+    findBestSiUnit[function: findBestSiUnit]
+    getTickVals --> findBestSiUnit
+    defaultTickLabelFormatter[function: defaultTickLabelFormatter]
+    findBestSiUnit --> defaultTickLabelFormatter
+    autoScaleAxis[function: autoScaleAxis]
+    defaultTickLabelFormatter --> autoScaleAxis
+    autoUnitScalePlugin[function: autoUnitScalePlugin]
+    autoScaleAxis --> autoUnitScalePlugin
+  end
+  subgraph src_plugins_digitalFillPlugin_js
+    createDigitalFillPlugin[function: createDigitalFillPlugin]
+  end
+  subgraph src_plugins_horizontalZoomPanPlugin_js
+    horizontalZoomPanPlugin[function: horizontalZoomPanPlugin]
+    applyZoomPanToCharts[function: applyZoomPanToCharts]
+    horizontalZoomPanPlugin --> applyZoomPanToCharts
+    calcNewRange[function: calcNewRange]
+    applyZoomPanToCharts --> calcNewRange
+    onWheel[function: onWheel]
+    calcNewRange --> onWheel
+    onKeyDown[function: onKeyDown]
+    onWheel --> onKeyDown
+  end
+  subgraph src_plugins_verticalLinePlugin_js
+    verticalLinePlugin[function: verticalLinePlugin]
+    isHoveringLine[function: isHoveringLine]
+    verticalLinePlugin --> isHoveringLine
+    updateLines[function: updateLines]
+    isHoveringLine --> updateLines
+    isArrayLike[function: isArrayLike]
+    updateLines --> isArrayLike
+  end
+  subgraph src_utils_autoGroupChannels_js
+    autoGroupChannels[function: autoGroupChannels]
+  end
+  subgraph src_utils_calculateDeltas_js
+    calculateDeltas[function: calculateDeltas]
+  end
+  subgraph src_utils_chartDomUtils_js
+    createChartContainer[function: createChartContainer]
+    initUPlotChart[function: initUPlotChart]
+    createChartContainer --> initUPlotChart
+  end
+  subgraph src_utils_chartUtils_js
+    destroyCharts[function: destroyCharts]
+  end
+  subgraph src_utils_digitalChannelUtils_js
+    findChangedDigitalChannelIndices[function: findChangedDigitalChannelIndices]
+  end
+  subgraph src_utils_helpers_js
+    extractUnit[function: extractUnit]
+    nearestIndex[function: nearestIndex]
+    extractUnit --> nearestIndex
+    getNearestIndex[function: getNearestIndex]
+    nearestIndex --> getNearestIndex
+    createCustomElement[function: createCustomElement]
+    getNearestIndex --> createCustomElement
+  end
+  subgraph src_utils_scaleUtils_js
+    getSiPrefix[function: getSiPrefix]
+    makeAxisValueFormatter[function: makeAxisValueFormatter]
+    getSiPrefix --> makeAxisValueFormatter
+  end

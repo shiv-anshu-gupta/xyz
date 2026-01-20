@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/DeltaWindow.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartDomUtils.html">chartDomUtils</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-performanceMonitor.html">performanceMonitor</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li></ul><h3>Classes</h3><ul><li><a href="ComputedChannelMetadata.html">ComputedChannelMetadata</a></li><li><a href="PolarChart.html">PolarChart</a></li><li><a href="module-performanceMonitor-PhaseTracker.html">PhaseTracker</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_KEY">STORAGE_KEY</a></li><li><a href="global.html#THEMES">THEMES</a></li><li><a href="global.html#applyTheme">applyTheme</a></li><li><a href="global.html#autoGroupChannels">autoGroupChannels</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#clearCaches">clearCaches</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelsLabels">createComputedChannelsLabels</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createDebouncedRender">createDebouncedRender</a></li><li><a href="global.html#createDeltaWindow">createDeltaWindow</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportAsASCII">exportAsASCII</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getCurrentTheme">getCurrentTheme</a></li><li><a href="global.html#getCurrentThemeColors">getCurrentThemeColors</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getMemoryInfo">getMemoryInfo</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#getThemeColor">getThemeColor</a></li><li><a href="global.html#groupCfgDatFiles">groupCfgDatFiles</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initTheme">initTheme</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#processFilesInBatches">processFilesInBatches</a></li><li><a href="global.html#processInChunks">processInChunks</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderComtradeCharts">renderComtradeCharts</a></li><li><a href="global.html#saveComputedChannelToGlobals">saveComputedChannelToGlobals</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#separateComputedFiles">separateComputedFiles</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#setupPolarChartWithVerticalLines">setupPolarChartWithVerticalLines</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#sortFilePairs">sortFilePairs</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#toggleTheme">toggleTheme</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateSampleRates">validateSampleRates</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li><li><a href="global.html#yieldToEventLoop">yieldToEventLoop</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/DeltaWindow.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Delta Display Window Component
+ * Shows detailed delta measurements in a separate popup window
+ */
+
+export function createDeltaWindow() {
+  let popupWindow = null;
+
+  return {
+    show: () => {
+      console.log("[DeltaWindow] show() called");
+      if (!popupWindow || popupWindow.closed) {
+        // Open new popup window
+        const windowFeatures =
+          "width=550,height=700,resizable=yes,scrollbars=yes,status=no,toolbar=no,menubar=no";
+        popupWindow = window.open("", "DeltaWindow", windowFeatures);
+
+        if (!popupWindow) {
+          alert(
+            "❌ Failed to open Delta Window. Please check your popup blocker settings."
+          );
+          return;
+        }
+
+        popupWindow.document.title = "Delta Measurements";
+
+        // Set up HTML structure in popup
+        popupWindow.document.head.innerHTML = `
+          &lt;meta charset="UTF-8">
+          &lt;title>Delta Measurements&lt;/title>
+          &lt;style>
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+
+            body {
+              background: #ffffff;
+              color: #000;
+              font-family: Arial, sans-serif;
+              min-height: 100vh;
+            }
+
+            .window-container {
+              display: flex;
+              flex-direction: column;
+              height: 100vh;
+            }
+
+            .header {
+              background: #ffffff;
+              padding: 12px;
+              border-bottom: 1px solid #ccc;
+              font-weight: bold;
+              font-size: 14px;
+              color: #000;
+            }
+
+            .content {
+              flex: 1;
+              overflow-y: auto;
+              padding: 12px;
+              background: #ffffff;
+            }
+
+            .delta-section {
+              margin-bottom: 12px;
+              padding: 8px;
+              background: #ffffff;
+              border-bottom: 1px solid #eee;
+            }
+
+            .delta-section-title {
+              font-weight: bold;
+              font-size: 11px;
+              color: #000;
+              margin-bottom: 6px;
+            }
+
+            .delta-item {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin: 4px 0;
+              padding: 4px;
+              font-size: 12px;
+            }
+
+            .delta-label {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              flex: 1;
+            }
+
+            .delta-color-dot {
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              flex-shrink: 0;
+            }
+
+            .delta-value {
+              display: flex;
+              gap: 16px;
+              justify-content: flex-end;
+              flex: 1;
+            }
+
+            .delta-metric {
+              text-align: right;
+              font-size: 12px;
+            }
+
+            .delta-metric-label {
+              font-size: 10px;
+              color: #666;
+            }
+
+            .delta-metric-value {
+              font-weight: bold;
+              color: #000;
+              font-family: monospace;
+            }
+
+            .delta-percentage {
+              color: #000;
+            }
+
+            .delta-percentage.negative {
+              color: #000;
+            }
+
+            .delta-time-box {
+              background: #ffffff;
+              border: 1px solid #ccc;
+              padding: 8px;
+              margin-bottom: 12px;
+              text-align: center;
+            }
+
+            .delta-time-label {
+              font-size: 10px;
+              color: #666;
+              margin-bottom: 4px;
+            }
+
+            .delta-time-value {
+              font-size: 14px;
+              font-weight: bold;
+              color: #000;
+              font-family: monospace;
+            }
+
+            .delta-empty {
+              text-align: center;
+              color: #666;
+              padding: 24px 12px;
+              font-size: 12px;
+            }
+
+            .footer {
+              background: #ffffff;
+              padding: 8px 12px;
+              border-top: 1px solid #ccc;
+              font-size: 10px;
+              color: #666;
+              text-align: center;
+            }
+          &lt;/style>
+        `;
+
+        popupWindow.document.body.innerHTML = `
+          &lt;div class="window-container">
+            &lt;div class="header">Delta Measurements&lt;/div>
+            &lt;div id="delta-content" class="content">
+              &lt;div class="delta-empty">Waiting for vertical lines...&lt;/div>
+            &lt;/div>
+            &lt;div class="footer">Position the window where you can see both the chart and measurements&lt;/div>
+          &lt;/div>
+        `;
+      } else {
+        popupWindow.focus();
+      }
+    },
+
+    hide: () => {
+      console.log("[DeltaWindow] hide() called");
+      if (popupWindow &amp;&amp; !popupWindow.closed) {
+        popupWindow.close();
+        popupWindow = null;
+      }
+    },
+
+    update: (deltaData) => {
+      if (!popupWindow || popupWindow.closed) {
+        // Window was closed, show it again
+        this.show();
+      }
+
+      if (popupWindow &amp;&amp; !popupWindow.closed) {
+        const contentElement =
+          popupWindow.document.getElementById("delta-content");
+        if (contentElement) {
+          updateDeltaWindow(contentElement, deltaData, popupWindow.document);
+        }
+      }
+    },
+
+    clear: () => {
+      console.log("[DeltaWindow] clear() called");
+      if (popupWindow &amp;&amp; !popupWindow.closed) {
+        const contentElement =
+          popupWindow.document.getElementById("delta-content");
+        if (contentElement) {
+          contentElement.innerHTML = "";
+        }
+      }
+    },
+  };
+}
+
+export function updateDeltaWindow(contentElement, deltaData, doc = document) {
+  console.log("[updateDeltaWindow] Called with:", {
+    hasDeltaData: !!deltaData,
+    sections: deltaData ? deltaData.length : 0,
+  });
+
+  contentElement.innerHTML = "";
+
+  if (!deltaData || deltaData.length === 0) {
+    console.log("[updateDeltaWindow] No delta data, showing empty state");
+    contentElement.innerHTML =
+      '&lt;div class="delta-empty">No vertical lines created yet.&lt;br>Add lines using Alt+1 on the chart.&lt;/div>';
+    return;
+  }
+
+  console.log("[updateDeltaWindow] Processing delta data sections:", deltaData);
+
+  deltaData.forEach((section, sectionIdx) => {
+    console.log(`[updateDeltaWindow] Processing section ${sectionIdx}:`, {
+      deltaTime: section.deltaTime,
+      seriesCount: section.series ? section.series.length : 0,
+    });
+
+    // Time delta box
+    if (sectionIdx === 0 || section.deltaTime !== undefined) {
+      const timeBox = doc.createElement("div");
+      timeBox.className = "delta-time-box";
+      timeBox.innerHTML = `
+        &lt;div class="delta-time-label">Time Difference (T${sectionIdx + 1} → T${
+        sectionIdx + 2
+      })&lt;/div>
+        &lt;div class="delta-time-value">${section.deltaTime}&lt;/div>
+      `;
+      contentElement.appendChild(timeBox);
+    }
+
+    // Series deltas
+    if (section.series &amp;&amp; section.series.length > 0) {
+      const seriesSection = doc.createElement("div");
+      seriesSection.className = "delta-section";
+
+      const sectionTitle = doc.createElement("div");
+      sectionTitle.className = "delta-section-title";
+      sectionTitle.textContent = `Line Pair: T${sectionIdx + 1} → T${
+        sectionIdx + 2
+      }`;
+      seriesSection.appendChild(sectionTitle);
+
+      section.series.forEach((seriesData) => {
+        const item = doc.createElement("div");
+        item.className = "delta-item";
+
+        const label = doc.createElement("div");
+        label.className = "delta-label";
+
+        const colorDot = doc.createElement("div");
+        colorDot.className = "delta-color-dot";
+        colorDot.style.backgroundColor = seriesData.color;
+
+        const seriesName = doc.createElement("span");
+        seriesName.textContent = seriesData.name;
+        seriesName.style.color = seriesData.color;
+        seriesName.style.fontWeight = "500";
+
+        label.appendChild(colorDot);
+        label.appendChild(seriesName);
+
+        const valueContainer = doc.createElement("div");
+        valueContainer.className = "delta-value";
+
+        // V1 → V2
+        const valuesMetric = doc.createElement("div");
+        valuesMetric.className = "delta-metric";
+        valuesMetric.innerHTML = `
+          &lt;div class="delta-metric-label">Values&lt;/div>
+          &lt;div class="delta-metric-value">${seriesData.v1.toFixed(
+            2
+          )} → ${seriesData.v2.toFixed(2)}&lt;/div>
+        `;
+
+        // Delta value
+        const deltaMetric = doc.createElement("div");
+        deltaMetric.className = "delta-metric";
+        deltaMetric.innerHTML = `
+          &lt;div class="delta-metric-label">Δ Value&lt;/div>
+          &lt;div class="delta-metric-value">${seriesData.deltaY.toFixed(2)}&lt;/div>
+        `;
+
+        // Percentage change
+        const percentMetric = doc.createElement("div");
+        percentMetric.className = "delta-metric";
+        const percentClass =
+          seriesData.percentage &lt; 0
+            ? "delta-percentage negative"
+            : "delta-percentage";
+        percentMetric.innerHTML = `
+          &lt;div class="delta-metric-label">Δ %&lt;/div>
+          &lt;div class="${percentClass}">${seriesData.percentage}%&lt;/div>
+        `;
+
+        valueContainer.appendChild(valuesMetric);
+        valueContainer.appendChild(deltaMetric);
+        valueContainer.appendChild(percentMetric);
+
+        item.appendChild(label);
+        item.appendChild(valueContainer);
+        seriesSection.appendChild(item);
+      });
+
+      contentElement.appendChild(seriesSection);
+    }
+  });
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

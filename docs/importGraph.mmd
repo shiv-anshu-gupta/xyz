@@ -1,0 +1,194 @@
+flowchart TB
+  src_components_ChannelList_js --> ___utils_helpers_js
+  src_components_chartComponent_js --> ___utils_scaleUtils_js
+  src_components_chartComponent_js --> ___utils_helpers_js
+  src_components_chartComponent_js --> __createState_js
+  src_components_chartComponent_js --> ___utils_calculateDeltas_js
+  src_components_chartComponent_js --> ___utils_constants_js
+  src_components_chartComponent_js --> ___plugins_autoUnitScalePlugin_js
+  src_components_chartComponent_js --> ___plugins_verticalLinePlugin_js
+  src_components_chartComponent_js --> ___plugins_horizontalZoomPanPlugin_js
+  src_components_chartDomUtils_js --> ___utils_helpers_js
+  src_components_chartManager_js --> __chartComponent_js
+  src_components_createDragBar_js --> ___utils_helpers_js
+  src_components_renderAnalogCharts_js --> __chartComponent_js
+  src_components_renderAnalogCharts_js --> __createDragBar_js
+  src_components_renderAnalogCharts_js --> ___utils_helpers_js
+  src_components_renderAnalogCharts_js --> ___utils_chartDomUtils_js
+  src_components_renderAnalogCharts_js --> ___plugins_verticalLinePlugin_js
+  src_components_renderComtradeCharts_js --> __chartComponent_js
+  src_components_renderComtradeCharts_js --> __createDragBar_js
+  src_components_renderComtradeCharts_js --> __setupChartDragAndDrop_js
+  src_components_renderComtradeCharts_js --> __renderAnalogCharts_js
+  src_components_renderComtradeCharts_js --> __renderDigitalCharts_js
+  src_components_renderComtradeCharts_js --> ___utils_chartUtils_js
+  src_components_renderComtradeCharts_js --> ___utils_autoGroupChannels_js
+  src_components_renderComtradeCharts_js --> ___plugins_digitalFillPlugin_js
+  src_components_renderComtradeCharts_js --> __createState_js
+  src_components_renderDigitalCharts_js --> __chartComponent_js
+  src_components_renderDigitalCharts_js --> __createDragBar_js
+  src_components_renderDigitalCharts_js --> ___plugins_digitalFillPlugin_js
+  src_components_renderDigitalCharts_js --> ___utils_digitalChannelUtils_js
+  src_components_renderDigitalCharts_js --> ___utils_helpers_js
+  src_components_renderDigitalCharts_js --> ___plugins_verticalLinePlugin_js
+  src_components_showChannelListWindow_js --> __ChannelList_js
+  src_main_js --> __components_chartComponent_js
+  src_main_js --> __components_comtradeUtils_js
+  src_main_js --> __components_createState_js
+  src_main_js --> __utils_calculateDeltas_js
+  src_main_js --> __utils_autoGroupChannels_js
+  src_main_js --> __components_createDragBar_js
+  src_main_js --> __components_setupChartDragAndDrop_js
+  src_main_js --> __components_handleVerticalLineShortcuts_js
+  src_main_js --> __components_showError_js
+  src_main_js --> __components_renderComtradeCharts_js
+  src_main_js --> __components_ResizableGroup_js
+  src_main_js --> __components_showChannelListWindow_js
+  src_main_js --> __utils_helpers_js
+  src_main_js --> __utils_constants_js
+  src_main_js --> __components_chartManager_js
+  src_plugins_autoUnitScalePlugin_js --> ___utils_helpers_js
+  src_plugins_autoUnitScalePlugin_js --> ___utils_scaleUtils_js
+  src_plugins_autoUnitScalePlugin_js --> ___utils_constants_js
+  src_plugins_verticalLinePlugin_js --> ___utils_constants_js
+  src_plugins_verticalLinePlugin_js --> ___utils_helpers_js
+  src_plugins_verticalLinePlugin_js --> ___utils_calculateDeltas_js
+  src_utils_calculateDeltas_js --> __constants_js
+  src_utils_calculateDeltas_js --> __helpers_js
+  src_utils_chartDomUtils_js --> __helpers_js
+  src_utils_constants_js --> __tailwindColors_js
+  src_utils_scaleUtils_js --> __constants_js
+  subgraph src_components_ChannelList_js
+    ___utils_helpers_js
+  end
+  subgraph src_components_chartComponent_js
+    ___utils_scaleUtils_js
+    ___utils_helpers_js
+    ___utils_scaleUtils_js --> ___utils_helpers_js
+    __createState_js
+    ___utils_helpers_js --> __createState_js
+    ___utils_calculateDeltas_js
+    __createState_js --> ___utils_calculateDeltas_js
+    ___utils_constants_js
+    ___utils_calculateDeltas_js --> ___utils_constants_js
+    ___plugins_autoUnitScalePlugin_js
+    ___utils_constants_js --> ___plugins_autoUnitScalePlugin_js
+    ___plugins_verticalLinePlugin_js
+    ___plugins_autoUnitScalePlugin_js --> ___plugins_verticalLinePlugin_js
+    ___plugins_horizontalZoomPanPlugin_js
+    ___plugins_verticalLinePlugin_js --> ___plugins_horizontalZoomPanPlugin_js
+  end
+  subgraph src_components_chartDomUtils_js
+    ___utils_helpers_js
+  end
+  subgraph src_components_chartManager_js
+    __chartComponent_js
+  end
+  subgraph src_components_createDragBar_js
+    ___utils_helpers_js
+  end
+  subgraph src_components_renderAnalogCharts_js
+    __chartComponent_js
+    __createDragBar_js
+    __chartComponent_js --> __createDragBar_js
+    ___utils_helpers_js
+    __createDragBar_js --> ___utils_helpers_js
+    ___utils_chartDomUtils_js
+    ___utils_helpers_js --> ___utils_chartDomUtils_js
+    ___plugins_verticalLinePlugin_js
+    ___utils_chartDomUtils_js --> ___plugins_verticalLinePlugin_js
+  end
+  subgraph src_components_renderComtradeCharts_js
+    __chartComponent_js
+    __createDragBar_js
+    __chartComponent_js --> __createDragBar_js
+    __setupChartDragAndDrop_js
+    __createDragBar_js --> __setupChartDragAndDrop_js
+    __renderAnalogCharts_js
+    __setupChartDragAndDrop_js --> __renderAnalogCharts_js
+    __renderDigitalCharts_js
+    __renderAnalogCharts_js --> __renderDigitalCharts_js
+    ___utils_chartUtils_js
+    __renderDigitalCharts_js --> ___utils_chartUtils_js
+    ___utils_autoGroupChannels_js
+    ___utils_chartUtils_js --> ___utils_autoGroupChannels_js
+    ___plugins_digitalFillPlugin_js
+    ___utils_autoGroupChannels_js --> ___plugins_digitalFillPlugin_js
+    __createState_js
+    ___plugins_digitalFillPlugin_js --> __createState_js
+  end
+  subgraph src_components_renderDigitalCharts_js
+    __chartComponent_js
+    __createDragBar_js
+    __chartComponent_js --> __createDragBar_js
+    ___plugins_digitalFillPlugin_js
+    __createDragBar_js --> ___plugins_digitalFillPlugin_js
+    ___utils_digitalChannelUtils_js
+    ___plugins_digitalFillPlugin_js --> ___utils_digitalChannelUtils_js
+    ___utils_helpers_js
+    ___utils_digitalChannelUtils_js --> ___utils_helpers_js
+    ___plugins_verticalLinePlugin_js
+    ___utils_helpers_js --> ___plugins_verticalLinePlugin_js
+  end
+  subgraph src_components_showChannelListWindow_js
+    __ChannelList_js
+  end
+  subgraph src_main_js
+    __components_chartComponent_js
+    __components_comtradeUtils_js
+    __components_chartComponent_js --> __components_comtradeUtils_js
+    __components_createState_js
+    __components_comtradeUtils_js --> __components_createState_js
+    __utils_calculateDeltas_js
+    __components_createState_js --> __utils_calculateDeltas_js
+    __utils_autoGroupChannels_js
+    __utils_calculateDeltas_js --> __utils_autoGroupChannels_js
+    __components_createDragBar_js
+    __utils_autoGroupChannels_js --> __components_createDragBar_js
+    __components_setupChartDragAndDrop_js
+    __components_createDragBar_js --> __components_setupChartDragAndDrop_js
+    __components_handleVerticalLineShortcuts_js
+    __components_setupChartDragAndDrop_js --> __components_handleVerticalLineShortcuts_js
+    __components_showError_js
+    __components_handleVerticalLineShortcuts_js --> __components_showError_js
+    __components_renderComtradeCharts_js
+    __components_showError_js --> __components_renderComtradeCharts_js
+    __components_ResizableGroup_js
+    __components_renderComtradeCharts_js --> __components_ResizableGroup_js
+    __components_showChannelListWindow_js
+    __components_ResizableGroup_js --> __components_showChannelListWindow_js
+    __utils_helpers_js
+    __components_showChannelListWindow_js --> __utils_helpers_js
+    __utils_constants_js
+    __utils_helpers_js --> __utils_constants_js
+    __components_chartManager_js
+    __utils_constants_js --> __components_chartManager_js
+  end
+  subgraph src_plugins_autoUnitScalePlugin_js
+    ___utils_helpers_js
+    ___utils_scaleUtils_js
+    ___utils_helpers_js --> ___utils_scaleUtils_js
+    ___utils_constants_js
+    ___utils_scaleUtils_js --> ___utils_constants_js
+  end
+  subgraph src_plugins_verticalLinePlugin_js
+    ___utils_constants_js
+    ___utils_helpers_js
+    ___utils_constants_js --> ___utils_helpers_js
+    ___utils_calculateDeltas_js
+    ___utils_helpers_js --> ___utils_calculateDeltas_js
+  end
+  subgraph src_utils_calculateDeltas_js
+    __constants_js
+    __helpers_js
+    __constants_js --> __helpers_js
+  end
+  subgraph src_utils_chartDomUtils_js
+    __helpers_js
+  end
+  subgraph src_utils_constants_js
+    __tailwindColors_js
+  end
+  subgraph src_utils_scaleUtils_js
+    __constants_js
+  end

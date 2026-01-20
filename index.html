@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COMTRADE Viewer - Fault Recording Analysis</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uplot@1.6.32/dist/uPlot.min.css"
+    />
+    <link 
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tabulator-tables@5.5.0/dist/css/tabulator.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Main Content -->
+    <main>
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <div class="app-logo">⚡</div>
+          <div class="app-title">
+            <h2
+              class="bg-linear-to-r from-green-500 to-blue-600 bg-clip-text text-transparent"
+            >
+              COMTRADE Viewer
+            </h2>
+            <p>Fault Recording Analysis</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button
+            class="icon-button"
+            id="showChannelListBtn"
+            type="button"
+            style="display: none"
+          >
+            <span>📋</span>
+            <span>Channels</span>
+          </button>
+          <button class="icon-button" id="undoBtn" type="button" disabled>
+            <span>↶</span>
+            <span>Undo</span>
+          </button>
+          <button class="icon-button" id="redoBtn" type="button" disabled>
+            <span>↷</span>
+            <span>Redo</span>
+          </button>
+          <button
+            class="icon-button"
+            id="exportComputedChannelBtn"
+            type="button"
+            disabled
+          >
+            <span>📥</span>
+            <span>Export</span>
+          </button>
+          <button class="icon-button" id="exportCSVBtn" type="button" disabled>
+            <span>📄</span>
+            <span>CSV</span>
+          </button>
+          <button
+            class="icon-button"
+            id="themeToggleBtn"
+            type="button"
+            title="Toggle Light/Dark Theme"
+          >
+            <span id="themeIcon">🌙</span>
+          </button>
+          <button class="icon-button settings-button" type="button">
+            <span>⚙</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Area - Flex Layout with Main + Sidebar -->
+      <div class="flex flex-1 overflow-hidden relative">
+        <!-- Main Content Section (LEFT) -->
+        <div
+          id="mainContent"
+          class="overflow-auto p-6 transition-all duration-300"
+          style="width: 100%; background-color: var(--bg-primary)"
+        >
+          <!-- Upload & File Info Container -->
+          <div class="upload-file-container">
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+              <div class="upload-icon">📤</div>
+              <h2>Upload COMTRADE Files</h2>
+              <p>Drag & drop CFG and DAT files or click to browse</p>
+              <div class="upload-actions">
+                <label for="cfgFile">
+                  <button
+                    class="btn-primary"
+                    type="button"
+                    onclick="document.getElementById('cfgFile').click()"
+                  >
+                    <span>📁</span>
+                    <span>Choose Files</span>
+                  </button>
+                </label>
+                <input type="file" id="cfgFile" accept=".cfg,.dat" multiple />
+                <button class="btn-secondary" id="loadBtn">Load Files</button>
+                <button
+                  class="btn-secondary"
+                  id="mergeMultipleFilesBtn"
+                  title="Open file merger to combine multiple COMTRADE files"
+                >
+                  🔗 Merge Multiple Files
+                </button>
+              </div>
+            </section>
+
+            <!-- File Information (Always Visible) -->
+            <section class="file-info-card" id="fileInfo">
+              <div style="width: 100%">
+                <div class="file-info-header">
+                  <h2 class="file-info-title">File Information</h2>
+                  <div
+                    class="file-status"
+                    id="fileStatus"
+                    style="color: var(--text-secondary)"
+                  >
+                    <span
+                      class="status-dot"
+                      style="background: var(--text-secondary)"
+                    ></span>
+                    <span>No File</span>
+                  </div>
+                </div>
+                <div class="file-details">
+                  <div class="file-detail-item">
+                    <span class="file-detail-label">CFG File</span>
+                    <span
+                      class="file-detail-value"
+                      id="cfgFileName"
+                      style="color: var(--text-secondary)"
+                      >Not Selected</span
+                    >
+                  </div>
+                  <div class="file-detail-item">
+                    <span class="file-detail-label">DAT File</span>
+                    <span
+                      class="file-detail-value"
+                      id="datFileName"
+                      style="color: var(--text-secondary)"
+                      >Not Selected</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Stats Grid (Hidden initially) -->
+          <section class="stats-grid" id="statsGrid" style="display: none">
+            <div class="stat-card">
+              <div class="stat-header">
+                <span class="stat-icon">⟳</span>
+                <span class="stat-label">Sample Rate</span>
+              </div>
+              <div class="stat-value">
+                4800<span class="stat-unit">Hz</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-header">
+                <span class="stat-icon">⏱</span>
+                <span class="stat-label">Duration</span>
+              </div>
+              <div class="stat-value">
+                2000<span class="stat-unit">ms</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-header">
+                <span class="stat-icon">📊</span>
+                <span class="stat-label">Channels</span>
+              </div>
+              <div class="stat-value">
+                7<span class="stat-unit">total</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-header">
+                <span class="stat-icon">⚠</span>
+                <span class="stat-label">Fault Time</span>
+              </div>
+              <div class="stat-value">850<span class="stat-unit">ms</span></div>
+            </div>
+          </section>
+
+          <!-- Charts Container -->
+          <section id="charts" class="charts-wrapper"></section>
+
+          <!-- Results -->
+          <section
+            id="fixed-results"
+            style="
+              margin-top: 24px;
+              color: var(--text-secondary);
+              font-family: monospace;
+              font-size: 0.85rem;
+            "
+          ></section>
+
+          <!-- Zoom Controls for Main Content (sticky at bottom-right) -->
+          <div id="main-zoom-controls" class="zoom-controls-container">
+            <div class="zoom-controls" data-section="mainContent">
+              <button 
+                class="zoom-btn zoom-out-btn" 
+                title="Zoom Out" 
+                onclick="window.__zoomControls?.zoomOut('mainContent')"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+              </button>
+              <span class="zoom-display" id="zoom-display-mainContent" title="Double-click to reset zoom" ondblclick="window.__zoomControls?.resetZoom('mainContent')">100%</span>
+              <button 
+                class="zoom-btn zoom-in-btn" 
+                title="Zoom In" 
+                onclick="window.__zoomControls?.zoomIn('mainContent')"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Draggable Divider -->
+        <div
+          id="resizeDivider"
+          class="w-1 transition-colors hidden"
+          style="background-color: var(--border-color);"
+        ></div>
+
+        <!-- Delta Drawer (RIGHT SIDEBAR) -->
+        <div id="delta-drawer" class="hidden" style="width: 0px">
+            <div
+              id="delta-drawer-panel"
+              class="h-full w-full shadow-2xl flex flex-col transition-all duration-300 pointer-events-auto overflow-hidden"
+              style="
+                background-color: var(--bg-secondary);
+                color: var(--text-primary);
+              "
+            >
+              <!-- Window Control Buttons Row -->
+              <div
+                class="px-6 py-3 border-b flex items-center justify-end gap-2 shrink-0"
+                style="
+                  background-color: var(--bg-secondary);
+                  color: var(--text-primary);
+                  border-color: var(--border-color);
+                "
+              >
+                <button
+                  id="delta-drawer-minimize"
+                  class="p-1 hover:bg-gray-300 dark:hover:bg-gray-700 rounded transition-colors"
+                  title="Minimize"
+                  style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 13H5v-2h14v2z"/>
+                  </svg>
+                </button>
+                <button
+                  id="delta-drawer-maximize"
+                  class="p-1 hover:bg-gray-300 dark:hover:bg-gray-700 rounded transition-colors"
+                  title="Maximize"
+                  style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 7h10v10H7V7zm12-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2z"/>
+                  </svg>
+                </button>
+                <button
+                  id="delta-drawer-close"
+                  class="p-1 hover:bg-red-300 dark:hover:bg-red-700 rounded transition-colors"
+                  title="Close"
+                  style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Title and Search Row -->
+              <div
+                class="px-6 py-4 border-b flex items-center justify-between gap-4 shrink-0 delta-drawer-header"
+                style="
+                  background-color: var(--bg-secondary);
+                  color: var(--text-primary);
+                  border-color: var(--border-color);
+                "
+              >
+                <h2
+                  id="delta-drawer-title"
+                  class="text-lg font-semibold m-0"
+                  style="color: var(--text-primary)"
+                >
+                  Crosshair Data
+                </h2>
+                <div class="relative w-40">
+                  <input
+                    id="delta-table-search"
+                    type="text"
+                    placeholder="Search..."
+                    class="w-full px-3 py-2 pr-10 rounded border text-sm"
+                    style="
+                      background-color: var(--bg-tertiary);
+                      color: var(--text-primary);
+                      border-color: var(--border-color);
+                    "
+                  />
+                  <button
+                    id="delta-table-search-btn"
+                    class="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 transition-colors hover:opacity-70"
+                    style="background-color: transparent; color: var(--text-primary);"
+                    title="Search"
+                  >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Zoom Controls for Delta Sidebar -->
+              <div id="delta-zoom-controls" class="zoom-controls-container sidebar-zoom">
+                <div class="zoom-controls" data-section="deltaSidebar">
+                  <button 
+                    class="zoom-btn zoom-out-btn" 
+                    title="Zoom Out" 
+                    onclick="window.__zoomControls?.zoomOut('deltaSidebar')"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                  </button>
+                  <span class="zoom-display" id="zoom-display-deltaSidebar" title="Double-click to reset zoom" ondblclick="window.__zoomControls?.resetZoom('deltaSidebar')">100%</span>
+                  <button 
+                    class="zoom-btn zoom-in-btn" 
+                    title="Zoom In" 
+                    onclick="window.__zoomControls?.zoomIn('deltaSidebar')"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- Analysis Sidebar (RIGHT SIDEBAR) -->
+        <div id="analysis-sidebar" class="hidden" style="width: 0px">
+            <div
+              id="analysis-sidebar-panel"
+              class="h-full w-full shadow-2xl flex flex-col transition-all duration-300 pointer-events-auto overflow-hidden"
+              style="
+                background-color: var(--bg-secondary);
+                color: var(--text-primary);
+              "
+            >
+              <!-- Window Control Buttons Row -->
+              <div
+                class="px-6 py-3 border-b flex items-center justify-end gap-2 shrink-0"
+                style="
+                  background-color: var(--bg-secondary);
+                  color: var(--text-primary);
+                  border-color: var(--border-color);
+                "
+              >
+                <button
+                  id="analysis-sidebar-minimize"
+                  class="p-1 hover:bg-gray-300 dark:hover:bg-gray-700 rounded transition-colors"
+                  title="Minimize"
+                  style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 13H5v-2h14v2z"/>
+                  </svg>
+                </button>
+                <button
+                  id="analysis-sidebar-maximize"
+                  class="p-1 hover:bg-gray-300 dark:hover:bg-gray-700 rounded transition-colors"
+                  title="Maximize"
+                  style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 7h10v10H7V7zm12-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2z"/>
+                  </svg>
+                </button>
+                <button
+                  id="analysis-sidebar-close"
+                  class="p-1 hover:bg-red-300 dark:hover:bg-red-700 rounded transition-colors"
+                  title="Close"
+                  style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Title -->
+              <div class="py-5 px-6" style="margin-bottom: 12px">
+                <h3
+                  style="
+                    margin: 0;
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                  "
+                >
+                  Phasor Diagram
+                </h3>
+              </div>
+
+              <!-- Polar chart -->
+              <div class="flex-1 overflow-auto flex justify-center items-start">
+                <div id="polarChartContainer" class="polar-chart-container">
+                  <div
+                    style="
+                      padding: 20px;
+                      text-align: center;
+                      color: var(--text-secondary);
+                    "
+                  >
+                    Load COMTRADE data to render the phasor diagram
+                  </div>
+                </div>
+              </div>
+
+              <!-- Zoom Controls for Analysis Sidebar -->
+              <div id="analysis-zoom-controls" class="zoom-controls-container sidebar-zoom">
+                <div class="zoom-controls" data-section="analysisSidebar">
+                  <button 
+                    class="zoom-btn zoom-out-btn" 
+                    title="Zoom Out" 
+                    onclick="window.__zoomControls?.zoomOut('analysisSidebar')"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                  </button>
+                  <span class="zoom-display" id="zoom-display-analysisSidebar" title="Double-click to reset zoom" ondblclick="window.__zoomControls?.resetZoom('analysisSidebar')">100%</span>
+                  <button 
+                    class="zoom-btn zoom-in-btn" 
+                    title="Zoom In" 
+                    onclick="window.__zoomControls?.zoomIn('analysisSidebar')"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Channel List Modal -->
+    <div
+      id="channel-list-modal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 5000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+      "
+    >
+      <div
+        style="
+          background: #131720;
+          border-radius: 12px;
+          width: 90%;
+          max-width: 900px;
+          max-height: 80vh;
+          overflow: auto;
+          padding: 24px;
+          border: 1px solid #2d3748;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        "
+      >
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+          "
+        >
+          <h2 style="margin: 0; font-size: 1.5rem; color: #e5e7eb">
+            Channel List
+          </h2>
+          <button
+            id="close-channel-modal"
+            style="
+              background: transparent;
+              border: none;
+              color: #e5e7eb;
+              font-size: 1.5rem;
+              cursor: pointer;
+              padding: 0;
+              width: 30px;
+              height: 30px;
+            "
+          >
+            ✕
+          </button>
+        </div>
+        <div
+          id="channel-list-content"
+          style="min-height: 300px; color: #e5e7eb"
+        >
+          Loading channel list...
+        </div>
+      </div>
+    </div>
+    <div
+      id="buttons"
+      style="position: fixed; right: 0; top: 0; width: auto; height: 100%"
+    >
+      <button
+        id="delta-values"
+        style="
+          writing-mode: vertical-rl;
+          text-orientation: sideways;
+          transform: rotate(180deg);
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+          border-radius: 0 8px 8px 0;
+          padding: 16px 8px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          box-shadow: -2px 4px 12px rgba(102, 126, 234, 0.4);
+          transition: all 0.3s ease;
+          min-height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          letter-spacing: 1px;
+          position: fixed;
+          right: -3px;
+          top: 50%;
+          margin: 0;
+          pointer-events: auto;
+        "
+        onmouseover="this.style.right='0px';"
+        onmouseout="this.style.right='-3px';"
+        onclick="window.handleDeltaButtonClick(event)"
+      >
+        Crosshair Data
+      </button>
+      <button
+        id="Analysis"
+        style="
+          writing-mode: vertical-rl;
+          text-orientation: sideways;
+          transform: rotate(180deg);
+          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+          color: white;
+          border: none;
+          border-radius: 0 8px 8px 0;
+          padding: 16px 8px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          box-shadow: -2px 4px 12px rgba(245, 87, 108, 0.4);
+          transition: all 0.3s ease;
+          min-height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          letter-spacing: 1px;
+          position: fixed;
+          right: -3px;
+          top: calc(50% + 120px);
+          margin: 0;
+          pointer-events: auto;
+        "
+        onmouseover="this.style.right='0px';"
+        onmouseout="this.style.right='-3px'; "
+        onclick="window.handleAnalysisButtonClick(event)"
+      >
+        Analysis
+      </button>
+    </div>
+
+    <!-- Analysis Sidebar Container (REMOVED - now inside main layout) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/uplot@1.6.32/dist/uPlot.iife.js"></script>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

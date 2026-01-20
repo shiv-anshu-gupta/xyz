@@ -1,0 +1,173 @@
+/**
+ * Tables - Delta table and other table styles
+ * Theme-aware styling using CSS variables
+ */
+
+.delta-table-container {
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow-x: auto;
+  background-color: var(--bg-secondary);
+}
+
+.delta-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 800px;
+  table-layout: auto;
+}
+
+.delta-th {
+  padding: 12px;
+  text-align: center;
+  background: var(--bg-tertiary);
+  border-bottom: 2px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.delta-th-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.delta-th-channel {
+  position: sticky;
+  left: 0;
+  background: var(--bg-tertiary);
+  z-index: 2;
+  min-width: 120px;
+  text-align: left;
+  border-right: 2px solid var(--border-color);
+}
+
+.delta-th-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.delta-th-value {
+  min-width: 100px;
+}
+
+.delta-th-delta {
+  min-width: 100px;
+}
+
+.delta-th-percentage {
+  min-width: 80px;
+}
+
+.delta-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.delta-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.delta-td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  vertical-align: middle;
+  white-space: nowrap;
+  font-family: "Courier New", monospace;
+  min-width: 80px;
+  color: var(--text-primary);
+}
+
+.delta-table tbody tr:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.delta-row-time {
+  background-color: var(--bg-tertiary);
+  font-weight: 700;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.delta-td-channel {
+  position: sticky;
+  left: 0;
+  background: var(--bg-secondary);
+  font-weight: 600;
+  font-family: inherit;
+  min-width: 120px;
+  text-align: left;
+  border-right: 2px solid var(--border-color);
+  z-index: 1;
+}
+
+.delta-table tbody tr:hover .delta-td-channel {
+  background-color: var(--bg-tertiary);
+}
+
+.delta-channel-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.delta-channel-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.delta-td-value,
+.delta-td-delta {
+  font-weight: 600;
+  text-align: right;
+  min-width: 100px;
+  padding-right: 16px;
+  color: var(--text-primary);
+}
+
+.delta-time-row {
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+.delta-td-percentage {
+  text-align: center;
+  min-width: 80px;
+}
+
+.delta-percentage {
+  font-weight: 700;
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
+}
+
+.delta-percentage.positive {
+  color: var(--accent-green);
+}
+
+.delta-percentage.negative {
+  color: var(--accent-red);
+}
+
+.delta-percentage.zero {
+  color: var(--text-muted);
+}
+
+.delta-empty {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-muted);
+  font-family: inherit;
+}

@@ -1,0 +1,27 @@
+/**
+ * Progress Bar - Top loading indicator
+ * Theme-aware styling
+ */
+
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  z-index: 1000;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  transition: width 0.3s ease-out;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+  opacity: 0;
+}
+
+.progress-fill.visible {
+  opacity: 1;
+}

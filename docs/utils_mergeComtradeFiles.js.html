@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> utils/mergeComtradeFiles.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-chartUpdateHelpers.html">chartUpdateHelpers</a></li><li><a href="module-components_renderComputedChart.html">components/renderComputedChart</a></li><li><a href="module-components_renderComtradeCharts.html">components/renderComtradeCharts</a></li><li><a href="module-components_renderSingleAnalogChart.html">components/renderSingleAnalogChart</a></li><li><a href="module-components_renderSingleDigitalChart.html">components/renderSingleDigitalChart</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-eventListenerManager.html">eventListenerManager</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-services_computedChannels.html">services/computedChannels</a></li><li><a href="module-services_computedChannels_dataPreparation.html">services/computedChannels/dataPreparation</a></li><li><a href="module-services_computedChannels_eventHandling.html">services/computedChannels/eventHandling</a></li><li><a href="module-services_computedChannels_expressionConversion.html">services/computedChannels/expressionConversion</a></li><li><a href="module-services_computedChannels_resultProcessing.html">services/computedChannels/resultProcessing</a></li><li><a href="module-services_computedChannels_stateUpdate.html">services/computedChannels/stateUpdate</a></li><li><a href="module-services_computedChannels_validators.html">services/computedChannels/validators</a></li><li><a href="module-services_computedChannels_workerManagement.html">services/computedChannels/workerManagement</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-utils_autoGroupChannels.html">utils/autoGroupChannels</a></li><li><a href="module-utils_computedChannelMetadata.html">utils/computedChannelMetadata</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li><li><a href="module-workers_computedChannelWorker.html">workers/computedChannelWorker</a></li></ul><h3>Classes</h3><ul><li><a href="PolarChart.html">PolarChart</a></li><li><a href="PolarChartCanvas.html">PolarChartCanvas</a></li><li><a href="SidebarStore.html">SidebarStore</a></li><li><a href="module-utils_computedChannelMetadata-ComputedChannelMetadata.html">ComputedChannelMetadata</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_CFG_KEY">STORAGE_CFG_KEY</a></li><li><a href="global.html#adjustMainContent">adjustMainContent</a></li><li><a href="global.html#appendComputedChannelToStorage">appendComputedChannelToStorage</a></li><li><a href="global.html#attachChartContainer">attachChartContainer</a></li><li><a href="global.html#attachChartEventHandlers">attachChartEventHandlers</a></li><li><a href="global.html#attachChartPlugins">attachChartPlugins</a></li><li><a href="global.html#attachComputedChartContainer">attachComputedChartContainer</a></li><li><a href="global.html#attachComputedChartEventHandlers">attachComputedChartEventHandlers</a></li><li><a href="global.html#attachComputedChartPlugins">attachComputedChartPlugins</a></li><li><a href="global.html#axisLinesPlugin">axisLinesPlugin</a></li><li><a href="global.html#broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li><a href="global.html#buildChartData">buildChartData</a></li><li><a href="global.html#buildChartOptions">buildChartOptions</a></li><li><a href="global.html#buildComputedChannelLabels">buildComputedChannelLabels</a></li><li><a href="global.html#buildComputedChartOptions">buildComputedChartOptions</a></li><li><a href="global.html#buildGroupsWithAutoGrouping">buildGroupsWithAutoGrouping</a></li><li><a href="global.html#buildGroupsWithUserAssignments">buildGroupsWithUserAssignments</a></li><li><a href="global.html#buildTableBody">buildTableBody</a></li><li><a href="global.html#buildTableHTML">buildTableHTML</a></li><li><a href="global.html#buildTableHeader">buildTableHeader</a></li><li><a href="global.html#buildUnitChartData">buildUnitChartData</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#cleanupOldComputedCharts">cleanupOldComputedCharts</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#closeAnalysisDrawer">closeAnalysisDrawer</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#computeChartDataDimensions">computeChartDataDimensions</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartMetadata">createChartMetadata</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createComputedChartMetadata">createComputedChartMetadata</a></li><li><a href="global.html#createComputedClickHandler">createComputedClickHandler</a></li><li><a href="global.html#createComputedMousemoveHandler">createComputedMousemoveHandler</a></li><li><a href="global.html#createDeltaTableRenderer">createDeltaTableRenderer</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createGroupDragBar">createGroupDragBar</a></li><li><a href="global.html#createMousemoveHandler">createMousemoveHandler</a></li><li><a href="global.html#createProgressBar">createProgressBar</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSidebarResizer">createSidebarResizer</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#createVerticalLineClickHandler">createVerticalLineClickHandler</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#detectGroupFromExpression">detectGroupFromExpression</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#extractChannelMetadata">extractChannelMetadata</a></li><li><a href="global.html#extractChannelNameFromEquation">extractChannelNameFromEquation</a></li><li><a href="global.html#extractGroupId">extractGroupId</a></li><li><a href="global.html#extractMathExpression">extractMathExpression</a></li><li><a href="global.html#filterGroupsWithChannels">filterGroupsWithChannels</a></li><li><a href="global.html#filterIndicesWithData">filterIndicesWithData</a></li><li><a href="global.html#filterTableRows">filterTableRows</a></li><li><a href="global.html#filterUnassignedComputedChannels">filterUnassignedComputedChannels</a></li><li><a href="global.html#filterValidIndices">filterValidIndices</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#formatScaledValue">formatScaledValue</a></li><li><a href="global.html#formatTableData">formatTableData</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getColorHex">getColorHex</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelById">getComputedChannelById</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getComputedChannelsState">getComputedChannelsState</a></li><li><a href="global.html#getElementWidth">getElementWidth</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#groupChannelsByUnit">groupChannelsByUnit</a></li><li><a href="global.html#handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li><li><a href="global.html#handleVerticalLineAddition">handleVerticalLineAddition</a></li><li><a href="global.html#hasDigitalData">hasDigitalData</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideProgress">hideProgress</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initComputedChannelsState">initComputedChannelsState</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeChartInstance">initializeChartInstance</a></li><li><a href="global.html#initializeComputedChartInstance">initializeComputedChartInstance</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#isMathJaxLoaded">isMathJaxLoaded</a></li><li><a href="global.html#listenForComputedChannelChanges">listenForComputedChannelChanges</a></li><li><a href="global.html#loadComputedChannelsForGroup">loadComputedChannelsForGroup</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#loadMathJax">loadMathJax</a></li><li><a href="global.html#mathJaxPromise">mathJaxPromise</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogAndComputedMetadata">mergeAnalogAndComputedMetadata</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openAnalysisDrawer">openAnalysisDrawer</a></li><li><a href="global.html#openBothSidebars">openBothSidebars</a></li><li><a href="global.html#openDeltaWindow">openDeltaWindow</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#openPhasorDiagram">openPhasorDiagram</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#prepareChartDataContext">prepareChartDataContext</a></li><li><a href="global.html#processEquationInput">processEquationInput</a></li><li><a href="global.html#readFileAsText">readFileAsText</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderChannelLabelContainer">renderChannelLabelContainer</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderLatex">renderLatex</a></li><li><a href="global.html#resizeChartsToContainers">resizeChartsToContainers</a></li><li><a href="global.html#resolveGroupIndices">resolveGroupIndices</a></li><li><a href="global.html#resolveTimeArray">resolveTimeArray</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#showProgress">showProgress</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#syncComputedChannelsWithParent">syncComputedChannelsWithParent</a></li><li><a href="global.html#themeContext">themeContext</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#updateComputedChannelGroupInStorage">updateComputedChannelGroupInStorage</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateProgress">updateProgress</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateChannelName">validateChannelName</a></li><li><a href="global.html#validateGroupIndices">validateGroupIndices</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>utils/mergeComtradeFiles.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Merge COMTRADE Files
+ * Main orchestrator for combining multiple CFG/DAT file pairs
+ * Uses sequential strategy: concatenates time and renames channels with file prefixes
+ */
+
+import { mergeTimeArraysSequential } from "./timeMerger.js";
+import { mergeAnalogChannels, mergeDigitalChannels } from "./channelMerger.js";
+
+/**
+ * Merge multiple COMTRADE file sets
+ * @param {Array&lt;{cfg: Object, dat: Object, filename: string}>} parsedFileSets - Array of {cfg, dat, filename}
+ * @returns {Object} { mergedCfg, mergedData }
+ */
+export function mergeComtradeFilesSetsSequential(parsedFileSets) {
+  if (!parsedFileSets || parsedFileSets.length === 0) {
+    throw new Error("[mergeComtradeFiles] No file sets provided");
+  }
+
+  console.log(
+    "[mergeComtradeFiles] Starting merge of",
+    parsedFileSets.length,
+    "file sets"
+  );
+
+  // Single file - return as-is
+  if (parsedFileSets.length === 1) {
+    console.log("[mergeComtradeFiles] Single file - returning without merge");
+    return {
+      mergedCfg: parsedFileSets[0].cfg,
+      mergedData: parsedFileSets[0].dat,
+      isMerged: false,
+      fileCount: 1,
+    };
+  }
+
+  // Extract arrays for processing
+  const cfgArray = parsedFileSets.map((set) => ({
+    ...set.cfg,
+    filename: set.filename,
+  }));
+  const dataArray = parsedFileSets.map((set) => set.dat);
+
+  // Use the time array from the first file for all merged data
+  const baseTime = dataArray[0].time;
+  const fileOffsets = parsedFileSets.map((set, idx) => ({
+    fileIdx: idx,
+    startTime: baseTime[0],
+    endTime: baseTime[baseTime.length - 1],
+    sampleCount: baseTime.length,
+    timeOffset: 0,
+    duration: baseTime[baseTime.length - 1] - baseTime[0],
+  }));
+
+  // Merge analog channels (stack channels, do not merge time)
+  console.log("[mergeComtradeFiles] Step 2: Merging analog channels...");
+  const { analogChannels: mergedAnalogChannels, analogData: mergedAnalogData } =
+    mergeAnalogChannels(cfgArray, dataArray);
+
+  // Merge digital channels (stack channels, do not merge time)
+  console.log("[mergeComtradeFiles] Step 3: Merging digital channels...");
+  const {
+    digitalChannels: mergedDigitalChannels,
+    digitalData: mergedDigitalData,
+  } = mergeDigitalChannels(cfgArray, dataArray);
+
+  // Build merged CFG
+  const mergedCfg = buildMergedCfg(
+    cfgArray,
+    mergedAnalogChannels,
+    mergedDigitalChannels,
+    fileOffsets
+  );
+
+  // Build merged data
+  const mergedData = {
+    time: baseTime,
+    analogData: mergedAnalogData,
+    digitalData: mergedDigitalData,
+    fileOffsets: fileOffsets,
+    isMerged: true,
+    sourceFileCount: parsedFileSets.length,
+  };
+
+  console.log("[mergeComtradeFiles] ✅ Merge complete");
+  console.log(`[mergeComtradeFiles]    Total time samples: ${baseTime.length}`);
+  console.log(
+    `[mergeComtradeFiles]    Total analog channels: ${mergedAnalogChannels.length}`
+  );
+  console.log(
+    `[mergeComtradeFiles]    Total digital channels: ${mergedDigitalChannels.length}`
+  );
+  console.log(
+    `[mergeComtradeFiles]    Duration: ${
+      baseTime[baseTime.length - 1] - baseTime[0]
+    } (units match input)`
+  );
+
+  return {
+    mergedCfg,
+    mergedData,
+    isMerged: true,
+    fileCount: parsedFileSets.length,
+  };
+}
+
+/**
+ * Build merged CFG object
+ * @private
+ */
+function buildMergedCfg(
+  cfgArray,
+  mergedAnalogChannels,
+  mergedDigitalChannels,
+  fileOffsets
+) {
+  const firstCfg = cfgArray[0];
+
+  return {
+    // Original single-file properties (from first file)
+    stationName: firstCfg.stationName || "Multiple Files",
+    recordingDeviceId: firstCfg.recordingDeviceId || "MERGED",
+
+    // Merge metadata
+    isMerged: true,
+    sourceFiles: cfgArray.map((cfg, idx) => ({
+      filename: cfg.filename,
+      index: idx,
+      fileOffset: fileOffsets[idx],
+    })),
+
+    // Merged channels
+    analogChannels: mergedAnalogChannels,
+    digitalChannels: mergedDigitalChannels,
+
+    // Timing info
+    sampleRate: firstCfg.sampleRate || firstCfg.samplingRate || 1000,
+    timezoneOffset: firstCfg.timezoneOffset || 0,
+
+    // Metadata
+    recordingStartTime: firstCfg.recordingStartTime,
+    recordingStartDate: firstCfg.recordingStartDate,
+  };
+}
+
+/**
+ * Get channel by display name (with file prefix)
+ * @param {Object} mergedCfg - Merged CFG object
+ * @param {string} displayName - Channel display name
+ * @returns {Object} Channel object or null
+ */
+export function getChannelByDisplayName(mergedCfg, displayName) {
+  let channel = mergedCfg.analogChannels.find(
+    (ch) => ch.displayName === displayName
+  );
+  if (channel) return channel;
+
+  channel = mergedCfg.digitalChannels.find(
+    (ch) => ch.displayName === displayName
+  );
+  return channel || null;
+}
+
+/**
+ * Get all channels for a specific source file
+ * @param {Object} mergedCfg - Merged CFG object
+ * @param {number} fileIndex - Source file index
+ * @returns {Array} Channels from that file
+ */
+export function getChannelsForFile(mergedCfg, fileIndex) {
+  const analog = mergedCfg.analogChannels.filter(
+    (ch) => ch.sourceFileIndex === fileIndex
+  );
+  const digital = mergedCfg.digitalChannels.filter(
+    (ch) => ch.sourceFileIndex === fileIndex
+  );
+  return [...analog, ...digital];
+}
+
+export default {
+  mergeComtradeFilesSetsSequential,
+  getChannelByDisplayName,
+  getChannelsForFile,
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

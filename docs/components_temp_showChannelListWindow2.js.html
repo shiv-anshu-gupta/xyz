@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/temp/showChannelListWindow2.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/temp/showChannelListWindow2.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// src/components/showChannelListWindow.js
+// Opens a child window and renders the channel list with drag-and-drop support
+import { createChannelList } from "../ChannelList.js";
+
+/**
+ * Opens a child window and displays the channel list.
+ * @param {Object} channelState - State object with analog and digital channel info.
+ * @param {Function} onChannelDrop - Callback(channelType, fromIdx, toIdx) when a channel is reordered.
+ * @param {Function} onChannelColorChange - Callback(channelType, idx, color) when a channel color is changed.
+ */
+export function showChannelListWindow(
+  channelState,
+  onChannelDrop,
+  onChannelColorChange
+) {
+  const win = window.open("", "ChannelListWindow", "width=400,height=600");
+  if (!win) return;
+  win.document.title = "Channel List";
+  // Basic styles for the list
+  win.document.head.innerHTML = `
+    &lt;title>Channel List&lt;/title>
+    &lt;style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 12px; background: #f9f9f9; }
+      .channel-list-container { padding: 8px; }
+      .channel-list-section { margin-bottom: 18px; }
+      .channel-list { list-style: none; padding: 0; margin: 0; }
+      .channel-list-item { padding: 6px 12px; margin-bottom: 4px; background: #fff; border: 1px solid #ccc; border-radius: 4px; cursor: grab; transition: background 0.2s; }
+      .channel-list-item.dragging { opacity: 0.5; }
+      .channel-list-item.drag-over { background: #e6f0fa; }
+      h3 { margin: 8px 0 8px 0; font-size: 1.1em; }
+    &lt;/style>
+  `;
+  win.document.body.innerHTML = "";
+  // Render the channel list
+  const renderList = () => {
+    win.document.body.innerHTML = "";
+    // Unwrap channelState if it's a proxy/state object
+    const analogChannels =
+      channelState.analog?.yLabels?.map((id, idx) => ({
+        id,
+        color: channelState.analog.lineColors[idx],
+        type: "analog",
+        idx,
+      })) || [];
+    const digitalChannels =
+      channelState.digital?.yLabels?.map((id, idx) => ({
+        id,
+        color: channelState.digital.lineColors[idx],
+        type: "digital",
+        idx,
+      })) || [];
+    // Compose a cfg-like object for createChannelList
+    const channelListCfg = {
+      analogChannels,
+      digitalChannels,
+    };
+    const listEl = createChannelList(
+      channelListCfg,
+      (type, idx, toIdx, color) => {
+        if (color !== undefined &amp;&amp; typeof onChannelColorChange === "function") {
+          // idx is now the correct index of the channel that changed
+          onChannelColorChange(type, Number(idx), color);
+        } else {
+          onChannelDrop(type, Number(idx), Number(toIdx));
+        }
+        renderList();
+      }
+    );
+    win.document.body.appendChild(listEl);
+  };
+  renderList();
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-main.html">main</a></li></ul><h3>Global</h3><ul><li><a href="global.html#autoGroupChannels">autoGroupChannels</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createDragBar">createDragBar</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#handleVerticalLineShortcuts">handleVerticalLineShortcuts</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#parseCFG">parseCFG</a></li><li><a href="global.html#parseDAT">parseDAT</a></li><li><a href="global.html#renderComtradeCharts">renderComtradeCharts</a></li><li><a href="global.html#setupChartDragAndDrop">setupChartDragAndDrop</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Tue Oct 28 2025 14:54:48 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

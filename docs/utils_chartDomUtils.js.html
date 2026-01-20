@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> utils/chartDomUtils.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-chartUpdateHelpers.html">chartUpdateHelpers</a></li><li><a href="module-components_renderComputedChart.html">components/renderComputedChart</a></li><li><a href="module-components_renderComtradeCharts.html">components/renderComtradeCharts</a></li><li><a href="module-components_renderSingleAnalogChart.html">components/renderSingleAnalogChart</a></li><li><a href="module-components_renderSingleDigitalChart.html">components/renderSingleDigitalChart</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-eventListenerManager.html">eventListenerManager</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-services_computedChannels.html">services/computedChannels</a></li><li><a href="module-services_computedChannels_dataPreparation.html">services/computedChannels/dataPreparation</a></li><li><a href="module-services_computedChannels_eventHandling.html">services/computedChannels/eventHandling</a></li><li><a href="module-services_computedChannels_expressionConversion.html">services/computedChannels/expressionConversion</a></li><li><a href="module-services_computedChannels_resultProcessing.html">services/computedChannels/resultProcessing</a></li><li><a href="module-services_computedChannels_stateUpdate.html">services/computedChannels/stateUpdate</a></li><li><a href="module-services_computedChannels_validators.html">services/computedChannels/validators</a></li><li><a href="module-services_computedChannels_workerManagement.html">services/computedChannels/workerManagement</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-utils_autoGroupChannels.html">utils/autoGroupChannels</a></li><li><a href="module-utils_computedChannelMetadata.html">utils/computedChannelMetadata</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li><li><a href="module-workers_computedChannelWorker.html">workers/computedChannelWorker</a></li></ul><h3>Classes</h3><ul><li><a href="PolarChart.html">PolarChart</a></li><li><a href="PolarChartCanvas.html">PolarChartCanvas</a></li><li><a href="SidebarStore.html">SidebarStore</a></li><li><a href="module-utils_computedChannelMetadata-ComputedChannelMetadata.html">ComputedChannelMetadata</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_CFG_KEY">STORAGE_CFG_KEY</a></li><li><a href="global.html#adjustMainContent">adjustMainContent</a></li><li><a href="global.html#appendComputedChannelToStorage">appendComputedChannelToStorage</a></li><li><a href="global.html#attachChartContainer">attachChartContainer</a></li><li><a href="global.html#attachChartEventHandlers">attachChartEventHandlers</a></li><li><a href="global.html#attachChartPlugins">attachChartPlugins</a></li><li><a href="global.html#attachComputedChartContainer">attachComputedChartContainer</a></li><li><a href="global.html#attachComputedChartEventHandlers">attachComputedChartEventHandlers</a></li><li><a href="global.html#attachComputedChartPlugins">attachComputedChartPlugins</a></li><li><a href="global.html#axisLinesPlugin">axisLinesPlugin</a></li><li><a href="global.html#broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li><a href="global.html#buildChartData">buildChartData</a></li><li><a href="global.html#buildChartOptions">buildChartOptions</a></li><li><a href="global.html#buildComputedChannelLabels">buildComputedChannelLabels</a></li><li><a href="global.html#buildComputedChartOptions">buildComputedChartOptions</a></li><li><a href="global.html#buildGroupsWithAutoGrouping">buildGroupsWithAutoGrouping</a></li><li><a href="global.html#buildGroupsWithUserAssignments">buildGroupsWithUserAssignments</a></li><li><a href="global.html#buildTableBody">buildTableBody</a></li><li><a href="global.html#buildTableHTML">buildTableHTML</a></li><li><a href="global.html#buildTableHeader">buildTableHeader</a></li><li><a href="global.html#buildUnitChartData">buildUnitChartData</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#cleanupOldComputedCharts">cleanupOldComputedCharts</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#closeAnalysisDrawer">closeAnalysisDrawer</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#computeChartDataDimensions">computeChartDataDimensions</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartMetadata">createChartMetadata</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createComputedChartMetadata">createComputedChartMetadata</a></li><li><a href="global.html#createComputedClickHandler">createComputedClickHandler</a></li><li><a href="global.html#createComputedMousemoveHandler">createComputedMousemoveHandler</a></li><li><a href="global.html#createDeltaTableRenderer">createDeltaTableRenderer</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createGroupDragBar">createGroupDragBar</a></li><li><a href="global.html#createMousemoveHandler">createMousemoveHandler</a></li><li><a href="global.html#createProgressBar">createProgressBar</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSidebarResizer">createSidebarResizer</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#createVerticalLineClickHandler">createVerticalLineClickHandler</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#detectGroupFromExpression">detectGroupFromExpression</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#extractChannelMetadata">extractChannelMetadata</a></li><li><a href="global.html#extractChannelNameFromEquation">extractChannelNameFromEquation</a></li><li><a href="global.html#extractGroupId">extractGroupId</a></li><li><a href="global.html#extractMathExpression">extractMathExpression</a></li><li><a href="global.html#filterGroupsWithChannels">filterGroupsWithChannels</a></li><li><a href="global.html#filterIndicesWithData">filterIndicesWithData</a></li><li><a href="global.html#filterTableRows">filterTableRows</a></li><li><a href="global.html#filterUnassignedComputedChannels">filterUnassignedComputedChannels</a></li><li><a href="global.html#filterValidIndices">filterValidIndices</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#formatScaledValue">formatScaledValue</a></li><li><a href="global.html#formatTableData">formatTableData</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getColorHex">getColorHex</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelById">getComputedChannelById</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getComputedChannelsState">getComputedChannelsState</a></li><li><a href="global.html#getElementWidth">getElementWidth</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#groupChannelsByUnit">groupChannelsByUnit</a></li><li><a href="global.html#handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li><li><a href="global.html#handleVerticalLineAddition">handleVerticalLineAddition</a></li><li><a href="global.html#hasDigitalData">hasDigitalData</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideProgress">hideProgress</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initComputedChannelsState">initComputedChannelsState</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeChartInstance">initializeChartInstance</a></li><li><a href="global.html#initializeComputedChartInstance">initializeComputedChartInstance</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#isMathJaxLoaded">isMathJaxLoaded</a></li><li><a href="global.html#listenForComputedChannelChanges">listenForComputedChannelChanges</a></li><li><a href="global.html#loadComputedChannelsForGroup">loadComputedChannelsForGroup</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#loadMathJax">loadMathJax</a></li><li><a href="global.html#mathJaxPromise">mathJaxPromise</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogAndComputedMetadata">mergeAnalogAndComputedMetadata</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openAnalysisDrawer">openAnalysisDrawer</a></li><li><a href="global.html#openBothSidebars">openBothSidebars</a></li><li><a href="global.html#openDeltaWindow">openDeltaWindow</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#openPhasorDiagram">openPhasorDiagram</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#prepareChartDataContext">prepareChartDataContext</a></li><li><a href="global.html#processEquationInput">processEquationInput</a></li><li><a href="global.html#readFileAsText">readFileAsText</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderChannelLabelContainer">renderChannelLabelContainer</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderLatex">renderLatex</a></li><li><a href="global.html#resizeChartsToContainers">resizeChartsToContainers</a></li><li><a href="global.html#resolveGroupIndices">resolveGroupIndices</a></li><li><a href="global.html#resolveTimeArray">resolveTimeArray</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#showProgress">showProgress</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#syncComputedChannelsWithParent">syncComputedChannelsWithParent</a></li><li><a href="global.html#themeContext">themeContext</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#updateComputedChannelGroupInStorage">updateComputedChannelGroupInStorage</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateProgress">updateProgress</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateChannelName">validateChannelName</a></li><li><a href="global.html#validateGroupIndices">validateGroupIndices</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>utils/chartDomUtils.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// chartDomUtils.js
+// Small abstractions for chart container and uPlot chart setup
+import { createCustomElement } from "./helpers.js";
+
+/**
+ * Creates a chart parent container with a label, drag bar, and chart div.
+ * @param {HTMLElement} dragBar - The drag bar element.
+ * @param {string} chartContainerClass - The class for the chart container div.
+ * @param {string|Array} label - Optional label to display on left side (string or array of channel names).
+ * @param {Array} colors - Optional array of colors for each channel.
+ * @param {string} typeLabel - Optional channel type label (e.g., "Analog Channels", "Digital Channels").
+ * @param {string} groupId - Optional group ID to display once below type label (e.g., "G0", "G1"). Shows at group level, not per-channel.
+ * @param {string} chartType - Chart type for data attribute ("analog", "digital", "computed").
+ * @returns {{ parentDiv: HTMLElement, chartDiv: HTMLElement }}
+ */
+export function createChartContainer(
+  dragBar,
+  chartContainerClass = "chart-container",
+  label = "",
+  colors = [],
+  typeLabel = "",
+  groupId = "",
+  chartType = ""
+) {
+  const parentDiv = createCustomElement("div", "chart-parent-container");
+
+  // ✅ FIX: Set data-chart-type attribute for selective DOM clearing
+  if (chartType) {
+    parentDiv.setAttribute("data-chart-type", chartType);
+  }
+
+  // Add label on left side if provided
+  if (label) {
+    const labelDiv = createCustomElement("div", "chart-label");
+
+    // If label is an array of channel names, display them vertically with colors
+    if (Array.isArray(label)) {
+      labelDiv.style.display = "flex";
+      labelDiv.style.flexDirection = "column";
+      labelDiv.style.alignItems = "center";
+      labelDiv.style.justifyContent = "flex-start";
+      labelDiv.style.gap = "12px";
+      labelDiv.style.padding = "8px 4px";
+      labelDiv.style.overflow = "auto";
+
+      // Add type label at the top if provided
+      if (typeLabel) {
+        const typeSpan = document.createElement("span");
+        typeSpan.textContent = typeLabel;
+        typeSpan.style.fontSize = "0.7rem";
+        typeSpan.style.fontWeight = "700";
+        typeSpan.style.color = "var(--accent-cyan)";
+        typeSpan.style.textAlign = "center";
+        typeSpan.style.textTransform = "uppercase";
+        typeSpan.style.letterSpacing = "0.05em";
+        typeSpan.style.paddingBottom = "4px";
+        typeSpan.style.width = "100%";
+        labelDiv.appendChild(typeSpan);
+
+        // NEW: Display group ID once below type label (if provided)
+        // This shows the group assignment for all channels in this chart
+        if (groupId) {
+          const groupIdSpan = document.createElement("span");
+          groupIdSpan.textContent = groupId;
+          groupIdSpan.style.fontSize = "0.65rem";
+          groupIdSpan.style.fontWeight = "700";
+          groupIdSpan.style.color = "var(--accent-cyan)";
+          groupIdSpan.style.textAlign = "center";
+          groupIdSpan.style.paddingTop = "2px";
+          groupIdSpan.style.paddingBottom = "4px";
+          groupIdSpan.style.borderBottom = "1px solid var(--border-color)";
+          groupIdSpan.style.width = "100%";
+          labelDiv.appendChild(groupIdSpan);
+        } else {
+          // No group ID - just add border below type label
+          typeSpan.style.borderBottom = "1px solid var(--border-color)";
+        }
+      }
+
+      // Add channel names with color indicators
+      label.forEach((channelName, idx) => {
+        const channelContainer = document.createElement("div");
+        channelContainer.style.display = "flex";
+        channelContainer.style.flexDirection = "column";
+        channelContainer.style.alignItems = "center";
+        channelContainer.style.gap = "2px";
+        channelContainer.style.width = "100%";
+
+        // Color indicator dot
+        const colorDot = document.createElement("span");
+        colorDot.style.width = "10px";
+        colorDot.style.height = "10px";
+        colorDot.style.borderRadius = "50%";
+        colorDot.style.background = (colors &amp;&amp; colors[idx]) || "#888";
+        colorDot.style.border = "1px solid var(--border-color)";
+        channelContainer.appendChild(colorDot);
+
+        // Channel name
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = channelName;
+        nameSpan.style.fontSize = "0.7rem";
+        nameSpan.style.fontWeight = "500";
+        nameSpan.style.color = "var(--text-secondary)";
+        nameSpan.style.textAlign = "center";
+        nameSpan.style.wordBreak = "break-word";
+        nameSpan.style.lineHeight = "1.1";
+        channelContainer.appendChild(nameSpan);
+
+        labelDiv.appendChild(channelContainer);
+      });
+    } else {
+      // If label is a string, display normally
+      labelDiv.textContent = label;
+    }
+
+    parentDiv.appendChild(labelDiv);
+  }
+
+  parentDiv.appendChild(dragBar);
+  const chartDiv = createCustomElement("div", chartContainerClass);
+  parentDiv.appendChild(chartDiv);
+  return { parentDiv, chartDiv };
+}
+
+/**
+ * Creates a simple container for holding analysis sidebar/phasor diagram
+ * @param {string} containerClass - The class for the container div.
+ * @returns {HTMLElement}
+ */
+export function createSimpleContainer(containerClass = "analysis-container") {
+  const container = createCustomElement("div", containerClass);
+  return container;
+}
+
+/**
+ * Initializes a uPlot chart, sets series colors, adds to array, and attaches ResizeObserver.
+ * ✅ FIXED: Now calculates initial width dynamically from container and uses contentBoxSize for better accuracy
+ * @param {Object} opts - Chart options (width can be null, will be calculated from container)
+ * @param {Array} chartData
+ * @param {HTMLElement} chartDiv - The chart container element
+ * @param {Array} charts - Array to store chart references
+ * @returns {uPlot}
+ */
+export function initUPlotChart(opts, chartData, chartDiv, charts) {
+  const computeContentWidth = (el) => {
+    if (!el) return 800;
+    const rect = el.getBoundingClientRect();
+    const style = window.getComputedStyle(el);
+    const paddingX =
+      parseFloat(style.paddingLeft || "0") + parseFloat(style.paddingRight || "0");
+    const width = rect.width ? rect.width - paddingX : el.clientWidth - paddingX;
+    return Math.max(Math.floor(width), 0);
+  };
+
+  // ✅ FIX #1: Calculate width from the chart container itself (excludes label + drag bar)
+  const containerWidth = computeContentWidth(chartDiv) || 800;
+
+  // Only set width if not already provided or is placeholder
+  if (!opts.width || opts.width === 400) {
+    opts.width = Math.max(containerWidth, 200); // Ensure minimum 200px width
+    console.log(
+      `[initUPlotChart] 📊 Calculated chart width: ${opts.width}px from container ${containerWidth}px`
+    );
+  }
+
+  const chart = new uPlot(opts, chartData, chartDiv);
+  chart._seriesColors = opts.series.slice(1).map((s) => s.stroke);
+
+  charts.push(chart);
+
+  // ✅ FIX #2: Improved ResizeObserver with contentBoxSize for accuracy
+  // ✅ FIX #4: Add debouncing to prevent ResizeObserver loop during animations
+  let resizeTimeout = null;
+  let lastSize = { width: 0, height: 0 };
+
+  const ro = new ResizeObserver((entries) => {
+    // Clear pending resize
+    if (resizeTimeout) {
+      clearTimeout(resizeTimeout);
+    }
+
+    resizeTimeout = setTimeout(() => {
+      for (let entry of entries) {
+        // Use contentBoxSize if available (more accurate), fallback to contentRect
+        const target = entry.target;
+        let newWidth;
+        let newHeight;
+
+        if (entry.contentBoxSize) {
+          newWidth = Math.floor(entry.contentBoxSize[0].inlineSize);
+          newHeight = Math.floor(entry.contentBoxSize[0].blockSize);
+        } else {
+          newWidth = Math.floor(entry.contentRect.width);
+          newHeight = Math.floor(entry.contentRect.height);
+        }
+
+        if (target) {
+          const widthFromTarget = computeContentWidth(target);
+          if (widthFromTarget > 0) {
+            newWidth = widthFromTarget;
+          }
+
+          const rect = target.getBoundingClientRect();
+          const style = window.getComputedStyle(target);
+          const paddingY =
+            parseFloat(style.paddingTop || "0") + parseFloat(style.paddingBottom || "0");
+          const heightFromTarget = Math.max(Math.floor(rect.height - paddingY), 0);
+          if (heightFromTarget > 0) {
+            newHeight = heightFromTarget;
+          }
+        }
+
+        // Only resize if dimensions actually changed (prevents resize loops)
+        if (
+          newWidth > 0 &amp;&amp;
+          newHeight > 0 &amp;&amp;
+          (newWidth !== lastSize.width || newHeight !== lastSize.height)
+        ) {
+          lastSize = { width: newWidth, height: newHeight };
+          chart.setSize({
+            width: newWidth,
+            height: newHeight,
+          });
+          console.log(
+            `[ResizeObserver] 📊 Chart resized to ${newWidth}x${newHeight}px`
+          );
+        }
+      }
+    }, 50); // Debounce resize calls by 50ms
+  });
+
+  // ✅ FIX #3: Observe parent container to catch width changes from sidebar toggle
+  // This ensures chart resizes when parent container width changes (sidebar open/close)
+  ro.observe(chartDiv);
+
+  return chart;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

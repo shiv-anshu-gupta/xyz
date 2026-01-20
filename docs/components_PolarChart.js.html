@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/PolarChart.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-chartUpdateHelpers.html">chartUpdateHelpers</a></li><li><a href="module-components_renderComputedChart.html">components/renderComputedChart</a></li><li><a href="module-components_renderComtradeCharts.html">components/renderComtradeCharts</a></li><li><a href="module-components_renderSingleAnalogChart.html">components/renderSingleAnalogChart</a></li><li><a href="module-components_renderSingleDigitalChart.html">components/renderSingleDigitalChart</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-eventListenerManager.html">eventListenerManager</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-services_computedChannels.html">services/computedChannels</a></li><li><a href="module-services_computedChannels_dataPreparation.html">services/computedChannels/dataPreparation</a></li><li><a href="module-services_computedChannels_eventHandling.html">services/computedChannels/eventHandling</a></li><li><a href="module-services_computedChannels_expressionConversion.html">services/computedChannels/expressionConversion</a></li><li><a href="module-services_computedChannels_resultProcessing.html">services/computedChannels/resultProcessing</a></li><li><a href="module-services_computedChannels_stateUpdate.html">services/computedChannels/stateUpdate</a></li><li><a href="module-services_computedChannels_validators.html">services/computedChannels/validators</a></li><li><a href="module-services_computedChannels_workerManagement.html">services/computedChannels/workerManagement</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-utils_autoGroupChannels.html">utils/autoGroupChannels</a></li><li><a href="module-utils_computedChannelMetadata.html">utils/computedChannelMetadata</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li><li><a href="module-workers_computedChannelWorker.html">workers/computedChannelWorker</a></li></ul><h3>Classes</h3><ul><li><a href="PolarChart.html">PolarChart</a></li><li><a href="PolarChartCanvas.html">PolarChartCanvas</a></li><li><a href="SidebarStore.html">SidebarStore</a></li><li><a href="module-utils_computedChannelMetadata-ComputedChannelMetadata.html">ComputedChannelMetadata</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_CFG_KEY">STORAGE_CFG_KEY</a></li><li><a href="global.html#adjustMainContent">adjustMainContent</a></li><li><a href="global.html#appendComputedChannelToStorage">appendComputedChannelToStorage</a></li><li><a href="global.html#attachChartContainer">attachChartContainer</a></li><li><a href="global.html#attachChartEventHandlers">attachChartEventHandlers</a></li><li><a href="global.html#attachChartPlugins">attachChartPlugins</a></li><li><a href="global.html#attachComputedChartContainer">attachComputedChartContainer</a></li><li><a href="global.html#attachComputedChartEventHandlers">attachComputedChartEventHandlers</a></li><li><a href="global.html#attachComputedChartPlugins">attachComputedChartPlugins</a></li><li><a href="global.html#axisLinesPlugin">axisLinesPlugin</a></li><li><a href="global.html#broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li><a href="global.html#buildChartData">buildChartData</a></li><li><a href="global.html#buildChartOptions">buildChartOptions</a></li><li><a href="global.html#buildComputedChannelLabels">buildComputedChannelLabels</a></li><li><a href="global.html#buildComputedChartOptions">buildComputedChartOptions</a></li><li><a href="global.html#buildGroupsWithAutoGrouping">buildGroupsWithAutoGrouping</a></li><li><a href="global.html#buildGroupsWithUserAssignments">buildGroupsWithUserAssignments</a></li><li><a href="global.html#buildTableBody">buildTableBody</a></li><li><a href="global.html#buildTableHTML">buildTableHTML</a></li><li><a href="global.html#buildTableHeader">buildTableHeader</a></li><li><a href="global.html#buildUnitChartData">buildUnitChartData</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#cleanupOldComputedCharts">cleanupOldComputedCharts</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#closeAnalysisDrawer">closeAnalysisDrawer</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#computeChartDataDimensions">computeChartDataDimensions</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartMetadata">createChartMetadata</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createComputedChartMetadata">createComputedChartMetadata</a></li><li><a href="global.html#createComputedClickHandler">createComputedClickHandler</a></li><li><a href="global.html#createComputedMousemoveHandler">createComputedMousemoveHandler</a></li><li><a href="global.html#createDeltaTableRenderer">createDeltaTableRenderer</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createGroupDragBar">createGroupDragBar</a></li><li><a href="global.html#createMousemoveHandler">createMousemoveHandler</a></li><li><a href="global.html#createProgressBar">createProgressBar</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSidebarResizer">createSidebarResizer</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#createVerticalLineClickHandler">createVerticalLineClickHandler</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#detectGroupFromExpression">detectGroupFromExpression</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#extractChannelMetadata">extractChannelMetadata</a></li><li><a href="global.html#extractChannelNameFromEquation">extractChannelNameFromEquation</a></li><li><a href="global.html#extractGroupId">extractGroupId</a></li><li><a href="global.html#extractMathExpression">extractMathExpression</a></li><li><a href="global.html#filterGroupsWithChannels">filterGroupsWithChannels</a></li><li><a href="global.html#filterIndicesWithData">filterIndicesWithData</a></li><li><a href="global.html#filterTableRows">filterTableRows</a></li><li><a href="global.html#filterUnassignedComputedChannels">filterUnassignedComputedChannels</a></li><li><a href="global.html#filterValidIndices">filterValidIndices</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#formatScaledValue">formatScaledValue</a></li><li><a href="global.html#formatTableData">formatTableData</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getColorHex">getColorHex</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelById">getComputedChannelById</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getComputedChannelsState">getComputedChannelsState</a></li><li><a href="global.html#getElementWidth">getElementWidth</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#groupChannelsByUnit">groupChannelsByUnit</a></li><li><a href="global.html#handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li><li><a href="global.html#handleVerticalLineAddition">handleVerticalLineAddition</a></li><li><a href="global.html#hasDigitalData">hasDigitalData</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideProgress">hideProgress</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initComputedChannelsState">initComputedChannelsState</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeChartInstance">initializeChartInstance</a></li><li><a href="global.html#initializeComputedChartInstance">initializeComputedChartInstance</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#isMathJaxLoaded">isMathJaxLoaded</a></li><li><a href="global.html#listenForComputedChannelChanges">listenForComputedChannelChanges</a></li><li><a href="global.html#loadComputedChannelsForGroup">loadComputedChannelsForGroup</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#loadMathJax">loadMathJax</a></li><li><a href="global.html#mathJaxPromise">mathJaxPromise</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogAndComputedMetadata">mergeAnalogAndComputedMetadata</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openAnalysisDrawer">openAnalysisDrawer</a></li><li><a href="global.html#openBothSidebars">openBothSidebars</a></li><li><a href="global.html#openDeltaWindow">openDeltaWindow</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#openPhasorDiagram">openPhasorDiagram</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#prepareChartDataContext">prepareChartDataContext</a></li><li><a href="global.html#processEquationInput">processEquationInput</a></li><li><a href="global.html#readFileAsText">readFileAsText</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderChannelLabelContainer">renderChannelLabelContainer</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderLatex">renderLatex</a></li><li><a href="global.html#resizeChartsToContainers">resizeChartsToContainers</a></li><li><a href="global.html#resolveGroupIndices">resolveGroupIndices</a></li><li><a href="global.html#resolveTimeArray">resolveTimeArray</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#showProgress">showProgress</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#syncComputedChannelsWithParent">syncComputedChannelsWithParent</a></li><li><a href="global.html#themeContext">themeContext</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#updateComputedChannelGroupInStorage">updateComputedChannelGroupInStorage</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateProgress">updateProgress</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateChannelName">validateChannelName</a></li><li><a href="global.html#validateGroupIndices">validateGroupIndices</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/PolarChart.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * PolarChart Component
+ * Displays phasor diagram using uPlot circular/polar chart
+ * Shows three-phase currents and voltages as vectors in polar coordinates
+ */
+
+export class PolarChart {
+  constructor(containerId) {
+    this.container = document.getElementById(containerId);
+    this.chart = null;
+    this.mockData = this.generateMockPhasorData();
+
+    // ✅ NEW: Debounce rapid updates to prevent UI freezing
+    this.renderTimeout = null;
+    this.isRendering = false;
+  }
+
+  /**
+   * Generate mock phasor data based on typical three-phase system
+   * Format: { label, magnitude, angle (degrees), color }
+   */
+  generateMockPhasorData() {
+    return [
+      // Currents (3-phase, 120° apart)
+      { label: "IA", magnitude: 100, angle: 0, color: "#00d9ff" }, // Cyan
+      { label: "IB", magnitude: 95, angle: 240, color: "#2196f3" }, // Blue
+      { label: "IC", magnitude: 98, angle: 120, color: "#10b981" }, // Green
+
+      // Voltages (3-phase, 120° apart, offset)
+      { label: "VA", magnitude: 240, angle: 30, color: "#ff6b35" }, // Orange
+      { label: "VB", magnitude: 238, angle: 270, color: "#fbbf24" }, // Yellow
+      { label: "VC", magnitude: 242, angle: 150, color: "#ef4444" }, // Red
+    ];
+  }
+
+  /**
+   * Extract real phasor data from CFG and DAT files at a specific time index
+   * @param {Object} cfg - Parsed CFG data
+   * @param {Object} data - Parsed DAT data
+   * @param {number} timeIndex - Index in the time array (0-based)
+   */
+  extractRealPhasorData(cfg, data, timeIndex = 0) {
+    if (!cfg || !data) {
+      console.warn("[PolarChart] CFG or DAT data missing");
+      return this.generateMockPhasorData();
+    }
+
+    // Reduced logging for performance (disabled debug logs)
+    const DEBUG = false; // Set to true for verbose output
+
+    if (DEBUG) {
+      console.log(
+        "[PolarChart] DEBUG: cfg.computedChannels:",
+        cfg.computedChannels
+      );
+      console.log("[PolarChart] DEBUG: data.computedData:", data.computedData);
+      console.log(
+        "[PolarChart] DEBUG: cfg.analogChannels:",
+        cfg.analogChannels
+      );
+      console.log("[PolarChart] DEBUG: data.analogData:", data.analogData);
+    }
+
+    // Determine which channels to use: computed first, then analog
+    let channelsToUse = [];
+    let dataToUse = null;
+    let isComputedData = false;
+
+    // Prefer computed channels if they exist
+    if (
+      cfg.computedChannels &amp;&amp;
+      cfg.computedChannels.length > 0 &amp;&amp;
+      data.computedData &amp;&amp;
+      data.computedData.length > 0
+    ) {
+      if (DEBUG) {
+        console.log("[PolarChart] Using computed channels for phasor plot");
+        console.log(
+          "[PolarChart] Computed channels count:",
+          cfg.computedChannels.length
+        );
+        console.log(
+          "[PolarChart] Computed data count:",
+          data.computedData.length
+        );
+      }
+      channelsToUse = cfg.computedChannels;
+      dataToUse = data.computedData;
+      isComputedData = true;
+    } else if (cfg.analogChannels &amp;&amp; cfg.analogChannels.length > 0) {
+      if (DEBUG)
+        console.log("[PolarChart] Using analog channels for phasor plot");
+      channelsToUse = cfg.analogChannels;
+      dataToUse = data.analogData;
+      isComputedData = false;
+    } else {
+      console.warn("[PolarChart] No channels available");
+      return this.generateMockPhasorData();
+    }
+
+    // Determine which channels to plot (hardcoded defaults, but dynamically search)
+    const defaultPhasorChannels = ["IA", "IB", "IC", "VA", "VB", "VC"];
+
+    // Extract string channel names, filtering out any objects
+    const channelNameMap = new Map(); // Map to track index -> name
+    const extractedNames = channelsToUse.map((ch, idx) => {
+      const name =
+        typeof ch === "string"
+          ? ch
+          : ch.name || ch.displayName || `Channel_${idx}`;
+      channelNameMap.set(idx, name);
+      return name;
+    });
+
+    console.log("[PolarChart] Extracted channel names:", extractedNames);
+
+    // Find channels matching defaults, then fill with any available
+    const phasorChannels = extractedNames
+      .filter((name) => defaultPhasorChannels.includes(name))
+      .slice(0, 6);
+
+    // If no default channels found, use first 6 available
+    if (phasorChannels.length === 0) {
+      console.log(
+        "[PolarChart] No default phasor channels found, using first available channels"
+      );
+      phasorChannels.push(...extractedNames.slice(0, 6));
+    }
+
+    console.log("[PolarChart] Phasor channels to plot:", phasorChannels);
+
+    let phasorData = [];
+
+    // Color mapping for channels
+    const colorMap = {
+      IA: "#00d9ff", // Cyan
+      IB: "#2196f3", // Blue
+      IC: "#10b981", // Green
+      VA: "#ff6b35", // Orange
+      VB: "#fbbf24", // Yellow
+      VC: "#ef4444", // Red
+    };
+
+    console.log("[PolarChart] Extracting phasor data at timeIndex:", timeIndex);
+    console.log("[PolarChart] Available channels:", extractedNames);
+    console.log(
+      "[PolarChart] Using",
+      phasorChannels.length,
+      "phasor channels:",
+      phasorChannels
+    );
+
+    // Find each phasor channel in the channel list
+    for (const channelName of phasorChannels) {
+      // Find the index of this channel name
+      let channelDataIndex = extractedNames.indexOf(channelName);
+      if (channelDataIndex &lt; 0) {
+        console.warn(
+          `[PolarChart] Channel ${channelName} not found in extracted names`
+        );
+        continue;
+      }
+
+      const channelObj = channelsToUse[channelDataIndex];
+
+      console.log(`[PolarChart] ${channelName}: index=${channelDataIndex}`);
+
+      if (
+        channelDataIndex !== null &amp;&amp;
+        dataToUse &amp;&amp;
+        dataToUse[channelDataIndex]
+      ) {
+        const channelData = dataToUse[channelDataIndex];
+
+        // Get value at current time index (or use first value if index out of range)
+        const sampleIndex = Math.min(timeIndex, channelData.length - 1);
+        const magnitude = Math.abs(channelData[sampleIndex] || 0);
+
+        // Use standard three-phase angles based on channel name
+        // For balanced three-phase systems: A=0°, B=240°, C=120°
+        let phaseAngle = 0;
+        if (channelName.includes("A")) {
+          phaseAngle = 0; // Phase A reference
+        } else if (channelName.includes("B")) {
+          phaseAngle = 240; // Phase B lags by 120°
+        } else if (channelName.includes("C")) {
+          phaseAngle = 120; // Phase C leads by 120°
+        }
+
+        // Normalize angle to 0-360 range
+        phaseAngle = ((phaseAngle % 360) + 360) % 360;
+
+        console.log(
+          `[PolarChart] ${channelName}: magnitude=${magnitude.toFixed(
+            2
+          )}, angle=${phaseAngle.toFixed(2)}°`
+        );
+
+        phasorData.push({
+          label: String(channelName), // Ensure label is always a string
+          magnitude: magnitude,
+          angle: phaseAngle,
+          color: colorMap[channelName] || "#999999",
+        });
+      } else {
+        console.warn(
+          `[PolarChart] No data found for ${channelName} at index ${channelDataIndex}`
+        );
+      }
+    }
+
+    // If we couldn't get any real data, return mock data
+    if (phasorData.length === 0) {
+      console.warn(
+        "[PolarChart] Could not extract phasor data, using mock data"
+      );
+      return this.generateMockPhasorData();
+    }
+
+    console.log(
+      "[PolarChart] Successfully extracted",
+      phasorData.length,
+      "phasors"
+    );
+
+    // ✅ OPTIMIZATION: Limit to first 12 phasors to prevent freeze
+    const MAX_PHASORS = 12;
+    if (phasorData.length > MAX_PHASORS) {
+      console.warn(
+        `[PolarChart] Too many phasors (${phasorData.length}), limiting to ${MAX_PHASORS}`
+      );
+      phasorData = phasorData.slice(0, MAX_PHASORS);
+    }
+
+    return phasorData;
+  }
+
+  /**
+   * Initialize the polar chart container (don't render yet)
+   */
+  init() {
+    console.log("[PolarChart] init() called");
+    if (!this.container) {
+      console.error("[PolarChart] Container not found in init()");
+      return;
+    }
+    console.log("[PolarChart] Container found:", this.container.id);
+    // Just clear and show waiting message, don't render mock data
+    this.container.innerHTML =
+      '&lt;div style="padding: 20px; text-align: center; color: var(--text-secondary);">Waiting for data...&lt;/div>';
+    console.log("[PolarChart] init() complete - ready for real data");
+  }
+
+  /**
+   * Update phasor data at a specific time index
+   * @param {Object} cfg - Parsed CFG data
+   * @param {Object} data - Parsed DAT data
+   * @param {number} timeIndex - Index in the time array (0-based)
+   */
+  updatePhasorAtTimeIndex(cfg, data, timeIndex = 0) {
+    console.log(
+      "[PolarChart] updatePhasorAtTimeIndex() called with timeIndex:",
+      timeIndex
+    );
+    const phasorData = this.extractRealPhasorData(cfg, data, timeIndex);
+    this.updateData(phasorData);
+  }
+
+  /**
+   * Render polar chart using SVG (since uPlot doesn't have native polar support)
+   * This creates a circular phasor diagram with vectors
+   * OPTIMIZED: Batches DOM operations using DocumentFragment
+   */
+  renderSVGPolarChart() {
+    if (!this.container) {
+      console.error("[PolarChart] Container not found");
+      return;
+    }
+
+    const startTime = performance.now();
+
+    // Clear container
+    this.container.innerHTML = "";
+
+    // SVG dimensions
+    const width = this.container.clientWidth || 280;
+    const height = this.container.clientHeight || 280;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const radius = Math.min(width, height) / 2 - 30;
+
+    // Create SVG
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", width);
+    svg.setAttribute("height", height);
+    svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    svg.style.backgroundColor = "var(--bg-tertiary)";
+
+    // ✅ OPTIMIZATION: Build all elements in memory before appending
+    // Use DocumentFragment for batched DOM operations
+    const fragment = document.createDocumentFragment();
+
+    // Draw background circle (grid)
+    const bgCircle = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle"
+    );
+    bgCircle.setAttribute("cx", centerX);
+    bgCircle.setAttribute("cy", centerY);
+    bgCircle.setAttribute("r", radius);
+    bgCircle.setAttribute("fill", "none");
+    bgCircle.setAttribute("stroke", "#cbd5e1");
+    bgCircle.setAttribute("stroke-width", "1");
+    bgCircle.setAttribute("opacity", "0.3");
+    fragment.appendChild(bgCircle);
+
+    // Draw grid circles (batch them)
+    for (let i = 0.2; i &lt;= 1; i += 0.2) {
+      const gridCircle = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "circle"
+      );
+      gridCircle.setAttribute("cx", centerX);
+      gridCircle.setAttribute("cy", centerY);
+      gridCircle.setAttribute("r", radius * i);
+      gridCircle.setAttribute("fill", "none");
+      gridCircle.setAttribute("stroke", "#cbd5e1");
+      gridCircle.setAttribute("stroke-width", "0.5");
+      gridCircle.setAttribute("opacity", "0.2");
+      fragment.appendChild(gridCircle);
+    }
+
+    // Draw axis lines and labels (batch them)
+    const angles = [0, 90, 180, 270];
+    angles.forEach((angle) => {
+      const rad = (angle * Math.PI) / 180;
+      const x2 = centerX + radius * Math.cos(rad);
+      const y2 = centerY + radius * Math.sin(rad);
+
+      const line = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line"
+      );
+      line.setAttribute("x1", centerX);
+      line.setAttribute("y1", centerY);
+      line.setAttribute("x2", x2);
+      line.setAttribute("y2", y2);
+      line.setAttribute("stroke", "#cbd5e1");
+      line.setAttribute("stroke-width", "0.5");
+      line.setAttribute("opacity", "0.3");
+      fragment.appendChild(line);
+
+      // Add degree labels
+      const labelRad = (angle * Math.PI) / 180;
+      const labelX = centerX + (radius + 15) * Math.cos(labelRad);
+      const labelY = centerY + (radius + 15) * Math.sin(labelRad);
+
+      const text = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "text"
+      );
+      text.setAttribute("x", labelX);
+      text.setAttribute("y", labelY);
+      text.setAttribute("text-anchor", "middle");
+      text.setAttribute("dominant-baseline", "middle");
+      text.setAttribute("font-size", "10");
+      text.setAttribute("fill", "#64748b");
+      text.textContent = angle + "°";
+      fragment.appendChild(text);
+    });
+
+    // First pass: Find max magnitude for automatic scaling
+    let maxMagnitude = 1; // Default minimum to avoid division by zero
+    this.mockData.forEach((phasor) => {
+      if (phasor.magnitude > maxMagnitude) {
+        maxMagnitude = phasor.magnitude;
+      }
+    });
+
+    // Scale factor: Use 70% of radius as max to leave margin
+    const scaleFactor = (radius * 0.7) / (maxMagnitude || 1);
+    console.log(
+      `[PolarChart] Max magnitude: ${maxMagnitude.toFixed(
+        2
+      )}, Scale factor: ${scaleFactor.toFixed(4)}`
+    );
+
+    // Draw phasor vectors
+    this.mockData.forEach((phasor) => {
+      const rad = (phasor.angle * Math.PI) / 180;
+      // Scale magnitude automatically to fit within 70% of radius
+      const vectorLength = phasor.magnitude * scaleFactor;
+
+      const x2 = centerX + vectorLength * Math.cos(rad);
+      const y2 = centerY + vectorLength * Math.sin(rad);
+
+      // Draw vector line
+      const line = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line"
+      );
+      line.setAttribute("x1", centerX);
+      line.setAttribute("y1", centerY);
+      line.setAttribute("x2", x2);
+      line.setAttribute("y2", y2);
+      line.setAttribute("stroke", phasor.color);
+      line.setAttribute("stroke-width", "2");
+      line.setAttribute("stroke-linecap", "round");
+      fragment.appendChild(line);
+
+      // Draw arrow head
+      const arrowSize = 8;
+      const angle = Math.atan2(y2 - centerY, x2 - centerX);
+      const arrowX1 = x2 - arrowSize * Math.cos(angle - Math.PI / 6);
+      const arrowY1 = y2 - arrowSize * Math.sin(angle - Math.PI / 6);
+      const arrowX2 = x2 - arrowSize * Math.cos(angle + Math.PI / 6);
+      const arrowY2 = y2 - arrowSize * Math.sin(angle + Math.PI / 6);
+
+      const arrow = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "polygon"
+      );
+      arrow.setAttribute(
+        "points",
+        `${x2},${y2} ${arrowX1},${arrowY1} ${arrowX2},${arrowY2}`
+      );
+      arrow.setAttribute("fill", phasor.color);
+      fragment.appendChild(arrow);
+
+      // Draw label dot at tip
+      const dot = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "circle"
+      );
+      dot.setAttribute("cx", x2);
+      dot.setAttribute("cy", y2);
+      dot.setAttribute("r", "4");
+      dot.setAttribute("fill", phasor.color);
+      dot.setAttribute("stroke", "white");
+      dot.setAttribute("stroke-width", "1");
+      fragment.appendChild(dot);
+
+      // Add label
+      const labelX = x2 + 15 * Math.cos(rad);
+      const labelY = y2 + 15 * Math.sin(rad);
+
+      const text = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "text"
+      );
+      text.setAttribute("x", labelX);
+      text.setAttribute("y", labelY);
+      text.setAttribute("text-anchor", "middle");
+      text.setAttribute("dominant-baseline", "middle");
+      text.setAttribute("font-size", "11");
+      text.setAttribute("font-weight", "bold");
+      text.setAttribute("fill", phasor.color);
+      text.textContent = String(phasor.label); // Ensure label is converted to string
+      fragment.appendChild(text);
+    });
+
+    // Draw center point
+    const centerDot = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle"
+    );
+    centerDot.setAttribute("cx", centerX);
+    centerDot.setAttribute("cy", centerY);
+    centerDot.setAttribute("r", "3");
+    centerDot.setAttribute("fill", "#64748b");
+    fragment.appendChild(centerDot);
+
+    // Add title
+    const title = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "text"
+    );
+    title.setAttribute("x", centerX);
+    title.setAttribute("y", 15);
+    title.setAttribute("text-anchor", "middle");
+    title.setAttribute("font-size", "12");
+    title.setAttribute("font-weight", "bold");
+    title.setAttribute("fill", "#1e293b");
+    title.textContent = "Phasor Diagram";
+    fragment.appendChild(title);
+
+    // Add magnitude scale legend at bottom
+    const scaleX = 15;
+    const scaleY = height - 10;
+    const maxScaleLabel = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "text"
+    );
+    maxScaleLabel.setAttribute("x", scaleX);
+    maxScaleLabel.setAttribute("y", scaleY);
+    maxScaleLabel.setAttribute("font-size", "9");
+    maxScaleLabel.setAttribute("fill", "#64748b");
+    maxScaleLabel.textContent = `Max: ${maxMagnitude.toFixed(1)}`;
+    fragment.appendChild(maxScaleLabel);
+
+    // ✅ Append all elements to SVG in one batch operation
+    svg.appendChild(fragment);
+
+    // Append SVG to container (single DOM operation for best performance)
+    this.container.appendChild(svg);
+
+    // ⏱️ Performance tracking
+    const endTime = performance.now();
+    const renderTime = endTime - startTime;
+    if (renderTime > 50) {
+      console.log(
+        `[PolarChart] ⏱️ SVG render took ${renderTime.toFixed(
+          1
+        )}ms (slow - consider optimization)`
+      );
+    } else {
+      console.log(`[PolarChart] ✅ SVG render: ${renderTime.toFixed(1)}ms`);
+    }
+  }
+
+  /**
+   * Update chart with real data from CFG file
+   * @param {Array} phasorData - Array of { label, magnitude, angle, color }
+   */
+  updateData(phasorData) {
+    console.log(
+      "[PolarChart] updateData() called with",
+      phasorData.length,
+      "phasors"
+    );
+    this.mockData = phasorData;
+    this.renderSVGPolarChartDebounced(); // ✅ Use debounced version
+  }
+
+  /**
+   * ✅ NEW: Debounced render method to prevent UI freezing from rapid updates
+   */
+  renderSVGPolarChartDebounced() {
+    if (this.renderTimeout) {
+      clearTimeout(this.renderTimeout);
+    }
+
+    if (this.isRendering) {
+      console.log("[PolarChart] Skipping render (already rendering)");
+      return;
+    }
+
+    this.renderTimeout = setTimeout(() => {
+      this.isRendering = true;
+      try {
+        this.renderSVGPolarChart();
+      } finally {
+        this.isRendering = false;
+      }
+    }, 100); // 100ms debounce
+  }
+
+  /**
+   * Get current phasor data
+   */
+  getData() {
+    return this.mockData;
+  }
+}
+
+export default PolarChart;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

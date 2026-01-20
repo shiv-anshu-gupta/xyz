@@ -1,0 +1,3060 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/chartManager.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-chartUpdateHelpers.html">chartUpdateHelpers</a></li><li><a href="module-components_renderComputedChart.html">components/renderComputedChart</a></li><li><a href="module-components_renderComtradeCharts.html">components/renderComtradeCharts</a></li><li><a href="module-components_renderSingleAnalogChart.html">components/renderSingleAnalogChart</a></li><li><a href="module-components_renderSingleDigitalChart.html">components/renderSingleDigitalChart</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-eventListenerManager.html">eventListenerManager</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-services_computedChannels.html">services/computedChannels</a></li><li><a href="module-services_computedChannels_dataPreparation.html">services/computedChannels/dataPreparation</a></li><li><a href="module-services_computedChannels_eventHandling.html">services/computedChannels/eventHandling</a></li><li><a href="module-services_computedChannels_expressionConversion.html">services/computedChannels/expressionConversion</a></li><li><a href="module-services_computedChannels_resultProcessing.html">services/computedChannels/resultProcessing</a></li><li><a href="module-services_computedChannels_stateUpdate.html">services/computedChannels/stateUpdate</a></li><li><a href="module-services_computedChannels_validators.html">services/computedChannels/validators</a></li><li><a href="module-services_computedChannels_workerManagement.html">services/computedChannels/workerManagement</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-utils_autoGroupChannels.html">utils/autoGroupChannels</a></li><li><a href="module-utils_computedChannelMetadata.html">utils/computedChannelMetadata</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li><li><a href="module-workers_computedChannelWorker.html">workers/computedChannelWorker</a></li></ul><h3>Classes</h3><ul><li><a href="PolarChart.html">PolarChart</a></li><li><a href="PolarChartCanvas.html">PolarChartCanvas</a></li><li><a href="SidebarStore.html">SidebarStore</a></li><li><a href="module-utils_computedChannelMetadata-ComputedChannelMetadata.html">ComputedChannelMetadata</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_CFG_KEY">STORAGE_CFG_KEY</a></li><li><a href="global.html#adjustMainContent">adjustMainContent</a></li><li><a href="global.html#appendComputedChannelToStorage">appendComputedChannelToStorage</a></li><li><a href="global.html#attachChartContainer">attachChartContainer</a></li><li><a href="global.html#attachChartEventHandlers">attachChartEventHandlers</a></li><li><a href="global.html#attachChartPlugins">attachChartPlugins</a></li><li><a href="global.html#attachComputedChartContainer">attachComputedChartContainer</a></li><li><a href="global.html#attachComputedChartEventHandlers">attachComputedChartEventHandlers</a></li><li><a href="global.html#attachComputedChartPlugins">attachComputedChartPlugins</a></li><li><a href="global.html#axisLinesPlugin">axisLinesPlugin</a></li><li><a href="global.html#broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li><a href="global.html#buildChartData">buildChartData</a></li><li><a href="global.html#buildChartOptions">buildChartOptions</a></li><li><a href="global.html#buildComputedChannelLabels">buildComputedChannelLabels</a></li><li><a href="global.html#buildComputedChartOptions">buildComputedChartOptions</a></li><li><a href="global.html#buildGroupsWithAutoGrouping">buildGroupsWithAutoGrouping</a></li><li><a href="global.html#buildGroupsWithUserAssignments">buildGroupsWithUserAssignments</a></li><li><a href="global.html#buildTableBody">buildTableBody</a></li><li><a href="global.html#buildTableHTML">buildTableHTML</a></li><li><a href="global.html#buildTableHeader">buildTableHeader</a></li><li><a href="global.html#buildUnitChartData">buildUnitChartData</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#cleanupOldComputedCharts">cleanupOldComputedCharts</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#closeAnalysisDrawer">closeAnalysisDrawer</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#computeChartDataDimensions">computeChartDataDimensions</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartMetadata">createChartMetadata</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createComputedChartMetadata">createComputedChartMetadata</a></li><li><a href="global.html#createComputedClickHandler">createComputedClickHandler</a></li><li><a href="global.html#createComputedMousemoveHandler">createComputedMousemoveHandler</a></li><li><a href="global.html#createDeltaTableRenderer">createDeltaTableRenderer</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createGroupDragBar">createGroupDragBar</a></li><li><a href="global.html#createMousemoveHandler">createMousemoveHandler</a></li><li><a href="global.html#createProgressBar">createProgressBar</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSidebarResizer">createSidebarResizer</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#createVerticalLineClickHandler">createVerticalLineClickHandler</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#detectGroupFromExpression">detectGroupFromExpression</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#extractChannelMetadata">extractChannelMetadata</a></li><li><a href="global.html#extractChannelNameFromEquation">extractChannelNameFromEquation</a></li><li><a href="global.html#extractGroupId">extractGroupId</a></li><li><a href="global.html#extractMathExpression">extractMathExpression</a></li><li><a href="global.html#filterGroupsWithChannels">filterGroupsWithChannels</a></li><li><a href="global.html#filterIndicesWithData">filterIndicesWithData</a></li><li><a href="global.html#filterTableRows">filterTableRows</a></li><li><a href="global.html#filterUnassignedComputedChannels">filterUnassignedComputedChannels</a></li><li><a href="global.html#filterValidIndices">filterValidIndices</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#formatScaledValue">formatScaledValue</a></li><li><a href="global.html#formatTableData">formatTableData</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getColorHex">getColorHex</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelById">getComputedChannelById</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getComputedChannelsState">getComputedChannelsState</a></li><li><a href="global.html#getElementWidth">getElementWidth</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#groupChannelsByUnit">groupChannelsByUnit</a></li><li><a href="global.html#handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li><li><a href="global.html#handleVerticalLineAddition">handleVerticalLineAddition</a></li><li><a href="global.html#hasDigitalData">hasDigitalData</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideProgress">hideProgress</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initComputedChannelsState">initComputedChannelsState</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeChartInstance">initializeChartInstance</a></li><li><a href="global.html#initializeComputedChartInstance">initializeComputedChartInstance</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#isMathJaxLoaded">isMathJaxLoaded</a></li><li><a href="global.html#listenForComputedChannelChanges">listenForComputedChannelChanges</a></li><li><a href="global.html#loadComputedChannelsForGroup">loadComputedChannelsForGroup</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#loadMathJax">loadMathJax</a></li><li><a href="global.html#mathJaxPromise">mathJaxPromise</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogAndComputedMetadata">mergeAnalogAndComputedMetadata</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openAnalysisDrawer">openAnalysisDrawer</a></li><li><a href="global.html#openBothSidebars">openBothSidebars</a></li><li><a href="global.html#openDeltaWindow">openDeltaWindow</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#openPhasorDiagram">openPhasorDiagram</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#prepareChartDataContext">prepareChartDataContext</a></li><li><a href="global.html#processEquationInput">processEquationInput</a></li><li><a href="global.html#readFileAsText">readFileAsText</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderChannelLabelContainer">renderChannelLabelContainer</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderLatex">renderLatex</a></li><li><a href="global.html#resizeChartsToContainers">resizeChartsToContainers</a></li><li><a href="global.html#resolveGroupIndices">resolveGroupIndices</a></li><li><a href="global.html#resolveTimeArray">resolveTimeArray</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#showProgress">showProgress</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#syncComputedChannelsWithParent">syncComputedChannelsWithParent</a></li><li><a href="global.html#themeContext">themeContext</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#updateComputedChannelGroupInStorage">updateComputedChannelGroupInStorage</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateProgress">updateProgress</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateChannelName">validateChannelName</a></li><li><a href="global.html#validateGroupIndices">validateGroupIndices</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/chartManager.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+  calculateAxisCountsForAllGroups,
+  didAxisCountChange,
+} from "../utils/axisCalculator.js";
+
+/**
+ * @module chartManager
+ * @description
+ * Central reactive state manager for chart updates in the COMTRADE charting application.
+ * Bridges between user-triggered state changes (via Tabulator editor) and uPlot chart
+ * rendering. Provides intelligent update strategies: in-place updates for simple changes
+ * (colors, labels) and full re-rendering for structural changes (channel add/remove, grouping).
+ *
+ * Key Responsibilities:
+ * - Subscribe to reactive state (channelState, dataState, verticalLinesX)
+ * - Detect change types: simple (label/color) vs structural (add/remove/group)
+ * - Apply in-place updates for performance when possible
+ * - Recreate charts on structural changes
+ * - Handle amplitude inversion for selected channels
+ * - Apply time-window filtering (start/duration)
+ * - Manage vertical line overlays and delta calculations
+ * - Publish maxYAxes changes to global store for all charts to consume
+ * - Use analyzeGroupsAndPublishMaxYAxes() for functional group analysis
+ *
+ * Features:
+ * - Automatic chart update on state mutation
+ * - Dual-chart support (analog and digital)
+ * - Time-windowing with start/duration filtering
+ * - Series inversion with in-place optimization
+ * - Deltastate-based change detection
+ * - Fallback from in-place to full rebuild on errors
+ * - Debug logging via debugPanelLite
+ * - Global axis alignment published to centralized store via functional approach
+ *
+ * Dependencies:
+ * - chartComponent.js: createChartOptions factory
+ * - renderComtradeCharts.js: Full chart reconstruction
+ * - debugPanelLite.js: Console debug logging
+ * - createState.js: Reactive state management
+ * - analyzeGroupsAndPublish.js: Pure function to analyze &amp; publish axes
+ *
+ * @example
+ * import { subscribeChartUpdates } from './components/chartManager.js';
+ *
+ * // After initializing state and rendering charts
+ * subscribeChartUpdates(
+ *   channelState,           // { analog: {...}, digital: {...} }
+ *   dataState,              // { analog: [...], digital: [...] }
+ *   charts,                 // [analogChart, digitalChart]
+ *   chartsContainer,        // DOM element
+ *   verticalLinesX          // Reactive array of marker positions
+ * );
+ *
+ * // Now any changes trigger automatic updates:
+ * channelState.analog.lineColors[0] = '#FF0000';  // Color change -> in-place update
+ * channelState.analog.yLabels[0] = 'New Label';   // Label change -> in-place update
+ * channelState.analog.groups[0] = 1;              // Group change -> full rebuild + publish axes to store
+ */
+
+/**
+ * chartManager.js
+ *
+ * Purpose:
+ *   Provides the main chart reactivity and update logic for the COMTRADE charting app.
+ *   Handles efficient chart updates in response to state changes (channels, data, overlays).
+ *   Integrates with uPlot for fast, interactive chart rendering.
+ *
+ * Features:
+ *   - Subscribes to channel state and data state changes using the custom createState system.
+ *   - Updates chart series colors and labels live (without full re-creation) when possible.
+ *   - Recreates charts when structural channel changes occur (axes, order, units, etc).
+ *   - Recreates charts when data changes (e.g., new file loaded).
+ *   - Updates overlays (vertical lines) when their state changes.
+ *   - Warns in the console if state/data is missing or malformed.
+ *
+ * Parameters:
+ *   @param {Object} channelState - Reactive state for channel metadata (labels, colors, units, etc).
+ *   @param {Object} dataState    - Reactive state for chart data (analog and digital arrays).
+ *   @param {Array}  charts       - Array of uPlot chart instances [analogChart, digitalChart].
+ *   @param {HTMLElement} chartsContainer - DOM element containing chart containers.
+ *   @param {Object} verticalLinesX - Reactive state for vertical line overlays.
+ *
+ * Usage Example:
+ *   import { subscribeChartUpdates } from './components/chartManager.js';
+ *   // ...after initializing state and rendering charts...
+ *   subscribeChartUpdates(channelState, dataState, charts, chartsContainer, verticalLinesX);
+ *
+ *   // Now, any changes to channelState or dataState will automatically update the charts.
+ */
+
+import { createChartOptions } from "./chartComponent.js";
+// Use global uPlot if loaded via &lt;script> in index.html
+const uPlot = window.uPlot;
+import { debugLite } from "./debugPanelLite.js";
+import { renderComtradeCharts } from "./renderComtradeCharts.js";
+import { loadComputedChannelsFromStorage } from "../utils/computedChannelStorage.js";
+
+
+// Defensive: ensure uPlot is available to avoid runtime errors during subscription wiring
+if (!uPlot) {
+  console.warn(
+    "[chartManager] window.uPlot is not available. Ensure uPlot.iife.js is loaded before modules."
+  );
+}
+
+/**
+ * Subscribe chart manager to reactive state changes.
+ *
+ * Establishes bidirectional reactive binding between channelState/dataState and
+ * uPlot chart instances. Automatically updates charts when state mutates.
+ *
+ * Update Strategy:
+ * - Check if change is structural (groups/units/order) -> full rebuild
+ * - Check if change is cosmetic (colors/labels) -> in-place update
+ * - Check if data changed -> full rebuild
+ * - Check if vertical lines changed -> overlay update only
+ *
+ * In-place Updates (Performance-Critical):
+ * - Series colors: Sets `chart.series[i].stroke`
+ * - Series labels: Sets `chart.series[i].label`
+ * - Both trigger via `chart.setSize()` to refresh
+ *
+ * Full Rebuild Operations:
+ * - Adds/removes channels
+ * - Changes grouping strategy
+ * - Modifies units or scales
+ * - Data array dimensions change
+ * - Inverts series amplitude
+ *
+ * subscribeChartUpdates(channelState, dataState, charts, chartsContainer, verticalLinesX)
+ *
+ * Subscribes the chart manager to reactive state and maps channel-level
+ * messages to uPlot updates. This function is the central bridge between the
+ * `channelState` (mutations produced by Tabulator via the parent message
+ * handler) and the uPlot instances that render the data.
+ *
+ * Key responsibilities:
+ * - Maintain in-place updates for cheap operations (color, label) when possible.
+ * - Recreate charts on structural changes (channel add/remove, grouping, axes).
+ * - Apply x-axis windows when `start`/`duration` are provided and a time array
+ *   is available in `dataState`.
+ * - Handle `invert` toggles: attempt an in-place amplitude inversion on the
+ *   affected series (works for series-only arrays as well as the uPlot-style
+ *   `[time, ...series]` shape); fallback to recreate if unsafe.
+ *
+ * @function subscribeChartUpdates
+ * @param {Object} channelState - Reactive channel metadata store. Expected shape:
+ *   { analog: { yLabels: string[], lineColors: string[], channelIDs: string[], inverts: boolean[], groups: number[], units: string[], ... },
+ *     digital: { yLabels: string[], lineColors: string[], ... } }
+ * @param {Object} dataState - Reactive data arrays. Each type (`analog`/`digital`)
+ *   normally follows uPlot's shape: either `[timeArray, series0, series1, ...]`
+ *   or (in some legacy flows) series-only arrays. The manager detects the
+ *   presence of a leading time array before acting on `start`/`duration`.
+ * @param {uPlot[]} charts - Array of uPlot chart instances matching types [analog, digital].
+ *   Each chart is expected to expose a `_channelIndices` array mapping chart-series
+ *   positions (0-based) -> global channel indices in `channelState`.
+ * @param {HTMLElement} chartsContainer - Parent DOM container for charts.
+ * @param {Object} verticalLinesX - Reactive state holding vertical-line positions.
+ * @param {Object} [cfg] - Optional config passed through to renderers.
+ * @param {Object} [data] - Optional raw parsed data object.
+ * @param {Function} [createState] - Optional state factory passed to renderers.
+ * @param {Function} [calculateDeltas] - Optional helper for delta calculations.
+ * @param {string} [TIME_UNIT] - Optional time unit string used by renderers.
+ * @returns {void}
+ *
+ * @example
+ * // Basic subscription after chart creation
+ * subscribeChartUpdates(
+ *   channelState,
+ *   dataState,
+ *   charts,
+ *   document.getElementById('charts-container'),
+ *   verticalLinesX
+ * );
+ *
+ * @example
+ * // State mutation triggering automatic color update
+ * // Before: channelState.analog.lineColors = ['#FF0000', '#00FF00', '#0000FF']
+ * channelState.analog.lineColors[0] = '#FF1111';  // Slight color shift
+ * // After: All analog charts automatically update (in-place, no rebuild)
+ *
+ * @example
+ * // Structural change triggering full rebuild
+ * // Before: 3 analog channels displayed
+ * channelState.analog.yLabels.splice(1, 1);      // Remove middle channel
+ * channelState.analog.lineColors.splice(1, 1);
+ * // After: Charts fully rebuilt with 2 channels, vertical lines refreshed
+ *
+ * @example
+ * // Amplitude inversion (in-place if possible)
+ * // Before: channelState.analog.inverts = [false, false, false]
+ * channelState.analog.inverts[0] = true;         // Invert first channel
+ * // After: First series amplitude inverted in-place
+ */
+export function subscribeChartUpdates(
+  channelState,
+  dataState,
+  charts,
+  chartsContainer,
+  verticalLinesX,
+  cfg, // ✅ add
+  data, // ✅ add
+  createState, // ✅ add
+  calculateDeltas, // ✅ add
+  TIME_UNIT, // ✅ add
+  getProgressCallback // ✅ NEW: Function to get current progress callback
+) {
+  const chartTypes = ["analog", "digital"];
+
+  // Debounce group changes to prevent multiple rapid rebuilds
+  let groupChangeTimeout = null;
+  let isRebuildingFromGroup = false;
+
+  // Store chart metadata for reuse detection
+  let chartMetadata = {};
+
+  // Store PREVIOUS group state to detect changes (needed for smart merge)
+  let previousGroups = { analog: [], digital: [] };
+
+  // ✅ NEW: Store previous axis counts to detect when rebuild is needed
+  // Format: { analog: [1, 2, 1], digital: [1, 1] } - one entry per group
+  let previousAxisCounts = { analog: [], digital: [] };
+
+  // Store stroke functions to avoid recreating them on every color change
+  // Cache key: `${type}-${globalIdx}` -> function
+  const strokeFunctions = new Map();
+
+  // ⚡ Fast index: channel -> array of charts that contain it
+  // Format: { "analog-5": [chart0, chart2], "digital-3": [chart1] }
+  // Rebuilt whenever chart structure changes
+  const channelToChartsIndex = new Map();
+
+  // ✅ Flag to prevent dataState subscriber from interfering during deletion
+  let isHandlingDeletion = false;
+
+  // ✅ FIX: Helper to get progress callback from state
+  const callProgress = (percent, message) => {
+    const callback = channelState?._meta?.progressCallback;
+    console.log(`[callProgress] percent=${percent}%, message="${message}", hasCallback=${typeof callback === "function"}`);
+    if (typeof callback === "function") {
+      console.log(`[callProgress] ✅ Invoking callback with ${percent}%`);
+      callback(percent, message);
+    } else {
+      console.warn(`[callProgress] ❌ No callback available at ${percent}%`);
+    }
+  };
+
+  function rebuildChannelToChartsIndex() {
+    channelToChartsIndex.clear();
+    for (let ci = 0; ci &lt; charts.length; ci++) {
+      const chart = charts[ci];
+      if (!chart || !chart._channelIndices || !chart._type) continue;
+
+      const type = chart._type;
+      chart._channelIndices.forEach((globalIdx) => {
+        const key = `${type}-${globalIdx}`;
+        if (!channelToChartsIndex.has(key)) {
+          channelToChartsIndex.set(key, []);
+        }
+        channelToChartsIndex.get(key).push(chart);
+      });
+    }
+  }
+
+  // Initialize index on first call
+  rebuildChannelToChartsIndex();
+
+  // ⚡ RAF batch rendering: collect multiple chart redraws and execute in single frame
+  let redrawBatch = new Set();
+  let redrawRAFId = null;
+
+  function scheduleChartRedraw(chart) {
+    if (!chart) return;
+    redrawBatch.add(chart);
+
+    if (redrawRAFId === null) {
+      redrawRAFId = requestAnimationFrame(() => {
+        const t0 = performance.now();
+        let count = 0;
+
+        // Execute all pending redraws in batch
+        for (const c of redrawBatch) {
+          try {
+            if (typeof c.redraw === "function") {
+              c.redraw(false); // Don't clear canvas
+              count++;
+            }
+          } catch (e) {
+            console.warn("[scheduleChartRedraw] Batch redraw failed:", e);
+          }
+        }
+
+        redrawBatch.clear();
+        redrawRAFId = null;
+
+        const elapsed = (performance.now() - t0).toFixed(2);
+        if (count > 0 &amp;&amp; elapsed > 5) {
+          console.log(
+            `[Performance] Batch redraw: ${count} charts in ${elapsed}ms`
+          );
+        }
+      });
+    }
+  }
+
+  /**
+   * Efficiently update chart data in-place using setData().
+   * Preserves event listeners, plugins, and DOM structure.
+   * ~10x faster than full recreation (100ms vs 1000ms+)
+   */
+  function updateChartDataInPlace(chart, newData, type) {
+    if (!chart || typeof chart.setData !== "function") {
+      return false;
+    }
+    try {
+      chart.setData(newData);
+      chart.redraw();
+      console.log(
+        `[updateChartDataInPlace] ✓ Updated ${type} chart data (~100ms)`
+      );
+      return true;
+    } catch (e) {
+      console.warn(`[updateChartDataInPlace] Failed to update:`, e);
+      return false;
+    }
+  }
+
+  /**
+   * Check if charts can be reused (same count, structure) without recreation.
+   * Returns true if current charts match expected structure from groups.
+   */
+  function canReuseCharts(type, expectedGroupCount) {
+    const typeCharts = charts.filter((c) => c &amp;&amp; c._type === type);
+    return typeCharts.length === expectedGroupCount;
+  }
+
+  /**
+   * ✨ SMART CHART MERGING: Intelligently move channels between existing charts
+   * Instead of full rebuild, this attempts to:
+   * 1. Detect which channels moved between groups
+   * 2. Find target group's existing chart
+   * 3. Move channels into that chart (merge)
+   * 4. Remove empty charts
+   * 5. Update all affected charts efficiently
+   *
+   * Returns { succeeded: boolean, channelsMoved: number, chartsKept: number, chartsRemoved: number }
+   */
+  function attemptSmartChartMerge(
+    existingCharts,
+    newGroups,
+    oldGroups,
+    data,
+    channelState,
+    expectedGroupCount
+  ) {
+    try {
+      // ✅ STEP 1: Build map of which channels should be in which group (NEW state)
+      const newGroupStructure = {};
+      newGroups.forEach((groupId, channelIdx) => {
+        if (
+          groupId === -1 ||
+          groupId === "-1" ||
+          groupId &lt; 0 ||
+          groupId === null
+        )
+          return;
+        if (!newGroupStructure[groupId]) {
+          newGroupStructure[groupId] = [];
+        }
+        newGroupStructure[groupId].push(channelIdx);
+      });
+
+      const targetGroupIds = Object.keys(newGroupStructure).sort((a, b) => {
+        // Extract numeric part for sorting (e.g., "G2" -> 2)
+        const aNum = parseInt(a.replace(/\D/g, ""));
+        const bNum = parseInt(b.replace(/\D/g, ""));
+        return aNum - bNum;
+      });
+
+      console.log(
+        `[attemptSmartChartMerge] Target structure: ${targetGroupIds.length} groups`,
+        targetGroupIds.map(
+          (g) => `${g}: ${newGroupStructure[g].length} channels`
+        )
+      );
+
+      // ✅ STEP 2: Build map of CURRENT chart structure using OLD groups
+      // This is critical: use oldGroups to properly identify which chart belongs to which group
+      const currentStructure = {};
+      existingCharts.forEach((chart) => {
+        if (
+          chart &amp;&amp;
+          chart._channelIndices &amp;&amp;
+          chart._channelIndices.length > 0
+        ) {
+          // Find which group(s) these channels belonged to in OLD state
+          const groupsInChart = new Set();
+          chart._channelIndices.forEach((idx) => {
+            if (idx &lt; oldGroups.length) {
+              const oldGroupId = oldGroups[idx];
+              if (oldGroupId !== -1 &amp;&amp; oldGroupId !== "-1" &amp;&amp; oldGroupId >= 0) {
+                groupsInChart.add(oldGroupId);
+              }
+            }
+          });
+
+          if (groupsInChart.size > 0) {
+            const groupId = Array.from(groupsInChart)[0]; // Primary group
+            if (!currentStructure[groupId]) {
+              currentStructure[groupId] = { chart, indices: [] };
+            }
+            currentStructure[groupId].indices = chart._channelIndices.slice();
+          }
+        }
+      });
+
+      console.log(
+        `[attemptSmartChartMerge] Current structure: ${
+          Object.keys(currentStructure).length
+        } charts`,
+        Object.entries(currentStructure).map(
+          ([g, info]) => `${g}: ${info.indices.length} channels`
+        )
+      );
+
+      // ✅ STEP 3: Check if structure is compatible for merging
+      // Compatible if:
+      // - Same number of groups
+      // - Groups haven't changed drastically
+      if (
+        targetGroupIds.length !== Object.keys(currentStructure).length &amp;&amp;
+        Math.abs(targetGroupIds.length - Object.keys(currentStructure).length) >
+          1
+      ) {
+        console.log(
+          `[attemptSmartChartMerge] ❌ Group count differs too much (${
+            targetGroupIds.length
+          } vs ${Object.keys(currentStructure).length}), need full rebuild`
+        );
+        return { succeeded: false };
+      }
+
+      // ✅ STEP 4: Update each chart with merged data
+      let chartsKept = 0;
+      let chartsRemoved = 0;
+      let channelsMoved = 0;
+
+      targetGroupIds.forEach((groupId) => {
+        const indices = newGroupStructure[groupId];
+
+        if (currentStructure[groupId]) {
+          // Chart exists for this group - update it
+          const chart = currentStructure[groupId].chart;
+          const oldIndices = currentStructure[groupId].indices;
+
+          // Check if indices changed
+          const indicesChanged =
+            oldIndices.length !== indices.length ||
+            !oldIndices.every((idx, i) => idx === indices[i]);
+
+          if (indicesChanged) {
+            console.log(
+              `[attemptSmartChartMerge] 🔄 Updating ${groupId}: ${oldIndices.length} → ${indices.length} channels`
+            );
+            channelsMoved += Math.abs(indices.length - oldIndices.length);
+
+            // Build new chart data
+            const newChartData = [
+              data.time,
+              ...indices.map((idx) => data.analogData[idx]),
+            ];
+
+            // Update chart metadata
+            chart._channelIndices = indices.slice();
+
+            // Update chart data efficiently
+            updateChartDataInPlace(chart, newChartData, "analog");
+          } else {
+            console.log(
+              `[attemptSmartChartMerge] ✓ ${groupId}: No changes needed (${indices.length} channels)`
+            );
+          }
+          chartsKept++;
+        } else {
+          // No existing chart for this group - shouldn't happen in merge mode
+          console.warn(
+            `[attemptSmartChartMerge] ⚠️ ${groupId} has no existing chart, need full rebuild`
+          );
+          return { succeeded: false };
+        }
+      });
+
+      // ✅ STEP 5: Remove charts that are no longer needed (async destruction)
+      const chartsToRemove = [];
+      Object.keys(currentStructure).forEach((groupId) => {
+        if (!newGroupStructure[groupId]) {
+          const chart = currentStructure[groupId].chart;
+          chartsToRemove.push(chart);
+        }
+      });
+
+      // Batch remove charts asynchronously
+      if (chartsToRemove.length > 0) {
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(
+            () => {
+              chartsToRemove.forEach((chart) => {
+                try {
+                  chart.destroy();
+                  const chartIdx = charts.indexOf(chart);
+                  if (chartIdx >= 0) {
+                    charts.splice(chartIdx, 1);
+                    chartsRemoved++;
+                    rebuildChannelToChartsIndex();
+                    console.log(
+                      `[attemptSmartChartMerge] 🗑️ Removed empty chart (async)`
+                    );
+                  }
+                } catch (e) {
+                  console.warn(
+                    `[attemptSmartChartMerge] Failed to remove chart:`,
+                    e
+                  );
+                }
+              });
+            },
+            { timeout: 1000 }
+          );
+        } else {
+          // Fallback: batch in setTimeout
+          setTimeout(() => {
+            chartsToRemove.forEach((chart) => {
+              try {
+                chart.destroy();
+                const chartIdx = charts.indexOf(chart);
+                if (chartIdx >= 0) {
+                  charts.splice(chartIdx, 1);
+                  chartsRemoved++;
+                  rebuildChannelToChartsIndex();
+                  console.log(
+                    `[attemptSmartChartMerge] 🗑️ Removed empty chart (async)`
+                  );
+                }
+              } catch (e) {
+                console.warn(
+                  `[attemptSmartChartMerge] Failed to remove chart:`,
+                  e
+                );
+              }
+            });
+          }, 0);
+        }
+      }
+
+      console.log(
+        `[attemptSmartChartMerge] ✅ Success: Moved ${channelsMoved} channels, kept ${chartsKept} charts, removed ${chartsRemoved} empty charts`
+      );
+      return {
+        succeeded: true,
+        channelsMoved,
+        chartsKept,
+        chartsRemoved,
+      };
+    } catch (err) {
+      console.warn(`[attemptSmartChartMerge] Error during merge attempt:`, err);
+      return { succeeded: false };
+    }
+  }
+
+  function recreateChart(type, idx) {
+    try {
+      if (!channelState[type] || typeof channelState[type] !== "object") {
+        console.warn(
+          `[recreateChart] channelState[${type}] is undefined or not an object`
+        );
+        return;
+      }
+      if (!Array.isArray(dataState[type])) {
+        console.warn(
+          `[recreateChart] dataState[${type}] is not an array or is undefined`
+        );
+        return;
+      }
+
+      // ✅ SAFETY CHECK: If chart index is out of bounds, skip recreation
+      // This prevents infinite loops when deletion removes all charts
+      if (idx &lt; 0 || idx >= (chartsContainer?.children.length || 0)) {
+        console.warn(
+          `[recreateChart] Chart index ${idx} is out of bounds (container has ${chartsContainer?.children.length || 0} children), skipping`
+        );
+        return;
+      }
+
+      // ✅ SAFETY CHECK: Ensure we have valid data to display
+      const expectedSeriesCount = Math.max(0, channelState[type].yLabels?.length || 0);
+      const actualSeriesCount = Math.max(0, (dataState[type]?.length || 1) - 1); // -1 for time array
+      if (expectedSeriesCount !== actualSeriesCount) {
+        console.warn(
+          `[recreateChart] Data mismatch: expecting ${expectedSeriesCount} series but have ${actualSeriesCount}, skipping to avoid crash`
+        );
+        return;
+      }
+
+      // Step 1: Get container FIRST before destroying
+      if (!chartsContainer || !chartsContainer.children[idx]) {
+        console.warn(
+          `[recreateChart] chartsContainer.children[${idx}] does not exist`
+        );
+        return;
+      }
+      const container = chartsContainer.children[idx];
+
+      // Step 2: Destroy old chart if it exists
+      if (charts[idx]) {
+        try {
+          charts[idx].destroy();
+          console.log(`[recreateChart] ✓ Destroyed old chart at index ${idx}`);
+        } catch (e) {
+          console.warn(`[recreateChart] Failed to destroy chart[${idx}]:`, e);
+        }
+      }
+
+      // Step 3: CLEAR container HTML to remove any leftover DOM elements
+      try {
+        container.innerHTML = "";
+        console.log(`[recreateChart] ✓ Cleared container HTML`);
+      } catch (e) {
+        console.warn(`[recreateChart] Failed to clear container:`, e);
+      }
+
+      // Step 4: Set reference to null
+      charts[idx] = null;
+
+      // Step 5: Create chart options
+      const options = createChartOptions(channelState[type], verticalLinesX);
+      const chartData = dataState[type];
+
+      console.log(
+        `[recreateChart] type="${type}", idx=${idx}, dataLength=${
+          chartData.length
+        }, seriesCount=${chartData.length - 1}`
+      );
+
+      // Step 6: Create new uPlot instance
+      try {
+        const chart = new uPlot(options, chartData, container);
+        charts[idx] = chart;
+        console.log(`[recreateChart] ✓ Created new uPlot instance`);
+
+        // ⚡ Rebuild the fast lookup index since we added a new chart
+        rebuildChannelToChartsIndex();
+
+        console.log(
+          `[recreateChart] ✅ Successfully recreated chart[${idx}] for type "${type}"`
+        );
+      } catch (uplotErr) {
+        console.error(`[recreateChart] ❌ Failed to create uPlot:`, uplotErr);
+        throw uplotErr;
+      }
+    } catch (err) {
+      console.error(
+        `[recreateChart] ❌ Failed to recreate chart[${idx}] for type "${type}":`,
+        err
+      );
+    }
+  }
+
+  // Direct synchronous updates - no debouncing
+  // This ensures data is current when chart renders
+  const recreateChartSync = (type, idx) => {
+    console.log(`[recreateChartSync] Direct call for ${type}-${idx}`);
+    recreateChart(type, idx);
+  };
+
+  /**
+   * Force chart redraw without resizing (much faster than setSize)
+   * Optimized to use chart.redraw() instead of expensive setSize() calls
+   * ~5ms with redraw(false), vs ~100ms with setSize()
+   * @param {uPlot} chart - uPlot instance
+   */
+  function forceRedraw(chart) {
+    if (!chart) return;
+
+    try {
+      // Method 1: Direct redraw (fastest - ~5ms)
+      if (typeof chart.redraw === "function") {
+        chart.redraw(false); // false = don't clear canvas
+        return;
+      }
+
+      // Method 2: Batch + noop scale update (slower - ~20ms)
+      if (typeof chart.batch === "function") {
+        chart.batch(() => {
+          // Trigger internal recalculation without full resize
+          const currentMin = chart.scales.x.min;
+          const currentMax = chart.scales.x.max;
+
+          if (currentMin !== undefined &amp;&amp; currentMax !== undefined) {
+            chart.setScale("x", { min: currentMin, max: currentMax });
+          }
+        });
+        return;
+      }
+
+      // Method 3: Fallback to setSize (slowest - ~100ms)
+      console.warn("[forceRedraw] Using slow setSize fallback");
+      chart.setSize({ width: chart.width, height: chart.height });
+    } catch (e) {
+      console.warn("[forceRedraw] Failed:", e);
+    }
+  }
+
+  // --- Boss-style subscription wiring (if channelState exposes subscribeProperty) ---
+  // This wires friendly property names (color, name, scale, invert, channelIDs)
+  // to uPlot updates or chart recreation so child callbacks update charts directly.
+  console.log("[subscribeChartUpdates] Starting subscription wiring");
+  if (channelState &amp;&amp; typeof channelState.subscribeProperty === "function") {
+    console.log(
+      "[subscribeChartUpdates] channelState.subscribeProperty available, wiring subscriptions"
+    );
+    // ✨ Optimized color updates (5-10x faster than full recreation)
+    channelState.subscribeProperty("color", (change) => {
+      const t0 = performance.now();
+
+      try {
+        // 🔍 DIAGNOSTIC: Log color change event
+        console.log(`[COLOR SUBSCRIBER] 📢 Fired! change:`, {
+          path: change.path,
+          newValue: change.newValue,
+          oldValue: change.oldValue,
+          type: change.type,
+        });
+
+        const t1 = performance.now();
+        const type = change.path &amp;&amp; change.path[0];
+        const globalIdx = change.path &amp;&amp; change.path[2];
+
+        console.log(
+          `[COLOR SUBSCRIBER] 📍 Extracted: type="${type}", globalIdx=${globalIdx}`
+        );
+
+        // ✅ Handle both cases:
+        // 1. Single color change: path = ['analog', 'lineColors', 0], newValue = '#fff'
+        // 2. Whole array replace: path = ['analog', 'lineColors'], newValue = [...colors]
+        if (!type || (type !== "analog" &amp;&amp; type !== "digital" &amp;&amp; type !== "computed")) {
+          console.warn(`[COLOR SUBSCRIBER] ❌ Invalid type: "${type}"`);
+          return; // Invalid type, silently ignore
+        }
+
+        // Case 2: Whole lineColors array was replaced
+        if (Array.isArray(change.newValue) &amp;&amp; !Number.isFinite(globalIdx)) {
+          console.log(
+            `[COLOR SUBSCRIBER] 📋 CASE 2: Array replacement (${change.newValue.length} colors)`
+          );
+          // Update all colors for this type
+          let arrayUpdateCount = 0;
+          for (let ci = 0; ci &lt; charts.length; ci++) {
+            const chart = charts[ci];
+            if (!chart || chart._type !== type) continue;
+
+            console.log(
+              `  🎨 Chart ${ci} (${type}): Updating ${
+                chart._channelIndices?.length || 0
+              } channels`
+            );
+
+            const mapping = chart._channelIndices || [];
+            for (let pos = 0; pos &lt; mapping.length; pos++) {
+              const idx = mapping[pos];
+              const color = change.newValue[idx];
+              if (color) {
+                try {
+                  const seriesIdx = pos + 1;
+                  const strokeFn = () => color;
+                  chart.series[seriesIdx].stroke = strokeFn;
+                  // ✅ FIX: Clear path cache to force regeneration
+                  chart.series[seriesIdx]._paths = null;
+                  if (chart.series[seriesIdx].points) {
+                    chart.series[seriesIdx].points.stroke = strokeFn;
+                  }
+                  arrayUpdateCount++;
+                  console.log(`    ✅ Series[${seriesIdx}] color → ${color}`);
+                } catch (e) {
+                  console.error(`    ❌ Series update failed:`, e);
+                  // Ignore errors for individual series
+                }
+              }
+            }
+            try {
+              // ✅ FIX: Immediate redraw instead of batched (forces path regeneration)
+              chart.redraw(false);
+              console.log(`  ✅ Chart ${ci} redrawn`);
+            } catch (e) {
+              console.error(`  ❌ Redraw failed for chart ${ci}:`, e);
+              // Ignore
+            }
+          }
+          console.log(
+            `[COLOR SUBSCRIBER] ✅ Array case: Updated ${arrayUpdateCount} series`
+          );
+
+          // ✅ FIX: Update digital plugin colors if this is digital type
+          if (type === "digital") {
+            console.log(`[COLOR SUBSCRIBER] 🔌 Updating digitalFill plugin...`);
+            console.log(`[COLOR SUBSCRIBER] 📋 Total charts: ${charts.length}`);
+
+            for (let ci = 0; ci &lt; charts.length; ci++) {
+              const chart = charts[ci];
+              console.log(`[COLOR SUBSCRIBER] 🔍 Checking chart ${ci}:`, {
+                exists: !!chart,
+                type: chart?._type,
+                hasPlugins: !!chart?.plugins,
+                pluginsCount: chart?.plugins?.length || 0,
+              });
+
+              if (!chart || chart._type !== "digital") {
+                console.log(
+                  `[COLOR SUBSCRIBER] ⏭️ Chart ${ci} skipped (not digital)`
+                );
+                continue;
+              }
+
+              // ✅ FIX: Use stored plugin reference instead of searching chart.plugins
+              // (uPlot doesn't expose plugins array, so we stored it in renderDigitalCharts)
+              const digitalPlugin = chart._digitalPlugin;
+
+              console.log(`[COLOR SUBSCRIBER] 🎯 Found plugin:`, {
+                found: !!digitalPlugin,
+                hasUpdateColors:
+                  typeof digitalPlugin?.updateColors === "function",
+              });
+
+              if (
+                digitalPlugin &amp;&amp;
+                typeof digitalPlugin.updateColors === "function"
+              ) {
+                // ✅ CRITICAL: Pass FULL color array (592 colors)
+                // Plugin will use originalIndex to map correctly
+                console.log(
+                  `[COLOR SUBSCRIBER] 📞 Calling updateColors with array of ${change.newValue?.length} colors`
+                );
+                const colorsChanged = digitalPlugin.updateColors(
+                  change.newValue
+                );
+
+                console.log(
+                  `[color subscriber] 📊 Plugin updateColors returned:`,
+                  colorsChanged
+                );
+
+                if (colorsChanged) {
+                  // ✅ CRITICAL: Force complete redraw
+                  try {
+                    // Clear all canvas layers
+                    const canvases = chart.root.querySelectorAll("canvas");
+                    let clearedCount = 0;
+                    canvases.forEach((canvas) => {
+                      try {
+                        const ctx = canvas.getContext("2d");
+                        if (ctx) {
+                          ctx.clearRect(0, 0, canvas.width, canvas.height);
+                          clearedCount++;
+                        }
+                      } catch (e) {
+                        // Ignore
+                      }
+                    });
+                    console.log(
+                      `[color subscriber] 🧹 Cleared ${clearedCount} canvas layers`
+                    );
+
+                    // ✅ Force redraw with true to clear canvas
+                    chart.redraw(true);
+                    console.log(
+                      `[color subscriber] ✅ Chart ${ci} redrawn with plugin color updates`
+                    );
+                  } catch (e) {
+                    console.error(`[color subscriber] ❌ Redraw failed:`, e);
+                  }
+                } else {
+                  console.log(
+                    `[color subscriber] ⏭️ Plugin returned no changes`
+                  );
+                }
+              } else {
+                console.warn(
+                  `[COLOR SUBSCRIBER] ❌ Plugin not found or missing updateColors!`,
+                  {
+                    pluginExists: !!digitalPlugin,
+                    isFunction: typeof digitalPlugin?.updateColors,
+                  }
+                );
+              }
+            }
+          }
+
+          // ✅ FIX: Handle computed charts (may be multiple charts, map by global ID order)
+          if (type === "computed") {
+            console.log(`[COLOR SUBSCRIBER] 🎨 Updating computed chart colors (global ID mapping)...`);
+            const computedIdsState = channelState?.computed?.channelIDs || [];
+            
+            for (let ci = 0; ci &lt; charts.length; ci++) {
+              const chart = charts[ci];
+              if (!chart || chart._type !== "computed") continue;
+
+              const computedIds = chart._computedIds || [];
+              let updated = 0;
+
+              for (let seriesIdx = 1; seriesIdx &lt; chart.series.length; seriesIdx++) {
+                const localIdx = seriesIdx - 1;
+                const channelId = computedIds[localIdx];
+                const globalIdx = computedIdsState.indexOf(channelId);
+                if (globalIdx &lt; 0 || globalIdx >= change.newValue.length) continue;
+
+                const color = change.newValue[globalIdx];
+                try {
+                  const strokeFn = () => color;
+                  chart.series[seriesIdx].stroke = strokeFn;
+                  chart.series[seriesIdx]._paths = null;
+                  if (chart.series[seriesIdx].points) {
+                    chart.series[seriesIdx].points.stroke = strokeFn;
+                  }
+                  updated++;
+                  console.log(`[COLOR SUBSCRIBER] ✅ Computed "${channelId}" series[${seriesIdx}] color → ${color}`);
+                } catch (e) {
+                  console.error(`[COLOR SUBSCRIBER] ❌ Failed to update computed "${channelId}" series[${seriesIdx}]:`, e);
+                }
+              }
+
+              if (updated > 0) {
+                try { chart.redraw(false); } catch {}
+                console.log(`[COLOR SUBSCRIBER] ✅ Computed chart ${ci} redrawn after ${updated} updates`);
+              }
+            }
+
+            // ✅ NEW: Also update colors in analog charts for computed channels merged into them
+            console.log(`[COLOR SUBSCRIBER] 🔄 Checking analog charts for merged computed channels...`);
+            // Use state ID order for reliable mapping of color array indices (already defined above as computedIdsState)
+            for (let ci = 0; ci &lt; charts.length; ci++) {
+              const chart = charts[ci];
+              if (!chart || chart._type !== "analog") continue;
+
+              const numAnalogChannels = chart._analogSeriesCount || 0;
+              const computedIdsInChart = chart._computedChannelIds || [];
+              if (!computedIdsInChart.length) continue;
+
+              let updatedCount = 0;
+              // For each computed channel present in this analog chart, find its global color index
+              computedIdsInChart.forEach((computedId, positionInChart) => {
+                const globalIdx = computedIdsState.indexOf(computedId);
+                if (globalIdx >= 0 &amp;&amp; globalIdx &lt; change.newValue.length) {
+                  const newColor = change.newValue[globalIdx];
+                  const seriesIdx = 1 + numAnalogChannels + positionInChart; // +1 for time series
+                  if (seriesIdx > 0 &amp;&amp; seriesIdx &lt; chart.series.length) {
+                    try {
+                      const strokeFn = () => newColor;
+                      chart.series[seriesIdx].stroke = strokeFn;
+                      chart.series[seriesIdx]._paths = null;
+                      if (chart.series[seriesIdx].points) {
+                        chart.series[seriesIdx].points.stroke = strokeFn;
+                      }
+                      updatedCount++;
+                      console.log(`[COLOR SUBSCRIBER] ✅ Analog chart ${ci} - Computed "${computedId}" series[${seriesIdx}] color → ${newColor}`);
+                    } catch (e) {
+                      console.error(`[COLOR SUBSCRIBER] ❌ Failed to update analog merged computed "${computedId}":`, e);
+                    }
+                  }
+                }
+              });
+
+              if (updatedCount > 0) {
+                try {
+                  chart.redraw(false);
+                  console.log(`[COLOR SUBSCRIBER] ✅ Analog chart ${ci} redrawn after ${updatedCount} computed color updates`);
+                } catch (e) {
+                  console.error(`[COLOR SUBSCRIBER] ❌ Failed to redraw analog chart ${ci}:`, e);
+                }
+              }
+            }
+          }
+
+          return;
+        }
+
+        // Case 1: Single color element was changed
+        if (!Number.isFinite(globalIdx)) {
+          console.warn(`[COLOR SUBSCRIBER] ❌ Invalid globalIdx: ${globalIdx}`);
+          return; // Not a single-element update, ignore
+        }
+
+        console.log(`[COLOR SUBSCRIBER] 🎯 CASE 1: Single color change`);
+        console.log(`  Channel: ${type}[${globalIdx}]`);
+        console.log(`  New color: ${change.newValue}`);
+
+        const newColor = change.newValue;
+        let updateCount = 0;
+        let failedCharts = [];
+
+        // ✅ FIX 1: Create/reuse stroke function instead of passing string
+        // uPlot expects stroke to be a function, not a string
+        const t2 = performance.now();
+        const cacheKey = `${type}-${globalIdx}`;
+        let strokeFn = strokeFunctions.get(cacheKey);
+
+        if (!strokeFn || strokeFn._color !== newColor) {
+          // Create new function that returns the color
+          strokeFn = () => newColor;
+          strokeFn._color = newColor; // Store for comparison
+          strokeFunctions.set(cacheKey, strokeFn);
+        }
+        const t3 = performance.now();
+
+        // ✅ FIX 2: Update all charts that contain this channel using fast index
+        const t4 = performance.now();
+        const chartsWithThisChannel =
+          channelToChartsIndex.get(`${type}-${globalIdx}`) || [];
+
+        console.log(
+          `[COLOR SUBSCRIBER] 🔍 Fast index lookup: "${type}-${globalIdx}"`
+        );
+        console.log(
+          `  Found ${chartsWithThisChannel.length} charts with this channel`
+        );
+        console.log(`  Total charts in memory: ${charts.length}`);
+        console.log(`  Charts by type: `, {
+          analog: charts.filter((c) => c?._type === "analog").length,
+          digital: charts.filter((c) => c?._type === "digital").length,
+          computed: charts.filter((c) => c?._type === "computed").length,
+        });
+
+        for (const chart of chartsWithThisChannel) {
+          try {
+            // Find the series index in this specific chart
+            const mapping = chart._channelIndices || [];
+            const pos = mapping.indexOf(globalIdx);
+            if (pos &lt; 0) continue;
+
+            const seriesIdx = pos + 1; // uPlot series index (0 is x-axis)
+
+            console.log(
+              `  🎨 Updating ${chart._type} chart, series[${seriesIdx}]...`
+            );
+
+            // Update both stroke and cached stroke
+            chart.series[seriesIdx].stroke = strokeFn;
+            chart.series[seriesIdx]._stroke = newColor; // Cached value
+
+            // ✅ FIX: Clear path cache to force regeneration with new color
+            chart.series[seriesIdx]._paths = null;
+
+            if (chart.series[seriesIdx].points) {
+              chart.series[seriesIdx].points.stroke = strokeFn;
+              chart.series[seriesIdx].points._stroke = newColor;
+            }
+
+            updateCount++;
+          } catch (err) {
+            console.warn(`[color subscriber] Failed to update series:`, err);
+            failedCharts.push(chart);
+          }
+        }
+        const t5 = performance.now();
+
+        // ✅ FIX: Immediate redraw for all affected charts (not batched!)
+        // ⚠️ CRITICAL: Skip digital charts here - we'll redraw them AFTER updating plugin colors
+        const t6 = performance.now();
+        let redrawCount = 0;
+        for (const chart of chartsWithThisChannel) {
+          try {
+            // ⚠️ Skip digital charts - they need plugin update first!
+            if (type === "digital") {
+              console.log(
+                `[COLOR SUBSCRIBER] ⏭️ Skipping redraw for digital chart - will update plugin first`
+              );
+              continue;
+            }
+            // Immediate redraw (don't batch - we need paths regenerated NOW)
+            chart.redraw(false); // false = don't clear canvas
+            redrawCount++;
+          } catch (e) {
+            console.warn(`[color subscriber] Failed to redraw:`, e);
+          }
+        }
+
+        // ✅ FIX: Update digital plugin colors if this is digital type
+        if (type === "digital") {
+          console.log(
+            `[COLOR SUBSCRIBER] 🔌 Updating digitalFill plugin for single color change...`
+          );
+          console.log(
+            `[COLOR SUBSCRIBER] 📋 Checking ${chartsWithThisChannel.length} charts with this channel`
+          );
+
+          // ⚠️ CRITICAL: Also check ALL digital charts, not just those in chartsWithThisChannel
+          // because chartsWithThisChannel might be empty if chart hasn't been indexed yet
+          const allDigitalCharts = charts.filter(
+            (c) => c &amp;&amp; c._type === "digital"
+          );
+          console.log(
+            `[COLOR SUBSCRIBER] 📊 Total digital charts: ${allDigitalCharts.length}`
+          );
+
+          for (const chart of allDigitalCharts) {
+            console.log(`[COLOR SUBSCRIBER] 🔍 Chart info:`, {
+              type: chart._type,
+              hasDigitalPlugin: !!chart._digitalPlugin,
+              pluginId: chart._digitalPlugin?.id,
+            });
+
+            // ✅ FIX: Use stored plugin reference instead of trying to find it in chart.plugins
+            // (uPlot doesn't expose plugins array)
+            const digitalPlugin = chart._digitalPlugin;
+
+            console.log(`[COLOR SUBSCRIBER] 🎯 Plugin lookup result:`, {
+              pluginFound: !!digitalPlugin,
+              hasUpdateColors:
+                typeof digitalPlugin?.updateColors === "function",
+            });
+
+            if (
+              digitalPlugin &amp;&amp;
+              typeof digitalPlugin.updateColors === "function"
+            ) {
+              // ✅ CRITICAL: For SINGLE color change, we need to pass the FULL array
+              // so plugin can use originalIndex to find the right signal
+              const fullColors = channelState.digital?.lineColors || [];
+
+              console.log(
+                `[COLOR SUBSCRIBER] 📊 Single color update: ${type}[${globalIdx}] = ${newColor}`
+              );
+              console.log(
+                `[COLOR SUBSCRIBER] 📞 Calling updateColors with ${fullColors.length} colors`
+              );
+              console.log(
+                `[COLOR SUBSCRIBER] 📋 Color at index ${globalIdx}: ${fullColors[globalIdx]}`
+              );
+
+              const colorsChanged = digitalPlugin.updateColors(fullColors);
+
+              console.log(
+                `[COLOR SUBSCRIBER] 📊 updateColors returned: ${colorsChanged}`
+              );
+
+              if (colorsChanged) {
+                // ✅ Clear all series paths to force regeneration
+                if (chart.series) {
+                  chart.series.forEach((s) => {
+                    if (s &amp;&amp; s._paths) s._paths = null;
+                  });
+                }
+
+                // ✅ FORCE COMPLETE REDRAW
+                try {
+                  const canvases = chart.root.querySelectorAll("canvas");
+                  canvases.forEach((canvas) => {
+                    const ctx = canvas.getContext("2d");
+                    if (ctx) {
+                      ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    }
+                  });
+                  chart.redraw(true);
+                  console.log(
+                    `[COLOR SUBSCRIBER] ✅ Chart redrawn with new plugin colors`
+                  );
+                } catch (err) {
+                  console.warn(`[COLOR SUBSCRIBER] Failed to redraw:`, err);
+                }
+              } else {
+                console.log(
+                  `[COLOR SUBSCRIBER] ⏭️ Plugin returned no changes, skipping redraw`
+                );
+              }
+            } else {
+              console.warn(
+                `[COLOR SUBSCRIBER] ❌ Plugin not found or updateColors not callable`
+              );
+            }
+          }
+        }
+
+        const t7 = performance.now();
+
+        // ✅ NEW: For single computed color change, update computed charts and analog charts that include it
+        if (type === "computed") {
+          console.log(`[COLOR SUBSCRIBER] 🔄 Checking analog charts for single computed color update...`);
+          // Use channelState.computed.channelIDs as source of truth for index → ID mapping
+          const computedIds = channelState?.computed?.channelIDs || [];
+          const changedComputedId = computedIds[globalIdx];
+
+          if (changedComputedId) {
+            // Update standalone computed charts containing this ID
+            for (let ci = 0; ci &lt; charts.length; ci++) {
+              const chart = charts[ci];
+              if (!chart || chart._type !== "computed") continue;
+              const ids = chart._computedIds || [];
+              const pos = ids.indexOf(changedComputedId);
+              if (pos &lt; 0) continue;
+              const seriesIdx = 1 + pos;
+              if (chart.series &amp;&amp; chart.series[seriesIdx]) {
+                try {
+                  const strokeFn = () => newColor;
+                  chart.series[seriesIdx].stroke = strokeFn;
+                  chart.series[seriesIdx]._stroke = newColor;
+                  chart.series[seriesIdx]._paths = null;
+                  if (chart.series[seriesIdx].points) {
+                    chart.series[seriesIdx].points.stroke = strokeFn;
+                    chart.series[seriesIdx].points._stroke = newColor;
+                  }
+                  chart.redraw(false);
+                  console.log(`[COLOR SUBSCRIBER] ✅ Computed chart ${ci} - "${changedComputedId}" series[${seriesIdx}] color → ${newColor}`);
+                } catch (e) {
+                  console.error(`[COLOR SUBSCRIBER] ❌ Failed to update computed chart for "${changedComputedId}":`, e);
+                }
+              }
+            }
+
+            for (let ci = 0; ci &lt; charts.length; ci++) {
+              const chart = charts[ci];
+              if (!chart || chart._type !== "analog") continue;
+
+              const numAnalogChannels = chart._analogSeriesCount || 0;
+              const computedIdsInChart = chart._computedChannelIds || [];
+              const posInChart = computedIdsInChart.indexOf(changedComputedId);
+              if (posInChart &lt; 0) continue; // This analog chart doesn't include the computed channel
+
+              const seriesIdx = 1 + numAnalogChannels + posInChart;
+              if (seriesIdx > 0 &amp;&amp; seriesIdx &lt; chart.series.length) {
+                try {
+                  const strokeFn = () => newColor;
+                  chart.series[seriesIdx].stroke = strokeFn;
+                  chart.series[seriesIdx]._stroke = newColor;
+                  chart.series[seriesIdx]._paths = null;
+                  if (chart.series[seriesIdx].points) {
+                    chart.series[seriesIdx].points.stroke = strokeFn;
+                    chart.series[seriesIdx].points._stroke = newColor;
+                  }
+                  chart.redraw(false);
+                  console.log(`[COLOR SUBSCRIBER] ✅ Analog chart ${ci} - Computed "${changedComputedId}" series[${seriesIdx}] color → ${newColor}`);
+                } catch (e) {
+                  console.error(`[COLOR SUBSCRIBER] ❌ Failed to update analog merged computed color:`, e);
+                }
+              }
+            }
+          }
+        }
+
+        const t8 = performance.now();
+        console.log(`Successfully updated: ${updateCount} charts`);
+        console.log(`Redraws scheduled: ${redrawCount}`);
+
+        for (
+          let diagIdx = 0;
+          diagIdx &lt; chartsWithThisChannel.length;
+          diagIdx++
+        ) {
+          const chart = chartsWithThisChannel[diagIdx];
+          const mapping = chart._channelIndices || [];
+          const pos = mapping.indexOf(globalIdx);
+
+          if (pos >= 0) {
+            const seriesIdx = pos + 1;
+            const series = chart.series[seriesIdx];
+
+            console.log(`\n  📊 Chart ${diagIdx} (${chart._type}):`, {
+              seriesIdx,
+              strokeType: typeof series.stroke,
+              strokeFunction: series.stroke.toString().substring(0, 50),
+              strokeReturns:
+                typeof series.stroke === "function"
+                  ? series.stroke(chart, seriesIdx)
+                  : "N/A",
+              pathsCleared: series._paths === null,
+              pointsStroke: series.points ? typeof series.points.stroke : "N/A",
+              chartWidth: chart.width,
+              chartHeight: chart.height,
+            });
+
+            // ✅ CRITICAL: Verify stroke function is correct
+            if (typeof series.stroke === "function") {
+              const strokeResult = series.stroke(chart, seriesIdx);
+              if (strokeResult !== newColor) {
+                console.warn(
+                  `    ⚠️ STROKE MISMATCH: Expected "${newColor}", got "${strokeResult}"`
+                );
+              } else {
+                console.log(
+                  `    ✅ Stroke returns correct color: "${strokeResult}"`
+                );
+              }
+            } else {
+              console.error(
+                `    ❌ STROKE NOT A FUNCTION: ${typeof series.stroke}`
+              );
+            }
+
+            // ✅ Check if redraw was called
+            if (typeof chart.redraw === "function") {
+              console.log(`    ✅ chart.redraw() method exists`);
+            } else {
+              console.error(`    ❌ chart.redraw() method NOT FOUND`);
+            }
+
+            // ✅ Check draw hooks
+            if (chart.hooks &amp;&amp; chart.hooks.draw) {
+              console.log(
+                `    ℹ️ Draw hooks: ${chart.hooks.draw.length} hook(s)`
+              );
+            }
+
+            // ✅ Check series visibility
+            if (series.show !== false) {
+              console.log(`    ✅ Series is VISIBLE (show: ${series.show})`);
+            } else {
+              console.error(`    ❌ Series is HIDDEN (show: ${series.show})`);
+            }
+
+            // ✅ Check axis configuration
+            if (series.scale) {
+              console.log(`    ℹ️ Scale: ${series.scale}`);
+            }
+          }
+        }
+        console.groupEnd();
+
+        // ✅ FIX 6: Only recreate charts that actually failed
+        if (failedCharts.length > 0 &amp;&amp; updateCount === 0) {
+          console.warn(
+            `[color subscriber] All updates failed, recreating ${failedCharts.length} charts`
+          );
+          failedCharts.forEach((chart) => {
+            const type = chart._type;
+            const idx = charts.indexOf(chart);
+            if (idx >= 0) recreateChartSync(type, idx);
+          });
+        }
+
+        const totalTime = t8 - t0;
+
+        // Detailed timing breakdown
+        const timings = {
+          pathExtract: (t1 - t0).toFixed(2),
+          cacheFunc: (t3 - t2).toFixed(2),
+          seriesUpdate: (t5 - t4).toFixed(2),
+          redraw: (t7 - t6).toFixed(2),
+          groupedComputed: (t8 - t7).toFixed(2),
+          total: totalTime.toFixed(2),
+        };
+
+        // Log only if slow or in debug mode
+        if (totalTime > 20) {
+          console.warn(
+            `[Performance] 🐢 Color update SLOW: ${totalTime.toFixed(0)}ms | ` +
+              `[Extract: ${timings.pathExtract}ms | Cache: ${timings.cacheFunc}ms | ` +
+              `Series: ${timings.seriesUpdate}ms | Redraw: ${timings.redraw}ms] | ` +
+              `Charts: ${updateCount}, Redraws: ${redrawCount}`
+          );
+        } else if (updateCount > 0) {
+          console.log(
+            `[Performance] ✅ Color update FAST: ${totalTime.toFixed(
+              1
+            )}ms for ${updateCount} charts`
+          );
+        }
+      } catch (err) {
+        console.error("[color subscriber] Unhandled error:", err);
+      }
+    });
+  } else {
+    console.log(
+      "[subscribeChartUpdates] channelState.subscribeProperty not available, skipping property subscriptions"
+    );
+  }
+
+  // Name/label updates (in-place)
+  // Request descendant notifications so we receive per-series changes
+  channelState.subscribeProperty(
+    "name",
+    (change) => {
+      const t0 = performance.now();
+      const type = change.path &amp;&amp; change.path[0];
+      if (!type) return;
+      const globalIdx = change.path &amp;&amp; change.path[2];
+      try {
+        // Whole-array replacement: update labels for each chart based on its mapping
+        if (
+          change.path &amp;&amp;
+          change.path.length === 2 &amp;&amp;
+          Array.isArray(change.newValue)
+        ) {
+          for (let ci = 0; ci &lt; charts.length; ci++) {
+            const chart = charts[ci];
+            if (!chart || chart._type !== type) continue;
+            const mapping = chart._channelIndices || [];
+            mapping.forEach((global, pos) => {
+              try {
+                const lbl = change.newValue[global];
+                if (typeof chart.setSeries === "function")
+                  chart.setSeries(pos + 1, { label: lbl });
+              } catch (e) {}
+            });
+            try {
+              // Schedule redraw with RAF instead of immediate
+              scheduleChartRedraw(chart);
+            } catch (e) {}
+          }
+          const elapsed = (performance.now() - t0).toFixed(2);
+          if (elapsed > 20) {
+            console.warn(
+              `[Performance] Name update scheduled: ${elapsed}ms (array replace)`
+            );
+          }
+          return;
+        }
+
+        // Single-series update: find the chart containing this global index
+        if (Number.isFinite(globalIdx)) {
+          for (let ci = 0; ci &lt; charts.length; ci++) {
+            const chart = charts[ci];
+            if (!chart || chart._type !== type) continue;
+            const mapping = chart._channelIndices || [];
+            const pos = mapping.indexOf(globalIdx);
+            if (pos >= 0) {
+              try {
+                if (typeof chart.setSeries === "function")
+                  chart.setSeries(pos + 1, { label: change.newValue });
+                try {
+                  // Schedule redraw with RAF instead of immediate
+                  scheduleChartRedraw(chart);
+                } catch (e) {}
+                const elapsed = (performance.now() - t0).toFixed(2);
+                if (elapsed > 10) {
+                  console.warn(
+                    `[Performance] Name update scheduled: ${elapsed}ms for 1 channel`
+                  );
+                }
+                return;
+              } catch (e) {
+                console.warn(
+                  "chartManager: in-place label update failed on chart",
+                  ci,
+                  e
+                );
+              }
+            }
+          }
+        }
+      } catch (err) {
+        console.warn(
+          "chartManager: in-place label update failed, recreating charts",
+          err
+        );
+        // Recreate all charts of this type as fallback
+        for (let ci = 0; ci &lt; charts.length; ci++) {
+          if (charts[ci] &amp;&amp; charts[ci]._type === type) recreateChart(type, ci);
+        }
+      }
+    },
+    { descendants: true }
+  );
+
+  // Structural updates: scale/invert should recreate the chart
+  channelState.subscribeProperty(
+    "scale",
+    (change) => {
+      const type = change.path &amp;&amp; change.path[0];
+      const typeIdx = chartTypes.indexOf(type);
+      if (typeIdx === -1) return;
+      recreateChart(type, typeIdx);
+    },
+    { descendants: true }
+  );
+  channelState.subscribeProperty(
+    "group",
+    (change) => {
+      try {
+        debugLite.log("chart.group.change", change);
+      } catch (e) {}
+
+      // ✅ SYNC FIX: Update cfg with the new group assignment so Tabulator reads correct data
+      // This ensures when Tabulator window is closed/reopened, it shows the current state
+      try {
+        const changeType = change.path &amp;&amp; change.path[0]; // 'analog' or 'digital'
+        const channelIdx = change.path &amp;&amp; change.path[2]; // channel index
+        const newGroup = change.newValue; // new group number/ID
+
+        if (
+          changeType &amp;&amp;
+          Number.isFinite(channelIdx) &amp;&amp;
+          cfg &amp;&amp;
+          cfg[changeType + "Channels"]
+        ) {
+          const channels = cfg[changeType + "Channels"];
+          if (channels[channelIdx]) {
+            // Convert numeric group to string format (e.g., 0 → "G0", 1 → "G1")
+            const groupString =
+              typeof newGroup === "number" ? `G${newGroup}` : String(newGroup);
+            channels[channelIdx].group = groupString;
+            console.log(
+              `[group subscriber] ✅ Synced cfg: ${changeType}[${channelIdx}].group = "${groupString}"`
+            );
+          }
+        }
+      } catch (syncErr) {
+        console.warn(`[group subscriber] ⚠️ Failed to sync cfg:`, syncErr);
+      }
+
+      // Skip if we're already rebuilding
+      if (isRebuildingFromGroup) {
+        console.log(
+          `[group subscriber] ℹ️ Already rebuilding, skipping duplicate call`
+        );
+        return;
+      }
+
+      // Clear any pending rebuild
+      if (groupChangeTimeout) {
+        clearTimeout(groupChangeTimeout);
+      }
+
+      // Debounce: wait 200ms to collect all group changes before processing
+      groupChangeTimeout = setTimeout(async () => {
+        const rebuildStartTime = performance.now();
+        isRebuildingFromGroup = true;
+
+        try {
+          console.log(`[group subscriber] 🔄 Processing group change...`);
+          callProgress(30, "Analyzing group structure...");
+          console.log(`[group subscriber] ✅ callProgress(30) called`);
+
+          // ✅ FUNCTIONAL APPROACH: Analyze groups and publish maxYAxes to global store
+          // This single call handles all axis calculations reactively
+          const { analyzeGroupsAndPublishMaxYAxes } = await import(
+            "../utils/analyzeGroupsAndPublish.js"
+          );
+          console.log(`[group subscriber] ✅ Import successful`);
+          
+          const newMaxYAxes = analyzeGroupsAndPublishMaxYAxes(
+            charts,
+            channelState,
+            cfg
+          );
+          console.log(`[group subscriber] ✅ analyzeGroupsAndPublishMaxYAxes completed, newMaxYAxes=${newMaxYAxes}`);
+
+          // Get previous axes to detect if rebuild needed
+          const previousGlobalAxes = previousAxisCounts?.analog?.globalMax || 1;
+          const axisCountChanged = newMaxYAxes !== previousGlobalAxes;
+
+          console.log(
+            `[group subscriber] 📊 Axis count: old=${previousGlobalAxes}, new=${newMaxYAxes}, changed=${axisCountChanged}`
+          );
+
+          callProgress(40, `Axis count: ${axisCountChanged ? "changing" : "stable"}...`);
+
+          // Build currentGroups for state tracking
+          const userGroups = channelState?.analog?.groups || [];
+          const expectedGroupCount =
+            Math.max(...userGroups.map((g) => (g === -1 ? 0 : g)), 0) + 1;
+
+          const { calculateAxisCountForGroup } = await import(
+            "../utils/axisCalculator.js"
+          );
+
+          const currentGroups = Array.from(
+            { length: expectedGroupCount },
+            (_, groupId) => {
+              const groupIndices = userGroups
+                .map((g, idx) => (g === groupId ? idx : -1))
+                .filter((idx) => idx >= 0);
+
+              return {
+                indices: groupIndices,
+                axisCount: calculateAxisCountForGroup(
+                  groupIndices.map((idx) => cfg?.analogChannels?.[idx] || {})
+                ),
+              };
+            }
+          );
+
+          // Only rebuild charts if axis count actually changed
+          if (axisCountChanged) {
+            console.log(
+              `[group subscriber] 🔥 Axis requirement changed -> FULL REBUILD`
+            );
+
+            callProgress(50, "Rebuilding chart structure...");
+
+            // Import render functions
+            const { renderComtradeCharts } = await import(
+              "./renderComtradeCharts.js"
+            );
+
+            // ✅ DEBUG: Log current state before changes
+            console.log(`[group subscriber] 📊 BEFORE changes: `, {
+              totalCharts: charts.length,
+              analogCharts: charts.filter((c) => c?._type === "analog").length,
+              digitalCharts: charts.filter((c) => c?._type === "digital")
+                .length,
+              computedCharts: charts.filter((c) => c?._type === "computed")
+                .length,
+              domContainers: {
+                total: chartsContainer?.children.length,
+                analog: Array.from(chartsContainer?.children || []).filter(
+                  (c) => c.getAttribute("data-chart-type") === "analog"
+                ).length,
+                digital: Array.from(chartsContainer?.children || []).filter(
+                  (c) => c.getAttribute("data-chart-type") === "digital"
+                ).length,
+              },
+            });
+
+            // Destroy all old analog charts immediately
+            const chartsToDestroy = charts.filter(
+              (c) => c &amp;&amp; c._type === "analog"
+            );
+
+            // ✅ FIX: ALSO destroy digital charts when axes change
+            if (axisCountChanged) {
+              const digitalChartsToDestroy = charts.filter(
+                (c) => c &amp;&amp; c._type === "digital"
+              );
+              chartsToDestroy.push(...digitalChartsToDestroy);
+              console.log(
+                `[group subscriber] 🔥 Axis count changed → Destroying ${digitalChartsToDestroy.length} digital charts too`
+              );
+            }
+
+            chartsToDestroy.forEach((chart) => {
+              if (chart &amp;&amp; typeof chart.destroy === "function") {
+                try {
+                  // ✅ Disconnect ResizeObserver
+                  if (chart._resizeObserver) {
+                    chart._resizeObserver.disconnect();
+                    chart._resizeObserver = null;
+                  }
+
+                  chart.destroy();
+                } catch (err) {
+                  console.warn(
+                    `[group subscriber] Failed to destroy chart:`,
+                    err
+                  );
+                }
+              }
+            });
+
+            // ✅ FIX: Remove destroyed charts from array (both analog AND digital if axes changed)
+            const typesToRemove = axisCountChanged
+              ? ["analog", "digital"]
+              : ["analog"];
+            const remainingCharts = charts.filter(
+              (c) => c &amp;&amp; !typesToRemove.includes(c._type)
+            );
+            charts.length = 0;
+            charts.push(...remainingCharts);
+
+            console.log(
+              `[group subscriber] ✓ Removed ${chartsToDestroy.length} charts from array. Remaining: ${charts.length}`
+            );
+
+            // ✅ FIX: Remove DOM containers for destroyed chart types
+            const chartsContainer =
+              document.querySelector(".charts-container") ||
+              document.querySelector("#charts");
+            if (chartsContainer) {
+              Array.from(chartsContainer.children).forEach((child) => {
+                const chartType = child.getAttribute("data-chart-type");
+
+                // Remove analog containers always
+                if (chartType === "analog") {
+                  child.remove();
+                  return;
+                }
+
+                // Remove digital containers ONLY if axes changed
+                if (axisCountChanged &amp;&amp; chartType === "digital") {
+                  child.remove();
+                  console.log(
+                    `[group subscriber] ✓ Removed digital container (axis count changed)`
+                  );
+                }
+              });
+            }
+
+            callProgress(65, "Rendering new charts...");
+
+            // Re-render with fresh axis calculation using renderComtradeCharts
+            renderComtradeCharts(
+              cfg,
+              data,
+              chartsContainer,
+              charts,
+              verticalLinesX,
+              null, // createState
+              null, // calculateDeltas
+              null, // TIME_UNIT
+              channelState
+            );
+
+            callProgress(80, "Finalizing group structure...");
+
+            // ✅ FIX: Always render digital charts if they should exist
+            // (either axes changed OR digital chart was removed)
+            const digitalChartExists = charts.some(
+              (c) => c &amp;&amp; c._type === "digital"
+            );
+            const shouldRenderDigital =
+              !digitalChartExists &amp;&amp; // Digital chart doesn't exist
+              cfg.digitalChannels &amp;&amp;
+              cfg.digitalChannels.length > 0 &amp;&amp;
+              data.digitalData &amp;&amp;
+              data.digitalData.length > 0;
+
+            if (shouldRenderDigital) {
+              try {
+                const { renderDigitalCharts: renderDigital } = await import(
+                  "./renderDigitalCharts.js"
+                );
+                renderDigital(
+                  cfg,
+                  data,
+                  chartsContainer,
+                  charts,
+                  verticalLinesX,
+                  channelState
+                  // ✅ REMOVED: currentGlobalAxes parameter - digital charts now read from global store
+                );
+                console.log(
+                  `[group subscriber] ✓ Digital charts rendered (axis changed: ${axisCountChanged})`
+                );
+              } catch (err) {
+                console.error(
+                  `[group subscriber] ❌ Digital render failed:`,
+                  err
+                );
+              }
+            } else {
+              console.log(
+                `[group subscriber] ⏭️ Skipping digital chart (exists: ${digitalChartExists}, shouldRender: ${shouldRenderDigital})`
+              );
+            }
+
+            // ✅ DEBUG: Log state after changes
+            console.log(`[group subscriber] 📊 AFTER changes:`, {
+              totalCharts: charts.length,
+              analogCharts: charts.filter((c) => c?._type === "analog").length,
+              digitalCharts: charts.filter((c) => c?._type === "digital")
+                .length,
+              computedCharts: charts.filter((c) => c?._type === "computed")
+                .length,
+              domContainers: {
+                total: chartsContainer?.children.length,
+                analog: Array.from(chartsContainer?.children || []).filter(
+                  (c) => c.getAttribute("data-chart-type") === "analog"
+                ).length,
+                digital: Array.from(chartsContainer?.children || []).filter(
+                  (c) => c.getAttribute("data-chart-type") === "digital"
+                ).length,
+              },
+            });
+
+            // ✅ Render computed channels
+            try {
+              const { renderComputedChart } = await import(
+                "./renderComputedChart.js"
+              );
+              renderComputedChart(
+                window.globalCfg,  // cfg with computedChannels metadata
+                data,
+                chartsContainer,
+                charts,
+                verticalLinesX,
+                channelState
+              );
+              console.log(`[group subscriber] ✓ Computed channels rendered`);
+            } catch (err) {
+              console.warn(
+                `[group subscriber] ⚠️ Computed channels render optional:`,
+                err
+              );
+            }
+
+            // Update state
+            previousGroups.analog = userGroups.slice();
+            previousAxisCounts.analog = {
+              globalMax: newMaxYAxes,
+              perGroup: currentGroups.map((g) => g.axisCount),
+            };
+            isRebuildingFromGroup = false;
+
+            callProgress(100, "Group change complete!");
+
+            console.log(
+              `[group subscriber] ✅ All charts rebuilt - analog + digital + computed`
+            );
+            return; // ← CRITICAL: Exit early, skip all fast paths
+          } else {
+            console.log(
+              `[group subscriber] ✓ Axis counts unchanged: ${newMaxYAxes}`
+            );
+            callProgress(50, "Reusing existing charts...");
+          }
+
+          console.log(
+            `[group subscriber] Expected groups: ${expectedGroupCount}, Current charts: ${
+              charts.filter((c) => c?._type === "analog").length
+            }`
+          );
+
+          // 🚀 SUPER-FAST PATH: If chart count hasn't changed, just reorder data
+          const analogCharts = charts.filter((c) => c?._type === "analog");
+          if (
+            !axisCountChanged &amp;&amp; // ⚠️ CRITICAL: Skip fast paths if axes changed
+            analogCharts.length === expectedGroupCount &amp;&amp;
+            expectedGroupCount > 0
+          ) {
+            console.log(
+              `[group subscriber] 🚀 SUPER-FAST PATH: Same chart count (${expectedGroupCount}), reordering data only`
+            );
+
+            try {
+              // Build new data arrays for each group
+              const groupData = new Map(); // groupId -> indices array
+              userGroups.forEach((groupId, channelIdx) => {
+                if (groupId &lt; 0) return; // Skip unassigned
+                if (!groupData.has(groupId)) {
+                  groupData.set(groupId, []);
+                }
+                groupData.get(groupId).push(channelIdx);
+              });
+
+              // Update each chart with its group's data in the correct order
+              let chartIdx = 0;
+              for (const [groupId, channelIndices] of Array.from(
+                groupData.entries()
+              ).sort()) {
+                if (chartIdx >= analogCharts.length) break;
+
+                const chart = analogCharts[chartIdx];
+                const newChartData = [
+                  data.time,
+                  ...channelIndices.map((idx) => data.analogData[idx]),
+                ];
+
+                // Update chart data in-place (fast!)
+                if (typeof chart.setData === "function") {
+                  try {
+                    chart.setData(newChartData);
+                    chart._channelIndices = channelIndices.slice();
+                    chart.redraw();
+                    chartIdx++;
+                  } catch (e) {
+                    console.warn(
+                      `[group subscriber] setData failed for chart ${chartIdx}:`,
+                      e
+                    );
+                    throw e; // Fall back to merge
+                  }
+                }
+              }
+
+              // Rebuild the fast index since channels moved between charts
+              rebuildChannelToChartsIndex();
+
+              const superFastTime = performance.now() - rebuildStartTime;
+              console.log(
+                `[group subscriber] ✨ SUPER-FAST PATH complete: ${superFastTime.toFixed(
+                  0
+                )}ms (data reorder only)`
+              );
+
+              // ✅ Update previous groups and axis counts for next change
+              previousGroups.analog = userGroups.slice();
+              previousAxisCounts.analog = {
+                globalMax: newMaxYAxes,
+                perGroup: currentGroups.map((g) => g.axisCount),
+              };
+              isRebuildingFromGroup = false;
+              return;
+            } catch (e) {
+              console.log(
+                `[group subscriber] Super-fast path failed, trying smart merge...`
+              );
+            }
+          }
+
+          // ⚡⚡ ULTRA-FAST PATH: Try SMART CHART MERGING (moves channels between existing charts)
+          if (
+            !axisCountChanged &amp;&amp;
+            analogCharts.length > 0 &amp;&amp;
+            previousGroups.analog.length > 0
+          ) {
+            // ⚠️ Skip if axes changed
+            console.log(
+              `[group subscriber] Comparing old groups to new groups...`,
+              `Old: ${previousGroups.analog
+                .slice(0, 3)
+                .join(",")}..., New: ${userGroups.slice(0, 3).join(",")}...`
+            );
+
+            const mergeResult = attemptSmartChartMerge(
+              analogCharts,
+              userGroups,
+              previousGroups.analog, // ✅ Pass OLD groups to detect current chart structure
+              data,
+              channelState,
+              expectedGroupCount
+            );
+
+            if (mergeResult.succeeded) {
+              const mergeTime = performance.now() - rebuildStartTime;
+              console.log(
+                `[group subscriber] ✨ ULTRA-FAST PATH: Smart merge complete in ${mergeTime.toFixed(
+                  0
+                )}ms`
+              );
+              console.log(
+                `[group subscriber] Summary: Merged ${mergeResult.channelsMoved} channels, Kept ${mergeResult.chartsKept} charts, Removed ${mergeResult.chartsRemoved} empty charts`
+              );
+
+              // ✅ Update previous groups and axis counts for next change
+              previousGroups.analog = userGroups.slice();
+              previousAxisCounts.analog = {
+                globalMax: newMaxYAxes,
+                perGroup: currentGroups.map((g) => g.axisCount),
+              };
+
+              isRebuildingFromGroup = false;
+              return;
+            }
+            console.log(
+              `[group subscriber] ℹ️ Smart merge not applicable, trying standard reuse...`
+            );
+          }
+
+          // ⚡ OPTIMIZATION: Try to REUSE charts instead of recreating
+          if (
+            !axisCountChanged &amp;&amp;
+            canReuseCharts("analog", expectedGroupCount)
+          ) {
+            // ⚠️ Skip if axes changed
+            console.log(
+              `[group subscriber] ⚡ FAST PATH: Reusing ${expectedGroupCount} analog charts (skipping recreation)`
+            );
+
+            // Rebuild groups with current data
+            const groupData = new Map(); // groupId -> { indices, data }
+
+            // Collect data for each group
+            userGroups.forEach((groupId, channelIdx) => {
+              if (groupId &lt; 0) return; // Skip unassigned
+
+              if (!groupData.has(groupId)) {
+                groupData.set(groupId, { indices: [], data: [] });
+              }
+              groupData.get(groupId).indices.push(channelIdx);
+            });
+
+            // Build chart data for each group
+            let groupIdx = 0;
+            for (const [groupId, groupInfo] of groupData.entries()) {
+              const chart = charts.find(
+                (c) =>
+                  c &amp;&amp;
+                  c._type === "analog" &amp;&amp;
+                  charts.indexOf(c) >= groupIdx &amp;&amp;
+                  charts.indexOf(c) &lt; groupIdx + expectedGroupCount
+              );
+              if (!chart) continue;
+
+              // Build data: [time, ...series for this group]
+              const newChartData = [
+                data.time,
+                ...groupInfo.indices.map((idx) => data.analogData[idx]),
+              ];
+
+              // Update chart in-place
+              updateChartDataInPlace(chart, newChartData, "analog");
+              groupIdx++;
+            }
+
+            const fastPathTime = performance.now() - rebuildStartTime;
+            console.log(
+              `[group subscriber] ✅ Fast path complete: ${fastPathTime.toFixed(
+                0
+              )}ms (data update only)`
+            );
+
+            if (fastPathTime > 500) {
+              console.warn(
+                `[group subscriber] ⚠️ Fast path slower than expected: ${fastPathTime.toFixed(
+                  0
+                )}ms`
+              );
+            }
+
+            // ✅ Update previous groups and axis counts for next change
+            previousGroups.analog = userGroups.slice();
+            previousAxisCounts.analog = {
+              globalMax: newMaxYAxes,
+              perGroup: currentGroups.map((g) => g.axisCount),
+            };
+
+            isRebuildingFromGroup = false;
+            return;
+          }
+
+          // ❌ SLOW PATH: Charts structure changed, need full rebuild
+          console.log(
+            `[group subscriber] 🔄 Chart count changed, using SLOW PATH (full rebuild)...`
+          );
+
+          // ⚡ CRITICAL: Destroy all old charts IMMEDIATELY (synchronous)
+          const destroyStartTime = performance.now();
+          const chartsToDestroy = charts.slice(); // Copy array
+
+          // Destroy all charts immediately (don't batch - it causes 22 second freeze!)
+          for (let i = 0; i &lt; chartsToDestroy.length; i++) {
+            try {
+              if (
+                chartsToDestroy[i] &amp;&amp;
+                typeof chartsToDestroy[i].destroy === "function"
+              ) {
+                chartsToDestroy[i].destroy();
+              }
+            } catch (e) {
+              console.warn(
+                `[group subscriber] Failed to destroy chart[${i}]:`,
+                e
+              );
+            }
+          }
+
+          const destroyTime = performance.now() - destroyStartTime;
+          console.log(
+            `[group subscriber] ✓ Destroyed ${
+              chartsToDestroy.length
+            } old charts in ${destroyTime.toFixed(0)}ms`
+          );
+
+          // Clear old charts
+          charts.length = 0;
+          chartsContainer.innerHTML = "";
+
+          // ✅ Progress: Starting analog chart rendering
+          callProgress(60, "Rendering analog charts...");
+
+          // Render with new groups using renderComtradeCharts (handles analog + digital + computed)
+          const { renderComtradeCharts } = await import(
+            "./renderComtradeCharts.js"
+          );
+
+          const renderStart = performance.now();
+          renderComtradeCharts(
+            cfg,
+            data,
+            chartsContainer,
+            charts,
+            verticalLinesX,
+            null, // createState
+            null, // calculateDeltas
+            null, // TIME_UNIT
+            channelState
+          );
+          const renderTime = performance.now() - renderStart;
+          console.log(`[group subscriber] ✓ All charts rendered in ${renderTime.toFixed(0)}ms`);
+
+          // ✅ Progress: All charts rendered (renderComtradeCharts handles analog + digital + computed)
+          callProgress(90, "Finalizing chart layout...");
+
+          console.log(`[group subscriber] ✓ Charts rendered: ${charts.length}`);
+
+          const slowPathTime = performance.now() - rebuildStartTime;
+          console.log(
+            `[group subscriber] ✅ Slow path complete: ${slowPathTime.toFixed(
+              0
+            )}ms (full rebuild)`
+          );
+
+          if (slowPathTime > 5000) {
+            console.warn(
+              `[group subscriber] ⚠️ SLOW REBUILD: ${slowPathTime.toFixed(0)}ms`
+            );
+          }
+
+          // ✅ Update previous groups and axis counts for next change
+          previousGroups.analog = userGroups.slice();
+          previousAxisCounts.analog = {
+            globalMax: newMaxYAxes,
+            perGroup: currentGroups.map((g) => g.axisCount),
+          };
+
+          // ✅ NEW: Final progress update
+          callProgress(100, "Group change complete!");
+        } catch (err) {
+          console.error(
+            `[group subscriber] ❌ Group change processing failed:`,
+            err
+          );
+          // Fallback to full renderComtradeCharts if rebuild fails
+          try {
+            console.log(
+              `[group subscriber] 🔄 Falling back to full renderComtradeCharts...`
+            );
+            callProgress(90, "Fallback rebuild in progress...");
+            renderComtradeCharts(
+              cfg,
+              data,
+              chartsContainer,
+              charts,
+              verticalLinesX,
+              createState,
+              calculateDeltas,
+              TIME_UNIT,
+              channelState
+            );
+            callProgress(100, "Group change complete!");
+          } catch (fallbackErr) {
+            console.error(
+              `[group subscriber] ❌ Full rebuild also failed:`,
+              fallbackErr
+            );
+          }
+        } finally {
+          isRebuildingFromGroup = false;
+          groupChangeTimeout = null;
+        }
+      }, 200);
+    },
+    { descendants: true }
+  );
+  channelState.subscribeProperty(
+    "invert",
+    (change) => {
+      const type = change.path &amp;&amp; change.path[0];
+      const typeIdx = chartTypes.indexOf(type);
+      if (typeIdx === -1) return;
+
+      // If the whole-array was replaced, fallback to full recreate
+      if (
+        change.path &amp;&amp;
+        change.path.length === 2 &amp;&amp;
+        Array.isArray(change.newValue)
+      ) {
+        recreateChart(type, typeIdx);
+        return;
+      }
+
+      const globalIdx = change.path &amp;&amp; change.path[2];
+      if (!Number.isFinite(globalIdx)) {
+        // No specific series index provided — safe fallback
+        recreateChart(type, typeIdx);
+        return;
+      }
+
+      try {
+        const arr = dataState &amp;&amp; dataState[type];
+        if (!Array.isArray(arr)) {
+          recreateChart(type, typeIdx);
+          return;
+        }
+
+        // Determine whether arr has a leading time array.
+        // We treat it as having time iff the first element is an array AND
+        // channelState[type].channelIDs exists and arr.length === channelCount + 1
+        const chState = channelState[type] || {};
+        const hasChannelIDs = Array.isArray(chState.channelIDs);
+        const channelCount = hasChannelIDs ? chState.channelIDs.length : null;
+        const firstIsArray = Array.isArray(arr[0]);
+        const hasTime =
+          firstIsArray &amp;&amp;
+          channelCount != null &amp;&amp;
+          arr.length === channelCount + 1;
+
+        const seriesPos = hasTime ? globalIdx + 1 : globalIdx;
+        const oldSeries = arr[seriesPos];
+        if (!Array.isArray(oldSeries)) {
+          recreateChart(type, typeIdx);
+          return;
+        }
+
+        const isAnalog = type === "analog";
+        const newSeries = oldSeries.map((v) => {
+          if (isAnalog) return Number.isFinite(v) ? -v : v;
+          return v ? 0 : 1;
+        });
+
+        // Apply in-place to dataState so other parts of app see the change.
+        arr[seriesPos] = newSeries;
+
+        // Try to update the uPlot chart(s) that contain this channel without full recreate
+        let applied = false;
+        for (let ci = 0; ci &lt; charts.length; ci++) {
+          const chart = charts[ci];
+          if (!chart || chart._type !== type) continue;
+          const mapping = chart._channelIndices || [];
+          const pos = mapping.indexOf(globalIdx);
+          if (pos &lt; 0) continue;
+          try {
+            if (typeof chart.setData === "function") {
+              // uPlot expects the full data array; pass our mutated arr reference
+              chart.setData(arr);
+              applied = true;
+            }
+          } catch (e) {
+            applied = false;
+          }
+        }
+
+        if (!applied) recreateChart(type, typeIdx);
+      } catch (e) {
+        recreateChart(type, typeIdx);
+      }
+    },
+    { descendants: true }
+  );
+
+  // ✨ SIMPLE DELETION HANDLER: Reuses same render logic as group change
+  // When channels are deleted, just trigger a full rebuild
+  // The render functions will only create containers for groups with channels
+  // Empty groups will naturally have no container (clean DOM!)
+  channelState.subscribeProperty(
+    "channelIDs",
+    (change) => {
+      const t0 = performance.now();
+      const type = change.path &amp;&amp; change.path[0];
+      
+      if (!type) return;
+
+      // ✅ CRITICAL: Set flag to prevent dataState subscriber from interfering
+      isHandlingDeletion = true;
+
+      try {
+        const oldLength = Array.isArray(change.oldValue) ? change.oldValue.length : 0;
+        const newLength = Array.isArray(change.newValue) ? change.newValue.length : 0;
+        
+        console.log(
+          `[DELETE HANDLER] 🗑️ Channel deletion detected: ${type} (${oldLength} → ${newLength})`
+        );
+
+        debugLite.log("channel.delete.detected", {
+          type,
+          oldLength,
+          newLength,
+        });
+
+        // ✅ STEP 1: Detect if this is a deletion event (not addition)
+        const isChannelDeleted = oldLength > newLength;
+
+        if (!isChannelDeleted) {
+          // Not a deletion - ignore and let other subscribers handle it
+          console.log(`[DELETE HANDLER] ℹ️ Not a deletion event, skipping`);
+          return;
+        }
+
+        console.log(
+          `[DELETE HANDLER] ✅ Deletion confirmed: ${oldLength - newLength} channel(s) removed`
+        );
+
+        // ✅ STEP 2: Rebuild all charts (reusing group change logic)
+        // This will re-render all containers, but only create containers for groups with channels
+        // Empty groups will have NO container (perfect solution!)
+        (async () => {
+          try {
+            console.log(`[DELETE HANDLER] 🔄 Rebuilding all charts with renderComtradeCharts()...`);
+
+            // Import the same render function that group change uses
+            const { renderComtradeCharts: renderAllCharts } = await import(
+              "./renderComtradeCharts.js"
+            );
+
+            // Clear and rebuild - this intelligently creates only non-empty containers
+            renderAllCharts(
+              cfg,
+              data,
+              chartsContainer,
+              charts,
+              verticalLinesX,
+              channelState,
+              createState,
+              calculateDeltas,
+              TIME_UNIT
+            );
+
+            const elapsed = (performance.now() - t0).toFixed(2);
+            console.log(
+              `[DELETE HANDLER] ✅ Rebuild complete: ${elapsed}ms - empty containers removed, remaining groups rendered`
+            );
+          } catch (err) {
+            console.error(`[DELETE HANDLER] ❌ Rebuild failed:`, err);
+          }
+        })();
+      } catch (err) {
+        console.error(`[DELETE HANDLER] ❌ Error in deletion handler:`, err);
+      } finally {
+        // ✅ CRITICAL: Always reset deletion flag when done
+        isHandlingDeletion = false;
+        console.log("[DELETE HANDLER] ✅ Deletion handling complete, released flag");
+      }
+    },
+    { descendants: true }
+  );
+
+  // Start / Duration: prefer setting x scale (time window) when possible
+  // Robustness: starts/durations may be provided as sample indices or as timestamps.
+  // Use dataState[type][0] (time array) to map indices -> time when necessary.
+  function resolveTimeRange(type, seriesIdx) {
+    const timeArr =
+      Array.isArray(dataState[type]) &amp;&amp; Array.isArray(dataState[type][0])
+        ? dataState[type][0]
+        : null;
+
+    // Debug check
+    if (!timeArr) {
+      console.warn(
+        `[resolveTimeRange] Missing or invalid time array for ${type}`
+      );
+    }
+
+    const starts = channelState[type]?.starts || [];
+    const durations = channelState[type]?.durations || [];
+
+    const sRaw = starts[seriesIdx];
+    const dRaw = durations[seriesIdx];
+
+    let sNum = sRaw == null ? NaN : Number(sRaw);
+    let dNum = dRaw == null ? NaN : Number(dRaw);
+
+    try {
+      debugLite.log("resolveTimeRange.request", {
+        type,
+        seriesIdx,
+        sRaw,
+        dRaw,
+        timeArrLength: timeArr ? timeArr.length : 0,
+      });
+    } catch (e) {}
+
+    if (Array.isArray(timeArr) &amp;&amp; timeArr.length) {
+      const first = timeArr[0];
+      const last = timeArr[timeArr.length - 1];
+      const totalSamples = timeArr.length;
+
+      // If start is sample index, map to time
+      if (Number.isInteger(sNum) &amp;&amp; sNum >= 0 &amp;&amp; sNum &lt; totalSamples) {
+        sNum = timeArr[sNum];
+      }
+
+      // If duration is sample count, map to time duration
+      if (Number.isInteger(dNum) &amp;&amp; dNum > 0 &amp;&amp; dNum &lt; totalSamples) {
+        const dt = (last - first) / Math.max(1, totalSamples - 1);
+        dNum = dNum * dt;
+      }
+
+      // Clamp start/duration
+      if (Number.isFinite(sNum)) {
+        if (sNum &lt; first) sNum = first;
+        if (sNum > last) sNum = last;
+      }
+
+      if (Number.isFinite(dNum) &amp;&amp; Number.isFinite(sNum)) {
+        if (sNum + dNum > last) dNum = Math.max(0, last - sNum);
+      }
+    }
+
+    try {
+      debugLite.log("resolveTimeRange.result", {
+        type,
+        seriesIdx,
+        sNum,
+        dNum,
+        hasTime: !!(timeArr &amp;&amp; timeArr.length),
+      });
+    } catch (e) {}
+
+    return {
+      sNum,
+      dNum,
+      hasTime: Array.isArray(timeArr) &amp;&amp; timeArr.length > 0,
+    };
+  }
+
+  // Helper: apply x-scale robustly with a cheap redraw and single retry
+  function applyScale(chart, type, typeIdx, min, max) {
+    try {
+      // Attempt immediate apply (batched when possible)
+      if (typeof chart.batch === "function") {
+        try {
+          chart.batch(() => chart.setScale("x", { min, max }));
+        } catch (e) {
+          chart.setScale("x", { min, max });
+        }
+      } else {
+        chart.setScale("x", { min, max });
+      }
+
+      try {
+        debugLite.log("subscriber.apply.attempt", { type, min, max });
+      } catch (e) {}
+
+      // 🩵 Force re-render after short delay to avoid race with uPlot DOM initialization
+      setTimeout(() => {
+        try {
+          if (chart.setScale) chart.setScale("x", { min, max });
+          if (chart.redraw) chart.redraw();
+          forceRedraw(chart);
+          debugLite.log("subscriber.apply.redraw.ok", { type, min, max });
+        } catch (err) {
+          debugLite.log("subscriber.apply.redraw.error", { type, err });
+        }
+      }, 50);
+
+      // schedule a single short retry if needed to work around timing races
+      if (!chart._scaleRetryScheduled) {
+        chart._scaleRetryScheduled = true;
+        setTimeout(() => {
+          chart._scaleRetryScheduled = false;
+          try {
+            if (typeof chart.batch === "function") {
+              chart.batch(() => chart.setScale("x", { min, max }));
+            } else {
+              chart.setScale("x", { min, max });
+            }
+            try {
+              forceRedraw(chart);
+            } catch (e) {}
+            try {
+              debugLite.log("subscriber.apply.retry", { type, min, max });
+            } catch (e) {}
+          } catch (err) {
+            try {
+              debugLite.log("subscriber.apply.retry.error", { type, err });
+            } catch (e) {}
+            // fallback to recreate if still failing
+            try {
+              debugLite.log("subscriber.apply.retry.fallback", { type });
+            } catch (e) {}
+            recreateChart(type, typeIdx);
+          }
+        }, 50);
+      }
+    } catch (err) {
+      try {
+        debugLite.log("subscriber.apply.error", { type, err });
+      } catch (e) {}
+      recreateChart(type, typeIdx);
+    }
+  }
+
+  // Note: we intentionally do not schedule retries here to avoid extra timers.
+  // Initial start/duration application is handled once after initial render
+  // by the parent (`main.js`) using a small helper.
+
+  channelState.subscribeProperty(
+    "start",
+    (change) => {
+      const subscriberStartTime = performance.now();
+      const type = change.path &amp;&amp; change.path[0];
+      const seriesIdx = change.path &amp;&amp; change.path[2];
+      const typeIdx = chartTypes.indexOf(type);
+      if (typeIdx === -1) return;
+      const chart = charts[typeIdx];
+      if (!chart || typeof chart.setScale !== "function") return;
+      try {
+        try {
+          debugLite.log("subscriber.start.received", { change });
+        } catch (e) {}
+        const { sNum, dNum, hasTime } = resolveTimeRange(type, seriesIdx);
+        try {
+          debugLite.log("subscriber.start.resolved", {
+            type,
+            seriesIdx,
+            sNum,
+            dNum,
+            hasTime,
+          });
+        } catch (e) {}
+        if (!hasTime) return;
+        if (Number.isFinite(sNum) &amp;&amp; Number.isFinite(dNum)) {
+          const min = sNum;
+          const max = sNum + dNum;
+          applyScale(chart, type, typeIdx, min, max);
+        } else if (Number.isFinite(sNum)) {
+          const min = sNum;
+          applyScale(chart, type, typeIdx, min, null);
+        }
+
+        const subscriberEndTime = performance.now();
+        const subscriberTime = subscriberEndTime - subscriberStartTime;
+        if (subscriberTime > 50) {
+          console.log(
+            `[Performance] 'start' subscriber: ${type} series ${seriesIdx}`,
+            {
+              timeMs: subscriberTime.toFixed(2),
+              performance: subscriberTime > 200 ? "🔴 VERY SLOW" : "🟡 SLOW",
+            }
+          );
+        }
+      } catch (err) {
+        // fallback to full recreate if setScale fails - use debounced update
+        try {
+          debugLite.log("subscriber.start.fallback.recreate", {
+            type,
+            err,
+          });
+        } catch (e) {}
+        recreateChartSync(type, typeIdx);
+      }
+    },
+    { descendants: true }
+  );
+
+  channelState.subscribeProperty(
+    "duration",
+    (change) => {
+      const subscriberStartTime = performance.now();
+      const type = change.path &amp;&amp; change.path[0];
+      const seriesIdx = change.path &amp;&amp; change.path[2];
+      const typeIdx = chartTypes.indexOf(type);
+      if (typeIdx === -1) return;
+      const chart = charts[typeIdx];
+      if (!chart || typeof chart.setScale !== "function") return;
+      try {
+        try {
+          debugLite.log("subscriber.duration.received", { change });
+        } catch (e) {}
+        const { sNum, dNum, hasTime } = resolveTimeRange(type, seriesIdx);
+        try {
+          debugLite.log("subscriber.duration.resolved", {
+            type,
+            seriesIdx,
+            sNum,
+            dNum,
+            hasTime,
+          });
+        } catch (e) {}
+        if (!hasTime) return;
+        if (Number.isFinite(sNum) &amp;&amp; Number.isFinite(dNum)) {
+          const min = sNum;
+          const max = sNum + dNum;
+          applyScale(chart, type, typeIdx, min, max);
+        } else if (Number.isFinite(dNum) &amp;&amp; Number.isFinite(sNum) === false) {
+          // if duration present but no start, treat as max only (no min)
+          const max = dNum;
+          applyScale(chart, type, typeIdx, null, max);
+        }
+
+        const subscriberEndTime = performance.now();
+        const subscriberTime = subscriberEndTime - subscriberStartTime;
+        if (subscriberTime > 50) {
+          console.log(
+            `[Performance] 'duration' subscriber: ${type} series ${seriesIdx}`,
+            {
+              timeMs: subscriberTime.toFixed(2),
+              performance: subscriberTime > 200 ? "🔴 VERY SLOW" : "🟡 SLOW",
+            }
+          );
+        }
+      } catch (err) {
+        try {
+          debugLite.log("subscriber.duration.fallback.recreate", {
+            type,
+            err,
+          });
+        } catch (e) {}
+        recreateChartSync(type, typeIdx);
+      }
+    },
+    { descendants: true }
+  );
+
+  // Subscribe to channelState changes
+  try {
+    console.log("[subscribeChartUpdates] Setting up channelState.subscribe");
+    channelState.subscribe(
+      (change) => {
+        try {
+          if (!Array.isArray(change.path) || !change.path[0]) return;
+          chartTypes.forEach((type, idx) => {
+            // Skip color/label here - those are handled by subscribeProperty to
+            // avoid duplicate handling and duplicate debug logs.
+            if (
+              change.path[0] === type &amp;&amp;
+              (change.path[1] === "lineColors" || change.path[1] === "yLabels")
+            ) {
+              return;
+            }
+
+            // Structural changes: axes, order, units, etc.
+            if (
+              change.path[0] === type &amp;&amp;
+              (change.path[1] === "axesScales" ||
+                change.path[1] === "order" ||
+                change.path[1] === "yUnits" ||
+                change.path[1] === "xLabel" ||
+                change.path[1] === "xUnit")
+            ) {
+              recreateChart(type, idx);
+              return;
+            }
+          });
+        } catch (err) {
+          console.error("[channelState subscriber] Error:", err);
+        }
+      },
+      { descendants: true }
+    );
+    console.log("[subscribeChartUpdates] channelState.subscribe set up");
+  } catch (err) {
+    console.error(
+      "[subscribeChartUpdates] Failed to set up channelState subscription:",
+      err
+    );
+  }
+
+  // Subscribe to data changes (full re-create)
+  try {
+    console.log("[subscribeChartUpdates] Setting up dataState.subscribe");
+    dataState.subscribe((change) => {
+      // ✅ CRITICAL: Skip if deletion handler is managing the update
+      if (isHandlingDeletion) {
+        console.log(
+          "[dataState subscriber] 🚫 Skipping during deletion (isHandlingDeletion=true)"
+        );
+        return;
+      }
+
+      try {
+        const type = change.path &amp;&amp; change.path[0];
+        const idx = chartTypes.indexOf(type);
+        if (idx !== -1) {
+          console.log(
+            "[dataState subscriber] 🔄 Data changed, recreating chart",
+            { type }
+          );
+          recreateChart(type, idx);
+        }
+      } catch (err) {
+        console.error("[dataState subscriber] Error:", err);
+      }
+    });
+    console.log("[subscribeChartUpdates] dataState.subscribe set up");
+  } catch (err) {
+    console.error(
+      "[subscribeChartUpdates] Failed to set up dataState subscription:",
+      err
+    );
+  }
+
+  // Subscribe to verticalLinesX changes (re-apply overlays)
+  try {
+    console.log("[subscribeChartUpdates] Setting up verticalLinesX.subscribe");
+    verticalLinesX.subscribe(() => {
+      try {
+        if (!Array.isArray(charts)) return;
+        chartTypes.forEach((type, idx) => {
+          if (charts[idx]) {
+            // Assuming you have a function to update vertical lines overlay
+            updateVerticalLinesOverlay(charts[idx], verticalLinesX);
+          }
+        });
+      } catch (err) {
+        console.error("[verticalLinesX subscriber] Error:", err);
+      }
+    });
+    console.log("[subscribeChartUpdates] verticalLinesX.subscribe set up");
+  } catch (err) {
+    console.error(
+      "[subscribeChartUpdates] Failed to set up verticalLinesX subscription:",
+      err
+    );
+  }
+
+  console.log("[subscribeChartUpdates] All subscriptions set up successfully");
+}
+
+// Helper: update vertical lines overlay (implement as needed)
+function updateVerticalLinesOverlay(chart, verticalLines) {
+  // Your logic to update vertical lines on the chart
+  // For example, re-draw or update plugin state
+}
+
+/**
+ * ============================================================================
+ * CENTRALIZED CHANNEL UPDATE HANDLER (NEW OPTIMIZATION PATH)
+ * ============================================================================
+ *
+ * Central entry point for all channel updates from the ChannelList popup.
+ * Decides whether to apply cheap in-place updates or fall back to expensive
+ * full rebuild based on the update type and impact analysis.
+ *
+ * This function is imported and called from main.js message handler to
+ * replace the scattered update logic for better performance.
+ */
+
+import {
+  applyColorChangeInPlace,
+  applyDataTransformInPlace,
+  simulateChannelGroupChange,
+  simulateChannelDeletion,
+  getChannelStateSnapshot,
+  axisCountDidChange,
+  applyGroupChangeInPlace,
+  removeSeriesInPlace,
+} from "./chartUpdateHelpers.js";
+
+/**
+ * Central handler for channel updates coming from the Tabulator / ChannelList.
+ * Decides whether we can apply a cheap in-place update or must rebuild.
+ *
+ * @param {string} type - Update type ('color', 'scale', 'time_window', 'group', 'delete', 'update', etc.)
+ * @param {any} payload - Payload from ChannelList (usually { row, value } or raw rowData)
+ * @param {Object} channelState - Reactive channel state (required for some update types)
+ * @param {Object} dataState - Reactive data state (used for data recalculation)
+ * @param {Array} charts - Chart instances array [analogChart, digitalChart, ...]
+ * @param {HTMLElement} chartsContainer - Container element for charts
+ * @param {Function} onFullRebuild - Callback to trigger full rebuild if needed
+ * @param {Function} [onProgress] - Optional progress callback: (percent, message) => void
+ *
+ * @returns {boolean} true if handled via cheap path, false if fallback to rebuild
+ *
+ * @example
+ * import { handleChannelUpdate } from './components/chartManager.js';
+ * 
+ * handleChannelUpdate(
+ *   'color',
+ *   { row: {...}, value: '#ff0000' },
+ *   channelState,
+ *   dataState,
+ *   charts,
+ *   chartsContainer,
+ *   () => fullRebuildFromState(),
+ *   (percent, message) => updateProgress(percent, message)
+ * );
+ */
+export function handleChannelUpdate(
+  type,
+  payload,
+  channelState,
+  dataState,
+  charts,
+  chartsContainer,
+  onFullRebuild,
+  onProgress
+) {
+  const startTime = performance.now();
+
+  // ✅ NEW: Support progress callback
+  const updateProgress = (percent, message) => {
+    if (typeof onProgress === "function") {
+      onProgress(percent, message);
+    }
+  };
+
+  console.log("[handleChannelUpdate] Processing update:", {
+    type,
+    hasPayload: !!payload,
+    hasChannelState: !!channelState,
+    hasProgressCallback: !!onProgress,
+  });
+
+  try {
+    switch (type) {
+      case "color": {
+        // Try cheap color update in-place
+        console.log("[handleChannelUpdate] Attempting cheap color update...");
+        const success = applyColorChangeInPlace(payload, channelState);
+
+        if (success) {
+          const elapsed = (performance.now() - startTime).toFixed(2);
+          console.log(
+            `[handleChannelUpdate] ✅ Cheap color update succeeded (${elapsed}ms)`
+          );
+          return true;
+        }
+
+        console.log(
+          "[handleChannelUpdate] Color update failed, falling back to rebuild"
+        );
+        break; // Fallback to full rebuild
+      }
+
+      case "scale":
+      case "time_window": {
+        // Try cheap data transform (or defer to rebuild)
+        console.log(
+          "[handleChannelUpdate] Attempting cheap data transform update..."
+        );
+        const success = applyDataTransformInPlace(payload, channelState);
+
+        if (success) {
+          const elapsed = (performance.now() - startTime).toFixed(2);
+          console.log(
+            `[handleChannelUpdate] ✅ Cheap data transform succeeded (${elapsed}ms)`
+          );
+          return true;
+        }
+
+        console.log(
+          "[handleChannelUpdate] Data transform deferred, using full rebuild"
+        );
+        break; // Fallback to full rebuild
+      }
+
+      case "group": {
+        // Compare axis counts before and after simulated change
+        console.log(
+          "[handleChannelUpdate] Analyzing group change for structural impact..."
+        );
+        updateProgress(35, "Analyzing group change impact...");
+
+        const row = payload?.row;
+        const newGroup = payload?.value || payload?.group;
+
+        if (!row || !newGroup || !channelState) {
+          console.warn(
+            "[handleChannelUpdate] Missing data for group change:",
+            { row: !!row, newGroup, channelState: !!channelState }
+          );
+          break; // Fallback to full rebuild
+        }
+
+        // Simulate the change
+        const beforeState = getChannelStateSnapshot(channelState);
+        const channelID = row.channelID;
+
+        const simulatedState = simulateChannelGroupChange(
+          beforeState,
+          channelID,
+          newGroup
+        );
+
+        if (!simulatedState) {
+          console.warn("[handleChannelUpdate] Could not simulate group change");
+          break; // Fallback to full rebuild
+        }
+
+        // Check if axis count changed
+        const axisChanged = axisCountDidChange(beforeState, simulatedState);
+        updateProgress(50, "Comparing axis structures...");
+
+        if (!axisChanged) {
+          // Cheap path: just update group without axis change
+          console.log(
+            "[handleChannelUpdate] ✅ Group change does not affect axis count - using cheap path"
+          );
+          applyGroupChangeInPlace(channelID, newGroup, channelState);
+          updateProgress(100, "Group change complete!");
+          const elapsed = (performance.now() - startTime).toFixed(2);
+          console.log(
+            `[handleChannelUpdate] ✅ Cheap group change succeeded (${elapsed}ms)`
+          );
+          return true;
+        }
+
+        console.log(
+          "[handleChannelUpdate] Group change affects axis count - using full rebuild"
+        );
+        updateProgress(75, "Rebuilding chart structure...");
+        break; // Fallback to full rebuild
+      }
+
+      case "delete": {
+        // Compare axis counts before and after simulated deletion
+        console.log(
+          "[handleChannelUpdate] Analyzing deletion for structural impact..."
+        );
+
+        const row = payload;
+
+        if (!row || !channelState) {
+          console.warn(
+            "[handleChannelUpdate] Missing data for deletion:",
+            { row: !!row, channelState: !!channelState }
+          );
+          break; // Fallback to full rebuild
+        }
+
+        // Simulate the deletion
+        const beforeState = getChannelStateSnapshot(channelState);
+        const channelID = row.channelID;
+
+        const simulatedState = simulateChannelDeletion(beforeState, channelID);
+
+        if (!simulatedState) {
+          console.warn("[handleChannelUpdate] Could not simulate deletion");
+          break; // Fallback to full rebuild
+        }
+
+        // Check if axis count changed
+        const axisChanged = axisCountDidChange(beforeState, simulatedState);
+
+        if (!axisChanged) {
+          // Cheap path: just remove series without axis change
+          console.log(
+            "[handleChannelUpdate] ✅ Deletion does not affect axis count - using cheap path"
+          );
+          removeSeriesInPlace(channelID);
+          const elapsed = (performance.now() - startTime).toFixed(2);
+          console.log(
+            `[handleChannelUpdate] ✅ Cheap deletion succeeded (${elapsed}ms)`
+          );
+          return true;
+        }
+
+        console.log(
+          "[handleChannelUpdate] Deletion affects axis count - using full rebuild"
+        );
+        break; // Fallback to full rebuild
+      }
+
+      default: {
+        // Unknown or complex update type
+        console.log(
+          `[handleChannelUpdate] Unknown or generic update type: "${type}" - using full rebuild`
+        );
+        break;
+      }
+    }
+  } catch (err) {
+    console.error("[handleChannelUpdate] Error in update handler:", err);
+    // Fallback to full rebuild on error
+  }
+
+  // Fallback: execute full rebuild
+  console.log(
+    "[handleChannelUpdate] Falling back to full rebuild via onFullRebuild callback"
+  );
+  updateProgress(75, "Rebuilding charts...");
+  
+  if (typeof onFullRebuild === "function") {
+    try {
+      onFullRebuild();
+      updateProgress(100, "Update complete!");
+    } catch (err) {
+      console.error("[handleChannelUpdate] Error calling onFullRebuild:", err);
+    }
+  }
+
+  const elapsed = (performance.now() - startTime).toFixed(2);
+  console.log(`[handleChannelUpdate] Full rebuild path (${elapsed}ms)`);
+
+  return false;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

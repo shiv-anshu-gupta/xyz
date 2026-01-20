@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> utils/mergerWindowLauncher.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-chartUpdateHelpers.html">chartUpdateHelpers</a></li><li><a href="module-components_renderComputedChart.html">components/renderComputedChart</a></li><li><a href="module-components_renderComtradeCharts.html">components/renderComtradeCharts</a></li><li><a href="module-components_renderSingleAnalogChart.html">components/renderSingleAnalogChart</a></li><li><a href="module-components_renderSingleDigitalChart.html">components/renderSingleDigitalChart</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-eventListenerManager.html">eventListenerManager</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-services_computedChannels.html">services/computedChannels</a></li><li><a href="module-services_computedChannels_dataPreparation.html">services/computedChannels/dataPreparation</a></li><li><a href="module-services_computedChannels_eventHandling.html">services/computedChannels/eventHandling</a></li><li><a href="module-services_computedChannels_expressionConversion.html">services/computedChannels/expressionConversion</a></li><li><a href="module-services_computedChannels_resultProcessing.html">services/computedChannels/resultProcessing</a></li><li><a href="module-services_computedChannels_stateUpdate.html">services/computedChannels/stateUpdate</a></li><li><a href="module-services_computedChannels_validators.html">services/computedChannels/validators</a></li><li><a href="module-services_computedChannels_workerManagement.html">services/computedChannels/workerManagement</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-utils_autoGroupChannels.html">utils/autoGroupChannels</a></li><li><a href="module-utils_computedChannelMetadata.html">utils/computedChannelMetadata</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li><li><a href="module-workers_computedChannelWorker.html">workers/computedChannelWorker</a></li></ul><h3>Classes</h3><ul><li><a href="PolarChart.html">PolarChart</a></li><li><a href="PolarChartCanvas.html">PolarChartCanvas</a></li><li><a href="SidebarStore.html">SidebarStore</a></li><li><a href="module-utils_computedChannelMetadata-ComputedChannelMetadata.html">ComputedChannelMetadata</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_CFG_KEY">STORAGE_CFG_KEY</a></li><li><a href="global.html#adjustMainContent">adjustMainContent</a></li><li><a href="global.html#appendComputedChannelToStorage">appendComputedChannelToStorage</a></li><li><a href="global.html#attachChartContainer">attachChartContainer</a></li><li><a href="global.html#attachChartEventHandlers">attachChartEventHandlers</a></li><li><a href="global.html#attachChartPlugins">attachChartPlugins</a></li><li><a href="global.html#attachComputedChartContainer">attachComputedChartContainer</a></li><li><a href="global.html#attachComputedChartEventHandlers">attachComputedChartEventHandlers</a></li><li><a href="global.html#attachComputedChartPlugins">attachComputedChartPlugins</a></li><li><a href="global.html#axisLinesPlugin">axisLinesPlugin</a></li><li><a href="global.html#broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li><a href="global.html#buildChartData">buildChartData</a></li><li><a href="global.html#buildChartOptions">buildChartOptions</a></li><li><a href="global.html#buildComputedChannelLabels">buildComputedChannelLabels</a></li><li><a href="global.html#buildComputedChartOptions">buildComputedChartOptions</a></li><li><a href="global.html#buildGroupsWithAutoGrouping">buildGroupsWithAutoGrouping</a></li><li><a href="global.html#buildGroupsWithUserAssignments">buildGroupsWithUserAssignments</a></li><li><a href="global.html#buildTableBody">buildTableBody</a></li><li><a href="global.html#buildTableHTML">buildTableHTML</a></li><li><a href="global.html#buildTableHeader">buildTableHeader</a></li><li><a href="global.html#buildUnitChartData">buildUnitChartData</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#cleanupOldComputedCharts">cleanupOldComputedCharts</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#closeAnalysisDrawer">closeAnalysisDrawer</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#computeChartDataDimensions">computeChartDataDimensions</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartMetadata">createChartMetadata</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createComputedChartMetadata">createComputedChartMetadata</a></li><li><a href="global.html#createComputedClickHandler">createComputedClickHandler</a></li><li><a href="global.html#createComputedMousemoveHandler">createComputedMousemoveHandler</a></li><li><a href="global.html#createDeltaTableRenderer">createDeltaTableRenderer</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createGroupDragBar">createGroupDragBar</a></li><li><a href="global.html#createMousemoveHandler">createMousemoveHandler</a></li><li><a href="global.html#createProgressBar">createProgressBar</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSidebarResizer">createSidebarResizer</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#createVerticalLineClickHandler">createVerticalLineClickHandler</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#detectGroupFromExpression">detectGroupFromExpression</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#extractChannelMetadata">extractChannelMetadata</a></li><li><a href="global.html#extractChannelNameFromEquation">extractChannelNameFromEquation</a></li><li><a href="global.html#extractGroupId">extractGroupId</a></li><li><a href="global.html#extractMathExpression">extractMathExpression</a></li><li><a href="global.html#filterGroupsWithChannels">filterGroupsWithChannels</a></li><li><a href="global.html#filterIndicesWithData">filterIndicesWithData</a></li><li><a href="global.html#filterTableRows">filterTableRows</a></li><li><a href="global.html#filterUnassignedComputedChannels">filterUnassignedComputedChannels</a></li><li><a href="global.html#filterValidIndices">filterValidIndices</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#formatScaledValue">formatScaledValue</a></li><li><a href="global.html#formatTableData">formatTableData</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getColorHex">getColorHex</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelById">getComputedChannelById</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getComputedChannelsState">getComputedChannelsState</a></li><li><a href="global.html#getElementWidth">getElementWidth</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#groupChannelsByUnit">groupChannelsByUnit</a></li><li><a href="global.html#handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li><li><a href="global.html#handleVerticalLineAddition">handleVerticalLineAddition</a></li><li><a href="global.html#hasDigitalData">hasDigitalData</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideProgress">hideProgress</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initComputedChannelsState">initComputedChannelsState</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeChartInstance">initializeChartInstance</a></li><li><a href="global.html#initializeComputedChartInstance">initializeComputedChartInstance</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#isMathJaxLoaded">isMathJaxLoaded</a></li><li><a href="global.html#listenForComputedChannelChanges">listenForComputedChannelChanges</a></li><li><a href="global.html#loadComputedChannelsForGroup">loadComputedChannelsForGroup</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#loadMathJax">loadMathJax</a></li><li><a href="global.html#mathJaxPromise">mathJaxPromise</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogAndComputedMetadata">mergeAnalogAndComputedMetadata</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openAnalysisDrawer">openAnalysisDrawer</a></li><li><a href="global.html#openBothSidebars">openBothSidebars</a></li><li><a href="global.html#openDeltaWindow">openDeltaWindow</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#openPhasorDiagram">openPhasorDiagram</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#prepareChartDataContext">prepareChartDataContext</a></li><li><a href="global.html#processEquationInput">processEquationInput</a></li><li><a href="global.html#readFileAsText">readFileAsText</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderChannelLabelContainer">renderChannelLabelContainer</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderLatex">renderLatex</a></li><li><a href="global.html#resizeChartsToContainers">resizeChartsToContainers</a></li><li><a href="global.html#resolveGroupIndices">resolveGroupIndices</a></li><li><a href="global.html#resolveTimeArray">resolveTimeArray</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#showProgress">showProgress</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#syncComputedChannelsWithParent">syncComputedChannelsWithParent</a></li><li><a href="global.html#themeContext">themeContext</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#updateComputedChannelGroupInStorage">updateComputedChannelGroupInStorage</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateProgress">updateProgress</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateChannelName">validateChannelName</a></li><li><a href="global.html#validateGroupIndices">validateGroupIndices</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>utils/mergerWindowLauncher.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module mergerWindowLauncher
+ * @description
+ * Manages the separate COMTRADE File Merger application window and inter-app communication.
+ * Opens the merger app as a separate window, listens for merged file data, and passes it
+ * to the main application for processing.
+ *
+ * Features:
+ * - Opens merger app in new window (popup/child window)
+ * - Establishes postMessage communication bridge
+ * - Receives combined/merged COMTRADE files from merger app
+ * - Passes merged data to main app for standard processing
+ * - Handles window close and messaging errors gracefully
+ * - ✅ Synchronizes theme with merger window
+ *
+ * @example
+ * import { openMergerWindow, closeMergerWindow } from './mergerWindowLauncher.js';
+ *
+ * // Open merger app
+ * const mergerWindow = openMergerWindow();
+ *
+ * // Merger app will send merged files back via postMessage
+ * // Main app receives and processes them automatically
+ */
+
+import themeBroadcast from "./themeBroadcast.js";
+
+let mergerWindow = null;
+let mergerWindowInterval = null;
+
+/**
+ * Get reference to the merger window (for theme broadcasting)
+ * @function getMergerWindow
+ * @returns {Window|null} Reference to merger window or null
+ */
+export function getMergerWindow() {
+  return mergerWindow;
+}
+
+/**
+ * Open the COMTRADE File Merger application in a separate window
+ * Sets up communication bridge for receiving merged file data
+ *
+ * @function openMergerWindow
+ * @returns {Window|null} Reference to the opened window, or null if blocked
+ */
+export function openMergerWindow() {
+  // Close existing window if open
+  if (mergerWindow &amp;&amp; !mergerWindow.closed) {
+    mergerWindow.focus();
+    return mergerWindow;
+  }
+
+  // Open merger app in new window
+  // Adjust path based on your server structure
+  const mergerUrl = new URL("./comtrade-combiner/index.html", window.location)
+    .href;
+
+  mergerWindow = window.open(
+    mergerUrl,
+    "COMTRADE_Merger",
+    "width=1200,height=800,resizable=yes,scrollbars=yes"
+  );
+
+  if (!mergerWindow) {
+    console.error(
+      "[mergerWindowLauncher] Failed to open merger window - popup may be blocked"
+    );
+    alert(
+      "Failed to open File Merger. Please check if popups are blocked by your browser."
+    );
+    return null;
+  }
+
+  console.log("[mergerWindowLauncher] ✅ Merger window opened successfully");
+
+  // ✅ REGISTER window immediately (before other setup)
+  themeBroadcast.registerWindow("COMTRADE_Merger", mergerWindow);
+
+  // ✅ Load theme CSS
+  themeBroadcast.loadThemeCSS(mergerWindow);
+
+  // ✅ Unregister when window closes
+  const closeCheckInterval = setInterval(() => {
+    if (mergerWindow &amp;&amp; mergerWindow.closed) {
+      themeBroadcast.unregisterWindow("COMTRADE_Merger");
+      clearInterval(closeCheckInterval);
+    }
+  }, 1000);
+
+  // ✅ Setup theme synchronization (wait for window to load)
+  setTimeout(() => {
+    if (mergerWindow &amp;&amp; !mergerWindow.closed) {
+      // Send initial theme
+      const currentTheme = localStorage.getItem("comtrade-theme") || "dark";
+      mergerWindow.postMessage({ theme: currentTheme }, "*");
+      console.log(
+        "[mergerWindowLauncher] ✅ Initial theme sent to merger:",
+        currentTheme
+      );
+
+      // Set up listener for theme changes in main window
+      // When theme changes in main window, send it to merger window
+      window.addEventListener("message", (ev) => {
+        if (ev.data &amp;&amp; ev.data.theme &amp;&amp; mergerWindow &amp;&amp; !mergerWindow.closed) {
+          mergerWindow.postMessage({ theme: ev.data.theme }, "*");
+          console.log(
+            "[mergerWindowLauncher] Theme updated in merger:",
+            ev.data.theme
+          );
+        }
+      });
+    }
+  }, 500);
+
+  // Monitor window status
+  monitorMergerWindow();
+
+  // Setup message listener for receiving merged files from merger app
+  window.addEventListener("message", handleMergerMessage);
+
+  return mergerWindow;
+}
+
+/**
+ * Close the merger window
+ * @function closeMergerWindow
+ */
+export function closeMergerWindow() {
+  if (mergerWindow &amp;&amp; !mergerWindow.closed) {
+    mergerWindow.close();
+    console.log("[mergerWindowLauncher] Merger window closed");
+  }
+  mergerWindow = null;
+  if (mergerWindowInterval) {
+    clearInterval(mergerWindowInterval);
+    mergerWindowInterval = null;
+  }
+}
+
+/**
+ * Check if merger window is still open
+ * @function isMergerWindowOpen
+ * @returns {boolean}
+ */
+export function isMergerWindowOpen() {
+  return mergerWindow &amp;&amp; !mergerWindow.closed;
+}
+
+/**
+ * Monitor merger window status
+ * Cleans up if window is closed
+ * @function monitorMergerWindow
+ * @private
+ */
+function monitorMergerWindow() {
+  if (mergerWindowInterval) clearInterval(mergerWindowInterval);
+
+  mergerWindowInterval = setInterval(() => {
+    if (!mergerWindow || mergerWindow.closed) {
+      console.log(
+        "[mergerWindowLauncher] Merger window closed by user or auto-closed"
+      );
+      mergerWindow = null;
+      clearInterval(mergerWindowInterval);
+      mergerWindowInterval = null;
+    }
+  }, 1000); // Check every second
+}
+
+/**
+ * Handle messages from the merger app
+ * Receives merged file data and passes to main app
+ * @function handleMergerMessage
+ * @private
+ * @param {MessageEvent} event
+ */
+function handleMergerMessage(event) {
+  // Validate origin for security (adjust as needed)
+  // if (event.origin !== window.location.origin) return;
+
+  const msg = event.data;
+  if (!msg || msg.source !== "MergerApp") return;
+
+  console.log("[mergerWindowLauncher] 📨 Message from merger app:", msg.type);
+
+  switch (msg.type) {
+    case "merger_ready":
+      // Merger app is ready - acknowledge
+      console.log(
+        "[mergerWindowLauncher] ✅ Merger app ready for communication"
+      );
+      break;
+
+    case "merged_files_ready":
+      // Merger app has prepared merged files for export
+      handleMergedFilesReady(msg.payload);
+      break;
+
+    case "merger_error":
+      // Merger app encountered an error
+      console.error("[mergerWindowLauncher] Merger app error:", msg.payload);
+      alert(`Merger Error: ${msg.payload.message}`);
+      break;
+
+    case "merger_closed":
+      // Merger app is closing
+      console.log("[mergerWindowLauncher] Merger app closing...");
+      closeMergerWindow();
+      break;
+
+    default:
+      console.warn("[mergerWindowLauncher] Unknown message type:", msg.type);
+  }
+}
+
+/**
+ * Handle merged files from the merger app
+ * Receives CFG and DAT data and prepares for loading
+ * @function handleMergedFilesReady
+ * @private
+ * @param {Object} payload - Contains cfg, datContent, and filenames
+ */
+function handleMergedFilesReady(payload) {
+  try {
+    console.log("[mergerWindowLauncher] 📦 Processing merged files:", payload);
+    console.log("[mergerWindowLauncher] Payload structure:", {
+      hasCfg: !!payload?.cfg,
+      cfgType: typeof payload?.cfg,
+      hasData: !!payload?.data,
+      dataType: typeof payload?.data,
+      hasDatContent: !!payload?.datContent,
+      datContentType: typeof payload?.datContent,
+      datContentLength: payload?.datContent?.length || 0,
+      keys: Object.keys(payload || {}),
+    });
+
+    // Handle both NEW structure (cfg+data) and OLD structure (cfg+datContent)
+    if (!payload || !payload.cfg || (!payload.data &amp;&amp; !payload.datContent)) {
+      console.error(
+        "[mergerWindowLauncher] Invalid payload - missing cfg or (data/datContent)",
+        {
+          payload: payload
+            ? {
+                ...payload,
+                datContent: payload.datContent
+                  ? `&lt;${payload.datContent.length} chars>`
+                  : undefined,
+              }
+            : null,
+        }
+      );
+      return;
+    }
+
+    // Create a custom event with merged file data
+    // Main app will listen for this event and process the files
+    const event = new CustomEvent("mergedFilesReceived", {
+      detail: {
+        cfg: payload.cfg,
+        data: payload.data, // NEW: Already-parsed data
+        datContent: payload.datContent, // OLD: Raw text (for backwards compatibility)
+        filenames: payload.filenames || ["merged_file"],
+        fileCount: payload.fileCount || 1,
+        isMerged: true, // Mark as merged for statistics
+        isMergedFromCombiner: payload.isMergedFromCombiner,
+      },
+    });
+
+    window.dispatchEvent(event);
+    console.log(
+      "[mergerWindowLauncher] ✅ Dispatched mergedFilesReceived event to main app"
+    );
+  } catch (error) {
+    console.error(
+      "[mergerWindowLauncher] Error processing merged files:",
+      error
+    );
+    alert(`Error processing merged files: ${error.message}`);
+  }
+}
+
+/**
+ * Send a message to the merger app
+ * Used for controlling the merger app from main app
+ * @function sendToMerger
+ * @private
+ * @param {string} type - Message type
+ * @param {Object} payload - Message payload
+ */
+export function sendToMerger(type, payload = {}) {
+  if (!isMergerWindowOpen()) {
+    console.warn("[mergerWindowLauncher] Merger window not open");
+    return false;
+  }
+
+  try {
+    mergerWindow.postMessage(
+      {
+        source: "MainApp",
+        type,
+        payload,
+      },
+      "*"
+    );
+    console.log("[mergerWindowLauncher] 📤 Sent message to merger:", type);
+    return true;
+  } catch (error) {
+    console.error(
+      "[mergerWindowLauncher] Failed to send message to merger:",
+      error
+    );
+    return false;
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

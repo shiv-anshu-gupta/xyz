@@ -1,0 +1,511 @@
+flowchart TB
+  subgraph src_components_ChannelList_js
+    createChannelList
+    createList
+    createChannelList --> createList
+  end
+  subgraph src_components_chartComponent_js
+    createChartOptions
+    logScalesDiagnostics
+    createChartOptions --> logScalesDiagnostics
+  end
+  subgraph src_components_chartDomUtils_js
+    createChartContainer
+    initUPlotChart
+    createChartContainer --> initUPlotChart
+  end
+  subgraph src_components_chartManager_js
+    subscribeChartUpdates
+    recreateChart
+    subscribeChartUpdates --> recreateChart
+    updateVerticalLinesOverlay
+    recreateChart --> updateVerticalLinesOverlay
+  end
+  subgraph src_components_comtradeUtils_js
+    parseCFG
+    parseTime
+    parseCFG --> parseTime
+    parseDAT
+    parseTime --> parseDAT
+    convertTime
+    parseDAT --> convertTime
+  end
+  subgraph src_components_createDragBar_js
+    createDragBar
+  end
+  subgraph src_components_createState_copy_2_js
+    createState
+    isObject
+    createState --> isObject
+    isMap
+    isObject --> isMap
+    createDeepProxy
+    isMap --> createDeepProxy
+    wrapped
+    createDeepProxy --> wrapped
+    getByPath
+    wrapped --> getByPath
+    setByPath
+    getByPath --> setByPath
+    updateDOM
+    setByPath --> updateDOM
+    listener
+    updateDOM --> listener
+    handler
+    listener --> handler
+    unwrap
+    handler --> unwrap
+  end
+  subgraph src_components_createState_copy_js
+    createState
+    isObject
+    createState --> isObject
+    createDeepProxy
+    isObject --> createDeepProxy
+    getByPath
+    createDeepProxy --> getByPath
+    setByPath
+    getByPath --> setByPath
+    updateDOM
+    setByPath --> updateDOM
+    listener
+    updateDOM --> listener
+    handler
+    listener --> handler
+    unwrap
+    handler --> unwrap
+  end
+  subgraph src_components_createState_js
+    createState
+    notify
+    createState --> notify
+    isObject
+    notify --> isObject
+    isMap
+    isObject --> isMap
+    createDeepProxy
+    isMap --> createDeepProxy
+    notify
+    createDeepProxy --> notify
+    applyMiddlewares
+    notify --> applyMiddlewares
+    createDeepProxy
+    applyMiddlewares --> createDeepProxy
+    getByPath
+    createDeepProxy --> getByPath
+    setByPath
+    getByPath --> setByPath
+    updateDOM
+    setByPath --> updateDOM
+    listener
+    updateDOM --> listener
+    handler
+    listener --> handler
+    unwrap
+    handler --> unwrap
+  end
+  subgraph src_components_handleVerticalLineShortcuts_js
+    handleVerticalLineShortcuts
+  end
+  subgraph src_components_renderAnalogCharts_js
+    renderAnalogCharts
+  end
+  subgraph src_components_renderComtradeCharts_js
+    renderComtradeCharts
+  end
+  subgraph src_components_renderDigitalCharts_js
+    renderDigitalCharts
+  end
+  subgraph src_components_ResizableGroup_js
+    ResizableGroup
+    onMouseMove
+    ResizableGroup --> onMouseMove
+    onMouseUp
+    onMouseMove --> onMouseUp
+  end
+  subgraph src_components_setupChartDragAndDrop_js
+    setupChartDragAndDrop
+  end
+  subgraph src_components_showChannelListWindow_js
+    showChannelListWindow
+    renderList
+    showChannelListWindow --> renderList
+  end
+  subgraph src_components_showError_js
+    showError
+  end
+  subgraph src_main_js
+    handleLoadFiles
+    initializeChannelState
+    handleLoadFiles --> initializeChannelState
+  end
+  subgraph src_plugins_autoUnitScalePlugin_js
+    getUserScale
+    getTickVals
+    getUserScale --> getTickVals
+    findBestSiUnit
+    getTickVals --> findBestSiUnit
+    defaultTickLabelFormatter
+    findBestSiUnit --> defaultTickLabelFormatter
+    autoScaleAxis
+    defaultTickLabelFormatter --> autoScaleAxis
+    autoUnitScalePlugin
+    autoScaleAxis --> autoUnitScalePlugin
+  end
+  subgraph src_plugins_digitalFillPlugin_js
+    createDigitalFillPlugin
+  end
+  subgraph src_plugins_horizontalZoomPanPlugin_js
+    horizontalZoomPanPlugin
+    applyZoomPanToCharts
+    horizontalZoomPanPlugin --> applyZoomPanToCharts
+    calcNewRange
+    applyZoomPanToCharts --> calcNewRange
+    onWheel
+    calcNewRange --> onWheel
+    onKeyDown
+    onWheel --> onKeyDown
+  end
+  subgraph src_plugins_verticalLinePlugin_js
+    verticalLinePlugin
+    isHoveringLine
+    verticalLinePlugin --> isHoveringLine
+    updateLines
+    isHoveringLine --> updateLines
+    isArrayLike
+    updateLines --> isArrayLike
+  end
+  subgraph src_utils_autoGroupChannels_js
+    autoGroupChannels
+  end
+  subgraph src_utils_calculateDeltas_js
+    calculateDeltas
+  end
+  subgraph src_utils_chartDomUtils_js
+    createChartContainer
+    initUPlotChart
+    createChartContainer --> initUPlotChart
+  end
+  subgraph src_utils_chartUtils_js
+    destroyCharts
+  end
+  subgraph src_utils_digitalChannelUtils_js
+    findChangedDigitalChannelIndices
+  end
+  subgraph src_utils_helpers_js
+    extractUnit
+    nearestIndex
+    extractUnit --> nearestIndex
+    getNearestIndex
+    nearestIndex --> getNearestIndex
+    createCustomElement
+    getNearestIndex --> createCustomElement
+  end
+  subgraph src_utils_scaleUtils_js
+    getSiPrefix
+    makeAxisValueFormatter
+    getSiPrefix --> makeAxisValueFormatter
+  end
+  createChannelList --> createCustomElement
+  createChannelList --> createCustomElement
+  createChannelList --> createCustomElement
+  createChannelList --> createCustomElement
+  createChannelList --> createCustomElement
+  createChannelList --> createCustomElement
+  createChannelList --> onChannelDrop
+  createChannelList --> createCustomElement
+  createChannelList --> onChannelDrop
+  createChannelList --> parseInt
+  createChannelList --> createList
+  createChannelList --> createList
+  createList --> createCustomElement
+  createList --> createCustomElement
+  createList --> createCustomElement
+  createList --> createCustomElement
+  createList --> createCustomElement
+  createList --> onChannelDrop
+  createList --> createCustomElement
+  createList --> onChannelDrop
+  createList --> parseInt
+  createChartOptions --> unwrap
+  createChartOptions --> makeAxisValueFormatter
+  createChartOptions --> extractUnit
+  createChartOptions --> extractUnit
+  createChartOptions --> getSiPrefix
+  createChartOptions --> makeAxisValueFormatter
+  createChartOptions --> extractUnit
+  createChartOptions --> extractUnit
+  createChartOptions --> getSiPrefix
+  createChartOptions --> makeAxisValueFormatter
+  createChartOptions --> autoUnitScalePlugin
+  createChartOptions --> horizontalZoomPanPlugin
+  createChartOptions --> verticalLinePlugin
+  createChartContainer --> createCustomElement
+  createChartContainer --> createCustomElement
+  subscribeChartUpdates --> createChartOptions
+  subscribeChartUpdates --> recreateChart
+  subscribeChartUpdates --> recreateChart
+  subscribeChartUpdates --> updateVerticalLinesOverlay
+  recreateChart --> createChartOptions
+  parseCFG --> Number
+  parseCFG --> Number
+  parseCFG --> Number
+  parseCFG --> parseInt
+  parseCFG --> parseFloat
+  parseCFG --> parseFloat
+  parseCFG --> parseFloat
+  parseCFG --> parseFloat
+  parseCFG --> parseFloat
+  parseCFG --> parseFloat
+  parseCFG --> parseFloat
+  parseCFG --> parseInt
+  parseCFG --> Number
+  parseCFG --> parseInt
+  parseCFG --> parseInt
+  parseCFG --> Number
+  parseCFG --> Number
+  parseCFG --> Number
+  parseCFG --> Number
+  parseCFG --> parseTime
+  parseCFG --> parseTime
+  parseCFG --> isNaN
+  parseCFG --> parseFloat
+  parseTime --> parseInt
+  parseTime --> parseInt
+  parseTime --> Number
+  parseTime --> Number
+  parseTime --> Number
+  parseTime --> Number
+  parseDAT --> parseInt
+  parseDAT --> parseFloat
+  parseDAT --> parseInt
+  parseDAT --> parseFloat
+  parseDAT --> isNaN
+  parseDAT --> parseInt
+  createDragBar --> createCustomElement
+  createState --> isMap
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> fn
+  createState --> fn
+  createState --> fn
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> fn
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> createDeepProxy
+  createState --> fn
+  createState --> isMap
+  createState --> isMap
+  createState --> isMap
+  createState --> getByPath
+  createState --> updateDOM
+  createState --> updateDOM
+  createState --> setByPath
+  createDeepProxy --> isMap
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> fn
+  createDeepProxy --> fn
+  createDeepProxy --> fn
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> fn
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  wrapped --> fn
+  getByPath --> isMap
+  setByPath --> isMap
+  setByPath --> isMap
+  updateDOM --> getByPath
+  listener --> updateDOM
+  handler --> setByPath
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> fn
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> createDeepProxy
+  createState --> getByPath
+  createState --> updateDOM
+  createState --> updateDOM
+  createState --> setByPath
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> fn
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  updateDOM --> getByPath
+  listener --> updateDOM
+  handler --> setByPath
+  createState --> requestAnimationFrame
+  createState --> fn
+  createState --> fn
+  createState --> isMap
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> fn
+  createState --> fn
+  createState --> fn
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> fn
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> createDeepProxy
+  createState --> fn
+  createState --> selector
+  createState --> selector
+  createState --> fn
+  createState --> fn
+  createState --> requestAnimationFrame
+  createState --> fn
+  createState --> fn
+  createState --> computeFn
+  createState --> computeFn
+  createState --> mw
+  createState --> isMap
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> fn
+  createState --> fn
+  createState --> fn
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> applyMiddlewares
+  createState --> notify
+  createState --> isObject
+  createState --> createDeepProxy
+  createState --> isMap
+  createState --> isMap
+  createState --> isMap
+  createState --> getByPath
+  createState --> updateDOM
+  createState --> updateDOM
+  createState --> setByPath
+  notify --> requestAnimationFrame
+  notify --> fn
+  notify --> fn
+  createDeepProxy --> isMap
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> fn
+  createDeepProxy --> fn
+  createDeepProxy --> fn
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> fn
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  notify --> requestAnimationFrame
+  notify --> fn
+  notify --> fn
+  applyMiddlewares --> mw
+  createDeepProxy --> isMap
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> fn
+  createDeepProxy --> fn
+  createDeepProxy --> fn
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  createDeepProxy --> applyMiddlewares
+  createDeepProxy --> notify
+  createDeepProxy --> isObject
+  createDeepProxy --> createDeepProxy
+  getByPath --> isMap
+  setByPath --> isMap
+  setByPath --> isMap
+  updateDOM --> getByPath
+  listener --> updateDOM
+  handler --> setByPath
+  handleVerticalLineShortcuts --> calculateDeltas
+  handleVerticalLineShortcuts --> calculateDeltas
+  renderAnalogCharts --> autoGroupChannels
+  renderAnalogCharts --> createDragBar
+  renderAnalogCharts --> createChartContainer
+  renderAnalogCharts --> createChartOptions
+  renderAnalogCharts --> verticalLinePlugin
+  renderAnalogCharts --> initUPlotChart
+  renderComtradeCharts --> setupChartDragAndDrop
+  renderComtradeCharts --> renderAnalogCharts
+  renderComtradeCharts --> renderDigitalCharts
+  renderComtradeCharts --> calculateDeltas
+  renderDigitalCharts --> createCustomElement
+  renderDigitalCharts --> findChangedDigitalChannelIndices
+  renderDigitalCharts --> createDragBar
+  renderDigitalCharts --> createCustomElement
+  renderDigitalCharts --> createChartOptions
+  renderDigitalCharts --> createDigitalFillPlugin
+  renderDigitalCharts --> verticalLinePlugin
+  showChannelListWindow --> createChannelList
+  showChannelListWindow --> onChannelColorChange
+  showChannelListWindow --> onChannelDrop
+  showChannelListWindow --> renderList
+  showChannelListWindow --> renderList
+  renderList --> createChannelList
+  renderList --> onChannelColorChange
+  renderList --> onChannelDrop
+  renderList --> renderList
+  showError --> alert
+  handleLoadFiles --> showError
+  handleLoadFiles --> showError
+  handleLoadFiles --> parseCFG
+  handleLoadFiles --> showError
+  handleLoadFiles --> parseDAT
+  handleLoadFiles --> showError
+  handleLoadFiles --> initializeChannelState
+  handleLoadFiles --> renderComtradeCharts
+  handleLoadFiles --> subscribeChartUpdates
+  handleLoadFiles --> showError
+  getUserScale --> parseInt
+  autoScaleAxis --> extractUnit
+  autoScaleAxis --> getUserScale
+  autoScaleAxis --> getTickVals
+  autoScaleAxis --> findBestSiUnit
+  autoScaleAxis --> tickLabelFormatter
+  autoScaleAxis --> defaultTickLabelFormatter
+  autoUnitScalePlugin --> extractUnit
+  autoUnitScalePlugin --> autoScaleAxis
+  autoUnitScalePlugin --> autoScaleAxis
+  autoUnitScalePlugin --> autoScaleAxis
+  createDigitalFillPlugin --> isNaN
+  createDigitalFillPlugin --> isNaN
+  horizontalZoomPanPlugin --> getCharts
+  horizontalZoomPanPlugin --> calcNewRange
+  horizontalZoomPanPlugin --> applyZoomPanToCharts
+  horizontalZoomPanPlugin --> calcNewRange
+  horizontalZoomPanPlugin --> applyZoomPanToCharts
+  applyZoomPanToCharts --> getCharts
+  onWheel --> calcNewRange
+  onWheel --> applyZoomPanToCharts
+  onKeyDown --> calcNewRange
+  onKeyDown --> applyZoomPanToCharts
+  verticalLinePlugin --> isHoveringLine
+  verticalLinePlugin --> getCharts
+  verticalLinePlugin --> calculateDeltas
+  verticalLinePlugin --> setTimeout
+  verticalLinePlugin --> getNearestIndex
+  verticalLinePlugin --> labelFormatter
+  calculateDeltas --> getNearestIndex
+  calculateDeltas --> getNearestIndex
+  calculateDeltas --> createCustomElement
+  calculateDeltas --> createCustomElement
+  createChartContainer --> createCustomElement
+  createChartContainer --> createCustomElement
+  makeAxisValueFormatter --> isNaN
+  makeAxisValueFormatter --> Number
+  makeAxisValueFormatter --> siFormat

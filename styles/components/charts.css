@@ -1,0 +1,33 @@
+/**
+ * Charts - Chart containers and styling
+ * Theme-aware colors
+ */
+
+.chart-container {
+  background-color: var(--chart-bg);
+  color: var(--chart-text);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 4px;
+  
+}
+
+.chart-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.uplot {
+  color: var(--chart-text);
+}
+
+.uplot .u-legend {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.uplot .u-cursor-pt {
+  border-color: var(--border-color);
+}

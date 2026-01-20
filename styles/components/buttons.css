@@ -1,0 +1,67 @@
+/**
+ * Buttons - All button styles in one place
+ */
+
+/* Base button */
+.btn {
+  padding: 10px 20px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Edge toggle buttons (Analysis/Data buttons) */
+.edge-toggle-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px 6px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 999;
+  transition: all 0.3s ease;
+  writing-mode: vertical-rl;
+  min-width: 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+#analysis-sidebar-toggle {
+  left: 0;
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+}
+
+#analysis-sidebar-toggle:hover {
+  background: var(--bg-tertiary);
+  transform: translateY(-50%) translateX(4px);
+}
+
+#delta-drawer-toggle {
+  right: 0;
+  background-color: #4f46e5;
+  color: #ffffff;
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+
+#delta-drawer-toggle:hover {
+  background-color: #4338ca;
+  transform: translateY(-50%) translateX(-4px);
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Zoom + Δt/ΔIA + Snapping Tooltip (uPlot)</title>
+    <link rel="stylesheet" href="https://unpkg.com/uplot/dist/uPlot.min.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      #chart {
+        width: 800px;
+        height: 300px;
+      }
+      #infoBox {
+        margin-top: 10px;
+        padding: 10px;
+        background: #f9f9f9;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        display: inline-block;
+      }
+      .tooltip {
+        position: absolute;
+        background: #fff;
+        border: 1px solid #ccc;
+        padding: 5px 8px;
+        font-size: 12px;
+        pointer-events: none;
+        display: none;
+        max-width: 220px;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Zoom + Δt/ΔIA + Snapping Tooltip</h2>
+    <div id="chart"></div>
+    <div id="infoBox">Drag on chart to zoom between two points.</div>
+    <div class="tooltip" id="tooltip"></div>
+
+    <script src="https://unpkg.com/uplot/dist/uPlot.iife.min.js"></script>
+    <script>
+      // 🟢 Generate mock data
+      const N = 1000;
+      const time = Array.from({ length: N }, (_, i) => i);
+      const IA = time.map((t) => 5 + 2 * Math.sin(t / 50));
+      const data = [time, IA];
+
+      const tooltip = document.getElementById("tooltip");
+      let zoomStartIdx = null;
+      let zoomEndIdx = null;
+
+      // 🧭 Chart options
+      const opts = {
+        title: "IA Signal",
+        width: 800,
+        height: 300,
+        scales: { x: { time: false } },
+        axes: [{ label: "Time (ms)" }, { label: "IA (kA)" }],
+        series: [
+          {},
+          {
+            label: "IA",
+            stroke: "blue",
+            width: 2,
+            value: (v) => (typeof v === "number" ? v.toFixed(3) + " kA" : ""),
+          },
+        ],
+        cursor: {
+          drag: { x: true, y: false },
+          focus: { prox: 20 },
+          points: { show: true },
+          show: true,
+        },
+        hooks: {
+          setCursor: [
+            (u) => {
+              const idx = u.cursor.idx;
+              const rect = u.over.getBoundingClientRect();
+
+              // Snap to nearest point
+              if (idx != null && idx >= 0 && idx < time.length) {
+                const xVal = time[idx];
+                const yVal = IA[idx];
+                const xPos = u.valToPos(xVal, "x", true);
+                const yPos = u.valToPos(yVal, "y", true);
+
+                tooltip.style.left = rect.left + xPos + 10 + "px";
+                tooltip.style.top = rect.top + yPos - 25 + "px";
+
+                // If zoom exists, show zoom info
+                if (zoomStartIdx != null && zoomEndIdx != null) {
+                  const startIdx = zoomStartIdx;
+                  const endIdx = zoomEndIdx;
+                  const xMin = time[startIdx];
+                  const xMax = time[endIdx];
+                  const valStart = IA[startIdx];
+                  const valEnd = IA[endIdx];
+                  const deltaT = (xMax - xMin).toFixed(2);
+                  const deltaV = (valEnd - valStart).toFixed(3);
+
+                  tooltip.innerHTML = `
+                  <strong>Zoomed Range:</strong> ${xMin.toFixed(
+                    2
+                  )} ms – ${xMax.toFixed(2)} ms<br>
+                  <strong>Δt:</strong> ${deltaT} ms<br>
+                  <strong>IA @ ${xMin.toFixed(2)}:</strong> ${valStart.toFixed(
+                    3
+                  )} kA<br>
+                  <strong>IA @ ${xMax.toFixed(2)}:</strong> ${valEnd.toFixed(
+                    3
+                  )} kA<br>
+                  <strong>ΔIA:</strong> ${deltaV} kA
+                `;
+                } else {
+                  tooltip.innerHTML = `
+                  <strong>Time:</strong> ${xVal.toFixed(2)} ms<br>
+                  <strong>IA:</strong> ${yVal.toFixed(3)} kA
+                `;
+                }
+                tooltip.style.display = "block";
+              } else {
+                tooltip.style.display = "none";
+              }
+            },
+          ],
+        },
+      };
+
+      const uplot = new uPlot(opts, data, document.getElementById("chart"));
+
+      // 🧮 Zoom handling
+      uplot.over.addEventListener("mouseup", () => {
+        const xMin = uplot.posToVal(uplot.cursor.left0, "x");
+        const xMax = uplot.posToVal(uplot.cursor.left1, "x");
+
+        if (!isNaN(xMin) && !isNaN(xMax) && xMin !== xMax) {
+          const start = Math.min(xMin, xMax);
+          const end = Math.max(xMin, xMax);
+
+          // Snap zoom range to nearest indexes
+          zoomStartIdx = Math.round(start);
+          zoomEndIdx = Math.round(end);
+
+          uplot.setScale("x", {
+            min: time[zoomStartIdx],
+            max: time[zoomEndIdx],
+          });
+
+          const valStart = IA[zoomStartIdx];
+          const valEnd = IA[zoomEndIdx];
+          const deltaT = (time[zoomEndIdx] - time[zoomStartIdx]).toFixed(2);
+          const deltaV = (valEnd - valStart).toFixed(3);
+
+          document.getElementById("infoBox").innerHTML = `
+          <strong>Zoomed Range:</strong> ${time[zoomStartIdx].toFixed(
+            2
+          )} ms – ${time[zoomEndIdx].toFixed(2)} ms<br>
+          <strong>Δt:</strong> ${deltaT} ms<br>
+          <strong>IA @ ${time[zoomStartIdx].toFixed(
+            2
+          )}:</strong> ${valStart.toFixed(3)} kA<br>
+          <strong>IA @ ${time[zoomEndIdx].toFixed(
+            2
+          )}:</strong> ${valEnd.toFixed(3)} kA<br>
+          <strong>ΔIA:</strong> ${deltaV} kA
+        `;
+
+          // Trigger a fake mousemove to refresh tooltip
+          const evt = new MouseEvent("mousemove", {
+            clientX:
+              uplot.over.getBoundingClientRect().left + uplot.cursor.left,
+            clientY: uplot.over.getBoundingClientRect().top + uplot.cursor.top,
+          });
+          uplot.over.dispatchEvent(evt);
+        }
+      });
+    </script>
+  </body>
+</html>

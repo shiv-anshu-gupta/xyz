@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> utils/autoGroupChannels.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-chartUpdateHelpers.html">chartUpdateHelpers</a></li><li><a href="module-components_renderComputedChart.html">components/renderComputedChart</a></li><li><a href="module-components_renderComtradeCharts.html">components/renderComtradeCharts</a></li><li><a href="module-components_renderSingleAnalogChart.html">components/renderSingleAnalogChart</a></li><li><a href="module-components_renderSingleDigitalChart.html">components/renderSingleDigitalChart</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-eventListenerManager.html">eventListenerManager</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-services_computedChannels.html">services/computedChannels</a></li><li><a href="module-services_computedChannels_dataPreparation.html">services/computedChannels/dataPreparation</a></li><li><a href="module-services_computedChannels_eventHandling.html">services/computedChannels/eventHandling</a></li><li><a href="module-services_computedChannels_expressionConversion.html">services/computedChannels/expressionConversion</a></li><li><a href="module-services_computedChannels_resultProcessing.html">services/computedChannels/resultProcessing</a></li><li><a href="module-services_computedChannels_stateUpdate.html">services/computedChannels/stateUpdate</a></li><li><a href="module-services_computedChannels_validators.html">services/computedChannels/validators</a></li><li><a href="module-services_computedChannels_workerManagement.html">services/computedChannels/workerManagement</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-utils_autoGroupChannels.html">utils/autoGroupChannels</a></li><li><a href="module-utils_computedChannelMetadata.html">utils/computedChannelMetadata</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li><li><a href="module-workers_computedChannelWorker.html">workers/computedChannelWorker</a></li></ul><h3>Classes</h3><ul><li><a href="PolarChart.html">PolarChart</a></li><li><a href="PolarChartCanvas.html">PolarChartCanvas</a></li><li><a href="SidebarStore.html">SidebarStore</a></li><li><a href="module-utils_computedChannelMetadata-ComputedChannelMetadata.html">ComputedChannelMetadata</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_CFG_KEY">STORAGE_CFG_KEY</a></li><li><a href="global.html#adjustMainContent">adjustMainContent</a></li><li><a href="global.html#appendComputedChannelToStorage">appendComputedChannelToStorage</a></li><li><a href="global.html#attachChartContainer">attachChartContainer</a></li><li><a href="global.html#attachChartEventHandlers">attachChartEventHandlers</a></li><li><a href="global.html#attachChartPlugins">attachChartPlugins</a></li><li><a href="global.html#attachComputedChartContainer">attachComputedChartContainer</a></li><li><a href="global.html#attachComputedChartEventHandlers">attachComputedChartEventHandlers</a></li><li><a href="global.html#attachComputedChartPlugins">attachComputedChartPlugins</a></li><li><a href="global.html#axisLinesPlugin">axisLinesPlugin</a></li><li><a href="global.html#broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li><a href="global.html#buildChartData">buildChartData</a></li><li><a href="global.html#buildChartOptions">buildChartOptions</a></li><li><a href="global.html#buildComputedChannelLabels">buildComputedChannelLabels</a></li><li><a href="global.html#buildComputedChartOptions">buildComputedChartOptions</a></li><li><a href="global.html#buildGroupsWithAutoGrouping">buildGroupsWithAutoGrouping</a></li><li><a href="global.html#buildGroupsWithUserAssignments">buildGroupsWithUserAssignments</a></li><li><a href="global.html#buildTableBody">buildTableBody</a></li><li><a href="global.html#buildTableHTML">buildTableHTML</a></li><li><a href="global.html#buildTableHeader">buildTableHeader</a></li><li><a href="global.html#buildUnitChartData">buildUnitChartData</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#cleanupOldComputedCharts">cleanupOldComputedCharts</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#closeAnalysisDrawer">closeAnalysisDrawer</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#computeChartDataDimensions">computeChartDataDimensions</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartMetadata">createChartMetadata</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createComputedChartMetadata">createComputedChartMetadata</a></li><li><a href="global.html#createComputedClickHandler">createComputedClickHandler</a></li><li><a href="global.html#createComputedMousemoveHandler">createComputedMousemoveHandler</a></li><li><a href="global.html#createDeltaTableRenderer">createDeltaTableRenderer</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createGroupDragBar">createGroupDragBar</a></li><li><a href="global.html#createMousemoveHandler">createMousemoveHandler</a></li><li><a href="global.html#createProgressBar">createProgressBar</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSidebarResizer">createSidebarResizer</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#createVerticalLineClickHandler">createVerticalLineClickHandler</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#detectGroupFromExpression">detectGroupFromExpression</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#extractChannelMetadata">extractChannelMetadata</a></li><li><a href="global.html#extractChannelNameFromEquation">extractChannelNameFromEquation</a></li><li><a href="global.html#extractGroupId">extractGroupId</a></li><li><a href="global.html#extractMathExpression">extractMathExpression</a></li><li><a href="global.html#filterGroupsWithChannels">filterGroupsWithChannels</a></li><li><a href="global.html#filterIndicesWithData">filterIndicesWithData</a></li><li><a href="global.html#filterTableRows">filterTableRows</a></li><li><a href="global.html#filterUnassignedComputedChannels">filterUnassignedComputedChannels</a></li><li><a href="global.html#filterValidIndices">filterValidIndices</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#formatScaledValue">formatScaledValue</a></li><li><a href="global.html#formatTableData">formatTableData</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getColorHex">getColorHex</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelById">getComputedChannelById</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getComputedChannelsState">getComputedChannelsState</a></li><li><a href="global.html#getElementWidth">getElementWidth</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#groupChannelsByUnit">groupChannelsByUnit</a></li><li><a href="global.html#handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li><li><a href="global.html#handleVerticalLineAddition">handleVerticalLineAddition</a></li><li><a href="global.html#hasDigitalData">hasDigitalData</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideProgress">hideProgress</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initComputedChannelsState">initComputedChannelsState</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeChartInstance">initializeChartInstance</a></li><li><a href="global.html#initializeComputedChartInstance">initializeComputedChartInstance</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#isMathJaxLoaded">isMathJaxLoaded</a></li><li><a href="global.html#listenForComputedChannelChanges">listenForComputedChannelChanges</a></li><li><a href="global.html#loadComputedChannelsForGroup">loadComputedChannelsForGroup</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#loadMathJax">loadMathJax</a></li><li><a href="global.html#mathJaxPromise">mathJaxPromise</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogAndComputedMetadata">mergeAnalogAndComputedMetadata</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#openAnalysisDrawer">openAnalysisDrawer</a></li><li><a href="global.html#openBothSidebars">openBothSidebars</a></li><li><a href="global.html#openDeltaWindow">openDeltaWindow</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#openPhasorDiagram">openPhasorDiagram</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#prepareChartDataContext">prepareChartDataContext</a></li><li><a href="global.html#processEquationInput">processEquationInput</a></li><li><a href="global.html#readFileAsText">readFileAsText</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderChannelLabelContainer">renderChannelLabelContainer</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderLatex">renderLatex</a></li><li><a href="global.html#resizeChartsToContainers">resizeChartsToContainers</a></li><li><a href="global.html#resolveGroupIndices">resolveGroupIndices</a></li><li><a href="global.html#resolveTimeArray">resolveTimeArray</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#showProgress">showProgress</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#syncComputedChannelsWithParent">syncComputedChannelsWithParent</a></li><li><a href="global.html#themeContext">themeContext</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#updateComputedChannelGroupInStorage">updateComputedChannelGroupInStorage</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateProgress">updateProgress</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateChannelName">validateChannelName</a></li><li><a href="global.html#validateGroupIndices">validateGroupIndices</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>utils/autoGroupChannels.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file autoGroupChannels.js
+ * @module utils/autoGroupChannels
+ * 
+ * @description
+ * &lt;h3>Automatic Channel Grouping Utilities&lt;/h3>
+ * 
+ * &lt;p>Intelligently groups COMTRADE channels based on naming patterns.
+ * Designed for protection relays (SEL, ABB, Siemens, GE) and power quality meters.&lt;/p>
+ * 
+ * &lt;h4>Purpose&lt;/h4>
+ * &lt;p>COMTRADE files can contain dozens or hundreds of channels.
+ * This module auto-groups related channels for organized visualization:&lt;/p>
+ * 
+ * &lt;table>
+ *   &lt;tr>&lt;th>Channel Type&lt;/th>&lt;th>Example Inputs&lt;/th>&lt;th>Result&lt;/th>&lt;/tr>
+ *   &lt;tr>&lt;td>Currents&lt;/td>&lt;td>IA, IB, IC, IN&lt;/td>&lt;td>→ One chart&lt;/td>&lt;/tr>
+ *   &lt;tr>&lt;td>Voltages&lt;/td>&lt;td>VA, VB, VC, VN&lt;/td>&lt;td>→ One chart&lt;/td>&lt;/tr>
+ *   &lt;tr>&lt;td>Protection&lt;/td>&lt;td>TRIP, CLOSE, 52A&lt;/td>&lt;td>→ One chart&lt;/td>&lt;/tr>
+ *   &lt;tr>&lt;td>Power Quality&lt;/td>&lt;td>SAG, SWELL, HARM&lt;/td>&lt;td>→ Grouped by type&lt;/td>&lt;/tr>
+ * &lt;/table>
+ * 
+ * &lt;h4>Grouping Strategy&lt;/h4>
+ * &lt;ol>
+ *   &lt;li>&lt;strong>Pattern Matching&lt;/strong> — Match against known naming conventions&lt;/li>
+ *   &lt;li>&lt;strong>User Override&lt;/strong> — User-defined groups take priority&lt;/li>
+ *   &lt;li>&lt;strong>Catch-All&lt;/strong> — Unmatched channels go to default group&lt;/li>
+ * &lt;/ol>
+ * 
+ * &lt;h4>Supported Patterns&lt;/h4>
+ * &lt;p>&lt;strong>Analog:&lt;/strong>&lt;/p>
+ * &lt;ul>
+ *   &lt;li>&lt;code>IA&lt;/code>, &lt;code>IB&lt;/code>, &lt;code>IC&lt;/code>, &lt;code>IN&lt;/code> — Phase currents&lt;/li>
+ *   &lt;li>&lt;code>VA&lt;/code>, &lt;code>VB&lt;/code>, &lt;code>VC&lt;/code>, &lt;code>VN&lt;/code> — Phase voltages&lt;/li>
+ *   &lt;li>&lt;code>IL1&lt;/code>, &lt;code>IL2&lt;/code>, &lt;code>IL3&lt;/code> — Line currents (IEC)&lt;/li>
+ *   &lt;li>&lt;code>UL1&lt;/code>, &lt;code>UL2&lt;/code>, &lt;code>UL3&lt;/code> — Line voltages (IEC)&lt;/li>
+ * &lt;/ul>
+ * 
+ * &lt;p>&lt;strong>Digital:&lt;/strong>&lt;/p>
+ * &lt;ul>
+ *   &lt;li>&lt;code>TRIP&lt;/code>, &lt;code>FAULT&lt;/code>, &lt;code>BLOCK&lt;/code> — Protection events&lt;/li>
+ *   &lt;li>&lt;code>52A&lt;/code>, &lt;code>52B&lt;/code> — Breaker status&lt;/li>
+ *   &lt;li>&lt;code>OUT&lt;/code>, &lt;code>IN&lt;/code>, &lt;code>RMB&lt;/code>, &lt;code>TMB&lt;/code> — I/O signals&lt;/li>
+ *   &lt;li>&lt;code>SV&lt;/code>, &lt;code>DP&lt;/code>, &lt;code>VB&lt;/code> — IEC 61850&lt;/li>
+ * &lt;/ul>
+ * 
+ * &lt;p>&lt;strong>Power Quality:&lt;/strong>&lt;/p>
+ * &lt;ul>
+ *   &lt;li>&lt;code>SAG&lt;/code>, &lt;code>SWELL&lt;/code>, &lt;code>INT&lt;/code> — Voltage events&lt;/li>
+ *   &lt;li>&lt;code>HARM02&lt;/code>-&lt;code>HARM15&lt;/code> — Harmonics&lt;/li>
+ *   &lt;li>&lt;code>ITIC&lt;/code> — ITIC curve violations&lt;/li>
+ * &lt;/ul>
+ * 
+ * @see {@link module:components/renderComtradeCharts}
+ * @see {@link module:components/renderSingleAnalogChart}
+ * @see {@link module:components/renderSingleDigitalChart}
+ * 
+ * @example
+ * // Auto-group analog channels
+ * import { autoGroupChannels } from "./autoGroupChannels.js";
+ * 
+ * const channels = [
+ *   { id: "IA" }, { id: "IB" }, { id: "IC" },
+ *   { id: "VA" }, { id: "VB" }, { id: "VC" }
+ * ];
+ * 
+ * const groups = autoGroupChannels(channels);
+ * // { "G0": [0, 1, 2], "G1": [3, 4, 5] }
+ * // G0 = Currents, G1 = Voltages
+ * 
+ * @example
+ * // User-defined groups with fallback
+ * import { buildChannelGroups } from "./autoGroupChannels.js";
+ * 
+ * const userGroups = ["Currents", "Currents", "Currents", "", "", ""];
+ * const groups = buildChannelGroups(userGroups, channels);
+ * // { "Currents": [0, 1, 2], "G0": [3, 4, 5] }
+ * 
+ * @mermaid
+ * graph TD
+ *     A[Input: channels array] --> B{User groups?}
+ *     B -->|Yes| C[Build from user assignments]
+ *     B -->|No| D[autoGroupChannels]
+ *     D --> E[Match GROUP_PATTERNS]
+ *     E --> F[Create groups]
+ *     F --> G[Remaining → catch-all]
+ *     C --> H[Return groups object]
+ *     G --> H
+ */
+
+/**
+ * Channel grouping patterns for automatic grouping.
+ * Each pattern is a regex that matches specific channel naming conventions.
+ * Patterns are processed in order - first match wins.
+ * 
+ * @constant {Object[]}
+ * @property {RegExp} regex - Regular expression to match channel IDs
+ * 
+ * @example
+ * // Pattern matching examples:
+ * // /^I[ABCN]$/i  matches: IA, IB, IC, IN (case insensitive)
+ * // /^V[ABCN]$/i  matches: VA, VB, VC, VN
+ * // /^HARM\d+$/i matches: HARM02, HARM03, HARM15
+ */
+const GROUP_PATTERNS = [
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ANALOG PATTERNS
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Currents (Phase A, B, C, N)
+  { regex: /^I[ABCN]$/i },
+  { regex: /^I_[ABCN]$/i },
+  { regex: /^IL[1234N]$/i },
+  { regex: /^CUR_[ABCN]$/i },
+  
+  // Voltages (Phase &amp; Line)
+  { regex: /^V[ABCN]$/i },
+  { regex: /^V_[ABCN]$/i },
+  { regex: /^V(AB|BC|CA)$/i },
+  { regex: /^UL[123N]$/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - Power Quality (SEL-735, etc.)
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Harmonics (HARM02-HARM15)
+  { regex: /^HARM\d+$/i },
+  
+  // Voltage Sags (SAGA, SAGB, SAGC, SAG3P, SAGAB, SAGBC, SAGCA)
+  { regex: /^SAG[ABC3P]+$/i },
+  
+  // Swells (SWA, SWB, SWC, SW3P, SWAB, SWBC, SWCA)
+  { regex: /^SW[ABC3P]+$/i },
+  
+  // Interruptions (INTA, INTB, INTC, INT3P, INTAB, INTBC, INTCA)
+  { regex: /^INT[ABC3P]+$/i },
+  
+  // ITIC Curve (ITIC_ND, ITIC_PR, ITIC_SR)
+  { regex: /^ITIC/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - I/O Signals
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Outputs (OUT101-OUT404)
+  { regex: /^OUT[1-4]\d{2}$/i },
+  
+  // Inputs (IN101-IN404)
+  { regex: /^IN[1-4]\d{2}$/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - Communication/Remote Bits
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Remote bits A (RMB1A-RMB8A)
+  { regex: /^RMB\d+A$/i },
+  
+  // Remote bits B (RMB1B-RMB8B)
+  { regex: /^RMB\d+B$/i },
+  
+  // Transmit bits A (TMB1A-TMB8A)
+  { regex: /^TMB\d+A$/i },
+  
+  // Transmit bits B (TMB1B-TMB8B)
+  { regex: /^TMB\d+B$/i },
+  
+  // Remote bits (RB01-RB16)
+  { regex: /^RB\d+$/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - Setpoints &amp; Variables
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Setpoint Variables (SV01-SV16)
+  { regex: /^SV\d+$/i },
+  
+  // Setpoint Variables Triggered (SV01T-SV16T)
+  { regex: /^SV\d+T$/i },
+  
+  // SET commands (SET01-SET16)
+  { regex: /^SET\d+$/i },
+  
+  // RST commands (RST01-RST16)
+  { regex: /^RST\d+$/i },
+  
+  // Latches (LT01-LT16)
+  { regex: /^LT\d+$/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - SCADA Points
+  // ═══════════════════════════════════════════════════════════════════════════
+  // SCADA Quality Up (SC01QU-SC16QU)
+  { regex: /^SC\d+QU$/i },
+  
+  // SCADA Quality Down (SC01QD-SC16QD)
+  { regex: /^SC\d+QD$/i },
+  
+  // SCADA Remote (SC01R-SC16R)
+  { regex: /^SC\d+R$/i },
+  
+  // SCADA Load (SC01LD-SC16LD)
+  { regex: /^SC\d+LD$/i },
+  
+  // SCADA Control Up (SC01CU-SC16CU)
+  { regex: /^SC\d+CU$/i },
+  
+  // SCADA Control Down (SC01CD-SC16CD)
+  { regex: /^SC\d+CD$/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - Data Points &amp; Virtual Bits
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Data Points (DP01-DP50) - groups of 16
+  { regex: /^DP(0[1-9]|1[0-6])$/i },
+  { regex: /^DP(1[7-9]|2\d|3[0-2])$/i },
+  { regex: /^DP(3[3-9]|4\d|50)$/i },
+  
+  // Virtual Bits (VB001-VB128) - groups of 32
+  { regex: /^VB0(0[1-9]|[12]\d|3[0-2])$/i },
+  { regex: /^VB0(3[3-9]|[45]\d|6[0-4])$/i },
+  { regex: /^VB0(6[5-9]|[78]\d|9[0-6])$/i },
+  { regex: /^VB(09[7-9]|1[01]\d|12[0-8])$/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - LEDs &amp; Equations
+  // ═══════════════════════════════════════════════════════════════════════════
+  // LEDs (T01_LED-T14_LED)
+  { regex: /^T\d+_LED$/i },
+  
+  // Equations (EQA1-EQC4, EQ3P1-EQ3P4)
+  { regex: /^EQ[ABC3P]+\d+$/i },
+  
+  // Pushbuttons (PB01-PB04)
+  { regex: /^PB\d+$/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - Time Sync &amp; Quality
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Time Quality (TQUAL1-TQUAL8)
+  { regex: /^TQUAL\d+$/i },
+  
+  // Time Sync (TS10SEC, TS1MIN, TS10MIN, TS2HR, TSDEM, TIMESET)
+  { regex: /^(TS\d+\w+|TIMESET|TSDEM)$/i },
+  
+  // Time Sync Load Points (TSLDP1-TSLDP32)
+  { regex: /^TSLDP\d+$/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - Alarms &amp; Status
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Alarms (FALARM, SALARM, HALARM, PQALRM, RPQALRM)
+  { regex: /^[A-Z]*ALARM$/i },
+  { regex: /^[A-Z]*ALRM$/i },
+  
+  // Triggers (PMTRIG, TREA1-TREA4)
+  { regex: /^(PMTRIG|TREA\d+)$/i },
+  
+  // KYZ pulses (KYZD1-KYZDT)
+  { regex: /^KYZD\w+$/i },
+  
+  // Errors (ER1-ER3)
+  { regex: /^ER\d+$/i },
+  
+  // Status OK signals (LBOKA, LBOKB, ROKA, ROKB, etc.)
+  { regex: /^(LBOK|ROK|CBAD|RBAD)[AB]?$/i },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DIGITAL PATTERNS - Protection Signals
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Trip signals
+  { regex: /^TRIP/i },
+  
+  // Fault signals
+  { regex: /^[DF]?FAULT$/i },
+  
+  // Block signals
+  { regex: /^(BLOCK|BLK|FLTBLK)/i },
+  
+  // Breaker status (52A, 52B)
+  { regex: /^52[AB]?$/i },
+];
+
+/**
+ * Automatically group channels by pattern matching.
+ * Works for BOTH analog and digital channels from COMTRADE files.
+ * 
+ * **Algorithm:**
+ * 1. Iterate through GROUP_PATTERNS in order
+ * 2. For each pattern, find all matching channels not yet assigned
+ * 3. Create a group (G0, G1, G2...) for each pattern with matches
+ * 4. Put all remaining unmatched channels in a final catch-all group
+ * 
+ * **Pattern Priority:**
+ * Patterns are processed in the order defined in GROUP_PATTERNS.
+ * This means currents (IA, IB, IC) will always be grouped before
+ * voltages (VA, VB, VC) if both exist.
+ * 
+ * @function autoGroupChannels
+ * @memberof module:utils/autoGroupChannels
+ * @since 1.0.0
+ * 
+ * @param {Object[]} channels - Array of channel objects with 'id' property
+ * @param {string} channels[].id - Channel identifier used for pattern matching
+ * 
+ * @returns {Object&lt;string, number[]>} Groups object mapping group IDs to channel indices
+ *   Format: { "G0": [0, 1, 2], "G1": [3, 4, 5], ... }
+ * 
+ * @example
+ * // Auto-group analog channels
+ * const channels = [
+ *   { id: "IA" }, { id: "IB" }, { id: "IC" },
+ *   { id: "VA" }, { id: "VB" }, { id: "VC" },
+ *   { id: "Frequency" }
+ * ];
+ * 
+ * const groups = autoGroupChannels(channels);
+ * // Result:
+ * // {
+ * //   "G0": [0, 1, 2],  // Currents: IA, IB, IC
+ * //   "G1": [3, 4, 5],  // Voltages: VA, VB, VC
+ * //   "G2": [6]         // Unmatched: Frequency
+ * // }
+ * 
+ * @example
+ * // Auto-group digital channels
+ * const digitalChannels = [
+ *   { id: "TRIP" }, { id: "CLOSE" },
+ *   { id: "SAGA" }, { id: "SAGB" }, { id: "SAGC" },
+ *   { id: "OUT101" }, { id: "OUT102" }
+ * ];
+ * 
+ * const groups = autoGroupChannels(digitalChannels);
+ * // Result:
+ * // {
+ * //   "G0": [2, 3, 4],  // SAG signals
+ * //   "G1": [5, 6],     // Outputs
+ * //   "G2": [0, 1]      // Unmatched: TRIP, CLOSE
+ * // }
+ * 
+ * @mermaid
+ * graph TD
+ *     A[channels array] --> B[Initialize empty groups]
+ *     B --> C[For each pattern in GROUP_PATTERNS]
+ *     C --> D{Channels match pattern?}
+ *     D -->|Yes| E[Add to new group Gn]
+ *     D -->|No| C
+ *     E --> C
+ *     C --> F[Collect remaining unmatched]
+ *     F --> G{Any remaining?}
+ *     G -->|Yes| H[Add to final group]
+ *     G -->|No| I[Return groups]
+ *     H --> I
+ */
+export function autoGroupChannels(channels) {
+  if (!channels?.length) return {};
+  
+  const groups = {};
+  const usedIndices = new Set();
+  let groupNum = 0;
+  
+  // Match channels against patterns
+  for (const pattern of GROUP_PATTERNS) {
+    const indices = [];
+    
+    channels.forEach((ch, idx) => {
+      if (!usedIndices.has(idx) &amp;&amp; pattern.regex.test(ch.id)) {
+        indices.push(idx);
+        usedIndices.add(idx);
+      }
+    });
+    
+    if (indices.length > 0) {
+      groups[`G${groupNum}`] = indices;
+      groupNum++;
+    }
+  }
+  
+  // Remaining unmatched channels → next group
+  const remaining = channels
+    .map((_, idx) => idx)
+    .filter(idx => !usedIndices.has(idx));
+  
+  if (remaining.length > 0) {
+    groups[`G${groupNum}`] = remaining;
+  }
+  
+  return groups;
+}
+
+/**
+ * Get the next available group number from existing groups.
+ * Finds the highest existing group number and returns +1.
+ * 
+ * @function getNextGroupNum
+ * @private
+ * @param {Object&lt;string, number[]>} groups - Existing groups object
+ * @returns {number} Next available group number
+ * 
+ * @example
+ * getNextGroupNum({ "G0": [0,1], "G2": [2,3] });  // Returns 3
+ * getNextGroupNum({});                              // Returns 0
+ * getNextGroupNum({ "Currents": [0,1] });           // Returns 0 (no Gn pattern)
+ */
+function getNextGroupNum(groups) {
+  if (!groups || Object.keys(groups).length === 0) return 0;
+  
+  const nums = Object.keys(groups)
+    .map(g => parseInt(g.replace('G', ''), 10))
+    .filter(n => !isNaN(n));
+  
+  return nums.length > 0 ? Math.max(...nums) + 1 : 0;
+}
+
+/**
+ * Build channel groups from user assignments OR fall back to auto-grouping.
+ * This is the primary entry point for channel grouping in the application.
+ * 
+ * **Priority:**
+ * 1. If user has assigned ANY groups, use user assignments
+ * 2. Unassigned channels in user mode go to a new auto-numbered group
+ * 3. If no user assignments, fall back to autoGroupChannels()
+ * 
+ * **User Group Format:**
+ * User groups are stored as a per-channel array where each element is the
+ * group ID for that channel index. Empty strings mean "unassigned".
+ * 
+ * @function buildChannelGroups
+ * @memberof module:utils/autoGroupChannels
+ * @since 1.0.0
+ * 
+ * @param {string[]} userGroups - Per-channel group assignments
+ *   Example: ["G0", "G0", "G0", "G1", "G1", "G1", ""]
+ *   Empty string "" means channel is unassigned
+ * 
+ * @param {Object[]} channels - Array of channel objects with 'id' property
+ * 
+ * @returns {Object&lt;string, number[]>} Groups object mapping group IDs to channel indices
+ * 
+ * @example
+ * // User-defined groups with some unassigned
+ * const userGroups = ["Currents", "Currents", "Currents", "", "", ""];
+ * const channels = [
+ *   { id: "IA" }, { id: "IB" }, { id: "IC" },
+ *   { id: "VA" }, { id: "VB" }, { id: "VC" }
+ * ];
+ * 
+ * const groups = buildChannelGroups(userGroups, channels);
+ * // Result:
+ * // {
+ * //   "Currents": [0, 1, 2],  // User-assigned
+ * //   "G0": [3, 4, 5]         // Auto-assigned unassigned channels
+ * // }
+ * 
+ * @example
+ * // No user groups - falls back to auto-grouping
+ * const groups = buildChannelGroups([], channels);
+ * // Same as: autoGroupChannels(channels)
+ * 
+ * @example
+ * // All channels user-assigned
+ * const userGroups = ["A", "A", "A", "B", "B", "B"];
+ * const groups = buildChannelGroups(userGroups, channels);
+ * // Result: { "A": [0, 1, 2], "B": [3, 4, 5] }
+ * 
+ * @mermaid
+ * graph TD
+ *     A[userGroups, channels] --> B{Any user groups?}
+ *     B -->|Yes| C[Build from user assignments]
+ *     B -->|No| D[autoGroupChannels]
+ *     C --> E{Unassigned channels?}
+ *     E -->|Yes| F[Add to new group Gn]
+ *     E -->|No| G[Return groups]
+ *     F --> G
+ *     D --> G
+ */
+export function buildChannelGroups(userGroups, channels) {
+  const hasUserGroups = userGroups?.some(g => g &amp;&amp; g !== "");
+  
+  if (hasUserGroups) {
+    // Build from user assignments
+    const groups = {};
+    const unassigned = [];
+    
+    userGroups.forEach((groupId, idx) => {
+      if (groupId &amp;&amp; groupId !== "") {
+        if (!groups[groupId]) groups[groupId] = [];
+        groups[groupId].push(idx);
+      } else {
+        unassigned.push(idx);
+      }
+    });
+    
+    if (unassigned.length > 0) {
+      const nextNum = getNextGroupNum(groups);
+      groups[`G${nextNum}`] = unassigned;
+    }
+    
+    return groups;
+  }
+  
+  // No user groups → auto-group
+  return autoGroupChannels(channels);
+}
+
+/**
+ * Group uploaded files into CFG/DAT pairs by matching base names.
+ * COMTRADE files come in pairs: .CFG (configuration) and .DAT (data).
+ * This function matches them by filename prefix.
+ * 
+ * **Matching Rules:**
+ * - Case insensitive matching
+ * - Base name must match exactly (before extension)
+ * - Both .CFG and .DAT must exist for a valid pair
+ * - Unpaired files are ignored
+ * 
+ * @function groupCfgDatFiles
+ * @memberof module:utils/autoGroupChannels
+ * @since 1.0.0
+ * 
+ * @param {File[]} files - Array of File objects from file input or drag-drop
+ * 
+ * @returns {Object[]} Array of file pair objects
+ * @returns {File} returns[].cfg - The CFG file
+ * @returns {File} returns[].dat - The DAT file  
+ * @returns {string} returns[].baseName - The matched base name (uppercase)
+ * 
+ * @example
+ * // Single pair
+ * const files = [
+ *   new File([], "event_001.CFG"),
+ *   new File([], "event_001.DAT")
+ * ];
+ * 
+ * const pairs = groupCfgDatFiles(files);
+ * // Result: [{ cfg: File, dat: File, baseName: "EVENT_001" }]
+ * 
+ * @example
+ * // Multiple pairs with some unmatched
+ * const files = [
+ *   new File([], "fault_A.cfg"),
+ *   new File([], "fault_A.dat"),
+ *   new File([], "fault_B.cfg"),
+ *   new File([], "fault_B.dat"),
+ *   new File([], "orphan.cfg")  // No matching .dat - ignored
+ * ];
+ * 
+ * const pairs = groupCfgDatFiles(files);
+ * // Result: [
+ * //   { cfg: File, dat: File, baseName: "FAULT_A" },
+ * //   { cfg: File, dat: File, baseName: "FAULT_B" }
+ * // ]
+ * 
+ * @mermaid
+ * graph TD
+ *     A[files array] --> B[Build fileMap by baseName]
+ *     B --> C[For each file]
+ *     C --> D{Has .CFG or .DAT ext?}
+ *     D -->|Yes| E[Add to fileMap baseName]
+ *     D -->|No| C
+ *     E --> C
+ *     C --> F[Find pairs with both CFG and DAT]
+ *     F --> G[Return pairs array]
+ */
+export function groupCfgDatFiles(files) {
+  const fileMap = {};
+
+  for (const file of files) {
+    const name = file.name.toUpperCase();
+    const match = name.match(/^(.+)\.(CFG|DAT)$/);
+    if (!match) continue;
+
+    const baseName = match[1];
+    const ext = match[2];
+    if (!fileMap[baseName]) fileMap[baseName] = {};
+    fileMap[baseName][ext] = file;
+  }
+
+  const pairs = [];
+  for (const baseName in fileMap) {
+    const pair = fileMap[baseName];
+    if (pair.CFG &amp;&amp; pair.DAT) {
+      pairs.push({ cfg: pair.CFG, dat: pair.DAT, baseName });
+    }
+  }
+  
+  return pairs;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

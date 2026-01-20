@@ -1,0 +1,21 @@
+{
+  "source": {
+    "include": ["src"],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_|DOCUMENTATION"
+  },
+  "plugins": ["jsdoc-mermaid"],
+  "opts": {
+    "destination": "./docs/",
+    "readme": "./README.md",
+    "recurse": true,
+    "template": "./node_modules/better-docs"
+  },
+  "mermaid": {
+    "startOnLoad": false,
+    "theme": "default",
+    "flowchart": {
+      "useMaxWidth": false
+    }
+  }
+}

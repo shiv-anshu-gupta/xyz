@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/renderComputedChannels.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- build/entry.js removed - not needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-analyzeGroupsAndPublish.html">analyzeGroupsAndPublish</a></li><li><a href="module-axisBuilder.html">axisBuilder</a></li><li><a href="module-axisCalculator.html">axisCalculator</a></li><li><a href="module-calculateAndPublishMaxYAxes.html">calculateAndPublishMaxYAxes</a></li><li><a href="module-chartAxisAlignment.html">chartAxisAlignment</a></li><li><a href="module-chartComponent.html">chartComponent</a></li><li><a href="module-chartManager.html">chartManager</a></li><li><a href="module-chartUpdateHelpers.html">chartUpdateHelpers</a></li><li><a href="module-components_renderComtradeCharts.html">components/renderComtradeCharts</a></li><li><a href="module-components_renderSingleAnalogChart.html">components/renderSingleAnalogChart</a></li><li><a href="module-components_renderSingleDigitalChart.html">components/renderSingleDigitalChart</a></li><li><a href="module-comtradeUtils.html">comtradeUtils</a></li><li><a href="module-createDragBar.html">createDragBar</a></li><li><a href="module-createState.html">createState</a></li><li><a href="module-debugMode.html">debugMode</a></li><li><a href="module-domUpdateQueue.html">domUpdateQueue</a></li><li><a href="module-domUpdateQueueInit.html">domUpdateQueueInit</a></li><li><a href="module-eventListenerManager.html">eventListenerManager</a></li><li><a href="module-handleVerticalLineShortcuts.html">handleVerticalLineShortcuts</a></li><li><a href="module-initVerticalLineControl.html">initVerticalLineControl</a></li><li><a href="module-main.html">main</a></li><li><a href="module-maxYAxesStore.html">maxYAxesStore</a></li><li><a href="module-mergerWindowLauncher.html">mergerWindowLauncher</a></li><li><a href="module-performanceMonitor.html">performanceMonitor</a></li><li><a href="module-seriesMapper.html">seriesMapper</a></li><li><a href="module-setupChartDragAndDrop.html">setupChartDragAndDrop</a></li><li><a href="module-timeInterpolation.html">timeInterpolation</a></li><li><a href="module-utils_autoGroupChannels.html">utils/autoGroupChannels</a></li><li><a href="module-verticalLineControl.html">verticalLineControl</a></li></ul><h3>Classes</h3><ul><li><a href="ComputedChannelMetadata.html">ComputedChannelMetadata</a></li><li><a href="PolarChart.html">PolarChart</a></li><li><a href="PolarChartCanvas.html">PolarChartCanvas</a></li><li><a href="SidebarStore.html">SidebarStore</a></li><li><a href="module-performanceMonitor-PhaseTracker.html">PhaseTracker</a></li></ul><h3>Global</h3><ul><li><a href="global.html#IMPLEMENTATION_COMPLETE">IMPLEMENTATION_COMPLETE</a></li><li><a href="global.html#QUICK_REFERENCE">QUICK_REFERENCE</a></li><li><a href="global.html#STORAGE_CFG_KEY">STORAGE_CFG_KEY</a></li><li><a href="global.html#adjustMainContent">adjustMainContent</a></li><li><a href="global.html#appendComputedChannelToStorage">appendComputedChannelToStorage</a></li><li><a href="global.html#attachChartContainer">attachChartContainer</a></li><li><a href="global.html#attachChartEventHandlers">attachChartEventHandlers</a></li><li><a href="global.html#attachChartPlugins">attachChartPlugins</a></li><li><a href="global.html#attachComputedChartContainer">attachComputedChartContainer</a></li><li><a href="global.html#attachComputedChartEventHandlers">attachComputedChartEventHandlers</a></li><li><a href="global.html#attachComputedChartPlugins">attachComputedChartPlugins</a></li><li><a href="global.html#axisLinesPlugin">axisLinesPlugin</a></li><li><a href="global.html#broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li><a href="global.html#buildChannelData">buildChannelData</a></li><li><a href="global.html#buildChartData">buildChartData</a></li><li><a href="global.html#buildChartOptions">buildChartOptions</a></li><li><a href="global.html#buildComputedChannelLabels">buildComputedChannelLabels</a></li><li><a href="global.html#buildComputedChannelsFromCfgAndData">buildComputedChannelsFromCfgAndData</a></li><li><a href="global.html#buildComputedChartOptions">buildComputedChartOptions</a></li><li><a href="global.html#buildGroupsWithAutoGrouping">buildGroupsWithAutoGrouping</a></li><li><a href="global.html#buildGroupsWithUserAssignments">buildGroupsWithUserAssignments</a></li><li><a href="global.html#buildTableBody">buildTableBody</a></li><li><a href="global.html#buildTableHTML">buildTableHTML</a></li><li><a href="global.html#buildTableHeader">buildTableHeader</a></li><li><a href="global.html#buildUnitChartData">buildUnitChartData</a></li><li><a href="global.html#buildWorkerErrorHandler">buildWorkerErrorHandler</a></li><li><a href="global.html#buildWorkerMessageHandler">buildWorkerMessageHandler</a></li><li><a href="global.html#buildWorkerTask">buildWorkerTask</a></li><li><a href="global.html#calculateStatistics">calculateStatistics</a></li><li><a href="global.html#calculateStats">calculateStats</a></li><li><a href="global.html#chart2">chart2</a></li><li><a href="global.html#cleanupOldComputedCharts">cleanupOldComputedCharts</a></li><li><a href="global.html#clearChartsContainer">clearChartsContainer</a></li><li><a href="global.html#clearComputedChannelsFromStorage">clearComputedChannelsFromStorage</a></li><li><a href="global.html#clearExpressionCache">clearExpressionCache</a></li><li><a href="global.html#closeAnalysisDrawer">closeAnalysisDrawer</a></li><li><a href="global.html#collectChartDeltas">collectChartDeltas</a></li><li><a href="global.html#computeChartDataDimensions">computeChartDataDimensions</a></li><li><a href="global.html#convertLatexToMathJs">convertLatexToMathJs</a></li><li><a href="global.html#convertLatexToPlainText">convertLatexToPlainText</a></li><li><a href="global.html#convertResultsToArray">convertResultsToArray</a></li><li><a href="global.html#convertToTransferableBuffers">convertToTransferableBuffers</a></li><li><a href="global.html#createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li><a href="global.html#createBinaryBlob">createBinaryBlob</a></li><li><a href="global.html#createChannelItem">createChannelItem</a></li><li><a href="global.html#createChannelList">createChannelList</a></li><li><a href="global.html#createChartContainer">createChartContainer</a></li><li><a href="global.html#createChartMetadata">createChartMetadata</a></li><li><a href="global.html#createChartOptions">createChartOptions</a></li><li><a href="global.html#createComputedChannelWorker">createComputedChannelWorker</a></li><li><a href="global.html#createComputedChannelsLabels">createComputedChannelsLabels</a></li><li><a href="global.html#createComputedChannelsSidebar">createComputedChannelsSidebar</a></li><li><a href="global.html#createComputedChartMetadata">createComputedChartMetadata</a></li><li><a href="global.html#createComputedClickHandler">createComputedClickHandler</a></li><li><a href="global.html#createComputedMousemoveHandler">createComputedMousemoveHandler</a></li><li><a href="global.html#createDeltaTableRenderer">createDeltaTableRenderer</a></li><li><a href="global.html#createDigitalFillPlugin">createDigitalFillPlugin</a></li><li><a href="global.html#createGroupDragBar">createGroupDragBar</a></li><li><a href="global.html#createMergedGroupChart">createMergedGroupChart</a></li><li><a href="global.html#createMousemoveHandler">createMousemoveHandler</a></li><li><a href="global.html#createProgressBar">createProgressBar</a></li><li><a href="global.html#createScopeTemplate">createScopeTemplate</a></li><li><a href="global.html#createSidebarResizer">createSidebarResizer</a></li><li><a href="global.html#createSimpleChannelList">createSimpleChannelList</a></li><li><a href="global.html#createSimpleContainer">createSimpleContainer</a></li><li><a href="global.html#createState">createState</a></li><li><a href="global.html#createTooltip">createTooltip</a></li><li><a href="global.html#createVerticalLineClickHandler">createVerticalLineClickHandler</a></li><li><a href="global.html#debounce">debounce</a></li><li><a href="global.html#detectGroupFromExpression">detectGroupFromExpression</a></li><li><a href="global.html#dispatchChannelSavedEvent">dispatchChannelSavedEvent</a></li><li><a href="global.html#encodeFloat64">encodeFloat64</a></li><li><a href="global.html#encodeInt32">encodeInt32</a></li><li><a href="global.html#evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li><a href="global.html#evaluateExpression">evaluateExpression</a></li><li><a href="global.html#exportAllChannelsAsCSV">exportAllChannelsAsCSV</a></li><li><a href="global.html#exportAllComputedChannels">exportAllComputedChannels</a></li><li><a href="global.html#exportAsASCII">exportAsASCII</a></li><li><a href="global.html#exportComputedChannelAsASCII">exportComputedChannelAsASCII</a></li><li><a href="global.html#exportComputedChannelAsCFGDAT">exportComputedChannelAsCFGDAT</a></li><li><a href="global.html#exportComputedChannelsAsCSV">exportComputedChannelsAsCSV</a></li><li><a href="global.html#extractChannelMetadata">extractChannelMetadata</a></li><li><a href="global.html#extractChannelNameFromEquation">extractChannelNameFromEquation</a></li><li><a href="global.html#extractDataSources">extractDataSources</a></li><li><a href="global.html#extractGroupId">extractGroupId</a></li><li><a href="global.html#extractMathExpression">extractMathExpression</a></li><li><a href="global.html#extractUsedChannelNames">extractUsedChannelNames</a></li><li><a href="global.html#filterGroupsWithChannels">filterGroupsWithChannels</a></li><li><a href="global.html#filterIndicesWithData">filterIndicesWithData</a></li><li><a href="global.html#filterTableRows">filterTableRows</a></li><li><a href="global.html#filterUnassignedComputedChannels">filterUnassignedComputedChannels</a></li><li><a href="global.html#filterValidIndices">filterValidIndices</a></li><li><a href="global.html#formatEquationForLatex">formatEquationForLatex</a></li><li><a href="global.html#formatScaledValue">formatScaledValue</a></li><li><a href="global.html#formatTableData">formatTableData</a></li><li><a href="global.html#generateCFGContent">generateCFGContent</a></li><li><a href="global.html#generateCFGContentBatch">generateCFGContentBatch</a></li><li><a href="global.html#generateCFGContentBinary32">generateCFGContentBinary32</a></li><li><a href="global.html#generateCFGContentBinary64">generateCFGContentBinary64</a></li><li><a href="global.html#generateCFGContentFloat32">generateCFGContentFloat32</a></li><li><a href="global.html#generateCFGContentFloat64">generateCFGContentFloat64</a></li><li><a href="global.html#generateChannelName">generateChannelName</a></li><li><a href="global.html#generateDATContent">generateDATContent</a></li><li><a href="global.html#generateDATContentBatch">generateDATContentBatch</a></li><li><a href="global.html#generateDATContentBinary32">generateDATContentBinary32</a></li><li><a href="global.html#generateDATContentBinary64">generateDATContentBinary64</a></li><li><a href="global.html#generateDATContentFloat32">generateDATContentFloat32</a></li><li><a href="global.html#generateDATContentFloat64">generateDATContentFloat64</a></li><li><a href="global.html#generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li><a href="global.html#getAllAvailableGroups">getAllAvailableGroups</a></li><li><a href="global.html#getCacheStats">getCacheStats</a></li><li><a href="global.html#getChannelByDisplayName">getChannelByDisplayName</a></li><li><a href="global.html#getChannelMetadata">getChannelMetadata</a></li><li><a href="global.html#getChannelsForFile">getChannelsForFile</a></li><li><a href="global.html#getColorHex">getColorHex</a></li><li><a href="global.html#getCompiledExpression">getCompiledExpression</a></li><li><a href="global.html#getComputedChannelById">getComputedChannelById</a></li><li><a href="global.html#getComputedChannelStorageMetadata">getComputedChannelStorageMetadata</a></li><li><a href="global.html#getComputedChannelsState">getComputedChannelsState</a></li><li><a href="global.html#getElementWidth">getElementWidth</a></li><li><a href="global.html#getFileIndexForTime">getFileIndexForTime</a></li><li><a href="global.html#getOriginalChannelName">getOriginalChannelName</a></li><li><a href="global.html#getSampleIndexInFile">getSampleIndexInFile</a></li><li><a href="global.html#groupCfgDatFiles">groupCfgDatFiles</a></li><li><a href="global.html#groupChannelsByUnit">groupChannelsByUnit</a></li><li><a href="global.html#handleComputedChannelEvaluation">handleComputedChannelEvaluation</a></li><li><a href="global.html#handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li><li><a href="global.html#handleVerticalLineAddition">handleVerticalLineAddition</a></li><li><a href="global.html#hasDigitalData">hasDigitalData</a></li><li><a href="global.html#hasStoredComputedChannels">hasStoredComputedChannels</a></li><li><a href="global.html#hideProgress">hideProgress</a></li><li><a href="global.html#hideTooltip">hideTooltip</a></li><li><a href="global.html#importComputedChannelFromJSON">importComputedChannelFromJSON</a></li><li><a href="global.html#initComputedChannelsState">initComputedChannelsState</a></li><li><a href="global.html#initUPlotChart">initUPlotChart</a></li><li><a href="global.html#initializeChartInstance">initializeChartInstance</a></li><li><a href="global.html#initializeComputedChartInstance">initializeComputedChartInstance</a></li><li><a href="global.html#initializeSidebarChannels">initializeSidebarChannels</a></li><li><a href="global.html#injectSidebarIntoUplot">injectSidebarIntoUplot</a></li><li><a href="global.html#isMathJaxLoaded">isMathJaxLoaded</a></li><li><a href="global.html#listenForComputedChannelChanges">listenForComputedChannelChanges</a></li><li><a href="global.html#loadComputedChannelsForGroup">loadComputedChannelsForGroup</a></li><li><a href="global.html#loadComputedChannelsFromStorage">loadComputedChannelsFromStorage</a></li><li><a href="global.html#loadMathJax">loadMathJax</a></li><li><a href="global.html#mathJaxPromise">mathJaxPromise</a></li><li><a href="global.html#measurePerformance">measurePerformance</a></li><li><a href="global.html#mergeAnalogAndComputedMetadata">mergeAnalogAndComputedMetadata</a></li><li><a href="global.html#mergeAnalogChannels">mergeAnalogChannels</a></li><li><a href="global.html#mergeComtradeFilesSetsSequential">mergeComtradeFilesSetsSequential</a></li><li><a href="global.html#mergeDigitalChannels">mergeDigitalChannels</a></li><li><a href="global.html#mergeTimeArraysSequential">mergeTimeArraysSequential</a></li><li><a href="global.html#notifyChildWindowError">notifyChildWindowError</a></li><li><a href="global.html#notifyChildWindowStateUpdated">notifyChildWindowStateUpdated</a></li><li><a href="global.html#notifyChildWindowSuccess">notifyChildWindowSuccess</a></li><li><a href="global.html#openAnalysisDrawer">openAnalysisDrawer</a></li><li><a href="global.html#openBothSidebars">openBothSidebars</a></li><li><a href="global.html#openDeltaWindow">openDeltaWindow</a></li><li><a href="global.html#openMathLiveEditor">openMathLiveEditor</a></li><li><a href="global.html#openPhasorDiagram">openPhasorDiagram</a></li><li><a href="global.html#performExport">performExport</a></li><li><a href="global.html#prepareChartDataContext">prepareChartDataContext</a></li><li><a href="global.html#processComputedUnitGroup">processComputedUnitGroup</a></li><li><a href="global.html#processEquationInput">processEquationInput</a></li><li><a href="global.html#readFileAsText">readFileAsText</a></li><li><a href="global.html#renameChannelWithPrefix">renameChannelWithPrefix</a></li><li><a href="global.html#renderChannelLabelContainer">renderChannelLabelContainer</a></li><li><a href="global.html#renderComputedChannels">renderComputedChannels</a></li><li><a href="global.html#renderGroupCharts">renderGroupCharts</a></li><li><a href="global.html#renderLatex">renderLatex</a></li><li><a href="global.html#resizeChartsToContainers">resizeChartsToContainers</a></li><li><a href="global.html#resolveGroupIndices">resolveGroupIndices</a></li><li><a href="global.html#resolveTimeArray">resolveTimeArray</a></li><li><a href="global.html#saveComputedChannelsToStorage">saveComputedChannelsToStorage</a></li><li><a href="global.html#saveToCfg">saveToCfg</a></li><li><a href="global.html#saveToGlobalData">saveToGlobalData</a></li><li><a href="global.html#sendTaskToWorker">sendTaskToWorker</a></li><li><a href="global.html#separateComputedFiles">separateComputedFiles</a></li><li><a href="global.html#serializeChannelMetadata">serializeChannelMetadata</a></li><li><a href="global.html#setupMobileSidebar">setupMobileSidebar</a></li><li><a href="global.html#showChannelListWindow">showChannelListWindow</a></li><li><a href="global.html#showError">showError</a></li><li><a href="global.html#showExportFormatDialog">showExportFormatDialog</a></li><li><a href="global.html#showFileInfo">showFileInfo</a></li><li><a href="global.html#showProgress">showProgress</a></li><li><a href="global.html#sortFilePairs">sortFilePairs</a></li><li><a href="global.html#subscribeChartUpdates">subscribeChartUpdates</a></li><li><a href="global.html#syncComputedChannelsWithParent">syncComputedChannelsWithParent</a></li><li><a href="global.html#themeContext">themeContext</a></li><li><a href="global.html#toggleChartsVisibility">toggleChartsVisibility</a></li><li><a href="global.html#updateComputedChannelGroupInStorage">updateComputedChannelGroupInStorage</a></li><li><a href="global.html#updateComputedChannelsSidebar">updateComputedChannelsSidebar</a></li><li><a href="global.html#updateFileInfo">updateFileInfo</a></li><li><a href="global.html#updateProgress">updateProgress</a></li><li><a href="global.html#updateStateStore">updateStateStore</a></li><li><a href="global.html#updateStatsCards">updateStatsCards</a></li><li><a href="global.html#updateTooltip">updateTooltip</a></li><li><a href="global.html#validateChannelName">validateChannelName</a></li><li><a href="global.html#validateExpressionPayload">validateExpressionPayload</a></li><li><a href="global.html#validateExpressionSyntax">validateExpressionSyntax</a></li><li><a href="global.html#validateGlobalData">validateGlobalData</a></li><li><a href="global.html#validateGroupIndices">validateGroupIndices</a></li><li><a href="global.html#validateSampleData">validateSampleData</a></li><li><a href="global.html#validateSampleRates">validateSampleRates</a></li><li><a href="global.html#wrapChartInSection">wrapChartInSection</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/renderComputedChannels.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// src/components/renderComputedChannels.js
+// Renders computed channels - one chart per unit group with computed channels as series
+// Orchestrates data preparation, chart creation, interactions, and label rendering
+// ✅ REFACTORED: Now uses same cfg + data pattern as analog/digital
+
+import { createChartOptions } from "./chartComponent.js";
+import { createDragBar } from "./createDragBar.js";
+import { getMaxYAxes } from "../utils/maxYAxesStore.js";
+import { renderLatex } from "../utils/mathJaxLoader.js";
+import {
+  createChartContainer,
+  initUPlotChart,
+} from "../utils/chartDomUtils.js";
+import verticalLinePlugin from "../plugins/verticalLinePlugin.js";
+import { addChart } from "../utils/chartMetadataStore.js";
+import {
+  filterUnassignedComputedChannels,
+  groupChannelsByUnit,
+  cleanupOldComputedCharts,
+  resolveTimeArray,
+  buildUnitChartData,
+} from "../utils/computedChannelDataProcessor.js";
+import {
+  createComputedChartMetadata,
+  buildComputedChartOptions,
+  attachComputedChartPlugins,
+  attachComputedChartContainer,
+  initializeComputedChartInstance,
+} from "../utils/computedChartCreationUtils.js";
+import { attachComputedChartEventHandlers } from "../utils/computedChartInteractions.js";
+import {
+  buildComputedChannelLabels,
+  renderChannelLabelContainer,
+} from "../utils/computedChannelLabelRenderer.js";
+
+/**
+ * Render computed channels - one chart per unit group
+ * Orchestrates: data preparation → chart creation → interactions → labels
+ * 
+ * ✅ REFACTORED: Now accepts cfg + data like renderAnalogCharts/renderDigitalCharts
+ * 
+ * Structure:
+ * - cfg.computedChannels[i] = { id, name, unit, equation, color, group, ... } (METADATA)
+ * - data.computedData[i] = [value1, value2, ...] (VALUES ARRAY)
+ * 
+ * @param {Object} cfg - Configuration with computedChannels metadata array
+ * @param {Object} data - Data object with computedData values array and time array
+ * @param {HTMLElement} chartsContainer - Container for chart elements
+ * @param {Array} charts - Array storing all chart instances
+ * @param {Array} verticalLinesX - Reactive array of vertical line positions
+ * @param {Object} channelState - Reactive state object
+ */
+export function renderComputedChannels(
+  cfg,
+  data,
+  chartsContainer,
+  charts,
+  verticalLinesX,
+  channelState
+) {
+  console.log(`[renderComputedChannels] 🟪 Starting: ${cfg?.computedChannels?.length || 0} computed channels`);
+
+  // Build combined channel objects from separate cfg + data
+  // This creates objects compatible with existing helper functions
+  const allComputedChannels = buildComputedChannelsFromCfgAndData(cfg, data);
+
+  // ✅ DEBUG: Log all computed channels and their groups BEFORE filtering
+  console.log(`[renderComputedChannels] 🔍 DEBUG - All computed channels BEFORE ownership filter:`);
+  allComputedChannels.forEach((ch, i) => {
+    console.log(`  [${i}] id="${ch.id}", group="${ch.group}"`);
+  });
+
+  // ✅ OWNERSHIP RULE: Filter computed channels
+  // Rule: If a computed channel's group matches an analog group, it's OWNED by that analog chart
+  // Therefore, exclude it from standalone computed charts
+  // This ensures mutual exclusivity: each channel renders in exactly ONE place
+  const analogGroupIds = channelState?.analog?.groups || [];
+  
+  // ✅ DEBUG: Log analog groups as unique set
+  const uniqueAnalogGroups = [...new Set(analogGroupIds.filter(g => g))];
+  console.log(
+    `[renderComputedChannels] 📋 Ownership rule: Unique analog groups are [${uniqueAnalogGroups.join(", ")}]`
+  );
+
+  const computedChannels = filterUnassignedComputedChannels(
+    allComputedChannels,
+    analogGroupIds
+  );
+
+  // ✅ DEBUG: Log channels AFTER filtering
+  console.log(`[renderComputedChannels] 🔍 DEBUG - Computed channels AFTER ownership filter: ${computedChannels.length} channels`);
+  computedChannels.forEach((ch, i) => {
+    console.log(`  [${i}] id="${ch.id}", group="${ch.group}" (will render in standalone)`);
+  });
+
+  if (computedChannels.length === 0) {
+    console.log(`[renderComputedChannels] ✅ No unassigned computed channels - all owned by analog groups`);
+    return;
+  }
+
+  // Group by unit and render
+  const unitGroups = groupChannelsByUnit(computedChannels);
+
+  // Clean old computed charts
+  cleanupOldComputedCharts(charts, chartsContainer);
+
+  // Resolve time array
+  const timeArray = resolveTimeArray(data, computedChannels);
+
+  // Get global axis alignment
+  const maxYAxes = getMaxYAxes() || 1;
+
+  // Render one chart per unit group
+  for (const [unitKey, unitChannels] of unitGroups.entries()) {
+    processComputedUnitGroup(
+      unitKey,
+      unitChannels,
+      timeArray,
+      maxYAxes,
+      chartsContainer,
+      charts,
+      verticalLinesX,
+      channelState,
+      data
+    );
+  }
+
+  console.log(`[renderComputedChannels] ✅ Created ${unitGroups.size} chart(s) with ${computedChannels.length} series`);
+}
+
+/**
+ * Build combined channel objects from separate cfg and data
+ * ✅ NEW: Combines cfg.computedChannels (metadata) with data.computedData (values)
+ * 
+ * @param {Object} cfg - Configuration with computedChannels array
+ * @param {Object} data - Data object with computedData array
+ * @returns {Array} Combined channel objects with both metadata and data
+ */
+function buildComputedChannelsFromCfgAndData(cfg, data) {
+  const cfgChannels = cfg?.computedChannels || [];
+  const dataValues = data?.computedData || [];
+  
+  // ✅ ALWAYS use cfg.computedChannels for metadata (source of truth for group, color, etc.)
+  // This ensures group changes in cfg are always reflected, even if data has legacy format
+  
+  // ✅ DEBUG: Detect which format data is in
+  const isLegacyDataFormat = dataValues.length > 0 &amp;&amp; !Array.isArray(dataValues[0]) &amp;&amp; typeof dataValues[0] === 'object';
+  console.log(`[buildComputedChannelsFromCfgAndData] 🔍 Format detection:`, {
+    cfgChannelsCount: cfgChannels.length,
+    dataValuesCount: dataValues.length,
+    isLegacyDataFormat,
+    firstDataValueType: dataValues.length > 0 ? (Array.isArray(dataValues[0]) ? 'array' : typeof dataValues[0]) : 'N/A',
+  });
+  
+  // ✅ CRITICAL: Always build from cfg.computedChannels (metadata source of truth)
+  // Extract values from either new format (arrays) or legacy format (objects with .data)
+  return cfgChannels.map((channelMeta, index) => {
+    let values = [];
+    
+    if (index &lt; dataValues.length) {
+      if (Array.isArray(dataValues[index])) {
+        // New format: data.computedData[i] is already a values array
+        values = dataValues[index];
+      } else if (dataValues[index]?.data &amp;&amp; Array.isArray(dataValues[index].data)) {
+        // Legacy format: extract .data from object
+        values = dataValues[index].data;
+      } else if (dataValues[index]?.results &amp;&amp; Array.isArray(dataValues[index].results)) {
+        // Legacy format alternative: extract .results
+        values = dataValues[index].results;
+      }
+    }
+    
+    console.log(`  [${index}] Using cfg metadata (id="${channelMeta.id}", group="${channelMeta.group}") with ${values.length} values`);
+    
+    return {
+      ...channelMeta,  // ← ALWAYS use cfg for metadata (group, color, etc.)
+      data: values,     // Attach values for chart rendering
+      results: values,  // Alias for compatibility
+    };
+  });
+}
+
+/**
+ * Process a single unit group: create chart, attach interactions, render labels
+ * @param {string} unitKey - Unit identifier (e.g., "kV", "A", "unknown")
+ * @param {Array} unitChannels - Channels in this unit
+ * @param {Array} timeArray - Time array for chart
+ * @param {number} maxYAxes - Max Y axes for alignment
+ * @param {HTMLElement} chartsContainer - Container
+ * @param {Array} charts - Charts array
+ * @param {Array} verticalLinesX - Vertical lines state
+ * @param {Object} channelState - Channel state
+ * @param {Object} data - COMTRADE data object
+ */
+function processComputedUnitGroup(
+  unitKey,
+  unitChannels,
+  timeArray,
+  maxYAxes,
+  chartsContainer,
+  charts,
+  verticalLinesX,
+  channelState,
+  data
+) {
+  // Extract metadata
+  const groupYLabels = unitChannels.map((ch) => ch.id || "Computed");
+  const groupLineColors = unitChannels.map((ch) =>
+    ch.color &amp;&amp; typeof ch.color === "string" ? ch.color.trim() : ""
+  );
+  const groupYUnits = unitChannels.map((ch) => ch.unit || unitKey);
+
+  // Create metadata
+  const metadata = createComputedChartMetadata({
+    unitKey,
+    unitChannels,
+    lineColors: groupLineColors
+  });
+
+  // Build chart data
+  const chartData = buildUnitChartData(timeArray, unitChannels);
+
+  // Create drag bar &amp; container
+  const dragBar = createDragBar(
+    {
+      indices: Array.from({ length: unitChannels.length }, (_, i) => i),
+      name: `Computed (${unitKey})`,
+    },
+    {},
+    channelState
+  );
+
+  const { parentDiv, chartDiv } = attachComputedChartContainer({
+    dragBar,
+    unitKey,
+    groupYLabels,
+    groupLineColors,
+    metadata,
+    chartsContainer
+  });
+
+  // Build chart options
+  const opts = createChartOptions({
+    title: `Computed (${unitKey})`,
+    yLabels: groupYLabels,
+    lineColors: groupLineColors,
+    verticalLinesX,
+    xLabel: data.xLabel || "Time",
+    xUnit: data.xUnit || "s",
+    getCharts: () => charts,
+    yUnits: groupYUnits,
+    axesScales: [1, ...unitChannels.map(() => 1)],
+    singleYAxis: false,
+    maxYAxes: maxYAxes,
+  });
+
+  // Attach plugins
+  attachComputedChartPlugins(opts, verticalLinesX, charts);
+
+  // Create chart
+  const chart = initUPlotChart(opts, chartData, chartDiv, charts);
+
+  // Tag chart as computed for later identification
+  chart._computed = true;
+  chart._computedIds = unitChannels.map((ch) => ch.id);
+  chart._type = "computed";
+  chart._metadata = metadata;
+  chart._userGroupId = metadata.userGroupId;
+  chart._uPlotInstance = metadata.uPlotInstance;
+  chart._chartType = "computed";
+  chart._axesScales = [1, ...unitChannels.map(() => 1)];
+  chart._yUnits = groupYUnits || [];
+  chart._seriesColors = groupLineColors || [];
+  chart._unitKey = unitKey;
+
+  // Attach interactions
+  attachComputedChartEventHandlers(
+    chart,
+    charts,
+    verticalLinesX,
+    groupYLabels,
+    groupLineColors
+  );
+
+  // Render labels with equations
+  const labels = buildComputedChannelLabels(unitChannels, 
+    Array.from({ length: unitChannels.length }, (_, i) => i));
+  const labelDiv = parentDiv.querySelector(".chart-label");
+  if (labelDiv) {
+    labelDiv.innerHTML = "";
+    const typeSpan = document.createElement("span");
+    typeSpan.textContent = `Computed (${unitKey})`;
+    typeSpan.style.cssText = `font-size: 0.7rem; font-weight: 700; color: var(--accent-cyan); text-align: center; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 4px; border-bottom: 1px solid var(--border-color); width: 100%;`;
+    labelDiv.appendChild(typeSpan);
+
+    unitChannels.forEach((channel, idx) => {
+      const channelContainer = document.createElement("div");
+      channelContainer.style.cssText = `display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;padding:6px 4px;border:1px solid var(--border-color,#e0e0e0);border-radius:3px;background:var(--bg-tertiary,#f9f9f9);color:var(--chart-text,#333)`;
+      const nameContainer = document.createElement("div");
+      nameContainer.style.cssText = `display:flex;flex-direction:column;align-items:center;gap:4px;width:100%`;
+      const colorDot = document.createElement("span");
+      colorDot.style.cssText = `width:10px;height:10px;border-radius:50%;background:${groupLineColors[idx % groupLineColors.length]};border:1px solid var(--border-color)`;
+      nameContainer.appendChild(colorDot);
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = channel.id;
+      nameSpan.style.cssText = `font-size:0.7rem;font-weight:500;color:var(--text-secondary);text-align:center;word-break:break-word;line-height:1.1`;
+      nameContainer.appendChild(nameSpan);
+      channelContainer.appendChild(nameContainer);
+      labelDiv.appendChild(channelContainer);
+    });
+
+    renderLatex(labelDiv);
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

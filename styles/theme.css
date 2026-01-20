@@ -1,0 +1,76 @@
+/**
+ * Theme Variables - ALL colors in ONE place
+ * This file defines colors for both light and dark themes
+ */
+
+:root {
+  /* ========================================
+     LIGHT THEME COLORS (Default)
+     ======================================== */
+
+  /* Backgrounds */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: #f8fafc;
+  --bg-sidebar: #ffffff;
+
+  /* Text Colors */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  /* Accent Colors (colorful elements) */
+  --accent-primary: #0ea5e9;
+  --accent-cyan: #0ea5e9;
+  --accent-blue: #2563eb;
+  --accent-purple: #7c3aed;
+  --accent-orange: #f97316;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+
+  /* Borders & Shadows */
+  --border-color: #e2e8f0;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  /* Chart Colors */
+  --chart-bg: #ffffff;
+  --chart-text: #1e293b;
+  --chart-grid: #cbd5e1;
+  --chart-axis: #64748b;
+}
+
+/* ========================================
+   DARK THEME COLORS
+   Applied when data-theme="dark"
+   ======================================== */
+
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #3a3a3a;
+  --bg-card: #252525;
+  --bg-sidebar: #2d2d2d;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #888888;
+
+  /* Borders & Shadows */
+  --border-color: #404040;
+  --shadow-sm: 0 2px 8px rgba(255, 255, 255, 0.08);
+  --shadow-md: 0 4px 16px rgba(255, 255, 255, 0.1);
+  --shadow-lg: 0 8px 32px rgba(255, 255, 255, 0.12);
+
+  /* Chart Colors */
+  --chart-bg: #252525;
+  --chart-text: #ffffff;
+  --chart-grid: #404040;
+  --chart-axis: #cccccc;
+}
