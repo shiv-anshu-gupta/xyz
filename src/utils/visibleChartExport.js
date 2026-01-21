@@ -1,3 +1,8 @@
+/**
+ * @module Utils/Data
+ * @description visibleChartExport module
+ */
+
 const DEFAULT_FILENAME_PREFIX = "visible_charts";
 const DEFAULT_ANALOG_PHASE = "";
 const DEFAULT_ANALOG_COMPONENT = "";

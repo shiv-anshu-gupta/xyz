@@ -1,7 +1,7 @@
 /**
  * @file autoGroupChannels.js
- * @module utils/autoGroupChannels
- * 
+ * @module Utils/Grouping
+ *
  * @description
  * <h3>Automatic Channel Grouping Utilities</h3>
  * 
@@ -346,7 +346,7 @@ const GROUP_PATTERNS = [
  *     G -->|No| I[Return groups]
  *     H --> I
  */
-export function autoGroupChannels(channels) {
+export function autoGroupChannels(channels, prefix = "G") {
   if (!channels?.length) return {};
   
   const groups = {};
@@ -365,7 +365,7 @@ export function autoGroupChannels(channels) {
     });
     
     if (indices.length > 0) {
-      groups[`G${groupNum}`] = indices;
+      groups[`${prefix}${groupNum}`] = indices;
       groupNum++;
     }
   }
@@ -376,7 +376,7 @@ export function autoGroupChannels(channels) {
     .filter(idx => !usedIndices.has(idx));
   
   if (remaining.length > 0) {
-    groups[`G${groupNum}`] = remaining;
+    groups[`${prefix}${groupNum}`] = remaining;
   }
   
   return groups;
@@ -396,11 +396,16 @@ export function autoGroupChannels(channels) {
  * getNextGroupNum({});                              // Returns 0
  * getNextGroupNum({ "Currents": [0,1] });           // Returns 0 (no Gn pattern)
  */
-function getNextGroupNum(groups) {
+function getNextGroupNum(groups, prefix = "G") {
   if (!groups || Object.keys(groups).length === 0) return 0;
   
+  // Match groups that start with the given prefix followed by digits
+  const prefixPattern = new RegExp(`^${prefix}(\\d+)$`);
   const nums = Object.keys(groups)
-    .map(g => parseInt(g.replace('G', ''), 10))
+    .map(g => {
+      const match = g.match(prefixPattern);
+      return match ? parseInt(match[1], 10) : NaN;
+    })
     .filter(n => !isNaN(n));
   
   return nums.length > 0 ? Math.max(...nums) + 1 : 0;
@@ -468,7 +473,7 @@ function getNextGroupNum(groups) {
  *     F --> G
  *     D --> G
  */
-export function buildChannelGroups(userGroups, channels) {
+export function buildChannelGroups(userGroups, channels, prefix = "G") {
   const hasUserGroups = userGroups?.some(g => g && g !== "");
   
   if (hasUserGroups) {
@@ -486,15 +491,15 @@ export function buildChannelGroups(userGroups, channels) {
     });
     
     if (unassigned.length > 0) {
-      const nextNum = getNextGroupNum(groups);
-      groups[`G${nextNum}`] = unassigned;
+      const nextNum = getNextGroupNum(groups, prefix);
+      groups[`${prefix}${nextNum}`] = unassigned;
     }
     
     return groups;
   }
   
-  // No user groups → auto-group
-  return autoGroupChannels(channels);
+  // No user groups → auto-group with prefix
+  return autoGroupChannels(channels, prefix);
 }
 
 /**

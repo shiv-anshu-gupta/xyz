@@ -1,7 +1,7 @@
 /**
  * @file renderComputedChart.js
- * @module components/renderComputedChart
- * 
+ * @module Components/ChartRendering
+ *
  * @description
  * <h3>Computed Channel Chart Renderer</h3>
  * 
@@ -76,6 +76,31 @@ import { renderSingleDigitalChart } from "./renderSingleDigitalChart.js";
 import { getMaxYAxes } from "../utils/maxYAxesStore.js";
 import { cleanupOldComputedCharts, resolveTimeArray } from "../utils/computedChannelDataProcessor.js";
 import { buildChannelGroups } from "../utils/autoGroupChannels.js";
+
+/**
+ * Get the next available group number for a given prefix.
+ * Scans existing group IDs and returns the next available number.
+ * 
+ * @function getNextGroupNumber
+ * @private
+ * @param {Set<string>} existingGroupIds - Set of existing group IDs
+ * @param {string} prefix - Prefix to search for ("GA" or "GD")
+ * @returns {number} Next available group number
+ */
+function getNextGroupNumber(existingGroupIds, prefix) {
+  const prefixPattern = new RegExp(`^${prefix}(\\d+)$`);
+  let maxNum = -1;
+  
+  for (const groupId of existingGroupIds) {
+    const match = groupId.match(prefixPattern);
+    if (match) {
+      const num = parseInt(match[1], 10);
+      if (num > maxNum) maxNum = num;
+    }
+  }
+  
+  return maxNum + 1;
+}
 
 /**
  * Render computed channels using the shared single-chart renderers.
@@ -200,13 +225,27 @@ export function renderComputedChart(
   let chartIndex = 0;
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // RENDER ANALOG COMPUTED CHANNELS
+  // CALCULATE NEXT AVAILABLE GROUP NUMBERS FOR GA AND GD
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Computed analog channels should continue from GA3, GA4, etc.
+  // Computed digital channels should continue from GD1, GD2, etc. (GD0 is main digital)
+  let nextAnalogGroupNum = getNextGroupNumber(existingGroupIds, "GA");
+  let nextDigitalGroupNum = getNextGroupNumber(existingGroupIds, "GD");
+  
+  console.log(`[renderComputedChart] 📊 Next available group numbers: GA${nextAnalogGroupNum}, GD${nextDigitalGroupNum}`);
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // RENDER ANALOG COMPUTED CHANNELS (with GA prefix)
   // ═══════════════════════════════════════════════════════════════════════════
   if (analogStandalone.length > 0) {
     const analogComputedGroups = groupByGroup(analogStandalone);
     
-    for (const [groupId, groupChannels] of analogComputedGroups.entries()) {
-      console.log(`[renderComputedChart] 📈 Rendering analog group "${groupId}" with ${groupChannels.length} computed channel(s)`);
+    for (const [originalGroupId, groupChannels] of analogComputedGroups.entries()) {
+      // Assign proper GA group ID (continuing from existing analog groups)
+      const groupId = `GA${nextAnalogGroupNum}`;
+      nextAnalogGroupNum++;
+      
+      console.log(`[renderComputedChart] 📈 Rendering analog computed group "${groupId}" (was "${originalGroupId}") with ${groupChannels.length} channel(s)`);
       
       const chart = renderSingleAnalogChart(
         groupId,
@@ -228,19 +267,23 @@ export function renderComputedChart(
         // Tag as computed chart
         chart._computed = true;
         chart._computedOnly = true;
-        console.log(`[renderComputedChart] ✅ Created analog computed chart for "${groupId}"`);
+        console.log(`[renderComputedChart] ✅ Created analog computed chart "${groupId}"`);
       }
     }
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // RENDER DIGITAL COMPUTED CHANNELS
+  // RENDER DIGITAL COMPUTED CHANNELS (with GD prefix)
   // ═══════════════════════════════════════════════════════════════════════════
   if (digitalStandalone.length > 0) {
     const digitalComputedGroups = groupByGroup(digitalStandalone);
     
-    for (const [groupId, groupChannels] of digitalComputedGroups.entries()) {
-      console.log(`[renderComputedChart] 📊 Rendering digital group "${groupId}" with ${groupChannels.length} computed channel(s)`);
+    for (const [originalGroupId, groupChannels] of digitalComputedGroups.entries()) {
+      // Assign proper GD group ID (continuing from existing digital groups)
+      const groupId = `GD${nextDigitalGroupNum}`;
+      nextDigitalGroupNum++;
+      
+      console.log(`[renderComputedChart] 📊 Rendering digital computed group "${groupId}" (was "${originalGroupId}") with ${groupChannels.length} channel(s)`);
       
       const chart = renderSingleDigitalChart(
         groupId,
@@ -261,20 +304,26 @@ export function renderComputedChart(
         // Tag as computed chart
         chart._computed = true;
         chart._computedOnly = true;
-        console.log(`[renderComputedChart] ✅ Created digital computed chart for "${groupId}"`);
+        console.log(`[renderComputedChart] ✅ Created digital computed chart "${groupId}"`);
       }
     }
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // RENDER UNKNOWN-TYPE COMPUTED CHANNELS (default to analog)
+  // RENDER UNKNOWN-TYPE COMPUTED CHANNELS (default to analog with GA prefix)
   // ═══════════════════════════════════════════════════════════════════════════
   if (unknownStandalone.length > 0) {
     console.log(`[renderComputedChart] ⚠️ ${unknownStandalone.length} channel(s) have unknown type, defaulting to analog`);
     
     const unknownGroups = groupByGroup(unknownStandalone);
     
-    for (const [groupId, groupChannels] of unknownGroups.entries()) {
+    for (const [originalGroupId, groupChannels] of unknownGroups.entries()) {
+      // Assign proper GA group ID (defaulting unknown to analog)
+      const groupId = `GA${nextAnalogGroupNum}`;
+      nextAnalogGroupNum++;
+      
+      console.log(`[renderComputedChart] 📈 Rendering unknown-type group "${groupId}" (was "${originalGroupId}") with ${groupChannels.length} channel(s)`);
+      
       const chart = renderSingleAnalogChart(
         groupId,
         [],  // Empty channelIndices = computed-only mode
@@ -294,7 +343,7 @@ export function renderComputedChart(
       if (chart) {
         chart._computed = true;
         chart._computedOnly = true;
-        console.log(`[renderComputedChart] ✅ Created unknown-type chart for "${groupId}" (defaulted to analog)`);
+        console.log(`[renderComputedChart] ✅ Created unknown-type chart "${groupId}" (defaulted to analog)`);
       }
     }
   }

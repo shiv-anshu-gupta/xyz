@@ -1,5 +1,5 @@
 /**
- * @module domUpdateQueue
+ * @module Utils/DOM
  * @description
  * RAF-based DOM update queuing system for batching rapid DOM updates.
  * Prevents layout thrashing by grouping updates and executing them on requestAnimationFrame.

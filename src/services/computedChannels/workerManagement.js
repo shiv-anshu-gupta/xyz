@@ -1,7 +1,7 @@
 /**
  * @file workerManagement.js
- * @module services/computedChannels/workerManagement
- * 
+ * @module Services/ComputedChannels
+ *
  * @description
  * <h3>Web Worker Lifecycle Management</h3>
  * 

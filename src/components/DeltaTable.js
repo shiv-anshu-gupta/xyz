@@ -1,7 +1,7 @@
 /**
  * @file DeltaTable.js
- * @module components/DeltaTable
- * 
+ * @module Components/Analysis
+ *
  * @description
  * <h3>Delta Table HTML Builder</h3>
  * <p>Pure functional module for constructing HTML table structures to display
@@ -194,13 +194,20 @@ export function buildTableBody(tableData, verticalLinesCount) {
     // Channel name cell (first column)
     if (isTimeRow) {
       cells.push(
-        `<td style="padding: 10px 12px; text-align: center; white-space: nowrap; color: var(--text-primary, #111827); font-weight: 500; border-right: 1px solid var(--border-color, #e5e7eb);">Time (T)</td>`
+        `<td style="padding: 10px 12px; text-align: left; white-space: nowrap; color: var(--text-primary, #111827); font-weight: 500; border-right: 1px solid var(--border-color, #e5e7eb);">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="width: 12px; height: 12px; flex-shrink: 0;"></span>
+            <span>Time (T)</span>
+          </div>
+        </td>`
       );
     } else {
       cells.push(`
-        <td style="padding: 10px 12px; text-align: center; white-space: nowrap; color: var(--text-primary, #111827); font-weight: 500; border-right: 1px solid var(--border-color, #e5e7eb);">
-          <span style="background-color: ${row.color}; width: 12px; height: 12px; border-radius: 2px; display: inline-block; margin-right: 8px; vertical-align: middle;"></span>
-          ${row.channel}
+        <td style="padding: 10px 12px; text-align: left; white-space: nowrap; color: var(--text-primary, #111827); font-weight: 500; border-right: 1px solid var(--border-color, #e5e7eb);">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="background-color: ${row.color}; width: 12px; height: 12px; min-width: 12px; border-radius: 2px; flex-shrink: 0;"></span>
+            <span>${row.channel}</span>
+          </div>
         </td>
       `);
     }
@@ -307,19 +314,40 @@ function getColorHex(colorName) {
 }
 
 /**
- * Filter table rows based on search query
+ * Filter table rows based on search query (supports multiple terms)
  * @param {Object[]} tableData - Table data to filter
- * @param {string} searchQuery - Search text
+ * @param {string|string[]} searchQuery - Search text or array of search terms
  * @returns {Object[]} Filtered table data
  */
 export function filterTableRows(tableData, searchQuery) {
-  if (!searchQuery || searchQuery.trim() === "") {
+  // Handle empty query
+  if (!searchQuery) {
     return tableData;
   }
 
-  const query = searchQuery.toLowerCase();
+  // Convert to array of search terms
+  let searchTerms = [];
+  
+  if (Array.isArray(searchQuery)) {
+    searchTerms = searchQuery.map(term => term.toLowerCase().trim()).filter(term => term !== "");
+  } else if (typeof searchQuery === "string") {
+    const trimmed = searchQuery.trim();
+    if (trimmed === "") {
+      return tableData;
+    }
+    searchTerms = [trimmed.toLowerCase()];
+  }
+
+  if (searchTerms.length === 0) {
+    return tableData;
+  }
+
   return tableData.filter((row) => {
+    // Always show time row
     if (row.channel === "__TIME_ROW__") return true;
-    return row.channel.toLowerCase().includes(query);
+    
+    const channelName = row.channel.toLowerCase();
+    // Match if channel matches ANY of the search terms
+    return searchTerms.some(term => channelName.includes(term));
   });
 }

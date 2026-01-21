@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Components/State - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="/" target="_self" class="menu-item" >COMTRADE Viewer</a></h2><h3>Modules</h3><ul><li><a href="module-Components_Analysis.html">Components/Analysis</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Analysis.html#~getColorHex">getColorHex</a></li></ul></li><li></li><li></li><li></li><li><a href="module-Components_ChartCore.html">Components/ChartCore</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_ChartCore.html#~createChartOptions">createChartOptions</a></li><li data-type='method' style='display: none;'><a href="module-Components_ChartCore.html#~subscribeChartUpdates">subscribeChartUpdates</a></li></ul></li><li></li><li></li><li><a href="module-Components_ChartRendering.html">Components/ChartRendering</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_ChartRendering.html#~filterIndicesWithData">filterIndicesWithData</a></li><li data-type='method' style='display: none;'><a href="module-Components_ChartRendering.html#~hasDigitalData">hasDigitalData</a></li></ul></li><li></li><li></li><li></li><li></li><li><a href="module-Components_DragDrop.html">Components/DragDrop</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_DragDrop.html#~setupChartDragAndDrop">setupChartDragAndDrop</a></li></ul></li><li><a href="module-Components_Equation.html">Components/Equation</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~generateCFGContentBatch">generateCFGContentBatch</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~generateDATContentBatch">generateDATContentBatch</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~performExport">performExport</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~showExportFormatDialog">showExportFormatDialog</a></li></ul></li><li><a href="module-Components_PolarChart.html">Components/PolarChart</a></li><li></li><li></li><li><a href="module-Components_Sidebars.html">Components/Sidebars</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~convertLatexToMathJs">convertLatexToMathJs</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~convertLatexToPlainText">convertLatexToPlainText</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createChannelItem">createChannelItem</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createSimpleChannelList">createSimpleChannelList</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~detectGroupFromExpression">detectGroupFromExpression</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~formatEquationForLatex">formatEquationForLatex</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~getAllAvailableGroups">getAllAvailableGroups</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~openMathLiveEditor">openMathLiveEditor</a></li></ul></li><li></li><li></li><li><a href="module-Components_State.html">Components/State</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_State.html#~createState">createState</a></li></ul></li><li><a href="module-Components_UI.html">Components/UI</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_UI.html#~createDragBar">createDragBar</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Components_VerticalLine.html">Components/VerticalLine</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~destroy">destroy</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getElement">getElement</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getState">getState</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getValue">getValue</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~handleVerticalLineShortcuts">handleVerticalLineShortcuts</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setEnabled">setEnabled</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setRange">setRange</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setValue">setValue</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setVisible">setVisible</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~syncPosition">syncPosition</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~updateDuration">updateDuration</a></li></ul></li><li></li><li></li><li><a href="module-Plugins_Chart.html">Plugins/Chart</a><ul class='methods'></ul></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Services_ComputedChannels.html">Services/ComputedChannels</a></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_COMTRADE.html">Utils/COMTRADE</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_COMTRADE.html#~parseCFG">parseCFG</a></li><li data-type='method' style='display: none;'><a href="module-Utils_COMTRADE.html#~parseDAT">parseDAT</a></li></ul></li><li><a href="module-Utils_Chart.html">Utils/Chart</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~applyZoom">applyZoom</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~buildCompleteAxesArray">buildCompleteAxesArray</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~calculateAxisCountForGroup">calculateAxisCountForGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~calculateAxisCountsForAllGroups">calculateAxisCountsForAllGroups</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createMultiAxisDefinition">createMultiAxisDefinition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createSeriesDefinitions">createSeriesDefinitions</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createSingleAxisDefinition">createSingleAxisDefinition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createYAxisScales">createYAxisScales</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~didAxisCountChange">didAxisCountChange</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getAxisCount">getAxisCount</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getAxisForType">getAxisForType</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getChannelType">getChannelType</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getGroupAxisInfo">getGroupAxisInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getSeriesAxisIndex">getSeriesAxisIndex</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getThemeColors">getThemeColors</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~handleVerticalLineAddition">handleVerticalLineAddition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~updateZoomDisplay">updateZoomDisplay</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_ComputedChannels.html">Utils/ComputedChannels</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels.html#~broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels.html#~handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_DOM.html">Utils/DOM</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~clearChartsContainer">clearChartsContainer</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~initializeSidebarChannels">initializeSidebarChannels</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~resizeChartsToContainers">resizeChartsToContainers</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~setupMobileSidebar">setupMobileSidebar</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~showFileInfo">showFileInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~toggleChartsVisibility">toggleChartsVisibility</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~updateFileInfo">updateFileInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~updateStatsCards">updateStatsCards</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~wrapChartInSection">wrapChartInSection</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_Data.html">Utils/Data</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~formatScaledValue">formatScaledValue</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~getChannelMetadata">getChannelMetadata</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~renameChannelWithPrefix">renameChannelWithPrefix</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_DigitalChannels.html">Utils/DigitalChannels</a></li><li><a href="module-Utils_Grouping.html">Utils/Grouping</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~analyzeGroupsAndPublishMaxYAxes">analyzeGroupsAndPublishMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~analyzeSpecificGroup">analyzeSpecificGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~getMaxYAxes">getMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~getMaxYAxesState">getMaxYAxesState</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~resetMaxYAxes">resetMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~setMaxYAxes">setMaxYAxes</a></li></ul></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_Helpers.html">Utils/Helpers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~closeMergerWindow">closeMergerWindow</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~getMergerWindow">getMergerWindow</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~isMergerWindowOpen">isMergerWindowOpen</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~openMergerWindow">openMergerWindow</a></li></ul></li><li></li><li></li><li><a href="module-Utils_Theme.html">Utils/Theme</a></li><li></li><li></li></ul><h3>Classes</h3><ul><li><a href="module-Components_PolarChart.PolarChartCanvas.html">PolarChartCanvas</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#extractRealPhasorData">extractRealPhasorData</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#init">init</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#renderCanvasDebounced">renderCanvasDebounced</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#renderCanvasPolar">renderCanvasPolar</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#updateData">updateData</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#updatePhasorAtTimeIndex">updatePhasorAtTimeIndex</a></li></ul></li><li><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html">ComputedChannelMetadata</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#clear">clear</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#count">count</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#fromJSON">fromJSON</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#get">get</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getAll">getAll</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getByGroup">getByGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getByName">getByName</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#has">has</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#toJSON">toJSON</a></li></ul></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Components/State</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><p>High-performance, deeply reactive state management system for vanilla JavaScript applications.
+Provides observable state with path-based and selector-based subscriptions, batched updates,
+computed properties, middleware support, DOM binding capabilities, and full undo/redo history.</p></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>High-performance, deeply reactive state management system for vanilla JavaScript applications.
+Provides observable state with path-based and selector-based subscriptions, batched updates,
+computed properties, middleware support, DOM binding capabilities, and full undo/redo history.</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Create reactive stateconst state = createState({ user: { name: "Alice", city: "Paris" } });state.user.name = "Bob"; // Triggers all subscribers// Subscribe to changesstate.subscribe(change => {  console.log("Changed:", change.path, change.newValue);});// Subscribe to specific pathstate.subscribe(change => {  console.log("User changed:", change.newValue);}, { path: "user" });// Computed propertystate.computed("fullInfo", ["user.name", "user.city"], s =>  `${s.user.name} from ${s.user.city}`);console.log(state.fullInfo); // "Bob from Paris"</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="~createState"><span class="type-signature type-signature-inner">(inner) </span>createState<span class="signature">(initialState, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Proxy}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Creates a deeply reactive state object with comprehensive change tracking, subscriptions,
+computed properties, middleware support, and DOM binding capabilities.</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Examples</h5>
+    
+    <pre class="prettyprint"><code>// Object state - access properties directlyconst state = createState({ user: { name: "Alice", profile: { city: "Paris" } } });state.user.name = "Bob"; // Triggers subscribers</code></pre>
+
+    <pre class="prettyprint"><code>// Primitive state - use .value propertyconst count = createState(0);count.value = 1; // Triggers subscribers</code></pre>
+
+    <pre class="prettyprint"><code>// Subscribe to specific pathstate.subscribe(change => {  console.log("User changed:", change.newValue);}, { path: "user" });</code></pre>
+
+    <pre class="prettyprint"><code>// Computed propertiesstate.computed("fullInfo", ["user.name", "user.city"], s =>  `${s.user.name} from ${s.user.city}`);</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>initialState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+|
+
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Initial state value (object, array, or primitive)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">CreateStateOptions</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Configuration options</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>batch</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Enable batched change notifications for performance</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Reactive proxy with methods and properties:</p>
+<ul>
+<li>subscribe(fn, options): Subscribe to state changes</li>
+<li>unsubscribe(fn): Remove subscription</li>
+<li>computed(name, deps, fn): Define computed property</li>
+<li>derived(name, deps, fn): Alias for computed()</li>
+<li>use(middleware): Add middleware to intercept changes</li>
+<li>bindToDOM(path, selector, options): Bind state to DOM elements</li>
+<li>undoLast(): Revert to previous state</li>
+<li>redoLast(): Reapply undone changes</li>
+<li>getHistory(): Get change history array</li>
+<li>clearHistory(): Clear history</li>
+<li>suspendHistory(): Pause history recording</li>
+<li>resumeHistory(): Resume history recording</li>
+<li>withoutHistory(fn): Execute function without recording history</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Proxy</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<h4 class="name" id="~ChangeObject">ChangeObject</h4>
+
+
+
+
+
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;(string|number)></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Array of keys from root to changed property (e.g., ['user', 'profile', 'city'])</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>newValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The new value of the property after change</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>oldValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The previous value of the property before change</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>prop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The property key that changed (last element in path)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>root</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Proxy</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The root state proxy object (entire state tree)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selectorValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optional: value returned by selector function (selector-based subscriptions only)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Typical change object structure{  path: ['user', 'profile', 'city'],  newValue: 'London',  oldValue: 'Paris',  prop: 'city',  root: proxyObject,  selectorValue: 'AliceLondon' // only if using selector subscription}* ----------------------------------------------------------------------------FUNCTION SIGNATURES:createState(initialState, options?)  - initialState: object, array, or primitive  - options: { batch?: boolean } (default: true)  => Returns a reactive proxy with API methods.state.subscribe(fn, options?)  - fn: (change) => void  - options: {      path?: string | string[],      descendants?: boolean,      selector?: (state) => any,      batch?: boolean    }  => Subscribes to changes. Path/selector/descendants are optional.state.unsubscribe(fn)  - fn: The original subscriber function passed to subscribe.  => Unsubscribes the function.state.computed(name, dependencies, computeFn)  - name: string (property name for computed value)  - dependencies: array of string paths  - computeFn: (state) => any  => Adds a computed property to the state.state.derived(name, dependencies, computeFn)  - Alias for .computedstate.use(middlewareFn)  - middlewareFn: (change) => change | null | undefined | false  => Adds middleware to observe, modify, or block changes.----------------------------------------------------------------------------CHANGE OBJECT PROPERTIES:- path: Array of keys to the changed property (e.g., ['user','profile','city'])- newValue: New value of the property- oldValue: Previous value of the property- prop: The property key that changed (last in path)- root: The root state proxy- selectorValue: (optional) Value returned by selector function----------------------------------------------------------------------------NUANCES:- For object/array state: access properties directly (e.g., state.user.name)- For primitive state: use state.value (e.g., const state = createState(5); state.value = 10; console.log(state.value); // 10)----------------------------------------------------------------------------USAGE EXAMPLES:// 1. Basic usageconst state = createState({ user: { name: "Alice", profile: { city: "Paris" } } });state.user.name = "Bob";// 2. Primitive stateconst num = createState(5);num.value = 10;// 3. Subscribe to all changesstate.subscribe(change => {  console.log(change.path, change.newValue, change.oldValue);});// 4. Subscribe to a specific pathstate.subscribe(change => {  console.log("City changed:", change.newValue);}, { path: "user.profile.city" });// 5. Subscribe to all descendants of a pathstate.subscribe(change => {  console.log("Profile changed:", change.path, change.newValue);}, { path: "user.profile", descendants: true });// 6. Selector-based subscriptionstate.subscribe(change => {  console.log("Selector value changed:", change.selectorValue);}, { selector: s => s.user.name + s.user.profile.city });// 7. Computed/derived propertystate.computed("userInfo", ["user.name", "user.profile.city"], s => s.user.name + "@" + s.user.profile.city);// orstate.derived("userInfo", ["user.name", "user.profile.city"], s => s.user.name + "@" + s.user.profile.city);console.log(state.userInfo); // e.g., "Bob@Paris"// 8. Middleware: log and block invalid changesstate.use(change => {  if (change.prop === "age" &amp;&amp; change.newValue &lt; 0) return null; // block  console.log("Change:", change);  return change;});// 9. Unsubscribefunction onChange(change) { ... }state.subscribe(onChange);state.unsubscribe(onChange);---------------------------------------------------------------------------- APIUsage Examples:// 1. Deep reactivity// For object/array state, access properties directly:const state = createState({ user: { name: "Alice" }, items: [1,2,3] });state.user.name = "Bob"; // triggers subscribersstate.items.push(4);      // triggers subscribers// For primitive state, use .value:const numState = createState(5);numState.value = 10; // triggers subscribersconsole.log(numState.value); // 10// 2. Path-based subscriptionsstate.subscribe(change => { console.log("Any change", change); });state.subscribe(change => { ... }, "user.profile.city");state.subscribe(change => { ... }, ["user", "profile", "city"]);state.subscribe(change => { ... }, { path: "user.profile", descendants: true });// 3. Selector-based subscriptions// The selector function receives the state and returns a derived value.// The subscription is triggered only when the selector's return value changes.state.subscribe(change => {  // change.selectorValue is the new derived value  // change.root is the full state  // You can still read or update state via change.root or the state variable  console.log("Selector value:", change.selectorValue);}, { selector: s => s.user.name + s.user.profile.city });// 4. Batching (default: on, can be disabled per state)const state1 = createState({ value: 0 });state1.subscribe(change => { console.log("Batched:", change.newValue); });state1.value = 1; state1.value = 2; // Only one notification per tickconst state2 = createState({ value: 0 }, { batch: false });state2.subscribe(change => { console.log("Immediate:", change.newValue); });state2.value = 1; state2.value = 2; // Notified for each change// 5. Computed/derived properties (syntactic sugar)// Using .computed (existing)state.computed("userInfo", ["user.profile.city", "user.name"], () => {  return state.user.name + "@" + state.user.profile.city;});console.log(state.userInfo); // "Bob@NY"// Using .derived (alias for .computed)state.derived("userCity", ["user.profile.city"], s => s.user.profile.city.toUpperCase());console.log(state.userCity); // "LONDON"// 6. Middleware/interceptorsstate.use(change => { console.log("Middleware:", change); return change; });// 7. Error handlingstate.subscribe(() => { throw new Error("fail"); }); // Error is caught and logged// 8. Unsubscribefunction onChange(change) { ... }state.subscribe(onChange, "user.name");state.unsubscribe(onChange);// 9. Extensibility// Add persistence, devtools, or TypeScript as needed.---Nuance:- For object/array state, access properties directly (e.g., state.user.name).- For primitive state (number, string, boolean), use state.value to get/set the value.</code></pre>
+
+
+
+            
+                
+<h4 class="name" id="~CreateStateOptions">CreateStateOptions</h4>
+
+
+
+
+
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>batch</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Enable batched notifications (updates grouped per animation frame)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~SubscribeOptions">SubscribeOptions</h4>
+
+
+
+
+
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Property path to subscribe to (dot-notation string or array)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>descendants</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>If true, subscribe to all descendants of path</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Function to derive a computed value from state (triggers only on value change)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

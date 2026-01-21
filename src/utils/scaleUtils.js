@@ -1,5 +1,11 @@
 import { SI_UNITS } from "./constants.js";
 
+/**
+ * @module Utils/Chart
+ * @description scaleUtils module
+ */
+
+
 // ✅ FIX: Implement siFormat function that was missing
 function siFormat(value) {
   if (value === null || value === undefined || isNaN(value)) return "";

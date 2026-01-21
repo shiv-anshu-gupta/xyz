@@ -1,6 +1,7 @@
 /**
- * @file analyzeGroupsAndPublish.js - Group Analysis & Y-Axes Synchronization
- * @module analyzeGroupsAndPublish
+ * @file analyzeGroupsAndPublish.js
+ * @module Utils/Grouping
+ * @description Group Analysis & Y-Axes Synchronization
  * @category Architecture / Functional Approach
  * @since 2.0.0
  *

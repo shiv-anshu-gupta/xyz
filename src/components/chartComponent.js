@@ -1,5 +1,5 @@
 /**
- * @module chartComponent
+ * @module Components/ChartCore
  * @description
  * Factory module for building complete uPlot chart option configurations. Handles
  * the complex setup of axes, series, scales, and plugins needed for rendering

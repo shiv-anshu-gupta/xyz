@@ -1,0 +1,7559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Plugins/Chart - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="/" target="_self" class="menu-item" >COMTRADE Viewer</a></h2><h3>Modules</h3><ul><li><a href="module-Components_Analysis.html">Components/Analysis</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Analysis.html#~getColorHex">getColorHex</a></li></ul></li><li></li><li></li><li></li><li><a href="module-Components_ChartCore.html">Components/ChartCore</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_ChartCore.html#~createChartOptions">createChartOptions</a></li><li data-type='method' style='display: none;'><a href="module-Components_ChartCore.html#~subscribeChartUpdates">subscribeChartUpdates</a></li></ul></li><li></li><li></li><li><a href="module-Components_ChartRendering.html">Components/ChartRendering</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_ChartRendering.html#~filterIndicesWithData">filterIndicesWithData</a></li><li data-type='method' style='display: none;'><a href="module-Components_ChartRendering.html#~hasDigitalData">hasDigitalData</a></li></ul></li><li></li><li></li><li></li><li></li><li><a href="module-Components_DragDrop.html">Components/DragDrop</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_DragDrop.html#~setupChartDragAndDrop">setupChartDragAndDrop</a></li></ul></li><li><a href="module-Components_Equation.html">Components/Equation</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~generateCFGContentBatch">generateCFGContentBatch</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~generateDATContentBatch">generateDATContentBatch</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~performExport">performExport</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~showExportFormatDialog">showExportFormatDialog</a></li></ul></li><li><a href="module-Components_PolarChart.html">Components/PolarChart</a></li><li></li><li></li><li><a href="module-Components_Sidebars.html">Components/Sidebars</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~convertLatexToMathJs">convertLatexToMathJs</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~convertLatexToPlainText">convertLatexToPlainText</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createChannelItem">createChannelItem</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createSimpleChannelList">createSimpleChannelList</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~detectGroupFromExpression">detectGroupFromExpression</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~formatEquationForLatex">formatEquationForLatex</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~getAllAvailableGroups">getAllAvailableGroups</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~openMathLiveEditor">openMathLiveEditor</a></li></ul></li><li></li><li></li><li><a href="module-Components_State.html">Components/State</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_State.html#~createState">createState</a></li></ul></li><li><a href="module-Components_UI.html">Components/UI</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_UI.html#~createDragBar">createDragBar</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Components_VerticalLine.html">Components/VerticalLine</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~destroy">destroy</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getElement">getElement</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getState">getState</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getValue">getValue</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~handleVerticalLineShortcuts">handleVerticalLineShortcuts</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setEnabled">setEnabled</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setRange">setRange</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setValue">setValue</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setVisible">setVisible</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~syncPosition">syncPosition</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~updateDuration">updateDuration</a></li></ul></li><li></li><li></li><li><a href="module-Plugins_Chart.html">Plugins/Chart</a><ul class='methods'></ul></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Services_ComputedChannels.html">Services/ComputedChannels</a></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_COMTRADE.html">Utils/COMTRADE</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_COMTRADE.html#~parseCFG">parseCFG</a></li><li data-type='method' style='display: none;'><a href="module-Utils_COMTRADE.html#~parseDAT">parseDAT</a></li></ul></li><li><a href="module-Utils_Chart.html">Utils/Chart</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~applyZoom">applyZoom</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~buildCompleteAxesArray">buildCompleteAxesArray</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~calculateAxisCountForGroup">calculateAxisCountForGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~calculateAxisCountsForAllGroups">calculateAxisCountsForAllGroups</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createMultiAxisDefinition">createMultiAxisDefinition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createSeriesDefinitions">createSeriesDefinitions</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createSingleAxisDefinition">createSingleAxisDefinition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createYAxisScales">createYAxisScales</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~didAxisCountChange">didAxisCountChange</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getAxisCount">getAxisCount</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getAxisForType">getAxisForType</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getChannelType">getChannelType</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getGroupAxisInfo">getGroupAxisInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getSeriesAxisIndex">getSeriesAxisIndex</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getThemeColors">getThemeColors</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~handleVerticalLineAddition">handleVerticalLineAddition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~updateZoomDisplay">updateZoomDisplay</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_ComputedChannels.html">Utils/ComputedChannels</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels.html#~broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels.html#~handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_DOM.html">Utils/DOM</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~clearChartsContainer">clearChartsContainer</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~initializeSidebarChannels">initializeSidebarChannels</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~resizeChartsToContainers">resizeChartsToContainers</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~setupMobileSidebar">setupMobileSidebar</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~showFileInfo">showFileInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~toggleChartsVisibility">toggleChartsVisibility</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~updateFileInfo">updateFileInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~updateStatsCards">updateStatsCards</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~wrapChartInSection">wrapChartInSection</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_Data.html">Utils/Data</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~formatScaledValue">formatScaledValue</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~getChannelMetadata">getChannelMetadata</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~renameChannelWithPrefix">renameChannelWithPrefix</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_DigitalChannels.html">Utils/DigitalChannels</a></li><li><a href="module-Utils_Grouping.html">Utils/Grouping</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~analyzeGroupsAndPublishMaxYAxes">analyzeGroupsAndPublishMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~analyzeSpecificGroup">analyzeSpecificGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~getMaxYAxes">getMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~getMaxYAxesState">getMaxYAxesState</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~resetMaxYAxes">resetMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~setMaxYAxes">setMaxYAxes</a></li></ul></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_Helpers.html">Utils/Helpers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~closeMergerWindow">closeMergerWindow</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~getMergerWindow">getMergerWindow</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~isMergerWindowOpen">isMergerWindowOpen</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~openMergerWindow">openMergerWindow</a></li></ul></li><li></li><li></li><li><a href="module-Utils_Theme.html">Utils/Theme</a></li><li></li><li></li></ul><h3>Classes</h3><ul><li><a href="module-Components_PolarChart.PolarChartCanvas.html">PolarChartCanvas</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#extractRealPhasorData">extractRealPhasorData</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#init">init</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#renderCanvasDebounced">renderCanvasDebounced</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#renderCanvasPolar">renderCanvasPolar</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#updateData">updateData</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#updatePhasorAtTimeIndex">updatePhasorAtTimeIndex</a></li></ul></li><li><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html">ComputedChannelMetadata</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#clear">clear</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#count">count</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#fromJSON">fromJSON</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#get">get</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getAll">getAll</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getByGroup">getByGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getByName">getByName</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#has">has</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#toJSON">toJSON</a></li></ul></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Plugins/Chart</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><h3>uPlot Plugin: Auto Unit & SI Prefix Scaling</h3>
+<p>Automatically applies the best SI prefix (p, n, µ, m, k, M, G, T) to axis labels
+and tick values based on the visible data range. Supports both X and Y axes with
+user-configurable scale factors for unit conversion.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Auto-Scaling</td><td>Dynamically selects SI prefix based on visible data magnitude</td></tr>
+  <tr><td>User Override</td><td>axesScales allows manual unit conversion (mV→V, ms→s)</td></tr>
+  <tr><td>Label Preservation</td><td>Original axis labels stored and restored with prefix updates</td></tr>
+  <tr><td>Defensive Coding</td><td>Gracefully handles missing axis definitions and custom ticks</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SI Prefix Auto-Selection</strong> — p, n, µ, m, (base), k, M, G, T</li>
+  <li><strong>Multi-Axis Support</strong> — Works with X and multiple Y axes</li>
+  <li><strong>User Scale Factors</strong> — Multiply raw values before prefix selection</li>
+  <li><strong>Dynamic Updates</strong> — Recalculates on zoom/pan via setScale hook</li>
+  <li><strong>Label Format</strong> — Expects "Label (Unit)" format, e.g., "Voltage (V)"</li>
+</ul>
+<h4>User Scale Explanation</h4>
+<p>The <code>axesScales</code> array provides multiplicative factors for each axis:</p>
+<ul>
+  <li><code>[1, 0.001, 1]</code> — Y0 axis data is in mV, display as V</li>
+  <li><code>[0.001, 1, 1]</code> — X axis data is in ms, display as s</li>
+</ul>
+<h4>Limitations</h4>
+<ul>
+  <li>Assumes axis labels contain units in parentheses</li>
+  <li>Does not support dynamic unit changes after chart creation</li>
+  <li>Overrides any existing axis.values function</li>
+</ul></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Auto Unit & SI Prefix Scaling</h3>
+<p>Automatically applies the best SI prefix (p, n, µ, m, k, M, G, T) to axis labels
+and tick values based on the visible data range. Supports both X and Y axes with
+user-configurable scale factors for unit conversion.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Auto-Scaling</td><td>Dynamically selects SI prefix based on visible data magnitude</td></tr>
+  <tr><td>User Override</td><td>axesScales allows manual unit conversion (mV→V, ms→s)</td></tr>
+  <tr><td>Label Preservation</td><td>Original axis labels stored and restored with prefix updates</td></tr>
+  <tr><td>Defensive Coding</td><td>Gracefully handles missing axis definitions and custom ticks</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SI Prefix Auto-Selection</strong> — p, n, µ, m, (base), k, M, G, T</li>
+  <li><strong>Multi-Axis Support</strong> — Works with X and multiple Y axes</li>
+  <li><strong>User Scale Factors</strong> — Multiply raw values before prefix selection</li>
+  <li><strong>Dynamic Updates</strong> — Recalculates on zoom/pan via setScale hook</li>
+  <li><strong>Label Format</strong> — Expects "Label (Unit)" format, e.g., "Voltage (V)"</li>
+</ul>
+<h4>User Scale Explanation</h4>
+<p>The <code>axesScales</code> array provides multiplicative factors for each axis:</p>
+<ul>
+  <li><code>[1, 0.001, 1]</code> — Y0 axis data is in mV, display as V</li>
+  <li><code>[0.001, 1, 1]</code> — X axis data is in ms, display as s</li>
+</ul>
+<h4>Limitations</h4>
+<ul>
+  <li>Assumes axis labels contain units in parentheses</li>
+  <li>Does not support dynamic unit changes after chart creation</li>
+  <li>Overrides any existing axis.values function</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/scaleUtils</code> - SI prefix calculation utilities</li>
+        
+            <li><code>module:utils/constants</code> - SI_UNITS table</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import autoUnitScalePlugin from './plugins/autoUnitScalePlugin.js';const opts = {  ...otherUplotOptions,  plugins: [autoUnitScalePlugin({ axesScales: [1, 0.001, 1] })]  // Y0 axis: data in mV, displayed as V with appropriate SI prefix};new uPlot(opts, data, target);</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+    
+
+    <h4 class="name" id="module:Plugins/Chart"><span class="type-signature"></span>(require("Plugins/Chart"))<span class="signature">(opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot Plugin: Auto Unit &amp; SI Prefix Scaling</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>axesScales</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;number></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>User scale factors for axes: [xScale, y0Scale, y1Scale, ...].</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lsbDigits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>3</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of least significant digits for inner ticks.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>decimals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of decimals for formatting.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tickLabelFormatter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Custom tick label formatter: (scaled, i, total, lsbDigits, decimals) =&gt; string</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>autoScaleUnit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Object with x/y boolean flags for scaling (e.g., {x: true, y: false})</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Y-Axis Vertical Lines</h3>
+<p>Draws vertical lines at the left edge of Y-axes since uPlot doesn't render
+axis spine lines by default. Supports multiple Y-axes with theme-aware colors.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SVG Lines</strong> — Creates SVG line elements for crisp rendering</li>
+  <li><strong>Theme Support</strong> — Reads --chart-axis CSS variable for color</li>
+  <li><strong>Multi-Axis</strong> — Draws line for each Y-axis</li>
+  <li><strong>Auto-Position</strong> — Updates on resize via ready hook</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { axisLinesPlugin } from './plugins/axisLinesPlugin.js';const opts = {  plugins: [axisLinesPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Delta Box Display</h3>
+<p>Displays time and value deltas between selected regions on the chart.
+Shows interpolated values for analysis of multi-rate sampling data.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Selection Display</strong> — Shows deltas when region is selected</li>
+  <li><strong>Interpolation</strong> — Handles different sampling rates</li>
+  <li><strong>Overlay Box</strong> — Positioned overlay with delta information</li>
+  <li><strong>Auto-Hide</strong> — Disappears when selection cleared</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { deltaBoxPlugin } from './plugins/deltaBoxPlugin.js';const opts = {  plugins: [deltaBoxPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>digitalFillPlugin module</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Horizontal Zoom & Pan</h3>
+<p>Enables keyboard and mouse-based horizontal zooming and panning across synchronized
+charts. Uses modifier keys (Shift, Alt) to distinguish zoom from pan operations.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Modular Design</td><td>Accepts getCharts function, no global state dependency</td></tr>
+  <tr><td>Chart Synchronization</td><td>All charts zoom/pan together via syncKey</td></tr>
+  <tr><td>Modifier Keys</td><td>Shift for zoom, Alt for pan—prevents accidental operations</td></tr>
+  <tr><td>Clean Cleanup</td><td>Proper event handler removal on chart destroy</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Shift+Scroll</strong> — Zoom in/out horizontally</li>
+  <li><strong>Alt+Scroll</strong> — Pan left/right horizontally</li>
+  <li><strong>Shift+Arrow</strong> — Zoom with keyboard</li>
+  <li><strong>Alt+Arrow</strong> — Pan with keyboard</li>
+  <li><strong>Mouse-Anchored Zoom</strong> — Zoom centers on cursor position</li>
+  <li><strong>Sync Group</strong> — Charts with same syncKey update together</li>
+</ul>
+<h4>Control Mapping</h4>
+<table>
+  <tr><th>Input</th><th>Action</th></tr>
+  <tr><td>Shift + Scroll Up</td><td>Zoom In (0.8x range)</td></tr>
+  <tr><td>Shift + Scroll Down</td><td>Zoom Out (1.25x range)</td></tr>
+  <tr><td>Alt + Scroll Up</td><td>Pan Left (10% of range)</td></tr>
+  <tr><td>Alt + Scroll Down</td><td>Pan Right (10% of range)</td></tr>
+  <tr><td>Shift + Left/Right</td><td>Zoom via keyboard</td></tr>
+  <tr><td>Alt + Left/Right</td><td>Pan via keyboard</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:plugins/verticalLinePlugin</code> - Vertical measurement lines</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import horizontalZoomPanPlugin from './plugins/horizontalZoomPanPlugin.js';const opts = {  plugins: [    horizontalZoomPanPlugin('globalSync', () => window.charts)  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Vertical Line & Crosshair Points</h3>
+<p>Enables placing, dragging, and visualizing vertical measurement lines on uPlot charts.
+Lines are synchronized across all charts and display crosshair points where they intersect
+series data. Used for delta calculations and time-point analysis.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive State</td><td>Lines stored in verticalLinesXState, auto-syncs across charts</td></tr>
+  <tr><td>Drag Support</td><td>Lines can be dragged to new positions with mouse</td></tr>
+  <tr><td>Event Capture</td><td>Uses capture phase to prevent selection box during drag</td></tr>
+  <tr><td>Debounced Updates</td><td>Delta calculations debounced to prevent UI freezing</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Add Lines</strong> — Alt+1 adds vertical line at cursor position</li>
+  <li><strong>Drag Lines</strong> — Click and drag to reposition lines</li>
+  <li><strong>Crosshair Points</strong> — Colored dots at series intersections</li>
+  <li><strong>Line Colors</strong> — Configurable colors from crosshairColors palette</li>
+  <li><strong>Chart Sync</strong> — All charts show same vertical lines</li>
+  <li><strong>Delta Display</strong> — Triggers delta calculations on line change</li>
+</ul>
+<h4>Keyboard Shortcuts</h4>
+<table>
+  <tr><th>Shortcut</th><th>Action</th></tr>
+  <tr><td>Alt+0</td><td>Clear all vertical lines</td></tr>
+  <tr><td>Alt+1</td><td>Add vertical line at cursor</td></tr>
+  <tr><td>Alt+2</td><td>Go to previous line</td></tr>
+  <tr><td>Alt+3</td><td>Go to next line</td></tr>
+  <tr><td>Alt+4</td><td>Delete current line</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/handleVerticalLineShortcuts</code> - Keyboard handler</li>
+        
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import verticalLinePlugin from './plugins/verticalLinePlugin.js';const opts = {  plugins: [    verticalLinePlugin(verticalLinesXState, getCharts, {      lineColors: ['red', 'blue', 'green'],      lineWidth: 2,      pointRadius: 5    })  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDigitalFillPlugin"><span class="type-signature type-signature-static">(static) </span>createDigitalFillPlugin<span class="signature">(signals)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot plugin for rendering filled regions under digital (boolean) signals.</p>
+<p>This plugin draws filled rectangles under digital signals (step lines) when the signal is in the &quot;high&quot; state (as defined by targetVal).
+It supports multiple digital signals, each with its own vertical offset, color, and target value.</p>
+<p>The fill is drawn in sync with zoom/pan and respects the current axis scales.</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { createDigitalFillPlugin } from './src/plugins/digitalFillPlugin.js';const xVals = [0, 1, 2, 3, 4, 5, 6];const signal1 = [1, 0, 1, 1, 0, 1, 0];const signal2 = [1, 1, 1, 0, 1, 1, 1];const signals = [  { signalIndex: 1, offset: 0, color: 'rgba(0, 150, 255, 0.3)', targetVal: 1 },  { signalIndex: 2, offset: 3, color: 'rgba(255, 100, 100, 0.3)', targetVal: 1 }];const opts = {  width: 600,  height: 300,  scales: { x: { time: false }, y: { min: 0, max: 6 } },  axes: [{}, {}],  series: [    {}, // x axis    { label: "Signal 1", stroke: "transparent" },    { label: "Signal 2", stroke: "transparent" }  ],  plugins: [    createDigitalFillPlugin(signals)  ]};const data = [xVals, signal1, signal2];new uPlot(opts, data, document.getElementById("chart-digital"));</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>signals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of signal configuration objects.
+Each object should have:
+- signalIndex {number}: Index of the signal in the uPlot data array (e.g., 1 for the first signal after x).
+- offset {number}: Vertical offset to apply to the signal (for stacking multiple signals).
+- color {string}: Fill color for the high region (CSS color, e.g., 'rgba(0,150,255,0.3)').
+- targetVal {number}: Value to consider as &quot;high&quot; (usually 1).</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object to be included in the <code>plugins</code> array of uPlot options.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><h3>uPlot Plugin: Y-Axis Vertical Lines</h3>
+<p>Draws vertical lines at the left edge of Y-axes since uPlot doesn't render
+axis spine lines by default. Supports multiple Y-axes with theme-aware colors.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SVG Lines</strong> — Creates SVG line elements for crisp rendering</li>
+  <li><strong>Theme Support</strong> — Reads --chart-axis CSS variable for color</li>
+  <li><strong>Multi-Axis</strong> — Draws line for each Y-axis</li>
+  <li><strong>Auto-Position</strong> — Updates on resize via ready hook</li>
+</ul></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Auto Unit & SI Prefix Scaling</h3>
+<p>Automatically applies the best SI prefix (p, n, µ, m, k, M, G, T) to axis labels
+and tick values based on the visible data range. Supports both X and Y axes with
+user-configurable scale factors for unit conversion.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Auto-Scaling</td><td>Dynamically selects SI prefix based on visible data magnitude</td></tr>
+  <tr><td>User Override</td><td>axesScales allows manual unit conversion (mV→V, ms→s)</td></tr>
+  <tr><td>Label Preservation</td><td>Original axis labels stored and restored with prefix updates</td></tr>
+  <tr><td>Defensive Coding</td><td>Gracefully handles missing axis definitions and custom ticks</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SI Prefix Auto-Selection</strong> — p, n, µ, m, (base), k, M, G, T</li>
+  <li><strong>Multi-Axis Support</strong> — Works with X and multiple Y axes</li>
+  <li><strong>User Scale Factors</strong> — Multiply raw values before prefix selection</li>
+  <li><strong>Dynamic Updates</strong> — Recalculates on zoom/pan via setScale hook</li>
+  <li><strong>Label Format</strong> — Expects "Label (Unit)" format, e.g., "Voltage (V)"</li>
+</ul>
+<h4>User Scale Explanation</h4>
+<p>The <code>axesScales</code> array provides multiplicative factors for each axis:</p>
+<ul>
+  <li><code>[1, 0.001, 1]</code> — Y0 axis data is in mV, display as V</li>
+  <li><code>[0.001, 1, 1]</code> — X axis data is in ms, display as s</li>
+</ul>
+<h4>Limitations</h4>
+<ul>
+  <li>Assumes axis labels contain units in parentheses</li>
+  <li>Does not support dynamic unit changes after chart creation</li>
+  <li>Overrides any existing axis.values function</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/scaleUtils</code> - SI prefix calculation utilities</li>
+        
+            <li><code>module:utils/constants</code> - SI_UNITS table</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import autoUnitScalePlugin from './plugins/autoUnitScalePlugin.js';const opts = {  ...otherUplotOptions,  plugins: [autoUnitScalePlugin({ axesScales: [1, 0.001, 1] })]  // Y0 axis: data in mV, displayed as V with appropriate SI prefix};new uPlot(opts, data, target);</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+    
+
+    <h4 class="name" id="module:Plugins/Chart"><span class="type-signature"></span>(require("Plugins/Chart"))<span class="signature">(opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot Plugin: Auto Unit &amp; SI Prefix Scaling</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>axesScales</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;number></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>User scale factors for axes: [xScale, y0Scale, y1Scale, ...].</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lsbDigits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>3</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of least significant digits for inner ticks.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>decimals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of decimals for formatting.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tickLabelFormatter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Custom tick label formatter: (scaled, i, total, lsbDigits, decimals) =&gt; string</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>autoScaleUnit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Object with x/y boolean flags for scaling (e.g., {x: true, y: false})</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Y-Axis Vertical Lines</h3>
+<p>Draws vertical lines at the left edge of Y-axes since uPlot doesn't render
+axis spine lines by default. Supports multiple Y-axes with theme-aware colors.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SVG Lines</strong> — Creates SVG line elements for crisp rendering</li>
+  <li><strong>Theme Support</strong> — Reads --chart-axis CSS variable for color</li>
+  <li><strong>Multi-Axis</strong> — Draws line for each Y-axis</li>
+  <li><strong>Auto-Position</strong> — Updates on resize via ready hook</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { axisLinesPlugin } from './plugins/axisLinesPlugin.js';const opts = {  plugins: [axisLinesPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Delta Box Display</h3>
+<p>Displays time and value deltas between selected regions on the chart.
+Shows interpolated values for analysis of multi-rate sampling data.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Selection Display</strong> — Shows deltas when region is selected</li>
+  <li><strong>Interpolation</strong> — Handles different sampling rates</li>
+  <li><strong>Overlay Box</strong> — Positioned overlay with delta information</li>
+  <li><strong>Auto-Hide</strong> — Disappears when selection cleared</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { deltaBoxPlugin } from './plugins/deltaBoxPlugin.js';const opts = {  plugins: [deltaBoxPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>digitalFillPlugin module</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Horizontal Zoom & Pan</h3>
+<p>Enables keyboard and mouse-based horizontal zooming and panning across synchronized
+charts. Uses modifier keys (Shift, Alt) to distinguish zoom from pan operations.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Modular Design</td><td>Accepts getCharts function, no global state dependency</td></tr>
+  <tr><td>Chart Synchronization</td><td>All charts zoom/pan together via syncKey</td></tr>
+  <tr><td>Modifier Keys</td><td>Shift for zoom, Alt for pan—prevents accidental operations</td></tr>
+  <tr><td>Clean Cleanup</td><td>Proper event handler removal on chart destroy</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Shift+Scroll</strong> — Zoom in/out horizontally</li>
+  <li><strong>Alt+Scroll</strong> — Pan left/right horizontally</li>
+  <li><strong>Shift+Arrow</strong> — Zoom with keyboard</li>
+  <li><strong>Alt+Arrow</strong> — Pan with keyboard</li>
+  <li><strong>Mouse-Anchored Zoom</strong> — Zoom centers on cursor position</li>
+  <li><strong>Sync Group</strong> — Charts with same syncKey update together</li>
+</ul>
+<h4>Control Mapping</h4>
+<table>
+  <tr><th>Input</th><th>Action</th></tr>
+  <tr><td>Shift + Scroll Up</td><td>Zoom In (0.8x range)</td></tr>
+  <tr><td>Shift + Scroll Down</td><td>Zoom Out (1.25x range)</td></tr>
+  <tr><td>Alt + Scroll Up</td><td>Pan Left (10% of range)</td></tr>
+  <tr><td>Alt + Scroll Down</td><td>Pan Right (10% of range)</td></tr>
+  <tr><td>Shift + Left/Right</td><td>Zoom via keyboard</td></tr>
+  <tr><td>Alt + Left/Right</td><td>Pan via keyboard</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:plugins/verticalLinePlugin</code> - Vertical measurement lines</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import horizontalZoomPanPlugin from './plugins/horizontalZoomPanPlugin.js';const opts = {  plugins: [    horizontalZoomPanPlugin('globalSync', () => window.charts)  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Vertical Line & Crosshair Points</h3>
+<p>Enables placing, dragging, and visualizing vertical measurement lines on uPlot charts.
+Lines are synchronized across all charts and display crosshair points where they intersect
+series data. Used for delta calculations and time-point analysis.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive State</td><td>Lines stored in verticalLinesXState, auto-syncs across charts</td></tr>
+  <tr><td>Drag Support</td><td>Lines can be dragged to new positions with mouse</td></tr>
+  <tr><td>Event Capture</td><td>Uses capture phase to prevent selection box during drag</td></tr>
+  <tr><td>Debounced Updates</td><td>Delta calculations debounced to prevent UI freezing</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Add Lines</strong> — Alt+1 adds vertical line at cursor position</li>
+  <li><strong>Drag Lines</strong> — Click and drag to reposition lines</li>
+  <li><strong>Crosshair Points</strong> — Colored dots at series intersections</li>
+  <li><strong>Line Colors</strong> — Configurable colors from crosshairColors palette</li>
+  <li><strong>Chart Sync</strong> — All charts show same vertical lines</li>
+  <li><strong>Delta Display</strong> — Triggers delta calculations on line change</li>
+</ul>
+<h4>Keyboard Shortcuts</h4>
+<table>
+  <tr><th>Shortcut</th><th>Action</th></tr>
+  <tr><td>Alt+0</td><td>Clear all vertical lines</td></tr>
+  <tr><td>Alt+1</td><td>Add vertical line at cursor</td></tr>
+  <tr><td>Alt+2</td><td>Go to previous line</td></tr>
+  <tr><td>Alt+3</td><td>Go to next line</td></tr>
+  <tr><td>Alt+4</td><td>Delete current line</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/handleVerticalLineShortcuts</code> - Keyboard handler</li>
+        
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import verticalLinePlugin from './plugins/verticalLinePlugin.js';const opts = {  plugins: [    verticalLinePlugin(verticalLinesXState, getCharts, {      lineColors: ['red', 'blue', 'green'],      lineWidth: 2,      pointRadius: 5    })  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDigitalFillPlugin"><span class="type-signature type-signature-static">(static) </span>createDigitalFillPlugin<span class="signature">(signals)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot plugin for rendering filled regions under digital (boolean) signals.</p>
+<p>This plugin draws filled rectangles under digital signals (step lines) when the signal is in the &quot;high&quot; state (as defined by targetVal).
+It supports multiple digital signals, each with its own vertical offset, color, and target value.</p>
+<p>The fill is drawn in sync with zoom/pan and respects the current axis scales.</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { createDigitalFillPlugin } from './src/plugins/digitalFillPlugin.js';const xVals = [0, 1, 2, 3, 4, 5, 6];const signal1 = [1, 0, 1, 1, 0, 1, 0];const signal2 = [1, 1, 1, 0, 1, 1, 1];const signals = [  { signalIndex: 1, offset: 0, color: 'rgba(0, 150, 255, 0.3)', targetVal: 1 },  { signalIndex: 2, offset: 3, color: 'rgba(255, 100, 100, 0.3)', targetVal: 1 }];const opts = {  width: 600,  height: 300,  scales: { x: { time: false }, y: { min: 0, max: 6 } },  axes: [{}, {}],  series: [    {}, // x axis    { label: "Signal 1", stroke: "transparent" },    { label: "Signal 2", stroke: "transparent" }  ],  plugins: [    createDigitalFillPlugin(signals)  ]};const data = [xVals, signal1, signal2];new uPlot(opts, data, document.getElementById("chart-digital"));</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>signals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of signal configuration objects.
+Each object should have:
+- signalIndex {number}: Index of the signal in the uPlot data array (e.g., 1 for the first signal after x).
+- offset {number}: Vertical offset to apply to the signal (for stacking multiple signals).
+- color {string}: Fill color for the high region (CSS color, e.g., 'rgba(0,150,255,0.3)').
+- targetVal {number}: Value to consider as &quot;high&quot; (usually 1).</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object to be included in the <code>plugins</code> array of uPlot options.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><h3>uPlot Plugin: Delta Box Display</h3>
+<p>Displays time and value deltas between selected regions on the chart.
+Shows interpolated values for analysis of multi-rate sampling data.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Selection Display</strong> — Shows deltas when region is selected</li>
+  <li><strong>Interpolation</strong> — Handles different sampling rates</li>
+  <li><strong>Overlay Box</strong> — Positioned overlay with delta information</li>
+  <li><strong>Auto-Hide</strong> — Disappears when selection cleared</li>
+</ul></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Auto Unit & SI Prefix Scaling</h3>
+<p>Automatically applies the best SI prefix (p, n, µ, m, k, M, G, T) to axis labels
+and tick values based on the visible data range. Supports both X and Y axes with
+user-configurable scale factors for unit conversion.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Auto-Scaling</td><td>Dynamically selects SI prefix based on visible data magnitude</td></tr>
+  <tr><td>User Override</td><td>axesScales allows manual unit conversion (mV→V, ms→s)</td></tr>
+  <tr><td>Label Preservation</td><td>Original axis labels stored and restored with prefix updates</td></tr>
+  <tr><td>Defensive Coding</td><td>Gracefully handles missing axis definitions and custom ticks</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SI Prefix Auto-Selection</strong> — p, n, µ, m, (base), k, M, G, T</li>
+  <li><strong>Multi-Axis Support</strong> — Works with X and multiple Y axes</li>
+  <li><strong>User Scale Factors</strong> — Multiply raw values before prefix selection</li>
+  <li><strong>Dynamic Updates</strong> — Recalculates on zoom/pan via setScale hook</li>
+  <li><strong>Label Format</strong> — Expects "Label (Unit)" format, e.g., "Voltage (V)"</li>
+</ul>
+<h4>User Scale Explanation</h4>
+<p>The <code>axesScales</code> array provides multiplicative factors for each axis:</p>
+<ul>
+  <li><code>[1, 0.001, 1]</code> — Y0 axis data is in mV, display as V</li>
+  <li><code>[0.001, 1, 1]</code> — X axis data is in ms, display as s</li>
+</ul>
+<h4>Limitations</h4>
+<ul>
+  <li>Assumes axis labels contain units in parentheses</li>
+  <li>Does not support dynamic unit changes after chart creation</li>
+  <li>Overrides any existing axis.values function</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/scaleUtils</code> - SI prefix calculation utilities</li>
+        
+            <li><code>module:utils/constants</code> - SI_UNITS table</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import autoUnitScalePlugin from './plugins/autoUnitScalePlugin.js';const opts = {  ...otherUplotOptions,  plugins: [autoUnitScalePlugin({ axesScales: [1, 0.001, 1] })]  // Y0 axis: data in mV, displayed as V with appropriate SI prefix};new uPlot(opts, data, target);</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+    
+
+    <h4 class="name" id="module:Plugins/Chart"><span class="type-signature"></span>(require("Plugins/Chart"))<span class="signature">(opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot Plugin: Auto Unit &amp; SI Prefix Scaling</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>axesScales</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;number></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>User scale factors for axes: [xScale, y0Scale, y1Scale, ...].</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lsbDigits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>3</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of least significant digits for inner ticks.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>decimals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of decimals for formatting.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tickLabelFormatter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Custom tick label formatter: (scaled, i, total, lsbDigits, decimals) =&gt; string</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>autoScaleUnit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Object with x/y boolean flags for scaling (e.g., {x: true, y: false})</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Y-Axis Vertical Lines</h3>
+<p>Draws vertical lines at the left edge of Y-axes since uPlot doesn't render
+axis spine lines by default. Supports multiple Y-axes with theme-aware colors.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SVG Lines</strong> — Creates SVG line elements for crisp rendering</li>
+  <li><strong>Theme Support</strong> — Reads --chart-axis CSS variable for color</li>
+  <li><strong>Multi-Axis</strong> — Draws line for each Y-axis</li>
+  <li><strong>Auto-Position</strong> — Updates on resize via ready hook</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { axisLinesPlugin } from './plugins/axisLinesPlugin.js';const opts = {  plugins: [axisLinesPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Delta Box Display</h3>
+<p>Displays time and value deltas between selected regions on the chart.
+Shows interpolated values for analysis of multi-rate sampling data.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Selection Display</strong> — Shows deltas when region is selected</li>
+  <li><strong>Interpolation</strong> — Handles different sampling rates</li>
+  <li><strong>Overlay Box</strong> — Positioned overlay with delta information</li>
+  <li><strong>Auto-Hide</strong> — Disappears when selection cleared</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { deltaBoxPlugin } from './plugins/deltaBoxPlugin.js';const opts = {  plugins: [deltaBoxPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>digitalFillPlugin module</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Horizontal Zoom & Pan</h3>
+<p>Enables keyboard and mouse-based horizontal zooming and panning across synchronized
+charts. Uses modifier keys (Shift, Alt) to distinguish zoom from pan operations.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Modular Design</td><td>Accepts getCharts function, no global state dependency</td></tr>
+  <tr><td>Chart Synchronization</td><td>All charts zoom/pan together via syncKey</td></tr>
+  <tr><td>Modifier Keys</td><td>Shift for zoom, Alt for pan—prevents accidental operations</td></tr>
+  <tr><td>Clean Cleanup</td><td>Proper event handler removal on chart destroy</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Shift+Scroll</strong> — Zoom in/out horizontally</li>
+  <li><strong>Alt+Scroll</strong> — Pan left/right horizontally</li>
+  <li><strong>Shift+Arrow</strong> — Zoom with keyboard</li>
+  <li><strong>Alt+Arrow</strong> — Pan with keyboard</li>
+  <li><strong>Mouse-Anchored Zoom</strong> — Zoom centers on cursor position</li>
+  <li><strong>Sync Group</strong> — Charts with same syncKey update together</li>
+</ul>
+<h4>Control Mapping</h4>
+<table>
+  <tr><th>Input</th><th>Action</th></tr>
+  <tr><td>Shift + Scroll Up</td><td>Zoom In (0.8x range)</td></tr>
+  <tr><td>Shift + Scroll Down</td><td>Zoom Out (1.25x range)</td></tr>
+  <tr><td>Alt + Scroll Up</td><td>Pan Left (10% of range)</td></tr>
+  <tr><td>Alt + Scroll Down</td><td>Pan Right (10% of range)</td></tr>
+  <tr><td>Shift + Left/Right</td><td>Zoom via keyboard</td></tr>
+  <tr><td>Alt + Left/Right</td><td>Pan via keyboard</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:plugins/verticalLinePlugin</code> - Vertical measurement lines</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import horizontalZoomPanPlugin from './plugins/horizontalZoomPanPlugin.js';const opts = {  plugins: [    horizontalZoomPanPlugin('globalSync', () => window.charts)  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Vertical Line & Crosshair Points</h3>
+<p>Enables placing, dragging, and visualizing vertical measurement lines on uPlot charts.
+Lines are synchronized across all charts and display crosshair points where they intersect
+series data. Used for delta calculations and time-point analysis.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive State</td><td>Lines stored in verticalLinesXState, auto-syncs across charts</td></tr>
+  <tr><td>Drag Support</td><td>Lines can be dragged to new positions with mouse</td></tr>
+  <tr><td>Event Capture</td><td>Uses capture phase to prevent selection box during drag</td></tr>
+  <tr><td>Debounced Updates</td><td>Delta calculations debounced to prevent UI freezing</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Add Lines</strong> — Alt+1 adds vertical line at cursor position</li>
+  <li><strong>Drag Lines</strong> — Click and drag to reposition lines</li>
+  <li><strong>Crosshair Points</strong> — Colored dots at series intersections</li>
+  <li><strong>Line Colors</strong> — Configurable colors from crosshairColors palette</li>
+  <li><strong>Chart Sync</strong> — All charts show same vertical lines</li>
+  <li><strong>Delta Display</strong> — Triggers delta calculations on line change</li>
+</ul>
+<h4>Keyboard Shortcuts</h4>
+<table>
+  <tr><th>Shortcut</th><th>Action</th></tr>
+  <tr><td>Alt+0</td><td>Clear all vertical lines</td></tr>
+  <tr><td>Alt+1</td><td>Add vertical line at cursor</td></tr>
+  <tr><td>Alt+2</td><td>Go to previous line</td></tr>
+  <tr><td>Alt+3</td><td>Go to next line</td></tr>
+  <tr><td>Alt+4</td><td>Delete current line</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/handleVerticalLineShortcuts</code> - Keyboard handler</li>
+        
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import verticalLinePlugin from './plugins/verticalLinePlugin.js';const opts = {  plugins: [    verticalLinePlugin(verticalLinesXState, getCharts, {      lineColors: ['red', 'blue', 'green'],      lineWidth: 2,      pointRadius: 5    })  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDigitalFillPlugin"><span class="type-signature type-signature-static">(static) </span>createDigitalFillPlugin<span class="signature">(signals)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot plugin for rendering filled regions under digital (boolean) signals.</p>
+<p>This plugin draws filled rectangles under digital signals (step lines) when the signal is in the &quot;high&quot; state (as defined by targetVal).
+It supports multiple digital signals, each with its own vertical offset, color, and target value.</p>
+<p>The fill is drawn in sync with zoom/pan and respects the current axis scales.</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { createDigitalFillPlugin } from './src/plugins/digitalFillPlugin.js';const xVals = [0, 1, 2, 3, 4, 5, 6];const signal1 = [1, 0, 1, 1, 0, 1, 0];const signal2 = [1, 1, 1, 0, 1, 1, 1];const signals = [  { signalIndex: 1, offset: 0, color: 'rgba(0, 150, 255, 0.3)', targetVal: 1 },  { signalIndex: 2, offset: 3, color: 'rgba(255, 100, 100, 0.3)', targetVal: 1 }];const opts = {  width: 600,  height: 300,  scales: { x: { time: false }, y: { min: 0, max: 6 } },  axes: [{}, {}],  series: [    {}, // x axis    { label: "Signal 1", stroke: "transparent" },    { label: "Signal 2", stroke: "transparent" }  ],  plugins: [    createDigitalFillPlugin(signals)  ]};const data = [xVals, signal1, signal2];new uPlot(opts, data, document.getElementById("chart-digital"));</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>signals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of signal configuration objects.
+Each object should have:
+- signalIndex {number}: Index of the signal in the uPlot data array (e.g., 1 for the first signal after x).
+- offset {number}: Vertical offset to apply to the signal (for stacking multiple signals).
+- color {string}: Fill color for the high region (CSS color, e.g., 'rgba(0,150,255,0.3)').
+- targetVal {number}: Value to consider as &quot;high&quot; (usually 1).</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object to be included in the <code>plugins</code> array of uPlot options.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><p>digitalFillPlugin module</p></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Auto Unit & SI Prefix Scaling</h3>
+<p>Automatically applies the best SI prefix (p, n, µ, m, k, M, G, T) to axis labels
+and tick values based on the visible data range. Supports both X and Y axes with
+user-configurable scale factors for unit conversion.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Auto-Scaling</td><td>Dynamically selects SI prefix based on visible data magnitude</td></tr>
+  <tr><td>User Override</td><td>axesScales allows manual unit conversion (mV→V, ms→s)</td></tr>
+  <tr><td>Label Preservation</td><td>Original axis labels stored and restored with prefix updates</td></tr>
+  <tr><td>Defensive Coding</td><td>Gracefully handles missing axis definitions and custom ticks</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SI Prefix Auto-Selection</strong> — p, n, µ, m, (base), k, M, G, T</li>
+  <li><strong>Multi-Axis Support</strong> — Works with X and multiple Y axes</li>
+  <li><strong>User Scale Factors</strong> — Multiply raw values before prefix selection</li>
+  <li><strong>Dynamic Updates</strong> — Recalculates on zoom/pan via setScale hook</li>
+  <li><strong>Label Format</strong> — Expects "Label (Unit)" format, e.g., "Voltage (V)"</li>
+</ul>
+<h4>User Scale Explanation</h4>
+<p>The <code>axesScales</code> array provides multiplicative factors for each axis:</p>
+<ul>
+  <li><code>[1, 0.001, 1]</code> — Y0 axis data is in mV, display as V</li>
+  <li><code>[0.001, 1, 1]</code> — X axis data is in ms, display as s</li>
+</ul>
+<h4>Limitations</h4>
+<ul>
+  <li>Assumes axis labels contain units in parentheses</li>
+  <li>Does not support dynamic unit changes after chart creation</li>
+  <li>Overrides any existing axis.values function</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/scaleUtils</code> - SI prefix calculation utilities</li>
+        
+            <li><code>module:utils/constants</code> - SI_UNITS table</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import autoUnitScalePlugin from './plugins/autoUnitScalePlugin.js';const opts = {  ...otherUplotOptions,  plugins: [autoUnitScalePlugin({ axesScales: [1, 0.001, 1] })]  // Y0 axis: data in mV, displayed as V with appropriate SI prefix};new uPlot(opts, data, target);</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+    
+
+    <h4 class="name" id="module:Plugins/Chart"><span class="type-signature"></span>(require("Plugins/Chart"))<span class="signature">(opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot Plugin: Auto Unit &amp; SI Prefix Scaling</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>axesScales</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;number></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>User scale factors for axes: [xScale, y0Scale, y1Scale, ...].</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lsbDigits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>3</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of least significant digits for inner ticks.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>decimals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of decimals for formatting.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tickLabelFormatter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Custom tick label formatter: (scaled, i, total, lsbDigits, decimals) =&gt; string</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>autoScaleUnit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Object with x/y boolean flags for scaling (e.g., {x: true, y: false})</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Y-Axis Vertical Lines</h3>
+<p>Draws vertical lines at the left edge of Y-axes since uPlot doesn't render
+axis spine lines by default. Supports multiple Y-axes with theme-aware colors.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SVG Lines</strong> — Creates SVG line elements for crisp rendering</li>
+  <li><strong>Theme Support</strong> — Reads --chart-axis CSS variable for color</li>
+  <li><strong>Multi-Axis</strong> — Draws line for each Y-axis</li>
+  <li><strong>Auto-Position</strong> — Updates on resize via ready hook</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { axisLinesPlugin } from './plugins/axisLinesPlugin.js';const opts = {  plugins: [axisLinesPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Delta Box Display</h3>
+<p>Displays time and value deltas between selected regions on the chart.
+Shows interpolated values for analysis of multi-rate sampling data.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Selection Display</strong> — Shows deltas when region is selected</li>
+  <li><strong>Interpolation</strong> — Handles different sampling rates</li>
+  <li><strong>Overlay Box</strong> — Positioned overlay with delta information</li>
+  <li><strong>Auto-Hide</strong> — Disappears when selection cleared</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { deltaBoxPlugin } from './plugins/deltaBoxPlugin.js';const opts = {  plugins: [deltaBoxPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>digitalFillPlugin module</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Horizontal Zoom & Pan</h3>
+<p>Enables keyboard and mouse-based horizontal zooming and panning across synchronized
+charts. Uses modifier keys (Shift, Alt) to distinguish zoom from pan operations.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Modular Design</td><td>Accepts getCharts function, no global state dependency</td></tr>
+  <tr><td>Chart Synchronization</td><td>All charts zoom/pan together via syncKey</td></tr>
+  <tr><td>Modifier Keys</td><td>Shift for zoom, Alt for pan—prevents accidental operations</td></tr>
+  <tr><td>Clean Cleanup</td><td>Proper event handler removal on chart destroy</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Shift+Scroll</strong> — Zoom in/out horizontally</li>
+  <li><strong>Alt+Scroll</strong> — Pan left/right horizontally</li>
+  <li><strong>Shift+Arrow</strong> — Zoom with keyboard</li>
+  <li><strong>Alt+Arrow</strong> — Pan with keyboard</li>
+  <li><strong>Mouse-Anchored Zoom</strong> — Zoom centers on cursor position</li>
+  <li><strong>Sync Group</strong> — Charts with same syncKey update together</li>
+</ul>
+<h4>Control Mapping</h4>
+<table>
+  <tr><th>Input</th><th>Action</th></tr>
+  <tr><td>Shift + Scroll Up</td><td>Zoom In (0.8x range)</td></tr>
+  <tr><td>Shift + Scroll Down</td><td>Zoom Out (1.25x range)</td></tr>
+  <tr><td>Alt + Scroll Up</td><td>Pan Left (10% of range)</td></tr>
+  <tr><td>Alt + Scroll Down</td><td>Pan Right (10% of range)</td></tr>
+  <tr><td>Shift + Left/Right</td><td>Zoom via keyboard</td></tr>
+  <tr><td>Alt + Left/Right</td><td>Pan via keyboard</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:plugins/verticalLinePlugin</code> - Vertical measurement lines</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import horizontalZoomPanPlugin from './plugins/horizontalZoomPanPlugin.js';const opts = {  plugins: [    horizontalZoomPanPlugin('globalSync', () => window.charts)  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Vertical Line & Crosshair Points</h3>
+<p>Enables placing, dragging, and visualizing vertical measurement lines on uPlot charts.
+Lines are synchronized across all charts and display crosshair points where they intersect
+series data. Used for delta calculations and time-point analysis.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive State</td><td>Lines stored in verticalLinesXState, auto-syncs across charts</td></tr>
+  <tr><td>Drag Support</td><td>Lines can be dragged to new positions with mouse</td></tr>
+  <tr><td>Event Capture</td><td>Uses capture phase to prevent selection box during drag</td></tr>
+  <tr><td>Debounced Updates</td><td>Delta calculations debounced to prevent UI freezing</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Add Lines</strong> — Alt+1 adds vertical line at cursor position</li>
+  <li><strong>Drag Lines</strong> — Click and drag to reposition lines</li>
+  <li><strong>Crosshair Points</strong> — Colored dots at series intersections</li>
+  <li><strong>Line Colors</strong> — Configurable colors from crosshairColors palette</li>
+  <li><strong>Chart Sync</strong> — All charts show same vertical lines</li>
+  <li><strong>Delta Display</strong> — Triggers delta calculations on line change</li>
+</ul>
+<h4>Keyboard Shortcuts</h4>
+<table>
+  <tr><th>Shortcut</th><th>Action</th></tr>
+  <tr><td>Alt+0</td><td>Clear all vertical lines</td></tr>
+  <tr><td>Alt+1</td><td>Add vertical line at cursor</td></tr>
+  <tr><td>Alt+2</td><td>Go to previous line</td></tr>
+  <tr><td>Alt+3</td><td>Go to next line</td></tr>
+  <tr><td>Alt+4</td><td>Delete current line</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/handleVerticalLineShortcuts</code> - Keyboard handler</li>
+        
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import verticalLinePlugin from './plugins/verticalLinePlugin.js';const opts = {  plugins: [    verticalLinePlugin(verticalLinesXState, getCharts, {      lineColors: ['red', 'blue', 'green'],      lineWidth: 2,      pointRadius: 5    })  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDigitalFillPlugin"><span class="type-signature type-signature-static">(static) </span>createDigitalFillPlugin<span class="signature">(signals)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot plugin for rendering filled regions under digital (boolean) signals.</p>
+<p>This plugin draws filled rectangles under digital signals (step lines) when the signal is in the &quot;high&quot; state (as defined by targetVal).
+It supports multiple digital signals, each with its own vertical offset, color, and target value.</p>
+<p>The fill is drawn in sync with zoom/pan and respects the current axis scales.</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { createDigitalFillPlugin } from './src/plugins/digitalFillPlugin.js';const xVals = [0, 1, 2, 3, 4, 5, 6];const signal1 = [1, 0, 1, 1, 0, 1, 0];const signal2 = [1, 1, 1, 0, 1, 1, 1];const signals = [  { signalIndex: 1, offset: 0, color: 'rgba(0, 150, 255, 0.3)', targetVal: 1 },  { signalIndex: 2, offset: 3, color: 'rgba(255, 100, 100, 0.3)', targetVal: 1 }];const opts = {  width: 600,  height: 300,  scales: { x: { time: false }, y: { min: 0, max: 6 } },  axes: [{}, {}],  series: [    {}, // x axis    { label: "Signal 1", stroke: "transparent" },    { label: "Signal 2", stroke: "transparent" }  ],  plugins: [    createDigitalFillPlugin(signals)  ]};const data = [xVals, signal1, signal2];new uPlot(opts, data, document.getElementById("chart-digital"));</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>signals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of signal configuration objects.
+Each object should have:
+- signalIndex {number}: Index of the signal in the uPlot data array (e.g., 1 for the first signal after x).
+- offset {number}: Vertical offset to apply to the signal (for stacking multiple signals).
+- color {string}: Fill color for the high region (CSS color, e.g., 'rgba(0,150,255,0.3)').
+- targetVal {number}: Value to consider as &quot;high&quot; (usually 1).</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object to be included in the <code>plugins</code> array of uPlot options.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><h3>uPlot Plugin: Horizontal Zoom & Pan</h3>
+<p>Enables keyboard and mouse-based horizontal zooming and panning across synchronized
+charts. Uses modifier keys (Shift, Alt) to distinguish zoom from pan operations.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Modular Design</td><td>Accepts getCharts function, no global state dependency</td></tr>
+  <tr><td>Chart Synchronization</td><td>All charts zoom/pan together via syncKey</td></tr>
+  <tr><td>Modifier Keys</td><td>Shift for zoom, Alt for pan—prevents accidental operations</td></tr>
+  <tr><td>Clean Cleanup</td><td>Proper event handler removal on chart destroy</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Shift+Scroll</strong> — Zoom in/out horizontally</li>
+  <li><strong>Alt+Scroll</strong> — Pan left/right horizontally</li>
+  <li><strong>Shift+Arrow</strong> — Zoom with keyboard</li>
+  <li><strong>Alt+Arrow</strong> — Pan with keyboard</li>
+  <li><strong>Mouse-Anchored Zoom</strong> — Zoom centers on cursor position</li>
+  <li><strong>Sync Group</strong> — Charts with same syncKey update together</li>
+</ul>
+<h4>Control Mapping</h4>
+<table>
+  <tr><th>Input</th><th>Action</th></tr>
+  <tr><td>Shift + Scroll Up</td><td>Zoom In (0.8x range)</td></tr>
+  <tr><td>Shift + Scroll Down</td><td>Zoom Out (1.25x range)</td></tr>
+  <tr><td>Alt + Scroll Up</td><td>Pan Left (10% of range)</td></tr>
+  <tr><td>Alt + Scroll Down</td><td>Pan Right (10% of range)</td></tr>
+  <tr><td>Shift + Left/Right</td><td>Zoom via keyboard</td></tr>
+  <tr><td>Alt + Left/Right</td><td>Pan via keyboard</td></tr>
+</table></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Auto Unit & SI Prefix Scaling</h3>
+<p>Automatically applies the best SI prefix (p, n, µ, m, k, M, G, T) to axis labels
+and tick values based on the visible data range. Supports both X and Y axes with
+user-configurable scale factors for unit conversion.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Auto-Scaling</td><td>Dynamically selects SI prefix based on visible data magnitude</td></tr>
+  <tr><td>User Override</td><td>axesScales allows manual unit conversion (mV→V, ms→s)</td></tr>
+  <tr><td>Label Preservation</td><td>Original axis labels stored and restored with prefix updates</td></tr>
+  <tr><td>Defensive Coding</td><td>Gracefully handles missing axis definitions and custom ticks</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SI Prefix Auto-Selection</strong> — p, n, µ, m, (base), k, M, G, T</li>
+  <li><strong>Multi-Axis Support</strong> — Works with X and multiple Y axes</li>
+  <li><strong>User Scale Factors</strong> — Multiply raw values before prefix selection</li>
+  <li><strong>Dynamic Updates</strong> — Recalculates on zoom/pan via setScale hook</li>
+  <li><strong>Label Format</strong> — Expects "Label (Unit)" format, e.g., "Voltage (V)"</li>
+</ul>
+<h4>User Scale Explanation</h4>
+<p>The <code>axesScales</code> array provides multiplicative factors for each axis:</p>
+<ul>
+  <li><code>[1, 0.001, 1]</code> — Y0 axis data is in mV, display as V</li>
+  <li><code>[0.001, 1, 1]</code> — X axis data is in ms, display as s</li>
+</ul>
+<h4>Limitations</h4>
+<ul>
+  <li>Assumes axis labels contain units in parentheses</li>
+  <li>Does not support dynamic unit changes after chart creation</li>
+  <li>Overrides any existing axis.values function</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/scaleUtils</code> - SI prefix calculation utilities</li>
+        
+            <li><code>module:utils/constants</code> - SI_UNITS table</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import autoUnitScalePlugin from './plugins/autoUnitScalePlugin.js';const opts = {  ...otherUplotOptions,  plugins: [autoUnitScalePlugin({ axesScales: [1, 0.001, 1] })]  // Y0 axis: data in mV, displayed as V with appropriate SI prefix};new uPlot(opts, data, target);</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+    
+
+    <h4 class="name" id="module:Plugins/Chart"><span class="type-signature"></span>(require("Plugins/Chart"))<span class="signature">(opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot Plugin: Auto Unit &amp; SI Prefix Scaling</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>axesScales</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;number></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>User scale factors for axes: [xScale, y0Scale, y1Scale, ...].</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lsbDigits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>3</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of least significant digits for inner ticks.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>decimals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of decimals for formatting.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tickLabelFormatter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Custom tick label formatter: (scaled, i, total, lsbDigits, decimals) =&gt; string</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>autoScaleUnit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Object with x/y boolean flags for scaling (e.g., {x: true, y: false})</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Y-Axis Vertical Lines</h3>
+<p>Draws vertical lines at the left edge of Y-axes since uPlot doesn't render
+axis spine lines by default. Supports multiple Y-axes with theme-aware colors.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SVG Lines</strong> — Creates SVG line elements for crisp rendering</li>
+  <li><strong>Theme Support</strong> — Reads --chart-axis CSS variable for color</li>
+  <li><strong>Multi-Axis</strong> — Draws line for each Y-axis</li>
+  <li><strong>Auto-Position</strong> — Updates on resize via ready hook</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { axisLinesPlugin } from './plugins/axisLinesPlugin.js';const opts = {  plugins: [axisLinesPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Delta Box Display</h3>
+<p>Displays time and value deltas between selected regions on the chart.
+Shows interpolated values for analysis of multi-rate sampling data.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Selection Display</strong> — Shows deltas when region is selected</li>
+  <li><strong>Interpolation</strong> — Handles different sampling rates</li>
+  <li><strong>Overlay Box</strong> — Positioned overlay with delta information</li>
+  <li><strong>Auto-Hide</strong> — Disappears when selection cleared</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { deltaBoxPlugin } from './plugins/deltaBoxPlugin.js';const opts = {  plugins: [deltaBoxPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>digitalFillPlugin module</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Horizontal Zoom & Pan</h3>
+<p>Enables keyboard and mouse-based horizontal zooming and panning across synchronized
+charts. Uses modifier keys (Shift, Alt) to distinguish zoom from pan operations.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Modular Design</td><td>Accepts getCharts function, no global state dependency</td></tr>
+  <tr><td>Chart Synchronization</td><td>All charts zoom/pan together via syncKey</td></tr>
+  <tr><td>Modifier Keys</td><td>Shift for zoom, Alt for pan—prevents accidental operations</td></tr>
+  <tr><td>Clean Cleanup</td><td>Proper event handler removal on chart destroy</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Shift+Scroll</strong> — Zoom in/out horizontally</li>
+  <li><strong>Alt+Scroll</strong> — Pan left/right horizontally</li>
+  <li><strong>Shift+Arrow</strong> — Zoom with keyboard</li>
+  <li><strong>Alt+Arrow</strong> — Pan with keyboard</li>
+  <li><strong>Mouse-Anchored Zoom</strong> — Zoom centers on cursor position</li>
+  <li><strong>Sync Group</strong> — Charts with same syncKey update together</li>
+</ul>
+<h4>Control Mapping</h4>
+<table>
+  <tr><th>Input</th><th>Action</th></tr>
+  <tr><td>Shift + Scroll Up</td><td>Zoom In (0.8x range)</td></tr>
+  <tr><td>Shift + Scroll Down</td><td>Zoom Out (1.25x range)</td></tr>
+  <tr><td>Alt + Scroll Up</td><td>Pan Left (10% of range)</td></tr>
+  <tr><td>Alt + Scroll Down</td><td>Pan Right (10% of range)</td></tr>
+  <tr><td>Shift + Left/Right</td><td>Zoom via keyboard</td></tr>
+  <tr><td>Alt + Left/Right</td><td>Pan via keyboard</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:plugins/verticalLinePlugin</code> - Vertical measurement lines</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import horizontalZoomPanPlugin from './plugins/horizontalZoomPanPlugin.js';const opts = {  plugins: [    horizontalZoomPanPlugin('globalSync', () => window.charts)  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Vertical Line & Crosshair Points</h3>
+<p>Enables placing, dragging, and visualizing vertical measurement lines on uPlot charts.
+Lines are synchronized across all charts and display crosshair points where they intersect
+series data. Used for delta calculations and time-point analysis.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive State</td><td>Lines stored in verticalLinesXState, auto-syncs across charts</td></tr>
+  <tr><td>Drag Support</td><td>Lines can be dragged to new positions with mouse</td></tr>
+  <tr><td>Event Capture</td><td>Uses capture phase to prevent selection box during drag</td></tr>
+  <tr><td>Debounced Updates</td><td>Delta calculations debounced to prevent UI freezing</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Add Lines</strong> — Alt+1 adds vertical line at cursor position</li>
+  <li><strong>Drag Lines</strong> — Click and drag to reposition lines</li>
+  <li><strong>Crosshair Points</strong> — Colored dots at series intersections</li>
+  <li><strong>Line Colors</strong> — Configurable colors from crosshairColors palette</li>
+  <li><strong>Chart Sync</strong> — All charts show same vertical lines</li>
+  <li><strong>Delta Display</strong> — Triggers delta calculations on line change</li>
+</ul>
+<h4>Keyboard Shortcuts</h4>
+<table>
+  <tr><th>Shortcut</th><th>Action</th></tr>
+  <tr><td>Alt+0</td><td>Clear all vertical lines</td></tr>
+  <tr><td>Alt+1</td><td>Add vertical line at cursor</td></tr>
+  <tr><td>Alt+2</td><td>Go to previous line</td></tr>
+  <tr><td>Alt+3</td><td>Go to next line</td></tr>
+  <tr><td>Alt+4</td><td>Delete current line</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/handleVerticalLineShortcuts</code> - Keyboard handler</li>
+        
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import verticalLinePlugin from './plugins/verticalLinePlugin.js';const opts = {  plugins: [    verticalLinePlugin(verticalLinesXState, getCharts, {      lineColors: ['red', 'blue', 'green'],      lineWidth: 2,      pointRadius: 5    })  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDigitalFillPlugin"><span class="type-signature type-signature-static">(static) </span>createDigitalFillPlugin<span class="signature">(signals)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot plugin for rendering filled regions under digital (boolean) signals.</p>
+<p>This plugin draws filled rectangles under digital signals (step lines) when the signal is in the &quot;high&quot; state (as defined by targetVal).
+It supports multiple digital signals, each with its own vertical offset, color, and target value.</p>
+<p>The fill is drawn in sync with zoom/pan and respects the current axis scales.</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { createDigitalFillPlugin } from './src/plugins/digitalFillPlugin.js';const xVals = [0, 1, 2, 3, 4, 5, 6];const signal1 = [1, 0, 1, 1, 0, 1, 0];const signal2 = [1, 1, 1, 0, 1, 1, 1];const signals = [  { signalIndex: 1, offset: 0, color: 'rgba(0, 150, 255, 0.3)', targetVal: 1 },  { signalIndex: 2, offset: 3, color: 'rgba(255, 100, 100, 0.3)', targetVal: 1 }];const opts = {  width: 600,  height: 300,  scales: { x: { time: false }, y: { min: 0, max: 6 } },  axes: [{}, {}],  series: [    {}, // x axis    { label: "Signal 1", stroke: "transparent" },    { label: "Signal 2", stroke: "transparent" }  ],  plugins: [    createDigitalFillPlugin(signals)  ]};const data = [xVals, signal1, signal2];new uPlot(opts, data, document.getElementById("chart-digital"));</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>signals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of signal configuration objects.
+Each object should have:
+- signalIndex {number}: Index of the signal in the uPlot data array (e.g., 1 for the first signal after x).
+- offset {number}: Vertical offset to apply to the signal (for stacking multiple signals).
+- color {string}: Fill color for the high region (CSS color, e.g., 'rgba(0,150,255,0.3)').
+- targetVal {number}: Value to consider as &quot;high&quot; (usually 1).</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object to be included in the <code>plugins</code> array of uPlot options.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><h3>uPlot Plugin: Vertical Line & Crosshair Points</h3>
+<p>Enables placing, dragging, and visualizing vertical measurement lines on uPlot charts.
+Lines are synchronized across all charts and display crosshair points where they intersect
+series data. Used for delta calculations and time-point analysis.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive State</td><td>Lines stored in verticalLinesXState, auto-syncs across charts</td></tr>
+  <tr><td>Drag Support</td><td>Lines can be dragged to new positions with mouse</td></tr>
+  <tr><td>Event Capture</td><td>Uses capture phase to prevent selection box during drag</td></tr>
+  <tr><td>Debounced Updates</td><td>Delta calculations debounced to prevent UI freezing</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Add Lines</strong> — Alt+1 adds vertical line at cursor position</li>
+  <li><strong>Drag Lines</strong> — Click and drag to reposition lines</li>
+  <li><strong>Crosshair Points</strong> — Colored dots at series intersections</li>
+  <li><strong>Line Colors</strong> — Configurable colors from crosshairColors palette</li>
+  <li><strong>Chart Sync</strong> — All charts show same vertical lines</li>
+  <li><strong>Delta Display</strong> — Triggers delta calculations on line change</li>
+</ul>
+<h4>Keyboard Shortcuts</h4>
+<table>
+  <tr><th>Shortcut</th><th>Action</th></tr>
+  <tr><td>Alt+0</td><td>Clear all vertical lines</td></tr>
+  <tr><td>Alt+1</td><td>Add vertical line at cursor</td></tr>
+  <tr><td>Alt+2</td><td>Go to previous line</td></tr>
+  <tr><td>Alt+3</td><td>Go to next line</td></tr>
+  <tr><td>Alt+4</td><td>Delete current line</td></tr>
+</table></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Auto Unit & SI Prefix Scaling</h3>
+<p>Automatically applies the best SI prefix (p, n, µ, m, k, M, G, T) to axis labels
+and tick values based on the visible data range. Supports both X and Y axes with
+user-configurable scale factors for unit conversion.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Auto-Scaling</td><td>Dynamically selects SI prefix based on visible data magnitude</td></tr>
+  <tr><td>User Override</td><td>axesScales allows manual unit conversion (mV→V, ms→s)</td></tr>
+  <tr><td>Label Preservation</td><td>Original axis labels stored and restored with prefix updates</td></tr>
+  <tr><td>Defensive Coding</td><td>Gracefully handles missing axis definitions and custom ticks</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SI Prefix Auto-Selection</strong> — p, n, µ, m, (base), k, M, G, T</li>
+  <li><strong>Multi-Axis Support</strong> — Works with X and multiple Y axes</li>
+  <li><strong>User Scale Factors</strong> — Multiply raw values before prefix selection</li>
+  <li><strong>Dynamic Updates</strong> — Recalculates on zoom/pan via setScale hook</li>
+  <li><strong>Label Format</strong> — Expects "Label (Unit)" format, e.g., "Voltage (V)"</li>
+</ul>
+<h4>User Scale Explanation</h4>
+<p>The <code>axesScales</code> array provides multiplicative factors for each axis:</p>
+<ul>
+  <li><code>[1, 0.001, 1]</code> — Y0 axis data is in mV, display as V</li>
+  <li><code>[0.001, 1, 1]</code> — X axis data is in ms, display as s</li>
+</ul>
+<h4>Limitations</h4>
+<ul>
+  <li>Assumes axis labels contain units in parentheses</li>
+  <li>Does not support dynamic unit changes after chart creation</li>
+  <li>Overrides any existing axis.values function</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/scaleUtils</code> - SI prefix calculation utilities</li>
+        
+            <li><code>module:utils/constants</code> - SI_UNITS table</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import autoUnitScalePlugin from './plugins/autoUnitScalePlugin.js';const opts = {  ...otherUplotOptions,  plugins: [autoUnitScalePlugin({ axesScales: [1, 0.001, 1] })]  // Y0 axis: data in mV, displayed as V with appropriate SI prefix};new uPlot(opts, data, target);</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+    
+
+    <h4 class="name" id="module:Plugins/Chart"><span class="type-signature"></span>(require("Plugins/Chart"))<span class="signature">(opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot Plugin: Auto Unit &amp; SI Prefix Scaling</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>axesScales</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;number></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>User scale factors for axes: [xScale, y0Scale, y1Scale, ...].</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lsbDigits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>3</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of least significant digits for inner ticks.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>decimals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of decimals for formatting.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tickLabelFormatter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Custom tick label formatter: (scaled, i, total, lsbDigits, decimals) =&gt; string</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>autoScaleUnit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Object with x/y boolean flags for scaling (e.g., {x: true, y: false})</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Y-Axis Vertical Lines</h3>
+<p>Draws vertical lines at the left edge of Y-axes since uPlot doesn't render
+axis spine lines by default. Supports multiple Y-axes with theme-aware colors.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>SVG Lines</strong> — Creates SVG line elements for crisp rendering</li>
+  <li><strong>Theme Support</strong> — Reads --chart-axis CSS variable for color</li>
+  <li><strong>Multi-Axis</strong> — Draws line for each Y-axis</li>
+  <li><strong>Auto-Position</strong> — Updates on resize via ready hook</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { axisLinesPlugin } from './plugins/axisLinesPlugin.js';const opts = {  plugins: [axisLinesPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Delta Box Display</h3>
+<p>Displays time and value deltas between selected regions on the chart.
+Shows interpolated values for analysis of multi-rate sampling data.</p>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Selection Display</strong> — Shows deltas when region is selected</li>
+  <li><strong>Interpolation</strong> — Handles different sampling rates</li>
+  <li><strong>Overlay Box</strong> — Positioned overlay with delta information</li>
+  <li><strong>Auto-Hide</strong> — Disappears when selection cleared</li>
+</ul></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { deltaBoxPlugin } from './plugins/deltaBoxPlugin.js';const opts = {  plugins: [deltaBoxPlugin()]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>digitalFillPlugin module</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Horizontal Zoom & Pan</h3>
+<p>Enables keyboard and mouse-based horizontal zooming and panning across synchronized
+charts. Uses modifier keys (Shift, Alt) to distinguish zoom from pan operations.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Modular Design</td><td>Accepts getCharts function, no global state dependency</td></tr>
+  <tr><td>Chart Synchronization</td><td>All charts zoom/pan together via syncKey</td></tr>
+  <tr><td>Modifier Keys</td><td>Shift for zoom, Alt for pan—prevents accidental operations</td></tr>
+  <tr><td>Clean Cleanup</td><td>Proper event handler removal on chart destroy</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Shift+Scroll</strong> — Zoom in/out horizontally</li>
+  <li><strong>Alt+Scroll</strong> — Pan left/right horizontally</li>
+  <li><strong>Shift+Arrow</strong> — Zoom with keyboard</li>
+  <li><strong>Alt+Arrow</strong> — Pan with keyboard</li>
+  <li><strong>Mouse-Anchored Zoom</strong> — Zoom centers on cursor position</li>
+  <li><strong>Sync Group</strong> — Charts with same syncKey update together</li>
+</ul>
+<h4>Control Mapping</h4>
+<table>
+  <tr><th>Input</th><th>Action</th></tr>
+  <tr><td>Shift + Scroll Up</td><td>Zoom In (0.8x range)</td></tr>
+  <tr><td>Shift + Scroll Down</td><td>Zoom Out (1.25x range)</td></tr>
+  <tr><td>Alt + Scroll Up</td><td>Pan Left (10% of range)</td></tr>
+  <tr><td>Alt + Scroll Down</td><td>Pan Right (10% of range)</td></tr>
+  <tr><td>Shift + Left/Right</td><td>Zoom via keyboard</td></tr>
+  <tr><td>Alt + Left/Right</td><td>Pan via keyboard</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:plugins/verticalLinePlugin</code> - Vertical measurement lines</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import horizontalZoomPanPlugin from './plugins/horizontalZoomPanPlugin.js';const opts = {  plugins: [    horizontalZoomPanPlugin('globalSync', () => window.charts)  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>uPlot Plugin: Vertical Line & Crosshair Points</h3>
+<p>Enables placing, dragging, and visualizing vertical measurement lines on uPlot charts.
+Lines are synchronized across all charts and display crosshair points where they intersect
+series data. Used for delta calculations and time-point analysis.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive State</td><td>Lines stored in verticalLinesXState, auto-syncs across charts</td></tr>
+  <tr><td>Drag Support</td><td>Lines can be dragged to new positions with mouse</td></tr>
+  <tr><td>Event Capture</td><td>Uses capture phase to prevent selection box during drag</td></tr>
+  <tr><td>Debounced Updates</td><td>Delta calculations debounced to prevent UI freezing</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Add Lines</strong> — Alt+1 adds vertical line at cursor position</li>
+  <li><strong>Drag Lines</strong> — Click and drag to reposition lines</li>
+  <li><strong>Crosshair Points</strong> — Colored dots at series intersections</li>
+  <li><strong>Line Colors</strong> — Configurable colors from crosshairColors palette</li>
+  <li><strong>Chart Sync</strong> — All charts show same vertical lines</li>
+  <li><strong>Delta Display</strong> — Triggers delta calculations on line change</li>
+</ul>
+<h4>Keyboard Shortcuts</h4>
+<table>
+  <tr><th>Shortcut</th><th>Action</th></tr>
+  <tr><td>Alt+0</td><td>Clear all vertical lines</td></tr>
+  <tr><td>Alt+1</td><td>Add vertical line at cursor</td></tr>
+  <tr><td>Alt+2</td><td>Go to previous line</td></tr>
+  <tr><td>Alt+3</td><td>Go to next line</td></tr>
+  <tr><td>Alt+4</td><td>Delete current line</td></tr>
+</table></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/handleVerticalLineShortcuts</code> - Keyboard handler</li>
+        
+            <li><code>module:utils/calculateDeltas</code> - Delta calculation utilities</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import verticalLinePlugin from './plugins/verticalLinePlugin.js';const opts = {  plugins: [    verticalLinePlugin(verticalLinesXState, getCharts, {      lineColors: ['red', 'blue', 'green'],      lineWidth: 2,      pointRadius: 5    })  ]};</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDigitalFillPlugin"><span class="type-signature type-signature-static">(static) </span>createDigitalFillPlugin<span class="signature">(signals)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>uPlot plugin for rendering filled regions under digital (boolean) signals.</p>
+<p>This plugin draws filled rectangles under digital signals (step lines) when the signal is in the &quot;high&quot; state (as defined by targetVal).
+It supports multiple digital signals, each with its own vertical offset, color, and target value.</p>
+<p>The fill is drawn in sync with zoom/pan and respects the current axis scales.</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>import { createDigitalFillPlugin } from './src/plugins/digitalFillPlugin.js';const xVals = [0, 1, 2, 3, 4, 5, 6];const signal1 = [1, 0, 1, 1, 0, 1, 0];const signal2 = [1, 1, 1, 0, 1, 1, 1];const signals = [  { signalIndex: 1, offset: 0, color: 'rgba(0, 150, 255, 0.3)', targetVal: 1 },  { signalIndex: 2, offset: 3, color: 'rgba(255, 100, 100, 0.3)', targetVal: 1 }];const opts = {  width: 600,  height: 300,  scales: { x: { time: false }, y: { min: 0, max: 6 } },  axes: [{}, {}],  series: [    {}, // x axis    { label: "Signal 1", stroke: "transparent" },    { label: "Signal 2", stroke: "transparent" }  ],  plugins: [    createDigitalFillPlugin(signals)  ]};const data = [xVals, signal1, signal2];new uPlot(opts, data, document.getElementById("chart-digital"));</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>signals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of signal configuration objects.
+Each object should have:
+- signalIndex {number}: Index of the signal in the uPlot data array (e.g., 1 for the first signal after x).
+- offset {number}: Vertical offset to apply to the signal (for stacking multiple signals).
+- color {string}: Fill color for the high region (CSS color, e.g., 'rgba(0,150,255,0.3)').
+- targetVal {number}: Value to consider as &quot;high&quot; (usually 1).</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>uPlot plugin object to be included in the <code>plugins</code> array of uPlot options.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

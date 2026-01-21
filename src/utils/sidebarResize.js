@@ -1,4 +1,9 @@
 /**
+ * @module Utils/DOM
+ * @description sidebarResize module
+ */
+
+/**
  * Simple sidebar resize utility
  * Adjusts whole application when sidebars open/close
  */

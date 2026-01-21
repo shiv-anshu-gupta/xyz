@@ -1,7 +1,7 @@
 /**
  * @file PolarChart.js
- * @module components/PolarChart
- * 
+ * @module Components/PolarChart
+ *
  * @description
  * <h3>Phasor Diagram Component</h3>
  * 

@@ -1,4 +1,9 @@
 /**
+ * @module Utils/DOM
+ * @description uiHelpers module
+ */
+
+/**
  * ============================================
  * UI Helper Functions for Modern Layout
  * ============================================

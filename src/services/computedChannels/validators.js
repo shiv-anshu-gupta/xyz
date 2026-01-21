@@ -1,7 +1,7 @@
 /**
  * @file validators.js
- * @module services/computedChannels/validators
- * 
+ * @module Services/ComputedChannels
+ *
  * @description
  * <h3>Computed Channel Input Validators</h3>
  * 

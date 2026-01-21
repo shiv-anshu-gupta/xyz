@@ -4,7 +4,7 @@ import {
 } from "../utils/axisCalculator.js";
 
 /**
- * @module chartManager
+ * @module Components/ChartCore
  * @description
  * Central reactive state manager for chart updates in the COMTRADE charting application.
  * Bridges between user-triggered state changes (via Tabulator editor) and uPlot chart

@@ -1,7 +1,7 @@
 /**
  * @file chartDomUtils.js
- * @module utils/chartDomUtils
- * 
+ * @module Utils/Chart
+ *
  * @description
  * <h3>Chart DOM Utilities</h3>
  * <p>Core utility module providing DOM abstractions for chart container creation and

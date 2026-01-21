@@ -1,7 +1,7 @@
 /**
  * @file renderDigitalCharts.js
- * @module components/renderDigitalCharts
- * 
+ * @module Components/ChartRendering
+ *
  * @description
  * <h3>Digital Channel Chart Renderer</h3>
  * 
@@ -442,7 +442,9 @@ export function renderDigitalCharts(
     digitalPluginId: chart._digitalPlugin?.id,
   });
 
-  chart._seriesColors = opts.series.slice(1).map((s) => s.stroke);
+  // ✅ FIX: For digital charts, use displayedColors (actual colors) instead of series.stroke (transparent)
+  // This ensures delta table shows correct colors for digital channels
+  chart._seriesColors = displayedColors.slice();
   chart._metadata = metadata;
   chart._userGroupId = metadata.userGroupId;
   chart._uPlotInstance = metadata.uPlotInstance;

@@ -1,4 +1,10 @@
 import {
+
+/**
+ * @module Utils/ComputedChannels
+ * @description computedChartInteractions module
+ */
+
   createTooltip,
   updateTooltip,
   hideTooltip,

@@ -1667,7 +1667,7 @@ async function processCombinedDataFromMerger(cfgText, datText) {
     if (cfgFileNameEl) cfgFileNameEl.textContent = "Combined Data (Merged)";
     if (datFileNameEl) datFileNameEl.textContent = "Combined Data (Merged)";
 
-    const groups = autoGroupChannels(cfg.analogChannels);
+    const groups = autoGroupChannels(cfg.analogChannels, "GA");
 
     // UI helper calls
     showFileInfo();
@@ -2342,7 +2342,7 @@ window.addEventListener("mergedFilesReceived", async (event) => {
       ? `(${fileCount} DAT files merged)`
       : `DAT File: ${filenames[0]}.dat`;
 
-    const groups = autoGroupChannels(cfg.analogChannels);
+    const groups = autoGroupChannels(cfg.analogChannels, "GA");
 
     // ===== UI HELPER CALLS (Light) =====
     showFileInfo();
@@ -3494,7 +3494,7 @@ async function handleLoadFiles() {
     cfgFileNameEl.textContent = filenameText;
     datFileNameEl.textContent = `DAT File: ${datFile.name}`;
 
-    const groups = autoGroupChannels(cfg.analogChannels);
+    const groups = autoGroupChannels(cfg.analogChannels, "GA");
 
     // ===== UI HELPER CALLS (Light) =====
     showFileInfo();
@@ -3529,18 +3529,15 @@ async function handleLoadFiles() {
         analogGroupIds
       );
 
-      // Populate digital group IDs (same pattern as analog)
-      const digitalGroups = autoGroupChannels(cfg.digitalChannels || []);
-      const digitalGroupIds = new Array((cfg.digitalChannels || []).length);
-      Object.entries(digitalGroups).forEach(([groupId, channelIndices]) => {
-        channelIndices.forEach((channelIdx) => {
-          digitalGroupIds[channelIdx] = groupId;
-        });
-      });
+      // ✅ DIGITAL CHANNELS: ALL in single "GD0" group (no auto-grouping)
+      // Unlike analog channels, digital channels are kept together because:
+      // 1. We don't know the types/patterns of digital channels
+      // 2. We need ALL data visible in one chart
+      const digitalGroupIds = new Array((cfg.digitalChannels || []).length).fill("GD0");
       channelState.digital.groups = digitalGroupIds;
       console.log(
-        "[handleLoadFiles] ✅ Populated digital group IDs:",
-        digitalGroupIds
+        "[handleLoadFiles] ✅ Digital channels: ALL assigned to single 'GD0' group:",
+        digitalGroupIds.length, "channels"
       );
     } finally {
       if (channelState && channelState.resumeHistory)

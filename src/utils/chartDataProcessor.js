@@ -1,5 +1,11 @@
 import { createDragBar } from "../components/createDragBar.js";
 import {
+
+/**
+ * @module Utils/Chart
+ * @description chartDataProcessor module
+ */
+
   filterValidIndices,
   extractChannelMetadata,
   extractGroupId,

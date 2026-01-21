@@ -1,21 +1,58 @@
 {
   "source": {
-    "include": ["src"],
-    "includePattern": ".+\\.js(doc|x)?$",
-    "excludePattern": "(^|\\/|\\\\)_|DOCUMENTATION"
+    "include": ["src/components", "src/utils", "src/plugins", "src/services"],
+    "includePattern": ".+\\.js$",
+    "excludePattern": "(Copy|copy|test|NOTES|EXAMPLE|REFERENCE|IMPLEMENTATION|_)"
   },
-  "plugins": ["jsdoc-mermaid"],
+  "plugins": ["plugins/markdown"],
   "opts": {
     "destination": "./docs/",
     "readme": "./README.md",
     "recurse": true,
-    "template": "./node_modules/better-docs"
+    "encoding": "utf8",
+    "template": "node_modules/docdash"
   },
-  "mermaid": {
-    "startOnLoad": false,
-    "theme": "default",
-    "flowchart": {
-      "useMaxWidth": false
+  "docdash": {
+    "static": false,
+    "sort": true,
+    "search": true,
+    "collapse": true,
+    "typedefs": true,
+    "removeQuotes": "none",
+    "navLevel": 1,
+    "sectionOrder": [
+      "Namespaces",
+      "Modules",
+      "Classes",
+      "Interfaces",
+      "Events",
+      "Externals",
+      "Mixins",
+      "Tutorials"
+    ],
+    "scripts": [],
+    "menu": {
+      "COMTRADE Viewer": {
+        "href": "/",
+        "target": "_self",
+        "class": "menu-item"
+      }
     }
+  },
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": false,
+      "includeDate": false,
+      "useLongnameInNav": false
+    }
+  },
+  "markdown": {
+    "idInHeadings": true
+  },
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
   }
 }

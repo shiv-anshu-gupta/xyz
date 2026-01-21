@@ -1,4 +1,9 @@
 /**
+ * @module Utils/Helpers
+ * @description mathJaxLoader module
+ */
+
+/**
  * Lazy-load MathJax only when needed
  * Improves initial page load performance by not loading MathJax until first use
  */

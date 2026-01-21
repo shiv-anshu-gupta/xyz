@@ -1,6 +1,7 @@
 /**
- * @file maxYAxesStore.js - Global Y-Axes Count State Management
- * @module maxYAxesStore
+ * @file maxYAxesStore.js
+ * @module Utils/Grouping
+ * @description Global Y-Axes Count State Management
  * @category Architecture / Functional Approach
  * @since 2.0.0
  *

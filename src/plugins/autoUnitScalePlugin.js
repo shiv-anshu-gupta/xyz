@@ -1,7 +1,7 @@
 /**
  * @file autoUnitScalePlugin.js
- * @module plugins/autoUnitScalePlugin
- * 
+ * @module Plugins/Chart
+ *
  * @description
  * <h3>uPlot Plugin: Auto Unit & SI Prefix Scaling</h3>
  * 

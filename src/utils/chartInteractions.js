@@ -1,4 +1,10 @@
 import {
+
+/**
+ * @module Utils/Chart
+ * @description chartInteractions module
+ */
+
   createTooltip,
   updateTooltip,
   hideTooltip,

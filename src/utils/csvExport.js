@@ -1,9 +1,15 @@
 /**
- * CSV Export Utility
+ * @module Utils/Data
+ * @description CSV Export Utility
  * Exports all channel data (analog, digital, computed, device data) to CSV format
  */
 
 import { showProgress, updateProgress, hideProgress } from "../components/ProgressBar.js";
+
+/**
+ * @description csvExport module
+ */
+
 
 /**
  * Get channel metadata with fallback

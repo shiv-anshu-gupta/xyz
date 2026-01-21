@@ -1,7 +1,7 @@
 /**
  * @file showError.js
- * @module components/showError
- * 
+ * @module Components/UI
+ *
  * @description
  * <h3>Error Display Utility</h3>
  * 

@@ -1,7 +1,7 @@
 /**
  * @file deltaBoxPlugin.js
- * @module plugins/deltaBoxPlugin
- * 
+ * @module Plugins/Chart
+ *
  * @description
  * <h3>uPlot Plugin: Delta Box Display</h3>
  * 

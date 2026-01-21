@@ -1,0 +1,7731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Components/Analysis - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="/" target="_self" class="menu-item" >COMTRADE Viewer</a></h2><h3>Modules</h3><ul><li><a href="module-Components_Analysis.html">Components/Analysis</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Analysis.html#~getColorHex">getColorHex</a></li></ul></li><li></li><li></li><li></li><li><a href="module-Components_ChartCore.html">Components/ChartCore</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_ChartCore.html#~createChartOptions">createChartOptions</a></li><li data-type='method' style='display: none;'><a href="module-Components_ChartCore.html#~subscribeChartUpdates">subscribeChartUpdates</a></li></ul></li><li></li><li></li><li><a href="module-Components_ChartRendering.html">Components/ChartRendering</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_ChartRendering.html#~filterIndicesWithData">filterIndicesWithData</a></li><li data-type='method' style='display: none;'><a href="module-Components_ChartRendering.html#~hasDigitalData">hasDigitalData</a></li></ul></li><li></li><li></li><li></li><li></li><li><a href="module-Components_DragDrop.html">Components/DragDrop</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_DragDrop.html#~setupChartDragAndDrop">setupChartDragAndDrop</a></li></ul></li><li><a href="module-Components_Equation.html">Components/Equation</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~generateCFGContentBatch">generateCFGContentBatch</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~generateDATContentBatch">generateDATContentBatch</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~performExport">performExport</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~showExportFormatDialog">showExportFormatDialog</a></li></ul></li><li><a href="module-Components_PolarChart.html">Components/PolarChart</a></li><li></li><li></li><li><a href="module-Components_Sidebars.html">Components/Sidebars</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~convertLatexToMathJs">convertLatexToMathJs</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~convertLatexToPlainText">convertLatexToPlainText</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createChannelItem">createChannelItem</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createSimpleChannelList">createSimpleChannelList</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~detectGroupFromExpression">detectGroupFromExpression</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~formatEquationForLatex">formatEquationForLatex</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~getAllAvailableGroups">getAllAvailableGroups</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~openMathLiveEditor">openMathLiveEditor</a></li></ul></li><li></li><li></li><li><a href="module-Components_State.html">Components/State</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_State.html#~createState">createState</a></li></ul></li><li><a href="module-Components_UI.html">Components/UI</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_UI.html#~createDragBar">createDragBar</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Components_VerticalLine.html">Components/VerticalLine</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~destroy">destroy</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getElement">getElement</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getState">getState</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getValue">getValue</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~handleVerticalLineShortcuts">handleVerticalLineShortcuts</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setEnabled">setEnabled</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setRange">setRange</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setValue">setValue</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setVisible">setVisible</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~syncPosition">syncPosition</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~updateDuration">updateDuration</a></li></ul></li><li></li><li></li><li><a href="module-Plugins_Chart.html">Plugins/Chart</a><ul class='methods'></ul></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Services_ComputedChannels.html">Services/ComputedChannels</a></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_COMTRADE.html">Utils/COMTRADE</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_COMTRADE.html#~parseCFG">parseCFG</a></li><li data-type='method' style='display: none;'><a href="module-Utils_COMTRADE.html#~parseDAT">parseDAT</a></li></ul></li><li><a href="module-Utils_Chart.html">Utils/Chart</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~applyZoom">applyZoom</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~buildCompleteAxesArray">buildCompleteAxesArray</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~calculateAxisCountForGroup">calculateAxisCountForGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~calculateAxisCountsForAllGroups">calculateAxisCountsForAllGroups</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createMultiAxisDefinition">createMultiAxisDefinition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createSeriesDefinitions">createSeriesDefinitions</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createSingleAxisDefinition">createSingleAxisDefinition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createYAxisScales">createYAxisScales</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~didAxisCountChange">didAxisCountChange</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getAxisCount">getAxisCount</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getAxisForType">getAxisForType</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getChannelType">getChannelType</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getGroupAxisInfo">getGroupAxisInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getSeriesAxisIndex">getSeriesAxisIndex</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getThemeColors">getThemeColors</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~handleVerticalLineAddition">handleVerticalLineAddition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~updateZoomDisplay">updateZoomDisplay</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_ComputedChannels.html">Utils/ComputedChannels</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels.html#~broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels.html#~handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_DOM.html">Utils/DOM</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~clearChartsContainer">clearChartsContainer</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~initializeSidebarChannels">initializeSidebarChannels</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~resizeChartsToContainers">resizeChartsToContainers</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~setupMobileSidebar">setupMobileSidebar</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~showFileInfo">showFileInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~toggleChartsVisibility">toggleChartsVisibility</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~updateFileInfo">updateFileInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~updateStatsCards">updateStatsCards</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~wrapChartInSection">wrapChartInSection</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_Data.html">Utils/Data</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~formatScaledValue">formatScaledValue</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~getChannelMetadata">getChannelMetadata</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~renameChannelWithPrefix">renameChannelWithPrefix</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_DigitalChannels.html">Utils/DigitalChannels</a></li><li><a href="module-Utils_Grouping.html">Utils/Grouping</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~analyzeGroupsAndPublishMaxYAxes">analyzeGroupsAndPublishMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~analyzeSpecificGroup">analyzeSpecificGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~getMaxYAxes">getMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~getMaxYAxesState">getMaxYAxesState</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~resetMaxYAxes">resetMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~setMaxYAxes">setMaxYAxes</a></li></ul></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_Helpers.html">Utils/Helpers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~closeMergerWindow">closeMergerWindow</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~getMergerWindow">getMergerWindow</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~isMergerWindowOpen">isMergerWindowOpen</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~openMergerWindow">openMergerWindow</a></li></ul></li><li></li><li></li><li><a href="module-Utils_Theme.html">Utils/Theme</a></li><li></li><li></li></ul><h3>Classes</h3><ul><li><a href="module-Components_PolarChart.PolarChartCanvas.html">PolarChartCanvas</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#extractRealPhasorData">extractRealPhasorData</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#init">init</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#renderCanvasDebounced">renderCanvasDebounced</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#renderCanvasPolar">renderCanvasPolar</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#updateData">updateData</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#updatePhasorAtTimeIndex">updatePhasorAtTimeIndex</a></li></ul></li><li><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html">ComputedChannelMetadata</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#clear">clear</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#count">count</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#fromJSON">fromJSON</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#get">get</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getAll">getAll</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getByGroup">getByGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getByName">getByName</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#has">has</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#toJSON">toJSON</a></li></ul></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Components/Analysis</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><h3>Delta Values Sidebar Drawer</h3>
+<p>A slide-out sidebar component that displays detailed crosshair/vertical line values
+in a searchable, formatted table. Shows measurement data at vertical marker positions
+placed on charts using Alt+1 keyboard shortcut.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pre-built HTML</td><td>DOM structure defined in index.html, component handles behavior only</td></tr>
+  <tr><td>CSS Variable Layout</td><td>Uses --main-content-width and --sidebar-width for responsive resizing</td></tr>
+  <tr><td>Deduplication</td><td>Hash-based comparison prevents redundant table re-renders</td></tr>
+  <tr><td>Lazy Loading</td><td>Table renderer created on-demand when drawer is opened</td></tr>
+  <tr><td>Store Integration</td><td>Registered with sidebarStore for single-sidebar-at-a-time behavior</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Vertical Line Values</strong> — Displays channel values at each vertical marker position</li>
+  <li><strong>Delta Calculations</strong> — Shows differences between consecutive vertical lines</li>
+  <li><strong>Time Headers</strong> — Dynamic column headers showing actual timestamp values (μs)</li>
+  <li><strong>Search Filtering</strong> — Real-time search to filter table rows by channel name</li>
+  <li><strong>Resizable Width</strong> — Percentage-based width (15-70%) controlled via CSS variables</li>
+  <li><strong>Empty State</strong> — Helpful message when no vertical lines are placed</li>
+</ul>
+<h4>Data Flow Pipeline</h4>
+<ol>
+  <li>User places vertical lines on chart (Alt+1)</li>
+  <li>verticalLinesX state updates with new positions</li>
+  <li>Parent calls deltaDrawer.update(deltaData, lineCount)</li>
+  <li>Hash comparison checks if data changed</li>
+  <li>formatTableData() transforms sections into row format</li>
+  <li>DeltaTableRenderer creates/updates HTML table</li>
+  <li>Search input filters visible rows in real-time</li>
+</ol>
+<h4>DOM Structure</h4>
+<pre>
+#delta-drawer (sidebar container)
+  └─ #delta-drawer-panel (content panel)
+      ├─ .delta-drawer-header (title + close button)
+      │   ├─ #delta-table-search (search input)
+      │   └─ #delta-table-search-btn (search button)
+      └─ .delta-table-container (table wrapper)
+          └─ [DeltaTableRenderer output]
+</pre></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Values Sidebar Drawer</h3>
+<p>A slide-out sidebar component that displays detailed crosshair/vertical line values
+in a searchable, formatted table. Shows measurement data at vertical marker positions
+placed on charts using Alt+1 keyboard shortcut.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pre-built HTML</td><td>DOM structure defined in index.html, component handles behavior only</td></tr>
+  <tr><td>CSS Variable Layout</td><td>Uses --main-content-width and --sidebar-width for responsive resizing</td></tr>
+  <tr><td>Deduplication</td><td>Hash-based comparison prevents redundant table re-renders</td></tr>
+  <tr><td>Lazy Loading</td><td>Table renderer created on-demand when drawer is opened</td></tr>
+  <tr><td>Store Integration</td><td>Registered with sidebarStore for single-sidebar-at-a-time behavior</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Vertical Line Values</strong> — Displays channel values at each vertical marker position</li>
+  <li><strong>Delta Calculations</strong> — Shows differences between consecutive vertical lines</li>
+  <li><strong>Time Headers</strong> — Dynamic column headers showing actual timestamp values (μs)</li>
+  <li><strong>Search Filtering</strong> — Real-time search to filter table rows by channel name</li>
+  <li><strong>Resizable Width</strong> — Percentage-based width (15-70%) controlled via CSS variables</li>
+  <li><strong>Empty State</strong> — Helpful message when no vertical lines are placed</li>
+</ul>
+<h4>Data Flow Pipeline</h4>
+<ol>
+  <li>User places vertical lines on chart (Alt+1)</li>
+  <li>verticalLinesX state updates with new positions</li>
+  <li>Parent calls deltaDrawer.update(deltaData, lineCount)</li>
+  <li>Hash comparison checks if data changed</li>
+  <li>formatTableData() transforms sections into row format</li>
+  <li>DeltaTableRenderer creates/updates HTML table</li>
+  <li>Search input filters visible rows in real-time</li>
+</ol>
+<h4>DOM Structure</h4>
+<pre>
+#delta-drawer (sidebar container)
+  └─ #delta-drawer-panel (content panel)
+      ├─ .delta-drawer-header (title + close button)
+      │   ├─ #delta-table-search (search input)
+      │   └─ #delta-table-search-btn (search button)
+      └─ .delta-table-container (table wrapper)
+          └─ [DeltaTableRenderer output]
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTableRenderer</code> - Table rendering engine</li>
+        
+            <li><code>module:components/DeltaTableDataFormatter</code> - Data transformation utilities</li>
+        
+            <li><code>module:utils/sidebarStore</code> - Global sidebar coordination</li>
+        
+            <li><code>module:main</code> - verticalLinesX state management</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Examples</h5>
+    
+    <pre class="prettyprint"><code>// Initialize and register with storeconst deltaDrawer = createDeltaDrawer();deltaDrawer.init();deltaDrawer.registerWithStore();// Show drawer with datadeltaDrawer.show();deltaDrawer.update(deltaData, verticalLinesCount);// Toggle visibilitydeltaDrawer.toggle();</code></pre>
+
+    <pre class="prettyprint"><code>// deltaData format (from crosshair calculations)const deltaData = [  {    sectionTitle: "Analog Channels",    rows: [      { name: "IA", values: [100.5, 102.3], deltas: [1.8] },      { name: "IB", values: [98.2, 99.1], deltas: [0.9] }    ]  }];</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table HTML Builder</h3>
+<p>Pure functional module for constructing HTML table structures to display
+delta measurements between vertical line positions in COMTRADE waveform charts.
+This module generates complete table markup without performing DOM manipulation,
+following a functional programming approach for testability and reusability.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pure Functions</td><td>All functions return HTML strings without side effects</td></tr>
+  <tr><td>Separation of Concerns</td><td>HTML generation separate from DOM rendering</td></tr>
+  <tr><td>Dynamic Columns</td><td>Table structure adapts to number of vertical lines</td></tr>
+  <tr><td>Theming Support</td><td>Uses CSS variables for dark/light mode compatibility</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Dynamic Header Generation</strong> — Creates columns for each vertical line value and delta pairs</li>
+  <li><strong>Color-coded Columns</strong> — Uses crosshair colors to visually link values to chart cursors</li>
+  <li><strong>Delta Calculations Display</strong> — Shows absolute delta and percentage change between consecutive lines</li>
+  <li><strong>Channel Color Indicators</strong> — Color squares identify channels matching chart series</li>
+  <li><strong>Time Row Support</strong> — Special handling for time reference row at top of table</li>
+  <li><strong>Search/Filter Ready</strong> — Includes filterTableRows utility for channel filtering</li>
+</ul>
+<h4>Table Structure</h4>
+<pre>
+| Channel | Line1 Val | Line2 Val | ... | Δ(1→2) | %(1→2) | Δ(2→3) | %(2→3) | ...
+|---------|-----------|-----------|-----|--------|--------|--------|--------|
+| Time    | T1        | T2        | ... | ΔT     | —      | ΔT     | —      |
+| Ch1     | V1        | V2        | ... | ΔV     | %      | ΔV     | %      |
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTableDataFormatter</code> - Formats raw delta data for table consumption</li>
+        
+            <li><code>module:components/DeltaTableRenderer</code> - Renders generated HTML to DOM</li>
+        
+            <li><code>module:components/DeltaDrawer</code> - Parent drawer component</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Build a complete delta tableimport { buildTableHTML, filterTableRows } from './DeltaTable.js';const tableData = [  { channel: '__TIME_ROW__', v0: '0.00 μs', v1: '10.00 μs', delta0: '10.00 μs' },  { channel: 'Voltage_A', color: '#ef4444', v0: '120.5', v1: '118.2', delta0: '-2.3', percentage0: -1.9 }];const html = buildTableHTML(tableData, 2, ['0.00 μs', '10.00 μs'], ['red', 'blue']);container.innerHTML = html;// Filter by channel nameconst filtered = filterTableRows(tableData, 'Voltage');</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table Data Formatter</h3>
+<p>Pure transformation module that consolidates raw delta measurement data from multiple
+charts into a unified table format. Handles the complex task of merging channel data
+across different chart instances while maintaining proper column alignment for any
+number of vertical measurement lines.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Data Consolidation</td><td>Merges channel data from multiple charts into single rows</td></tr>
+  <tr><td>Flexible Line Count</td><td>Supports 1 to N vertical lines with proper delta pairing</td></tr>
+  <tr><td>Pure Transformation</td><td>No side effects, returns new formatted data structure</td></tr>
+  <tr><td>Graceful Degradation</td><td>Handles missing data with N/A placeholders</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Single Line Mode</strong> — When only 1 vertical line exists, shows values without delta columns</li>
+  <li><strong>Multi-Line Mode</strong> — For 2+ lines, calculates deltas between consecutive pairs</li>
+  <li><strong>Channel Deduplication</strong> — Same channel from different charts merged into single row</li>
+  <li><strong>Time Row Generation</strong> — Automatically creates time reference row with timestamps</li>
+  <li><strong>Delta Time Grouping</strong> — Groups sections by unique delta times for proper pairing</li>
+  <li><strong>Missing Data Handling</strong> — Fills gaps with "N/A" for incomplete channel data</li>
+</ul>
+<h4>Data Flow</h4>
+<pre>
+Input: deltaData[] from multiple charts
+  ↓
+Group by deltaTime (identifies line pairs)
+  ↓
+Build channelMap (merge same channels)
+  ↓
+Extract v0, v1, v2... (value at each line)
+  ↓
+Calculate delta0, delta1... (between pairs)
+  ↓
+Add percentage0, percentage1...
+  ↓
+Insert time row at position 0
+  ↓
+Output: tableData[] ready for DeltaTable
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTable</code> - Consumes formatted data for HTML generation</li>
+        
+            <li><code>module:components/DeltaDrawer</code> - Provides raw deltaData input</li>
+        
+            <li><code>module:components/verticalLineControl</code> - Source of vertical line positions</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Format delta data from multiple chartsimport { formatTableData } from './DeltaTableDataFormatter.js';const deltaData = [  {    deltaTime: '10.00 μs',    series: [      { name: 'Voltage_A', color: '#ef4444', v1Formatted: '120.5', v2Formatted: '118.2',         deltaFormatted: '-2.3', percentage: -1.9 }    ]  }];const verticalLineTimes = ['0.00 μs', '10.00 μs'];const tableData = formatTableData(deltaData, 2, verticalLineTimes);// Result: [{ channel: '__TIME_ROW__', ... }, { channel: 'Voltage_A', v0: '120.5', ... }]</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table DOM Renderer</h3>
+<p>Reactive rendering component that manages the DOM lifecycle for delta measurement tables.
+Integrates with the application's reactive state system (createState) to automatically
+re-render tables when vertical line positions change, ensuring the displayed data
+always reflects the current cursor positions.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive Updates</td><td>Subscribes to state changes for automatic re-rendering</td></tr>
+  <tr><td>Factory Pattern</td><td>createDeltaTableRenderer returns API object with methods</td></tr>
+  <tr><td>Clean Lifecycle</td><td>Provides destroy() for proper cleanup of subscriptions</td></tr>
+  <tr><td>State Encapsulation</td><td>Internal state tracks current data and line count</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Automatic Re-rendering</strong> — Subscribes to verticalLinesX state changes</li>
+  <li><strong>Time Extraction</strong> — Converts numeric positions to formatted time strings</li>
+  <li><strong>Flexible State Access</strong> — Handles multiple state API patterns (asArray, value, direct)</li>
+  <li><strong>Fallback Placeholders</strong> — Generates T1, T2... labels when times unavailable</li>
+  <li><strong>Debug Logging</strong> — Comprehensive console output for troubleshooting</li>
+  <li><strong>Resource Cleanup</strong> — destroy() method unsubscribes and clears DOM</li>
+</ul>
+<h4>Component Lifecycle</h4>
+<pre>
+Create: createDeltaTableRenderer(container, state)
+   ↓
+Auto-subscribe to verticalLinesX state
+   ↓
+render(tableData, lineCount) → DOM update
+   ↓
+State changes → auto re-render
+   ↓
+destroy() → unsubscribe + clear DOM
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTable</code> - Generates HTML consumed by this renderer</li>
+        
+            <li><code>module:components/DeltaTableDataFormatter</code> - Formats data before rendering</li>
+        
+            <li><code>module:components/createState</code> - Reactive state system for subscriptions</li>
+        
+            <li><code>module:utils/constants</code> - crosshairColors array for table styling</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Create and use a delta table rendererimport { createDeltaTableRenderer } from './DeltaTableRenderer.js';import { createState } from './createState.js';const container = document.getElementById('delta-table-container');const verticalLinesXState = createState([]);const renderer = createDeltaTableRenderer(container, verticalLinesXState);// Render table dataconst tableData = formatTableData(deltaData, 2, times);renderer.render(tableData, 2);// Access current stateconsole.log(renderer.currentData);       // Current table dataconsole.log(renderer.currentLinesCount); // Number of lines// Cleanup when donerenderer.destroy();</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableBody"><span class="type-signature type-signature-static">(static) </span>buildTableBody<span class="signature">(tableData, verticalLinesCount)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build table body rows from delta data</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Formatted table data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>HTML string for <tbody></p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableHTML"><span class="type-signature type-signature-static">(static) </span>buildTableHTML<span class="signature">(tableData, verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build complete table HTML</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Formatted table data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Time values</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>crosshairColors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Colors array</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Complete table HTML</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableHeader"><span class="type-signature type-signature-static">(static) </span>buildTableHeader<span class="signature">(verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build table header row with dynamic columns</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Time values for each line</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>crosshairColors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of colors for lines</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>HTML string for <thead></p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDeltaTableRenderer"><span class="type-signature type-signature-static">(static) </span>createDeltaTableRenderer<span class="signature">(containerElement, verticalLinesXState)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Create Delta Table Renderer</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>containerElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Container to render table into</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesXState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Reactive state from createState</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>API with render() and destroy() methods</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".filterTableRows"><span class="type-signature type-signature-static">(static) </span>filterTableRows<span class="signature">(tableData, searchQuery)</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Filter table rows based on search query</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Table data to filter</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>searchQuery</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Search text</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Filtered table data</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".formatTableData"><span class="type-signature type-signature-static">(static) </span>formatTableData<span class="signature">(deltaData, verticalLinesCount, verticalLineTimes)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Transform deltaData into table format
+Consolidates data from multiple charts into a single table</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>deltaData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of delta sections (one per chart per pair)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of time values for each vertical line</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Formatted table data</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getColorHex"><span class="type-signature type-signature-inner">(inner) </span>getColorHex<span class="signature">(colorName)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Convert color name to hex</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>colorName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Color from crosshairColors</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Hex color code</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><h3>Delta Table HTML Builder</h3>
+<p>Pure functional module for constructing HTML table structures to display
+delta measurements between vertical line positions in COMTRADE waveform charts.
+This module generates complete table markup without performing DOM manipulation,
+following a functional programming approach for testability and reusability.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pure Functions</td><td>All functions return HTML strings without side effects</td></tr>
+  <tr><td>Separation of Concerns</td><td>HTML generation separate from DOM rendering</td></tr>
+  <tr><td>Dynamic Columns</td><td>Table structure adapts to number of vertical lines</td></tr>
+  <tr><td>Theming Support</td><td>Uses CSS variables for dark/light mode compatibility</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Dynamic Header Generation</strong> — Creates columns for each vertical line value and delta pairs</li>
+  <li><strong>Color-coded Columns</strong> — Uses crosshair colors to visually link values to chart cursors</li>
+  <li><strong>Delta Calculations Display</strong> — Shows absolute delta and percentage change between consecutive lines</li>
+  <li><strong>Channel Color Indicators</strong> — Color squares identify channels matching chart series</li>
+  <li><strong>Time Row Support</strong> — Special handling for time reference row at top of table</li>
+  <li><strong>Search/Filter Ready</strong> — Includes filterTableRows utility for channel filtering</li>
+</ul>
+<h4>Table Structure</h4>
+<pre>
+| Channel | Line1 Val | Line2 Val | ... | Δ(1→2) | %(1→2) | Δ(2→3) | %(2→3) | ...
+|---------|-----------|-----------|-----|--------|--------|--------|--------|
+| Time    | T1        | T2        | ... | ΔT     | —      | ΔT     | —      |
+| Ch1     | V1        | V2        | ... | ΔV     | %      | ΔV     | %      |
+</pre></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Values Sidebar Drawer</h3>
+<p>A slide-out sidebar component that displays detailed crosshair/vertical line values
+in a searchable, formatted table. Shows measurement data at vertical marker positions
+placed on charts using Alt+1 keyboard shortcut.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pre-built HTML</td><td>DOM structure defined in index.html, component handles behavior only</td></tr>
+  <tr><td>CSS Variable Layout</td><td>Uses --main-content-width and --sidebar-width for responsive resizing</td></tr>
+  <tr><td>Deduplication</td><td>Hash-based comparison prevents redundant table re-renders</td></tr>
+  <tr><td>Lazy Loading</td><td>Table renderer created on-demand when drawer is opened</td></tr>
+  <tr><td>Store Integration</td><td>Registered with sidebarStore for single-sidebar-at-a-time behavior</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Vertical Line Values</strong> — Displays channel values at each vertical marker position</li>
+  <li><strong>Delta Calculations</strong> — Shows differences between consecutive vertical lines</li>
+  <li><strong>Time Headers</strong> — Dynamic column headers showing actual timestamp values (μs)</li>
+  <li><strong>Search Filtering</strong> — Real-time search to filter table rows by channel name</li>
+  <li><strong>Resizable Width</strong> — Percentage-based width (15-70%) controlled via CSS variables</li>
+  <li><strong>Empty State</strong> — Helpful message when no vertical lines are placed</li>
+</ul>
+<h4>Data Flow Pipeline</h4>
+<ol>
+  <li>User places vertical lines on chart (Alt+1)</li>
+  <li>verticalLinesX state updates with new positions</li>
+  <li>Parent calls deltaDrawer.update(deltaData, lineCount)</li>
+  <li>Hash comparison checks if data changed</li>
+  <li>formatTableData() transforms sections into row format</li>
+  <li>DeltaTableRenderer creates/updates HTML table</li>
+  <li>Search input filters visible rows in real-time</li>
+</ol>
+<h4>DOM Structure</h4>
+<pre>
+#delta-drawer (sidebar container)
+  └─ #delta-drawer-panel (content panel)
+      ├─ .delta-drawer-header (title + close button)
+      │   ├─ #delta-table-search (search input)
+      │   └─ #delta-table-search-btn (search button)
+      └─ .delta-table-container (table wrapper)
+          └─ [DeltaTableRenderer output]
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTableRenderer</code> - Table rendering engine</li>
+        
+            <li><code>module:components/DeltaTableDataFormatter</code> - Data transformation utilities</li>
+        
+            <li><code>module:utils/sidebarStore</code> - Global sidebar coordination</li>
+        
+            <li><code>module:main</code> - verticalLinesX state management</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Examples</h5>
+    
+    <pre class="prettyprint"><code>// Initialize and register with storeconst deltaDrawer = createDeltaDrawer();deltaDrawer.init();deltaDrawer.registerWithStore();// Show drawer with datadeltaDrawer.show();deltaDrawer.update(deltaData, verticalLinesCount);// Toggle visibilitydeltaDrawer.toggle();</code></pre>
+
+    <pre class="prettyprint"><code>// deltaData format (from crosshair calculations)const deltaData = [  {    sectionTitle: "Analog Channels",    rows: [      { name: "IA", values: [100.5, 102.3], deltas: [1.8] },      { name: "IB", values: [98.2, 99.1], deltas: [0.9] }    ]  }];</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table HTML Builder</h3>
+<p>Pure functional module for constructing HTML table structures to display
+delta measurements between vertical line positions in COMTRADE waveform charts.
+This module generates complete table markup without performing DOM manipulation,
+following a functional programming approach for testability and reusability.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pure Functions</td><td>All functions return HTML strings without side effects</td></tr>
+  <tr><td>Separation of Concerns</td><td>HTML generation separate from DOM rendering</td></tr>
+  <tr><td>Dynamic Columns</td><td>Table structure adapts to number of vertical lines</td></tr>
+  <tr><td>Theming Support</td><td>Uses CSS variables for dark/light mode compatibility</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Dynamic Header Generation</strong> — Creates columns for each vertical line value and delta pairs</li>
+  <li><strong>Color-coded Columns</strong> — Uses crosshair colors to visually link values to chart cursors</li>
+  <li><strong>Delta Calculations Display</strong> — Shows absolute delta and percentage change between consecutive lines</li>
+  <li><strong>Channel Color Indicators</strong> — Color squares identify channels matching chart series</li>
+  <li><strong>Time Row Support</strong> — Special handling for time reference row at top of table</li>
+  <li><strong>Search/Filter Ready</strong> — Includes filterTableRows utility for channel filtering</li>
+</ul>
+<h4>Table Structure</h4>
+<pre>
+| Channel | Line1 Val | Line2 Val | ... | Δ(1→2) | %(1→2) | Δ(2→3) | %(2→3) | ...
+|---------|-----------|-----------|-----|--------|--------|--------|--------|
+| Time    | T1        | T2        | ... | ΔT     | —      | ΔT     | —      |
+| Ch1     | V1        | V2        | ... | ΔV     | %      | ΔV     | %      |
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTableDataFormatter</code> - Formats raw delta data for table consumption</li>
+        
+            <li><code>module:components/DeltaTableRenderer</code> - Renders generated HTML to DOM</li>
+        
+            <li><code>module:components/DeltaDrawer</code> - Parent drawer component</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Build a complete delta tableimport { buildTableHTML, filterTableRows } from './DeltaTable.js';const tableData = [  { channel: '__TIME_ROW__', v0: '0.00 μs', v1: '10.00 μs', delta0: '10.00 μs' },  { channel: 'Voltage_A', color: '#ef4444', v0: '120.5', v1: '118.2', delta0: '-2.3', percentage0: -1.9 }];const html = buildTableHTML(tableData, 2, ['0.00 μs', '10.00 μs'], ['red', 'blue']);container.innerHTML = html;// Filter by channel nameconst filtered = filterTableRows(tableData, 'Voltage');</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table Data Formatter</h3>
+<p>Pure transformation module that consolidates raw delta measurement data from multiple
+charts into a unified table format. Handles the complex task of merging channel data
+across different chart instances while maintaining proper column alignment for any
+number of vertical measurement lines.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Data Consolidation</td><td>Merges channel data from multiple charts into single rows</td></tr>
+  <tr><td>Flexible Line Count</td><td>Supports 1 to N vertical lines with proper delta pairing</td></tr>
+  <tr><td>Pure Transformation</td><td>No side effects, returns new formatted data structure</td></tr>
+  <tr><td>Graceful Degradation</td><td>Handles missing data with N/A placeholders</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Single Line Mode</strong> — When only 1 vertical line exists, shows values without delta columns</li>
+  <li><strong>Multi-Line Mode</strong> — For 2+ lines, calculates deltas between consecutive pairs</li>
+  <li><strong>Channel Deduplication</strong> — Same channel from different charts merged into single row</li>
+  <li><strong>Time Row Generation</strong> — Automatically creates time reference row with timestamps</li>
+  <li><strong>Delta Time Grouping</strong> — Groups sections by unique delta times for proper pairing</li>
+  <li><strong>Missing Data Handling</strong> — Fills gaps with "N/A" for incomplete channel data</li>
+</ul>
+<h4>Data Flow</h4>
+<pre>
+Input: deltaData[] from multiple charts
+  ↓
+Group by deltaTime (identifies line pairs)
+  ↓
+Build channelMap (merge same channels)
+  ↓
+Extract v0, v1, v2... (value at each line)
+  ↓
+Calculate delta0, delta1... (between pairs)
+  ↓
+Add percentage0, percentage1...
+  ↓
+Insert time row at position 0
+  ↓
+Output: tableData[] ready for DeltaTable
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTable</code> - Consumes formatted data for HTML generation</li>
+        
+            <li><code>module:components/DeltaDrawer</code> - Provides raw deltaData input</li>
+        
+            <li><code>module:components/verticalLineControl</code> - Source of vertical line positions</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Format delta data from multiple chartsimport { formatTableData } from './DeltaTableDataFormatter.js';const deltaData = [  {    deltaTime: '10.00 μs',    series: [      { name: 'Voltage_A', color: '#ef4444', v1Formatted: '120.5', v2Formatted: '118.2',         deltaFormatted: '-2.3', percentage: -1.9 }    ]  }];const verticalLineTimes = ['0.00 μs', '10.00 μs'];const tableData = formatTableData(deltaData, 2, verticalLineTimes);// Result: [{ channel: '__TIME_ROW__', ... }, { channel: 'Voltage_A', v0: '120.5', ... }]</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table DOM Renderer</h3>
+<p>Reactive rendering component that manages the DOM lifecycle for delta measurement tables.
+Integrates with the application's reactive state system (createState) to automatically
+re-render tables when vertical line positions change, ensuring the displayed data
+always reflects the current cursor positions.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive Updates</td><td>Subscribes to state changes for automatic re-rendering</td></tr>
+  <tr><td>Factory Pattern</td><td>createDeltaTableRenderer returns API object with methods</td></tr>
+  <tr><td>Clean Lifecycle</td><td>Provides destroy() for proper cleanup of subscriptions</td></tr>
+  <tr><td>State Encapsulation</td><td>Internal state tracks current data and line count</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Automatic Re-rendering</strong> — Subscribes to verticalLinesX state changes</li>
+  <li><strong>Time Extraction</strong> — Converts numeric positions to formatted time strings</li>
+  <li><strong>Flexible State Access</strong> — Handles multiple state API patterns (asArray, value, direct)</li>
+  <li><strong>Fallback Placeholders</strong> — Generates T1, T2... labels when times unavailable</li>
+  <li><strong>Debug Logging</strong> — Comprehensive console output for troubleshooting</li>
+  <li><strong>Resource Cleanup</strong> — destroy() method unsubscribes and clears DOM</li>
+</ul>
+<h4>Component Lifecycle</h4>
+<pre>
+Create: createDeltaTableRenderer(container, state)
+   ↓
+Auto-subscribe to verticalLinesX state
+   ↓
+render(tableData, lineCount) → DOM update
+   ↓
+State changes → auto re-render
+   ↓
+destroy() → unsubscribe + clear DOM
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTable</code> - Generates HTML consumed by this renderer</li>
+        
+            <li><code>module:components/DeltaTableDataFormatter</code> - Formats data before rendering</li>
+        
+            <li><code>module:components/createState</code> - Reactive state system for subscriptions</li>
+        
+            <li><code>module:utils/constants</code> - crosshairColors array for table styling</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Create and use a delta table rendererimport { createDeltaTableRenderer } from './DeltaTableRenderer.js';import { createState } from './createState.js';const container = document.getElementById('delta-table-container');const verticalLinesXState = createState([]);const renderer = createDeltaTableRenderer(container, verticalLinesXState);// Render table dataconst tableData = formatTableData(deltaData, 2, times);renderer.render(tableData, 2);// Access current stateconsole.log(renderer.currentData);       // Current table dataconsole.log(renderer.currentLinesCount); // Number of lines// Cleanup when donerenderer.destroy();</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableBody"><span class="type-signature type-signature-static">(static) </span>buildTableBody<span class="signature">(tableData, verticalLinesCount)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build table body rows from delta data</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Formatted table data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>HTML string for <tbody></p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableHTML"><span class="type-signature type-signature-static">(static) </span>buildTableHTML<span class="signature">(tableData, verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build complete table HTML</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Formatted table data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Time values</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>crosshairColors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Colors array</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Complete table HTML</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableHeader"><span class="type-signature type-signature-static">(static) </span>buildTableHeader<span class="signature">(verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build table header row with dynamic columns</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Time values for each line</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>crosshairColors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of colors for lines</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>HTML string for <thead></p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDeltaTableRenderer"><span class="type-signature type-signature-static">(static) </span>createDeltaTableRenderer<span class="signature">(containerElement, verticalLinesXState)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Create Delta Table Renderer</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>containerElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Container to render table into</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesXState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Reactive state from createState</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>API with render() and destroy() methods</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".filterTableRows"><span class="type-signature type-signature-static">(static) </span>filterTableRows<span class="signature">(tableData, searchQuery)</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Filter table rows based on search query</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Table data to filter</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>searchQuery</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Search text</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Filtered table data</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".formatTableData"><span class="type-signature type-signature-static">(static) </span>formatTableData<span class="signature">(deltaData, verticalLinesCount, verticalLineTimes)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Transform deltaData into table format
+Consolidates data from multiple charts into a single table</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>deltaData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of delta sections (one per chart per pair)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of time values for each vertical line</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Formatted table data</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getColorHex"><span class="type-signature type-signature-inner">(inner) </span>getColorHex<span class="signature">(colorName)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Convert color name to hex</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>colorName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Color from crosshairColors</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Hex color code</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><h3>Delta Table Data Formatter</h3>
+<p>Pure transformation module that consolidates raw delta measurement data from multiple
+charts into a unified table format. Handles the complex task of merging channel data
+across different chart instances while maintaining proper column alignment for any
+number of vertical measurement lines.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Data Consolidation</td><td>Merges channel data from multiple charts into single rows</td></tr>
+  <tr><td>Flexible Line Count</td><td>Supports 1 to N vertical lines with proper delta pairing</td></tr>
+  <tr><td>Pure Transformation</td><td>No side effects, returns new formatted data structure</td></tr>
+  <tr><td>Graceful Degradation</td><td>Handles missing data with N/A placeholders</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Single Line Mode</strong> — When only 1 vertical line exists, shows values without delta columns</li>
+  <li><strong>Multi-Line Mode</strong> — For 2+ lines, calculates deltas between consecutive pairs</li>
+  <li><strong>Channel Deduplication</strong> — Same channel from different charts merged into single row</li>
+  <li><strong>Time Row Generation</strong> — Automatically creates time reference row with timestamps</li>
+  <li><strong>Delta Time Grouping</strong> — Groups sections by unique delta times for proper pairing</li>
+  <li><strong>Missing Data Handling</strong> — Fills gaps with "N/A" for incomplete channel data</li>
+</ul>
+<h4>Data Flow</h4>
+<pre>
+Input: deltaData[] from multiple charts
+  ↓
+Group by deltaTime (identifies line pairs)
+  ↓
+Build channelMap (merge same channels)
+  ↓
+Extract v0, v1, v2... (value at each line)
+  ↓
+Calculate delta0, delta1... (between pairs)
+  ↓
+Add percentage0, percentage1...
+  ↓
+Insert time row at position 0
+  ↓
+Output: tableData[] ready for DeltaTable
+</pre></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Values Sidebar Drawer</h3>
+<p>A slide-out sidebar component that displays detailed crosshair/vertical line values
+in a searchable, formatted table. Shows measurement data at vertical marker positions
+placed on charts using Alt+1 keyboard shortcut.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pre-built HTML</td><td>DOM structure defined in index.html, component handles behavior only</td></tr>
+  <tr><td>CSS Variable Layout</td><td>Uses --main-content-width and --sidebar-width for responsive resizing</td></tr>
+  <tr><td>Deduplication</td><td>Hash-based comparison prevents redundant table re-renders</td></tr>
+  <tr><td>Lazy Loading</td><td>Table renderer created on-demand when drawer is opened</td></tr>
+  <tr><td>Store Integration</td><td>Registered with sidebarStore for single-sidebar-at-a-time behavior</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Vertical Line Values</strong> — Displays channel values at each vertical marker position</li>
+  <li><strong>Delta Calculations</strong> — Shows differences between consecutive vertical lines</li>
+  <li><strong>Time Headers</strong> — Dynamic column headers showing actual timestamp values (μs)</li>
+  <li><strong>Search Filtering</strong> — Real-time search to filter table rows by channel name</li>
+  <li><strong>Resizable Width</strong> — Percentage-based width (15-70%) controlled via CSS variables</li>
+  <li><strong>Empty State</strong> — Helpful message when no vertical lines are placed</li>
+</ul>
+<h4>Data Flow Pipeline</h4>
+<ol>
+  <li>User places vertical lines on chart (Alt+1)</li>
+  <li>verticalLinesX state updates with new positions</li>
+  <li>Parent calls deltaDrawer.update(deltaData, lineCount)</li>
+  <li>Hash comparison checks if data changed</li>
+  <li>formatTableData() transforms sections into row format</li>
+  <li>DeltaTableRenderer creates/updates HTML table</li>
+  <li>Search input filters visible rows in real-time</li>
+</ol>
+<h4>DOM Structure</h4>
+<pre>
+#delta-drawer (sidebar container)
+  └─ #delta-drawer-panel (content panel)
+      ├─ .delta-drawer-header (title + close button)
+      │   ├─ #delta-table-search (search input)
+      │   └─ #delta-table-search-btn (search button)
+      └─ .delta-table-container (table wrapper)
+          └─ [DeltaTableRenderer output]
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTableRenderer</code> - Table rendering engine</li>
+        
+            <li><code>module:components/DeltaTableDataFormatter</code> - Data transformation utilities</li>
+        
+            <li><code>module:utils/sidebarStore</code> - Global sidebar coordination</li>
+        
+            <li><code>module:main</code> - verticalLinesX state management</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Examples</h5>
+    
+    <pre class="prettyprint"><code>// Initialize and register with storeconst deltaDrawer = createDeltaDrawer();deltaDrawer.init();deltaDrawer.registerWithStore();// Show drawer with datadeltaDrawer.show();deltaDrawer.update(deltaData, verticalLinesCount);// Toggle visibilitydeltaDrawer.toggle();</code></pre>
+
+    <pre class="prettyprint"><code>// deltaData format (from crosshair calculations)const deltaData = [  {    sectionTitle: "Analog Channels",    rows: [      { name: "IA", values: [100.5, 102.3], deltas: [1.8] },      { name: "IB", values: [98.2, 99.1], deltas: [0.9] }    ]  }];</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table HTML Builder</h3>
+<p>Pure functional module for constructing HTML table structures to display
+delta measurements between vertical line positions in COMTRADE waveform charts.
+This module generates complete table markup without performing DOM manipulation,
+following a functional programming approach for testability and reusability.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pure Functions</td><td>All functions return HTML strings without side effects</td></tr>
+  <tr><td>Separation of Concerns</td><td>HTML generation separate from DOM rendering</td></tr>
+  <tr><td>Dynamic Columns</td><td>Table structure adapts to number of vertical lines</td></tr>
+  <tr><td>Theming Support</td><td>Uses CSS variables for dark/light mode compatibility</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Dynamic Header Generation</strong> — Creates columns for each vertical line value and delta pairs</li>
+  <li><strong>Color-coded Columns</strong> — Uses crosshair colors to visually link values to chart cursors</li>
+  <li><strong>Delta Calculations Display</strong> — Shows absolute delta and percentage change between consecutive lines</li>
+  <li><strong>Channel Color Indicators</strong> — Color squares identify channels matching chart series</li>
+  <li><strong>Time Row Support</strong> — Special handling for time reference row at top of table</li>
+  <li><strong>Search/Filter Ready</strong> — Includes filterTableRows utility for channel filtering</li>
+</ul>
+<h4>Table Structure</h4>
+<pre>
+| Channel | Line1 Val | Line2 Val | ... | Δ(1→2) | %(1→2) | Δ(2→3) | %(2→3) | ...
+|---------|-----------|-----------|-----|--------|--------|--------|--------|
+| Time    | T1        | T2        | ... | ΔT     | —      | ΔT     | —      |
+| Ch1     | V1        | V2        | ... | ΔV     | %      | ΔV     | %      |
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTableDataFormatter</code> - Formats raw delta data for table consumption</li>
+        
+            <li><code>module:components/DeltaTableRenderer</code> - Renders generated HTML to DOM</li>
+        
+            <li><code>module:components/DeltaDrawer</code> - Parent drawer component</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Build a complete delta tableimport { buildTableHTML, filterTableRows } from './DeltaTable.js';const tableData = [  { channel: '__TIME_ROW__', v0: '0.00 μs', v1: '10.00 μs', delta0: '10.00 μs' },  { channel: 'Voltage_A', color: '#ef4444', v0: '120.5', v1: '118.2', delta0: '-2.3', percentage0: -1.9 }];const html = buildTableHTML(tableData, 2, ['0.00 μs', '10.00 μs'], ['red', 'blue']);container.innerHTML = html;// Filter by channel nameconst filtered = filterTableRows(tableData, 'Voltage');</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table Data Formatter</h3>
+<p>Pure transformation module that consolidates raw delta measurement data from multiple
+charts into a unified table format. Handles the complex task of merging channel data
+across different chart instances while maintaining proper column alignment for any
+number of vertical measurement lines.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Data Consolidation</td><td>Merges channel data from multiple charts into single rows</td></tr>
+  <tr><td>Flexible Line Count</td><td>Supports 1 to N vertical lines with proper delta pairing</td></tr>
+  <tr><td>Pure Transformation</td><td>No side effects, returns new formatted data structure</td></tr>
+  <tr><td>Graceful Degradation</td><td>Handles missing data with N/A placeholders</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Single Line Mode</strong> — When only 1 vertical line exists, shows values without delta columns</li>
+  <li><strong>Multi-Line Mode</strong> — For 2+ lines, calculates deltas between consecutive pairs</li>
+  <li><strong>Channel Deduplication</strong> — Same channel from different charts merged into single row</li>
+  <li><strong>Time Row Generation</strong> — Automatically creates time reference row with timestamps</li>
+  <li><strong>Delta Time Grouping</strong> — Groups sections by unique delta times for proper pairing</li>
+  <li><strong>Missing Data Handling</strong> — Fills gaps with "N/A" for incomplete channel data</li>
+</ul>
+<h4>Data Flow</h4>
+<pre>
+Input: deltaData[] from multiple charts
+  ↓
+Group by deltaTime (identifies line pairs)
+  ↓
+Build channelMap (merge same channels)
+  ↓
+Extract v0, v1, v2... (value at each line)
+  ↓
+Calculate delta0, delta1... (between pairs)
+  ↓
+Add percentage0, percentage1...
+  ↓
+Insert time row at position 0
+  ↓
+Output: tableData[] ready for DeltaTable
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTable</code> - Consumes formatted data for HTML generation</li>
+        
+            <li><code>module:components/DeltaDrawer</code> - Provides raw deltaData input</li>
+        
+            <li><code>module:components/verticalLineControl</code> - Source of vertical line positions</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Format delta data from multiple chartsimport { formatTableData } from './DeltaTableDataFormatter.js';const deltaData = [  {    deltaTime: '10.00 μs',    series: [      { name: 'Voltage_A', color: '#ef4444', v1Formatted: '120.5', v2Formatted: '118.2',         deltaFormatted: '-2.3', percentage: -1.9 }    ]  }];const verticalLineTimes = ['0.00 μs', '10.00 μs'];const tableData = formatTableData(deltaData, 2, verticalLineTimes);// Result: [{ channel: '__TIME_ROW__', ... }, { channel: 'Voltage_A', v0: '120.5', ... }]</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table DOM Renderer</h3>
+<p>Reactive rendering component that manages the DOM lifecycle for delta measurement tables.
+Integrates with the application's reactive state system (createState) to automatically
+re-render tables when vertical line positions change, ensuring the displayed data
+always reflects the current cursor positions.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive Updates</td><td>Subscribes to state changes for automatic re-rendering</td></tr>
+  <tr><td>Factory Pattern</td><td>createDeltaTableRenderer returns API object with methods</td></tr>
+  <tr><td>Clean Lifecycle</td><td>Provides destroy() for proper cleanup of subscriptions</td></tr>
+  <tr><td>State Encapsulation</td><td>Internal state tracks current data and line count</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Automatic Re-rendering</strong> — Subscribes to verticalLinesX state changes</li>
+  <li><strong>Time Extraction</strong> — Converts numeric positions to formatted time strings</li>
+  <li><strong>Flexible State Access</strong> — Handles multiple state API patterns (asArray, value, direct)</li>
+  <li><strong>Fallback Placeholders</strong> — Generates T1, T2... labels when times unavailable</li>
+  <li><strong>Debug Logging</strong> — Comprehensive console output for troubleshooting</li>
+  <li><strong>Resource Cleanup</strong> — destroy() method unsubscribes and clears DOM</li>
+</ul>
+<h4>Component Lifecycle</h4>
+<pre>
+Create: createDeltaTableRenderer(container, state)
+   ↓
+Auto-subscribe to verticalLinesX state
+   ↓
+render(tableData, lineCount) → DOM update
+   ↓
+State changes → auto re-render
+   ↓
+destroy() → unsubscribe + clear DOM
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTable</code> - Generates HTML consumed by this renderer</li>
+        
+            <li><code>module:components/DeltaTableDataFormatter</code> - Formats data before rendering</li>
+        
+            <li><code>module:components/createState</code> - Reactive state system for subscriptions</li>
+        
+            <li><code>module:utils/constants</code> - crosshairColors array for table styling</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Create and use a delta table rendererimport { createDeltaTableRenderer } from './DeltaTableRenderer.js';import { createState } from './createState.js';const container = document.getElementById('delta-table-container');const verticalLinesXState = createState([]);const renderer = createDeltaTableRenderer(container, verticalLinesXState);// Render table dataconst tableData = formatTableData(deltaData, 2, times);renderer.render(tableData, 2);// Access current stateconsole.log(renderer.currentData);       // Current table dataconsole.log(renderer.currentLinesCount); // Number of lines// Cleanup when donerenderer.destroy();</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableBody"><span class="type-signature type-signature-static">(static) </span>buildTableBody<span class="signature">(tableData, verticalLinesCount)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build table body rows from delta data</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Formatted table data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>HTML string for <tbody></p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableHTML"><span class="type-signature type-signature-static">(static) </span>buildTableHTML<span class="signature">(tableData, verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build complete table HTML</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Formatted table data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Time values</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>crosshairColors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Colors array</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Complete table HTML</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableHeader"><span class="type-signature type-signature-static">(static) </span>buildTableHeader<span class="signature">(verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build table header row with dynamic columns</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Time values for each line</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>crosshairColors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of colors for lines</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>HTML string for <thead></p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDeltaTableRenderer"><span class="type-signature type-signature-static">(static) </span>createDeltaTableRenderer<span class="signature">(containerElement, verticalLinesXState)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Create Delta Table Renderer</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>containerElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Container to render table into</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesXState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Reactive state from createState</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>API with render() and destroy() methods</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".filterTableRows"><span class="type-signature type-signature-static">(static) </span>filterTableRows<span class="signature">(tableData, searchQuery)</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Filter table rows based on search query</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Table data to filter</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>searchQuery</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Search text</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Filtered table data</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".formatTableData"><span class="type-signature type-signature-static">(static) </span>formatTableData<span class="signature">(deltaData, verticalLinesCount, verticalLineTimes)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Transform deltaData into table format
+Consolidates data from multiple charts into a single table</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>deltaData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of delta sections (one per chart per pair)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of time values for each vertical line</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Formatted table data</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getColorHex"><span class="type-signature type-signature-inner">(inner) </span>getColorHex<span class="signature">(colorName)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Convert color name to hex</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>colorName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Color from crosshairColors</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Hex color code</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><h3>Delta Table DOM Renderer</h3>
+<p>Reactive rendering component that manages the DOM lifecycle for delta measurement tables.
+Integrates with the application's reactive state system (createState) to automatically
+re-render tables when vertical line positions change, ensuring the displayed data
+always reflects the current cursor positions.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive Updates</td><td>Subscribes to state changes for automatic re-rendering</td></tr>
+  <tr><td>Factory Pattern</td><td>createDeltaTableRenderer returns API object with methods</td></tr>
+  <tr><td>Clean Lifecycle</td><td>Provides destroy() for proper cleanup of subscriptions</td></tr>
+  <tr><td>State Encapsulation</td><td>Internal state tracks current data and line count</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Automatic Re-rendering</strong> — Subscribes to verticalLinesX state changes</li>
+  <li><strong>Time Extraction</strong> — Converts numeric positions to formatted time strings</li>
+  <li><strong>Flexible State Access</strong> — Handles multiple state API patterns (asArray, value, direct)</li>
+  <li><strong>Fallback Placeholders</strong> — Generates T1, T2... labels when times unavailable</li>
+  <li><strong>Debug Logging</strong> — Comprehensive console output for troubleshooting</li>
+  <li><strong>Resource Cleanup</strong> — destroy() method unsubscribes and clears DOM</li>
+</ul>
+<h4>Component Lifecycle</h4>
+<pre>
+Create: createDeltaTableRenderer(container, state)
+   ↓
+Auto-subscribe to verticalLinesX state
+   ↓
+render(tableData, lineCount) → DOM update
+   ↓
+State changes → auto re-render
+   ↓
+destroy() → unsubscribe + clear DOM
+</pre></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Values Sidebar Drawer</h3>
+<p>A slide-out sidebar component that displays detailed crosshair/vertical line values
+in a searchable, formatted table. Shows measurement data at vertical marker positions
+placed on charts using Alt+1 keyboard shortcut.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pre-built HTML</td><td>DOM structure defined in index.html, component handles behavior only</td></tr>
+  <tr><td>CSS Variable Layout</td><td>Uses --main-content-width and --sidebar-width for responsive resizing</td></tr>
+  <tr><td>Deduplication</td><td>Hash-based comparison prevents redundant table re-renders</td></tr>
+  <tr><td>Lazy Loading</td><td>Table renderer created on-demand when drawer is opened</td></tr>
+  <tr><td>Store Integration</td><td>Registered with sidebarStore for single-sidebar-at-a-time behavior</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Vertical Line Values</strong> — Displays channel values at each vertical marker position</li>
+  <li><strong>Delta Calculations</strong> — Shows differences between consecutive vertical lines</li>
+  <li><strong>Time Headers</strong> — Dynamic column headers showing actual timestamp values (μs)</li>
+  <li><strong>Search Filtering</strong> — Real-time search to filter table rows by channel name</li>
+  <li><strong>Resizable Width</strong> — Percentage-based width (15-70%) controlled via CSS variables</li>
+  <li><strong>Empty State</strong> — Helpful message when no vertical lines are placed</li>
+</ul>
+<h4>Data Flow Pipeline</h4>
+<ol>
+  <li>User places vertical lines on chart (Alt+1)</li>
+  <li>verticalLinesX state updates with new positions</li>
+  <li>Parent calls deltaDrawer.update(deltaData, lineCount)</li>
+  <li>Hash comparison checks if data changed</li>
+  <li>formatTableData() transforms sections into row format</li>
+  <li>DeltaTableRenderer creates/updates HTML table</li>
+  <li>Search input filters visible rows in real-time</li>
+</ol>
+<h4>DOM Structure</h4>
+<pre>
+#delta-drawer (sidebar container)
+  └─ #delta-drawer-panel (content panel)
+      ├─ .delta-drawer-header (title + close button)
+      │   ├─ #delta-table-search (search input)
+      │   └─ #delta-table-search-btn (search button)
+      └─ .delta-table-container (table wrapper)
+          └─ [DeltaTableRenderer output]
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTableRenderer</code> - Table rendering engine</li>
+        
+            <li><code>module:components/DeltaTableDataFormatter</code> - Data transformation utilities</li>
+        
+            <li><code>module:utils/sidebarStore</code> - Global sidebar coordination</li>
+        
+            <li><code>module:main</code> - verticalLinesX state management</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Examples</h5>
+    
+    <pre class="prettyprint"><code>// Initialize and register with storeconst deltaDrawer = createDeltaDrawer();deltaDrawer.init();deltaDrawer.registerWithStore();// Show drawer with datadeltaDrawer.show();deltaDrawer.update(deltaData, verticalLinesCount);// Toggle visibilitydeltaDrawer.toggle();</code></pre>
+
+    <pre class="prettyprint"><code>// deltaData format (from crosshair calculations)const deltaData = [  {    sectionTitle: "Analog Channels",    rows: [      { name: "IA", values: [100.5, 102.3], deltas: [1.8] },      { name: "IB", values: [98.2, 99.1], deltas: [0.9] }    ]  }];</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table HTML Builder</h3>
+<p>Pure functional module for constructing HTML table structures to display
+delta measurements between vertical line positions in COMTRADE waveform charts.
+This module generates complete table markup without performing DOM manipulation,
+following a functional programming approach for testability and reusability.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Pure Functions</td><td>All functions return HTML strings without side effects</td></tr>
+  <tr><td>Separation of Concerns</td><td>HTML generation separate from DOM rendering</td></tr>
+  <tr><td>Dynamic Columns</td><td>Table structure adapts to number of vertical lines</td></tr>
+  <tr><td>Theming Support</td><td>Uses CSS variables for dark/light mode compatibility</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Dynamic Header Generation</strong> — Creates columns for each vertical line value and delta pairs</li>
+  <li><strong>Color-coded Columns</strong> — Uses crosshair colors to visually link values to chart cursors</li>
+  <li><strong>Delta Calculations Display</strong> — Shows absolute delta and percentage change between consecutive lines</li>
+  <li><strong>Channel Color Indicators</strong> — Color squares identify channels matching chart series</li>
+  <li><strong>Time Row Support</strong> — Special handling for time reference row at top of table</li>
+  <li><strong>Search/Filter Ready</strong> — Includes filterTableRows utility for channel filtering</li>
+</ul>
+<h4>Table Structure</h4>
+<pre>
+| Channel | Line1 Val | Line2 Val | ... | Δ(1→2) | %(1→2) | Δ(2→3) | %(2→3) | ...
+|---------|-----------|-----------|-----|--------|--------|--------|--------|
+| Time    | T1        | T2        | ... | ΔT     | —      | ΔT     | —      |
+| Ch1     | V1        | V2        | ... | ΔV     | %      | ΔV     | %      |
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTableDataFormatter</code> - Formats raw delta data for table consumption</li>
+        
+            <li><code>module:components/DeltaTableRenderer</code> - Renders generated HTML to DOM</li>
+        
+            <li><code>module:components/DeltaDrawer</code> - Parent drawer component</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Build a complete delta tableimport { buildTableHTML, filterTableRows } from './DeltaTable.js';const tableData = [  { channel: '__TIME_ROW__', v0: '0.00 μs', v1: '10.00 μs', delta0: '10.00 μs' },  { channel: 'Voltage_A', color: '#ef4444', v0: '120.5', v1: '118.2', delta0: '-2.3', percentage0: -1.9 }];const html = buildTableHTML(tableData, 2, ['0.00 μs', '10.00 μs'], ['red', 'blue']);container.innerHTML = html;// Filter by channel nameconst filtered = filterTableRows(tableData, 'Voltage');</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table Data Formatter</h3>
+<p>Pure transformation module that consolidates raw delta measurement data from multiple
+charts into a unified table format. Handles the complex task of merging channel data
+across different chart instances while maintaining proper column alignment for any
+number of vertical measurement lines.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Data Consolidation</td><td>Merges channel data from multiple charts into single rows</td></tr>
+  <tr><td>Flexible Line Count</td><td>Supports 1 to N vertical lines with proper delta pairing</td></tr>
+  <tr><td>Pure Transformation</td><td>No side effects, returns new formatted data structure</td></tr>
+  <tr><td>Graceful Degradation</td><td>Handles missing data with N/A placeholders</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Single Line Mode</strong> — When only 1 vertical line exists, shows values without delta columns</li>
+  <li><strong>Multi-Line Mode</strong> — For 2+ lines, calculates deltas between consecutive pairs</li>
+  <li><strong>Channel Deduplication</strong> — Same channel from different charts merged into single row</li>
+  <li><strong>Time Row Generation</strong> — Automatically creates time reference row with timestamps</li>
+  <li><strong>Delta Time Grouping</strong> — Groups sections by unique delta times for proper pairing</li>
+  <li><strong>Missing Data Handling</strong> — Fills gaps with "N/A" for incomplete channel data</li>
+</ul>
+<h4>Data Flow</h4>
+<pre>
+Input: deltaData[] from multiple charts
+  ↓
+Group by deltaTime (identifies line pairs)
+  ↓
+Build channelMap (merge same channels)
+  ↓
+Extract v0, v1, v2... (value at each line)
+  ↓
+Calculate delta0, delta1... (between pairs)
+  ↓
+Add percentage0, percentage1...
+  ↓
+Insert time row at position 0
+  ↓
+Output: tableData[] ready for DeltaTable
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTable</code> - Consumes formatted data for HTML generation</li>
+        
+            <li><code>module:components/DeltaDrawer</code> - Provides raw deltaData input</li>
+        
+            <li><code>module:components/verticalLineControl</code> - Source of vertical line positions</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Format delta data from multiple chartsimport { formatTableData } from './DeltaTableDataFormatter.js';const deltaData = [  {    deltaTime: '10.00 μs',    series: [      { name: 'Voltage_A', color: '#ef4444', v1Formatted: '120.5', v2Formatted: '118.2',         deltaFormatted: '-2.3', percentage: -1.9 }    ]  }];const verticalLineTimes = ['0.00 μs', '10.00 μs'];const tableData = formatTableData(deltaData, 2, verticalLineTimes);// Result: [{ channel: '__TIME_ROW__', ... }, { channel: 'Voltage_A', v0: '120.5', ... }]</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><h3>Delta Table DOM Renderer</h3>
+<p>Reactive rendering component that manages the DOM lifecycle for delta measurement tables.
+Integrates with the application's reactive state system (createState) to automatically
+re-render tables when vertical line positions change, ensuring the displayed data
+always reflects the current cursor positions.</p>
+<h4>Design Philosophy</h4>
+<table>
+  <tr><th>Principle</th><th>Description</th></tr>
+  <tr><td>Reactive Updates</td><td>Subscribes to state changes for automatic re-rendering</td></tr>
+  <tr><td>Factory Pattern</td><td>createDeltaTableRenderer returns API object with methods</td></tr>
+  <tr><td>Clean Lifecycle</td><td>Provides destroy() for proper cleanup of subscriptions</td></tr>
+  <tr><td>State Encapsulation</td><td>Internal state tracks current data and line count</td></tr>
+</table>
+<h4>Key Features</h4>
+<ul>
+  <li><strong>Automatic Re-rendering</strong> — Subscribes to verticalLinesX state changes</li>
+  <li><strong>Time Extraction</strong> — Converts numeric positions to formatted time strings</li>
+  <li><strong>Flexible State Access</strong> — Handles multiple state API patterns (asArray, value, direct)</li>
+  <li><strong>Fallback Placeholders</strong> — Generates T1, T2... labels when times unavailable</li>
+  <li><strong>Debug Logging</strong> — Comprehensive console output for troubleshooting</li>
+  <li><strong>Resource Cleanup</strong> — destroy() method unsubscribes and clears DOM</li>
+</ul>
+<h4>Component Lifecycle</h4>
+<pre>
+Create: createDeltaTableRenderer(container, state)
+   ↓
+Auto-subscribe to verticalLinesX state
+   ↓
+render(tableData, lineCount) → DOM update
+   ↓
+State changes → auto re-render
+   ↓
+destroy() → unsubscribe + clear DOM
+</pre></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><code>module:components/DeltaTable</code> - Generates HTML consumed by this renderer</li>
+        
+            <li><code>module:components/DeltaTableDataFormatter</code> - Formats data before rendering</li>
+        
+            <li><code>module:components/createState</code> - Reactive state system for subscriptions</li>
+        
+            <li><code>module:utils/constants</code> - crosshairColors array for table styling</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>// Create and use a delta table rendererimport { createDeltaTableRenderer } from './DeltaTableRenderer.js';import { createState } from './createState.js';const container = document.getElementById('delta-table-container');const verticalLinesXState = createState([]);const renderer = createDeltaTableRenderer(container, verticalLinesXState);// Render table dataconst tableData = formatTableData(deltaData, 2, times);renderer.render(tableData, 2);// Access current stateconsole.log(renderer.currentData);       // Current table dataconsole.log(renderer.currentLinesCount); // Number of lines// Cleanup when donerenderer.destroy();</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableBody"><span class="type-signature type-signature-static">(static) </span>buildTableBody<span class="signature">(tableData, verticalLinesCount)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build table body rows from delta data</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Formatted table data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>HTML string for <tbody></p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableHTML"><span class="type-signature type-signature-static">(static) </span>buildTableHTML<span class="signature">(tableData, verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build complete table HTML</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Formatted table data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Time values</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>crosshairColors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Colors array</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Complete table HTML</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".buildTableHeader"><span class="type-signature type-signature-static">(static) </span>buildTableHeader<span class="signature">(verticalLinesCount, verticalLineTimes, crosshairColors)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Build table header row with dynamic columns</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Time values for each line</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>crosshairColors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of colors for lines</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>HTML string for <thead></p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createDeltaTableRenderer"><span class="type-signature type-signature-static">(static) </span>createDeltaTableRenderer<span class="signature">(containerElement, verticalLinesXState)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Create Delta Table Renderer</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>containerElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Container to render table into</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesXState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Reactive state from createState</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>API with render() and destroy() methods</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".filterTableRows"><span class="type-signature type-signature-static">(static) </span>filterTableRows<span class="signature">(tableData, searchQuery)</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Filter table rows based on search query</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Table data to filter</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>searchQuery</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Search text</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Filtered table data</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".formatTableData"><span class="type-signature type-signature-static">(static) </span>formatTableData<span class="signature">(deltaData, verticalLinesCount, verticalLineTimes)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Transform deltaData into table format
+Consolidates data from multiple charts into a single table</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>deltaData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of delta sections (one per chart per pair)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLinesCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of vertical lines</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>verticalLineTimes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of time values for each vertical line</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Formatted table data</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getColorHex"><span class="type-signature type-signature-inner">(inner) </span>getColorHex<span class="signature">(colorName)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Convert color name to hex</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>colorName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Color from crosshairColors</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Hex color code</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

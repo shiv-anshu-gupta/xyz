@@ -1,5 +1,5 @@
 /**
- * @module mergerWindowLauncher
+ * @module Utils/Helpers
  * @description
  * Manages the separate COMTRADE File Merger application window and inter-app communication.
  * Opens the merger app as a separate window, listens for merged file data, and passes it

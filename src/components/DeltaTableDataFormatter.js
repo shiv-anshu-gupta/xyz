@@ -1,7 +1,7 @@
 /**
  * @file DeltaTableDataFormatter.js
- * @module components/DeltaTableDataFormatter
- * 
+ * @module Components/Analysis
+ *
  * @description
  * <h3>Delta Table Data Formatter</h3>
  * <p>Pure transformation module that consolidates raw delta measurement data from multiple

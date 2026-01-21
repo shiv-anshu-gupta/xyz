@@ -1,7 +1,7 @@
 /**
  * @file debugPanelLite.js
- * @module components/debugPanelLite
- * 
+ * @module Components/UI
+ *
  * @description
  * <h3>Lightweight Debug Panel</h3>
  * 

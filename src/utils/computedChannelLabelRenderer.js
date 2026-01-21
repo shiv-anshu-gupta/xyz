@@ -1,4 +1,9 @@
 /**
+ * @module Utils/ComputedChannels
+ * @description computedChannelLabelRenderer module
+ */
+
+/**
  * Format an equation string for LaTeX rendering
  * Handles special characters, operators, and formatting
  * @param {string} eq - Raw equation string

@@ -1,6 +1,6 @@
 /**
  * @file createState.js
- * @module createState
+ * @module Components/State
  * @description
  * High-performance, deeply reactive state management system for vanilla JavaScript applications.
  * Provides observable state with path-based and selector-based subscriptions, batched updates,

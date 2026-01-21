@@ -1,5 +1,5 @@
 /**
- * @module setupChartDragAndDrop
+ * @module Components/DragDrop
  * @description
  * Enables native HTML5 drag-and-drop functionality for reordering chart containers.
  * Charts can be dragged by their drag bar to visually reorder them on the page.

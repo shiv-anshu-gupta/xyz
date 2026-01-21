@@ -1,5 +1,6 @@
 /**
- * Computed Channels State Management
+ * @module Utils/ComputedChannels
+ * @description Computed Channels State Management
  *
  * This module provides a reactive state for managing computed channels
  * similar to how cfg and data states work.
@@ -13,6 +14,11 @@
  */
 
 import { createState } from "../components/createState.js";
+
+/**
+ * @description computedChannelsState module
+ */
+
 
 let globalComputedChannelsState = null;
 

@@ -1,5 +1,5 @@
 /**
- * @module createDragBar
+ * @module Components/UI
  * @description
  * Factory function for creating draggable bar elements that appear above each chart.
  * Drag bars display a compact list of channel colors and labels, allowing users to

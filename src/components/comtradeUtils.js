@@ -1,8 +1,9 @@
 import { calculateTimeFromSampleNumber } from "../utils/timeInterpolation.js";
 
 /**
- * @file comtradeUtils.js - COMTRADE file parsing utilities
- * @module comtradeUtils
+ * @file comtradeUtils.js
+ * @module Utils/COMTRADE
+ * @description COMTRADE file parsing utilities
  * @description
  * Provides comprehensive parsing functions for COMTRADE .CFG and .DAT files.
  * Supports both ASCII and BINARY formats, multiple sampling rates, and implements

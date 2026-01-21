@@ -1,7 +1,7 @@
 /**
  * @file SidebarResizer.js
- * @module components/SidebarResizer
- * 
+ * @module Components/UI
+ *
  * @description
  * <h3>Sidebar Resize Handle Component</h3>
  * <p>Provides interactive drag-to-resize functionality for sidebar panels in the COMTRADE viewer.

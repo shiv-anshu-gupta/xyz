@@ -1,4 +1,9 @@
 /**
+ * @module Utils/Data
+ * @description timeMerger module
+ */
+
+/**
  * Time Array Merger
  * Handles combining time arrays from multiple COMTRADE files
  * Uses sequential approach: each file's time is offset by previous file's duration

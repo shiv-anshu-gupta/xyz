@@ -1,3 +1,8 @@
+/**
+ * @module Utils/Chart
+ * @description chartUtils module
+ */
+
 // Utility to destroy all uPlot chart instances in an array
 // ✅ Properly cleans up ResizeObservers, event listeners, and uPlot instances
 export function destroyCharts(charts) {

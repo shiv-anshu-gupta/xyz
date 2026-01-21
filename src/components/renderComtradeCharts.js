@@ -1,7 +1,7 @@
 /**
  * @file renderComtradeCharts.js
- * @module components/renderComtradeCharts
- * 
+ * @module Components/ChartRendering
+ *
  * @description
  * <h3>Main Chart Rendering Orchestrator</h3>
  * 
@@ -79,6 +79,7 @@ import { destroyCharts } from "../utils/chartUtils.js";
 import { buildChannelGroups } from "../utils/autoGroupChannels.js";
 import { analyzeGroupsAndPublishMaxYAxes } from "../utils/analyzeGroupsAndPublish.js";
 import { getMaxYAxes } from "../utils/maxYAxesStore.js";
+import { findChangedDigitalChannelIndices } from "../utils/digitalChannelUtils.js";
 import {
   getChartMetadataState,
   clearAllCharts,
@@ -269,9 +270,9 @@ export function renderComtradeCharts(
     const userGroups = channelState?.analog?.groups || [];
     const maxYAxes = getMaxYAxes() || 1;
     
-    // Get groups from centralized grouping logic
-    // Format: { "G0": [0,1,2], "G1": [3,4,5] }
-    const analogGroups = buildChannelGroups(userGroups, analogChannels);
+    // Get groups from centralized grouping logic with "GA" prefix
+    // Format: { "GA0": [0,1,2], "GA1": [3,4,5] }
+    const analogGroups = buildChannelGroups(userGroups, analogChannels, "GA");
     
     // Render each group as a chart
     for (const [groupId, channelIndices] of Object.entries(analogGroups)) {
@@ -301,36 +302,7 @@ export function renderComtradeCharts(
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // Phase 2: Render digital charts (one per group - same pattern as analog)
-  // ═══════════════════════════════════════════════════════════════════════════
-  const digitalChannels = cfg.digitalChannels || [];
-  if (digitalChannels.length > 0 && data.digitalData?.length > 0) {
-    const userGroups = channelState?.digital?.groups || [];
-    
-    // Get digital groups (same pattern as analog)
-    const digitalGroups = buildChannelGroups(userGroups, digitalChannels);
-    
-    // Render each digital group as a chart (same pattern as analog)
-    for (const [groupId, channelIndices] of Object.entries(digitalGroups)) {
-      if (channelIndices?.length > 0) {
-        renderSingleDigitalChart(
-          groupId,                   // Group ID (e.g., "G0", "G1")
-          channelIndices,            // Channel indices in this group
-          chartIndex,                // Chart position
-          cfg,                       // Configuration
-          data,                      // Data
-          chartsContainer,           // Container
-          charts,                    // Charts array
-          verticalLinesX,            // Vertical lines
-          { channelState }           // Options
-        );
-        chartIndex++;
-      }
-    }
-  }
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // Phase 3: Render computed channels (standalone, not owned by analog groups)
+  // Phase 2: Render computed channels (standalone, not owned by analog groups)
   // ═══════════════════════════════════════════════════════════════════════════
   
   // 🔍 DEBUG: Log what cfg/data is being passed to renderComputedChart
@@ -341,6 +313,38 @@ export function renderComtradeCharts(
   console.log("  window.globalCfg.computedChannels:", window.globalCfg?.computedChannels?.map(c => ({ id: c.id, group: c.group, madeFrom: c.madeFrom })));
   
   renderComputedChart(cfg, data, chartsContainer, charts, verticalLinesX, channelState);
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Phase 3: Render digital channels in ONE chart (single "GD0" group)
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Digital channels are NOT grouped like analog - all go in single chart
+  // Only show channels that have state changes (0↔1 or 1↔0 transitions)
+  // Channels that are always 0 or always 1 are filtered out
+  const digitalChannels = cfg.digitalChannels || [];
+  if (digitalChannels.length > 0 && data.digitalData?.length > 0) {
+    // Use findChangedDigitalChannelIndices to get only channels with state changes
+    const changedDigitalIndices = findChangedDigitalChannelIndices(data.digitalData);
+    
+    console.log(`[renderComtradeCharts] 📊 Digital channels: ${changedDigitalIndices.length}/${digitalChannels.length} have state changes`);
+    
+    if (changedDigitalIndices.length > 0) {
+      // Render ONE chart with filtered digital channels (groupId = "GD0")
+      renderSingleDigitalChart(
+        "GD0",                     // Single group ID for digital uPlot instance
+        changedDigitalIndices,     // Only channels with state changes
+        chartIndex,                // Chart position
+        cfg,                       // Configuration
+        data,                      // Data
+        chartsContainer,           // Container
+        charts,                    // Charts array
+        verticalLinesX,            // Vertical lines
+        { channelState }           // Options
+      );
+      chartIndex++;
+    } else {
+      console.log(`[renderComtradeCharts] ⏭️ No digital channels with state changes - skipping digital chart`);
+    }
+  }
 
   const metadataState = getChartMetadataState();
   if (!metadataSubscriptionAttached && metadataState?.subscribe) {

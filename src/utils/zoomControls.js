@@ -1,4 +1,9 @@
 /**
+ * @module Utils/Chart
+ * @description zoomControls module
+ */
+
+/**
  * Zoom Controls Utility for COMTRADE Viewer
  * 
  * Provides window-level zoom functionality for different sections:

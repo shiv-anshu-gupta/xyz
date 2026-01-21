@@ -1,6 +1,7 @@
 /**
- * @file seriesMapper.js - Series-to-Axis Mapping & Configuration
- * @module seriesMapper
+ * @file seriesMapper.js
+ * @module Utils/Chart
+ * @description Series-to-Axis Mapping & Configuration
  * @category Architecture / Functional Approach
  * @since 2.0.0
  *

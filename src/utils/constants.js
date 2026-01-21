@@ -1,7 +1,7 @@
 /**
  * @file constants.js
- * @module utils/constants
- * 
+ * @module Utils/Theme
+ *
  * @description
  * <h3>Application-Wide Constants & Color Palettes</h3>
  * 

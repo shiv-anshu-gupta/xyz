@@ -1,3 +1,8 @@
+/**
+ * @module Utils/DOM
+ * @description requestAnimationFrameUpdates module
+ */
+
 /* let rafId = null;
 const updates = new Map();
 

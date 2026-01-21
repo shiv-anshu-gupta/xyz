@@ -1,5 +1,11 @@
 import { addChart } from "../utils/chartMetadataStore.js";
 import {
+
+/**
+ * @module Utils/ComputedChannels
+ * @description computedChartCreationUtils module
+ */
+
   createChartContainer,
   initUPlotChart,
 } from "../utils/chartDomUtils.js";

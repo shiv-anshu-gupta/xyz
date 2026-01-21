@@ -1,7 +1,7 @@
 /**
  * @file DeltaDrawer.js
- * @module components/DeltaDrawer
- * 
+ * @module Components/Analysis
+ *
  * @description
  * <h3>Delta Values Sidebar Drawer</h3>
  * 
@@ -141,6 +141,7 @@ export function createDeltaDrawer() {
   let lastUpdateHash = null;
   let currentTableData = [];
   let currentVerticalLinesCount = 0;
+  let searchTags = []; // Array of search tag strings
 
   function setupEventListeners() {
     const drawer = document.getElementById("delta-drawer");
@@ -154,56 +155,193 @@ export function createDeltaDrawer() {
   }
 
   /**
+   * Create a search tag element
+   * @param {string} text - The tag text
+   * @returns {HTMLElement} The tag element
+   */
+  function createTagElement(text) {
+    const tag = document.createElement("span");
+    tag.className = "delta-search-tag";
+    tag.dataset.value = text;
+    
+    const tagText = document.createElement("span");
+    tagText.className = "delta-search-tag-text";
+    tagText.textContent = text;
+    tagText.title = text;
+    
+    const removeBtn = document.createElement("button");
+    removeBtn.className = "delta-search-tag-remove";
+    removeBtn.type = "button";
+    removeBtn.innerHTML = `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l6 6M9 3l-6 6"/></svg>`;
+    removeBtn.title = "Remove";
+    removeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      removeTag(text);
+    });
+    
+    tag.appendChild(tagText);
+    tag.appendChild(removeBtn);
+    
+    return tag;
+  }
+
+  /**
+   * Add a new search tag
+   * @param {string} text - The tag text to add
+   */
+  function addTag(text) {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    
+    // Check for duplicates (case-insensitive)
+    if (searchTags.some(tag => tag.toLowerCase() === trimmed.toLowerCase())) {
+      console.log("[DeltaDrawer] Tag already exists:", trimmed);
+      return;
+    }
+    
+    searchTags.push(trimmed);
+    console.log("[DeltaDrawer] Added search tag:", trimmed, "Total tags:", searchTags.length);
+    
+    // Update the UI
+    renderTags();
+    
+    // Clear the input
+    const searchInput = document.getElementById("delta-table-search");
+    if (searchInput) {
+      searchInput.value = "";
+    }
+    
+    // Apply filter
+    applySearchFilter();
+  }
+
+  /**
+   * Remove a search tag
+   * @param {string} text - The tag text to remove
+   */
+  function removeTag(text) {
+    const index = searchTags.findIndex(tag => tag.toLowerCase() === text.toLowerCase());
+    if (index > -1) {
+      searchTags.splice(index, 1);
+      console.log("[DeltaDrawer] Removed search tag:", text, "Remaining tags:", searchTags.length);
+      
+      // Update the UI
+      renderTags();
+      
+      // Apply filter
+      applySearchFilter();
+    }
+  }
+
+  /**
+   * Render all search tags in the container
+   */
+  function renderTags() {
+    const tagsContainer = document.getElementById("delta-search-tags");
+    if (!tagsContainer) return;
+    
+    // Clear existing tags
+    tagsContainer.innerHTML = "";
+    
+    // Create and append new tags
+    searchTags.forEach(text => {
+      const tagEl = createTagElement(text);
+      tagsContainer.appendChild(tagEl);
+    });
+
+    // Update placeholder based on whether there are tags
+    const searchInput = document.getElementById("delta-table-search");
+    if (searchInput) {
+      searchInput.placeholder = searchTags.length > 0 ? "Add more..." : "Search channels...";
+    }
+  }
+
+  /**
+   * Apply the current search filter to the table
+   */
+  function applySearchFilter() {
+    const searchInput = document.getElementById("delta-table-search");
+    const currentInputValue = searchInput ? searchInput.value.trim() : "";
+    
+    // Combine tags with current input value
+    let searchTerms = [...searchTags];
+    if (currentInputValue) {
+      searchTerms.push(currentInputValue);
+    }
+    
+    console.log("[DeltaDrawer] Applying filter with terms:", searchTerms);
+    
+    // Filter table data based on search terms
+    const filteredData = filterTableRows(currentTableData, searchTerms);
+    
+    // Re-render table with filtered data
+    if (tableRenderer) {
+      try {
+        tableRenderer.render(filteredData, currentVerticalLinesCount);
+        console.log("[DeltaDrawer] Table filtered to", filteredData.length, "rows");
+      } catch (err) {
+        console.error("[DeltaDrawer] Error filtering table:", err);
+      }
+    }
+  }
+
+  /**
    * Setup search box event listeners
    */
   function setupSearchFunctionality() {
     const searchInput = document.getElementById("delta-table-search");
-    const searchBtn = document.getElementById("delta-table-search-btn");
+    const searchContainer = document.getElementById("delta-search-container");
 
-    if (!searchInput || !searchBtn) {
-      console.warn("[DeltaDrawer] Search elements not found in DOM");
+    if (!searchInput) {
+      console.warn("[DeltaDrawer] Search input not found in DOM");
       return;
     }
 
-    // Handle search button click
-    const handleSearch = () => {
-      const searchQuery = searchInput.value;
-      console.log("[DeltaDrawer] Searching for:", searchQuery);
+    // Click on container focuses the input
+    if (searchContainer) {
+      searchContainer.addEventListener("click", () => {
+        searchInput.focus();
+      });
+    }
 
-      // Filter table data based on search query
-      const filteredData = filterTableRows(currentTableData, searchQuery);
-
-      // Re-render table with filtered data
-      if (tableRenderer) {
-        try {
-          tableRenderer.render(filteredData, currentVerticalLinesCount);
-          console.log("[DeltaDrawer] Table filtered to", filteredData.length, "rows");
-        } catch (err) {
-          console.error("[DeltaDrawer] Error filtering table:", err);
+    // Handle keydown events
+    searchInput.addEventListener("keydown", (e) => {
+      const value = searchInput.value.trim();
+      
+      // Add tag on Enter or comma
+      if (e.key === "Enter" || e.key === ",") {
+        e.preventDefault();
+        if (value) {
+          // Handle comma-separated values
+          const terms = value.split(",").map(t => t.trim()).filter(t => t);
+          terms.forEach(term => addTag(term));
         }
       }
-    };
-
-    // Add event listeners
-    searchBtn.addEventListener("click", handleSearch);
-    searchInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") {
-        handleSearch();
+      
+      // Remove last tag on Backspace if input is empty
+      if (e.key === "Backspace" && !searchInput.value && searchTags.length > 0) {
+        removeTag(searchTags[searchTags.length - 1]);
       }
     });
 
-    // Allow search input to update on key release for real-time filtering
-    searchInput.addEventListener("keyup", () => {
-      const searchQuery = searchInput.value;
-      if (searchQuery === "") {
-        // If search is cleared, show all rows
-        if (tableRenderer) {
-          tableRenderer.render(currentTableData, currentVerticalLinesCount);
+    // Handle paste with comma-separated values
+    searchInput.addEventListener("paste", (e) => {
+      setTimeout(() => {
+        const value = searchInput.value;
+        if (value.includes(",")) {
+          e.preventDefault();
+          const terms = value.split(",").map(t => t.trim()).filter(t => t);
+          terms.forEach(term => addTag(term));
         }
-      }
+      }, 0);
     });
 
-    console.log("[DeltaDrawer] Search functionality initialized");
+    // Real-time filtering as user types (without adding tag)
+    searchInput.addEventListener("input", () => {
+      applySearchFilter();
+    });
+
+    console.log("[DeltaDrawer] Multi-tag search functionality initialized");
   }
 
   const api = {
@@ -258,10 +396,15 @@ export function createDeltaDrawer() {
 
       isOpen = false;
 
-      // Clear search input when drawer is hidden
+      // Clear search input and tags when drawer is hidden
       const searchInput = document.getElementById("delta-table-search");
       if (searchInput) {
         searchInput.value = "";
+      }
+      searchTags = [];
+      const tagsContainer = document.getElementById("delta-search-tags");
+      if (tagsContainer) {
+        tagsContainer.innerHTML = "";
       }
 
       // ✅ Reset CSS variables and remove resized class

@@ -1,7 +1,7 @@
 /**
  * @file sidebarStore.js
- * @module utils/sidebarStore
- * 
+ * @module Utils/DOM
+ *
  * @description
  * <h3>Global Sidebar State Manager</h3>
  * 

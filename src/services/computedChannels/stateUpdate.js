@@ -1,7 +1,7 @@
 /**
  * @file stateUpdate.js
- * @module services/computedChannels/stateUpdate
- * 
+ * @module Services/ComputedChannels
+ *
  * @description
  * <h3>Global State Mutation for Computed Channels</h3>
  * 

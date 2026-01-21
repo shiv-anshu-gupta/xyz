@@ -43,6 +43,12 @@
 
 import { sidebarStore } from "./utils/sidebarStore.js";
 
+/**
+ * @module utils_SIDEBAR_STORE_DOCUMENTATION
+ * @description SIDEBAR_STORE_DOCUMENTATION module
+ */
+
+
 // --- EXAMPLE 1: Show a specific sidebar ---
 sidebarStore.show("analysis-sidebar");
 // Result: Analysis sidebar opens, delta-drawer hides automatically

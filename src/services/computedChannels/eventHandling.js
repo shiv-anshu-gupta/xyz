@@ -1,7 +1,7 @@
 /**
  * @file eventHandling.js
- * @module services/computedChannels/eventHandling
- * 
+ * @module Services/ComputedChannels
+ *
  * @description
  * <h3>Computed Channel Event Dispatch</h3>
  * 

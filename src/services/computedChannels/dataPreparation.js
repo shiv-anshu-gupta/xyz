@@ -1,7 +1,7 @@
 /**
  * @file dataPreparation.js
- * @module services/computedChannels/dataPreparation
- * 
+ * @module Services/ComputedChannels
+ *
  * @description
  * <h3>Data Preparation for Web Worker</h3>
  * 

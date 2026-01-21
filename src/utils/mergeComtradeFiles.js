@@ -1,11 +1,17 @@
 /**
- * Merge COMTRADE Files
+ * @module Utils/Data
+ * @description Merge COMTRADE Files
  * Main orchestrator for combining multiple CFG/DAT file pairs
  * Uses sequential strategy: concatenates time and renames channels with file prefixes
  */
 
 import { mergeTimeArraysSequential } from "./timeMerger.js";
 import { mergeAnalogChannels, mergeDigitalChannels } from "./channelMerger.js";
+
+/**
+ * @description mergeComtradeFiles module
+ */
+
 
 /**
  * Merge multiple COMTRADE file sets

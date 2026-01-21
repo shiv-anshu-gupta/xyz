@@ -1,3 +1,8 @@
+/**
+ * @module Utils/Theme
+ * @description tailwindColors module
+ */
+
 // Tailwind CSS v3 color palette mapping
 // Source: https://v3.tailwindcss.com/docs/customizing-colors
 

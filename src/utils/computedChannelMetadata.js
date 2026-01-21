@@ -1,6 +1,6 @@
 /**
- * @file computedChannelMetadata.js - Computed Channel Metadata Manager
- * @module utils/computedChannelMetadata
+ * @file computedChannelMetadata.js
+ * @module Utils/ComputedChannels
  * @description
  * Stores and manages metadata for all computed channels created from mathematical
  * expressions. This is the central registry for computed channel information.
@@ -16,8 +16,8 @@
  * 
  * **Data Structure:**
  * ```
- * metadataMap (Map):     { channelId → metadata }  → O(1) lookup by ID
- * metadataList (Array):  [metadata, ...]           → Maintains insertion order
+ * metadataMap (Map):     channelId => metadata   (O(1) lookup by ID)
+ * metadataList (Array):  [metadata, ...]         (Maintains insertion order)
  * ```
  * 
  * **Usage Pattern:**

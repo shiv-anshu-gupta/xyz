@@ -2,6 +2,12 @@ import { calculateAxisCountForGroup } from "./axisCalculator.js";
 import { resolveTimeArray } from "./computedChannelDataProcessor.js";
 
 /**
+ * @module Utils/Grouping
+ * @description groupingUtils module
+ */
+
+
+/**
  * Build groups from user-assigned groups and auto-group unassigned channels
  * @param {Array} userGroups - Array of group names assigned to each channel
  * @param {Array} totalAnalog - Array of all analog channel objects

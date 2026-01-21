@@ -1,6 +1,6 @@
 /**
  * @file chartUpdateHelpers.js
- * @module chartUpdateHelpers
+ * @module Components/ChartCore
  * @category Performance / Chart Updates
  * @since 2.1.0
  *

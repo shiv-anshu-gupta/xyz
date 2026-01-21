@@ -1,4 +1,9 @@
 /**
+ * @module Plugins/Chart
+ * @description digitalFillPlugin module
+ */
+
+/**
  * uPlot plugin for rendering filled regions under digital (boolean) signals.
  *
  * This plugin draws filled rectangles under digital signals (step lines) when the signal is in the "high" state (as defined by targetVal).

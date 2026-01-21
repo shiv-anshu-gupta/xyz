@@ -1,7 +1,7 @@
 /**
  * @file chartMetadataStore.js
- * @module utils/chartMetadataStore
- * 
+ * @module Utils/Chart
+ *
  * @description
  * <h3>Chart Metadata State Store</h3>
  * 

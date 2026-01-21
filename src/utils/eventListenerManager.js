@@ -1,6 +1,7 @@
 /**
- * @file eventListenerManager.js - Utilities for managing event listeners with cleanup
- * @module eventListenerManager
+ * @file eventListenerManager.js
+ * @module Utils/DOM
+ * @description Utilities for managing event listeners with cleanup
  * @description
  * Helper utilities to attach and track event listeners for proper cleanup
  * when charts are destroyed. Prevents memory leaks from accumulated listeners.

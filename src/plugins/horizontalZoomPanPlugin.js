@@ -1,7 +1,7 @@
 /**
  * @file horizontalZoomPanPlugin.js
- * @module plugins/horizontalZoomPanPlugin
- * 
+ * @module Plugins/Chart
+ *
  * @description
  * <h3>uPlot Plugin: Horizontal Zoom & Pan</h3>
  * 

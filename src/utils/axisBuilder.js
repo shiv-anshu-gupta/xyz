@@ -1,6 +1,7 @@
 /**
- * @file axisBuilder.js - Y-Axis Definition & Configuration Builder
- * @module axisBuilder
+ * @file axisBuilder.js
+ * @module Utils/Chart
+ * @description Y-Axis Definition & Configuration Builder
  * @category Architecture / Functional Approach
  * @since 2.0.0
  *

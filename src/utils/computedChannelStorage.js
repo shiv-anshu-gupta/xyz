@@ -1,4 +1,9 @@
 /**
+ * @module Utils/ComputedChannels
+ * @description computedChannelStorage module
+ */
+
+/**
  * Computed Channel Storage Manager
  * Persists computed channels to localStorage for persistence across page reloads
  * 
@@ -43,6 +48,7 @@ export function saveComputedChannelsToStorage(
     // ✅ STEP 1: Build metadata-only array (NO data values!)
     const cfgToStore = cfgComputedChannels.map((cfgEntry, index) => {
       const channelId = cfgEntry.id || cfgEntry.name;
+      const madeFrom = cfgEntry.madeFrom || "analog";
       return {
         index,
         id: channelId,
@@ -50,14 +56,15 @@ export function saveComputedChannelsToStorage(
         name: cfgEntry.name || channelId,
         unit: cfgEntry.unit || "",
         type: cfgEntry.type || "Computed",
-        group: cfgEntry.group || "G0",
+        // ✅ Use GA prefix for analog, GD for digital
+        group: cfgEntry.group || (madeFrom === "digital" ? "GD0" : "GA0"),
         equation: cfgEntry.equation,
         mathJsExpression: cfgEntry.mathJsExpression,
         color: cfgEntry.color || "#4ECDC4",
         stats: cfgEntry.stats,
         sampleCount: dataComputedData[index]?.length || cfgEntry.sampleCount || 0,
         createdAt: cfgEntry.createdAt || Date.now(),
-        madeFrom: cfgEntry.madeFrom || "analog",  // ✅ FIX: Include madeFrom for chart type routing!
+        madeFrom: madeFrom,  // ✅ FIX: Include madeFrom for chart type routing!
         // ❌ NO data/values array here!
       };
     });

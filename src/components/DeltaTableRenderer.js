@@ -1,7 +1,7 @@
 /**
  * @file DeltaTableRenderer.js
- * @module components/DeltaTableRenderer
- * 
+ * @module Components/Analysis
+ *
  * @description
  * <h3>Delta Table DOM Renderer</h3>
  * <p>Reactive rendering component that manages the DOM lifecycle for delta measurement tables.

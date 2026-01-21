@@ -1,7 +1,7 @@
 /**
  * @file ChannelList.js
- * @module components/ChannelList
- * 
+ * @module Components/Sidebars
+ *
  * @description
  * <h3>Channel List Editor Component</h3>
  * 
@@ -1918,7 +1918,7 @@ function createAnalogChannelGroupMap(analogChannels) {
   const autoIndices = []; // Channels that need auto-grouping
 
   // ✅ STEP 1: Collect explicit groups (user-assigned)
-  // Only accept groups that start with "G" followed by digits (valid format)
+  // Accept groups that start with "G", "GA", or "GD" followed by digits
   // Reject invalid formats like "Currents", "Voltages", "Other"
   let hasValidExplicitGroups = false;
   analogChannels.forEach((ch, idx) => {
@@ -1926,9 +1926,9 @@ function createAnalogChannelGroupMap(analogChannels) {
       ch &&
       ch.group &&
       typeof ch.group === "string" &&
-      /^G\d+$/.test(ch.group)
+      /^(GA?|GD?)\d+$/.test(ch.group)
     ) {
-      // Valid explicit group format (G0, G1, G2, etc.)
+      // Valid explicit group format (G0, G1, GA0, GA1, GD0, etc.)
       groupMap[idx] = ch.group;
       hasValidExplicitGroups = true;
     } else {
@@ -1952,7 +1952,7 @@ function createAnalogChannelGroupMap(analogChannels) {
     const autoGroups = autoGroupChannels(autoChannels);
 
     // Map auto-group indices back to global indices
-    // ✅ autoGroupChannels returns an object { "G0": [indices], "G1": [indices], ... }
+    // ✅ FIX: autoGroupChannels returns an object { "G0": [indices], "G1": [indices] }
     // Not an array, so we need to iterate over Object.entries
     Object.entries(autoGroups).forEach(([groupId, indices]) => {
       if (Array.isArray(indices)) {
@@ -1984,39 +1984,77 @@ function createAnalogChannelGroupMap(analogChannels) {
  * Extract all unique groups from tableData
  * Also include default numeric groups
  * @param {Array} tableData - Array of channel objects with group field
+ * @param {Window} parentWindow - Optional parent window to read channelState from
  * @returns {Object} Object suitable for Tabulator list editor
  */
-function getAllAvailableGroups(tableData) {
-  // Default groups in G format
+function getAllAvailableGroups(tableData, parentWindow = null) {
+  // Default groups in G format (including GA/GD patterns)
   const defaultGroups = [
-    "G0",
-    "G1",
-    "G2",
-    "G3",
-    "G4",
-    "G5",
-    "G6",
-    "G7",
-    "G8",
-    "G9",
+    "GA0", "GA1", "GA2", "GA3", "GA4", "GA5", "GA6", "GA7", "GA8", "GA9",
+    "GD0", "GD1", "GD2", "GD3", "GD4", "GD5",
   ];
 
   // Extract unique groups from tableData
   const extractedGroups = new Set();
   if (Array.isArray(tableData)) {
     tableData.forEach((row) => {
-      if (row.group !== undefined && row.group !== null) {
+      if (row.group !== undefined && row.group !== null && row.group !== "") {
         extractedGroups.add(row.group);
       }
     });
   }
+  
+  // ✅ FIX: Also extract groups from channelState (source of truth)
+  try {
+    const analogGroups = parentWindow?.channelState?.analog?.groups;
+    const digitalGroups = parentWindow?.channelState?.digital?.groups;
+    
+    if (Array.isArray(analogGroups)) {
+      analogGroups.forEach(g => {
+        if (g && typeof g === "string") extractedGroups.add(g);
+      });
+    }
+    if (Array.isArray(digitalGroups)) {
+      digitalGroups.forEach(g => {
+        if (g && typeof g === "string") extractedGroups.add(g);
+      });
+    }
+    
+    console.log("[getAllAvailableGroups] Groups from channelState:", {
+      analog: analogGroups?.slice(0, 5),
+      digital: digitalGroups?.slice(0, 5)
+    });
+  } catch (e) {
+    console.warn("[getAllAvailableGroups] Could not read channelState:", e);
+  }
 
   // Combine default + extracted groups
   const allGroups = new Set([...defaultGroups, ...extractedGroups]);
+  
+  // Sort groups: GA first, then GD, then G
+  const sortedGroups = Array.from(allGroups).sort((a, b) => {
+    // Extract prefix and number
+    const matchA = a.match(/^(GA?|GD?)(\d+)$/);
+    const matchB = b.match(/^(GA?|GD?)(\d+)$/);
+    
+    if (!matchA && !matchB) return a.localeCompare(b);
+    if (!matchA) return 1;
+    if (!matchB) return -1;
+    
+    const prefixOrder = { 'GA': 0, 'G': 1, 'GD': 2 };
+    const prefixA = matchA[1];
+    const prefixB = matchB[1];
+    
+    if (prefixA !== prefixB) {
+      return (prefixOrder[prefixA] ?? 99) - (prefixOrder[prefixB] ?? 99);
+    }
+    
+    return parseInt(matchA[2], 10) - parseInt(matchB[2], 10);
+  });
 
   // Convert to object format for Tabulator { label: value, ... }
   const groupOptions = {};
-  allGroups.forEach((group) => {
+  sortedGroups.forEach((group) => {
     groupOptions[group] = group;
   });
 
@@ -2102,13 +2140,27 @@ export function createChannelList(
     }
   }
 
-  // Create mapping of analog channel indices to their numeric group IDs
-  const analogGroupMap = createAnalogChannelGroupMap(cfg.analogChannels || []);
+  // ✅ FIX: Read ACTUAL groups from channelState (source of truth for GA0, GA1, GD0, etc.)
+  // instead of re-creating groups via createAnalogChannelGroupMap
+  const analogGroupsRaw = parentWindow?.channelState?.analog?.groups;
+  const analogGroupsFromState = Array.isArray(analogGroupsRaw)
+    ? [...analogGroupsRaw]
+    : (analogGroupsRaw ? Array.from(analogGroupsRaw) : []);
+  
   // ✅ Convert to plain array to handle Proxy objects from parent window
   const digitalGroupsRaw = parentWindow?.channelState?.digital?.groups;
   const digitalGroupsFromState = Array.isArray(digitalGroupsRaw)
     ? [...digitalGroupsRaw]
     : (digitalGroupsRaw ? Array.from(digitalGroupsRaw) : []);
+  
+  console.log("[ChannelList] 📊 Groups from channelState:");
+  console.log("[ChannelList]   - Analog groups:", analogGroupsFromState.slice(0, 10), "...");
+  console.log("[ChannelList]   - Digital groups:", digitalGroupsFromState.slice(0, 10), "...");
+
+  // Fallback: Create mapping only if channelState groups are empty
+  const analogGroupMap = analogGroupsFromState.length > 0 
+    ? {} // Not needed, we'll use analogGroupsFromState directly
+    : createAnalogChannelGroupMap(cfg.analogChannels || []);
 
   // 💾 LOAD persisted computed channels from localStorage if not already in cfg
   if (!cfg.computedChannels || cfg.computedChannels.length === 0) {
@@ -2124,7 +2176,7 @@ export function createChannelList(
 
   // Merge analog + digital + computed channel data
   const tableData = [
-    // ✅ Analog channels first
+    // ✅ Analog channels first - USE channelState groups as primary source
     ...cfg.analogChannels.map((ch, i) => ({
       id: i + 1,
       channelID: ch.channelID,
@@ -2133,7 +2185,8 @@ export function createChannelList(
       displayGroup: "Analog", // ✅ Just "Analog" section
       name: ch.id || `Analog ${i + 1}`,
       unit: ch.unit || "",
-      group: analogGroupMap[i] || "G0",
+      // ✅ Priority: channelState > cfg > fallback
+      group: analogGroupsFromState[i] || ch.group || analogGroupMap[i] || "G0",
       color: ch.color || "#888",
       scale: ch.scale || 1,
       start: ch.start || 0,
@@ -2175,21 +2228,23 @@ export function createChannelList(
       displayGroup: "Digital", // ✅ Custom display grouping (separate)
       name: ch.id || `Digital ${i + 1}`,
       unit: ch.unit || "",
+      // ✅ FIX: Priority order for group - channelState is source of truth
+      // Accept GA, GD, or G prefix patterns
       group: (() => {
-        const explicitGroup =
-          typeof ch.group === "string" && /^G\d+$/.test(ch.group)
-            ? ch.group.trim()
-            : "";
-        if (explicitGroup) return explicitGroup;
-
-        const stateGroup =
-          typeof digitalGroupsFromState[i] === "string" &&
-          /^G\d+$/.test(digitalGroupsFromState[i])
-            ? digitalGroupsFromState[i].trim()
-            : "";
-        if (stateGroup) return stateGroup;
-
-        return "G0";
+        // 1. First check channelState (source of truth from charts)
+        const stateGroup = digitalGroupsFromState[i];
+        if (typeof stateGroup === "string" && /^(GA?|GD?)\d+$/.test(stateGroup)) {
+          return stateGroup.trim();
+        }
+        
+        // 2. Then check cfg explicit group
+        const explicitGroup = ch.group;
+        if (typeof explicitGroup === "string" && /^(GA?|GD?)\d+$/.test(explicitGroup)) {
+          return explicitGroup.trim();
+        }
+        
+        // 3. Default fallback
+        return "GD0";
       })(),
       color: ch.color || "#888",
       scale: ch.scale || 1,
@@ -2362,16 +2417,25 @@ export function createChannelList(
       width: 150,
       headerFilter: "input",
       hozAlign: "center",
-      // ✅ Custom dropdown: input for new group + list of existing groups (theme-aware)
-      formatter: function(cell) {
-        const currentValue = cell.getValue() || "G0";
-        const groupsObj = getAllAvailableGroups(tableData);
+      // ✅ CUSTOM EDITOR: Fixed for touchpad blur issue
+      // The native list editor closes immediately on touchpad due to phantom blur events
+      editor: function(cell, onRendered, success, cancel, editorParams) {
+        const currentValue = cell.getValue() || "GA0";
+        // ✅ FIX: Pass parentWindow to get actual groups from channelState
+        const groupsObj = getAllAvailableGroups(tableData, parentWindow);
         const groups = Object.keys(groupsObj);
         
+        // Debug: Log what the cell and tableData contain
+        console.log("[Group Editor] 📋 Custom editor created");
+        console.log("[Group Editor] 📋 Current cell value:", currentValue);
+        console.log("[Group Editor] 📋 Available groups (includes channelState):", groups);
+        console.log("[Group Editor] 📋 TableData sample (first 3 rows):", tableData.slice(0, 3).map(r => ({ name: r.name, group: r.group })));
+        
+        // Detect document context
         const usedDoc = typeof doc !== "undefined" ? doc : 
                        (typeof document !== "undefined" ? document : window.document);
         
-        // ✅ Detect current theme
+        // ✅ Theme detection
         const getIsDark = () => {
           return usedDoc.documentElement.hasAttribute('data-theme-dark') || 
                  usedDoc.documentElement.classList.contains('dark') ||
@@ -2379,7 +2443,6 @@ export function createChannelList(
                  localStorage.getItem('comtrade-theme') === 'dark';
         };
         
-        // ✅ Theme colors
         const getThemeColors = () => {
           const isDark = getIsDark();
           return isDark ? {
@@ -2405,176 +2468,288 @@ export function createChannelList(
         
         let colors = getThemeColors();
         
-        // Container (just holds the button)
+        // Create container
         const container = usedDoc.createElement("div");
         container.style.cssText = "position: relative; width: 100%;";
         
-        // Display button
-        const displayBtn = usedDoc.createElement("button");
-        displayBtn.type = "button";
-        displayBtn.innerHTML = `<span>${currentValue}</span><span>▼</span>`;
+        // Create input
+        const input = usedDoc.createElement("input");
+        input.type = "text";
+        input.value = currentValue;
+        input.style.cssText = `
+          width: 100%; padding: 4px 8px; border: 1px solid ${colors.border}; border-radius: 4px;
+          background: ${colors.inputBg}; color: ${colors.text}; font-size: 13px; outline: none;
+        `;
+        container.appendChild(input);
         
-        const updateButtonStyle = () => {
-          colors = getThemeColors();
-          displayBtn.style.cssText = `
-            width: 100%; padding: 4px 8px; border: 1px solid ${colors.border}; border-radius: 4px;
-            background: ${colors.bg}; color: ${colors.text}; cursor: pointer;
-            display: flex; justify-content: space-between; align-items: center; font-size: 13px;
-          `;
-        };
-        updateButtonStyle();
-        container.appendChild(displayBtn);
-        
-        // Dropdown panel - append to BODY to avoid clipping
+        // Create dropdown - append to BODY with fixed positioning to avoid clipping
         const dropdown = usedDoc.createElement("div");
+        dropdown.style.cssText = `
+          position: fixed; z-index: 999999;
+          background: ${colors.bg}; border: 1px solid ${colors.border}; border-radius: 4px;
+          box-shadow: 0 4px 12px ${colors.shadow}; max-height: 280px; overflow-y: auto;
+          display: none;
+        `;
+        usedDoc.body.appendChild(dropdown); // ✅ Append to body to avoid overflow clipping
         
-        const updateDropdownStyle = () => {
-          colors = getThemeColors();
-          dropdown.style.cssText = `
-            position: fixed;
-            background: ${colors.bg}; border: 1px solid ${colors.border}; border-radius: 4px;
-            box-shadow: 0 4px 12px ${colors.shadow}; z-index: 99999;
-            display: none; max-height: 280px; overflow-y: auto; min-width: 150px;
-          `;
-        };
-        updateDropdownStyle();
-        usedDoc.body.appendChild(dropdown);
-        
-        // Input row for new group
+        // ✅ Add "New Group" input row at top of dropdown
         const inputRow = usedDoc.createElement("div");
+        inputRow.style.cssText = `
+          display: flex; padding: 6px; border-bottom: 1px solid ${colors.border}; 
+          gap: 4px; position: sticky; top: 0; background: ${colors.bg};
+        `;
         
         const newGroupInput = usedDoc.createElement("input");
         newGroupInput.type = "text";
         newGroupInput.placeholder = "New Group ID...";
+        newGroupInput.style.cssText = `
+          flex: 1; padding: 4px 8px; border: 1px solid ${colors.inputBorder}; 
+          border-radius: 4px; font-size: 12px; background: ${colors.inputBg}; color: ${colors.text};
+        `;
         
         const addBtn = usedDoc.createElement("button");
         addBtn.type = "button";
         addBtn.textContent = "Add";
+        addBtn.style.cssText = `
+          padding: 4px 10px; background: #3b82f6; color: white; 
+          border: none; border-radius: 4px; font-size: 12px; cursor: pointer;
+        `;
         
-        const updateInputRowStyle = () => {
-          colors = getThemeColors();
-          inputRow.style.cssText = `display: flex; padding: 6px; border-bottom: 1px solid ${colors.border}; gap: 4px; position: sticky; top: 0; background: ${colors.bg};`;
-          newGroupInput.style.cssText = `flex: 1; padding: 4px 8px; border: 1px solid ${colors.inputBorder}; border-radius: 4px; font-size: 12px; background: ${colors.inputBg}; color: ${colors.text};`;
-          addBtn.style.cssText = "padding: 4px 10px; background: #3b82f6; color: white; border: none; border-radius: 4px; font-size: 12px; cursor: pointer;";
+        // Add new group handler
+        const addNewGroup = () => {
+          const newGroup = newGroupInput.value.trim();
+          if (newGroup) {
+            console.log("[Group Editor] ✅ Adding new group:", newGroup);
+            input.value = newGroup;
+            cleanupDropdown();
+            success(newGroup);
+          }
         };
-        updateInputRowStyle();
+        
+        addBtn.addEventListener("mousedown", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+        addBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          addNewGroup();
+        });
+        
+        newGroupInput.addEventListener("mousedown", (e) => e.stopPropagation());
+        newGroupInput.addEventListener("keydown", (e) => {
+          e.stopPropagation();
+          if (e.key === "Enter") {
+            e.preventDefault();
+            addNewGroup();
+          }
+        });
         
         inputRow.appendChild(newGroupInput);
         inputRow.appendChild(addBtn);
         dropdown.appendChild(inputRow);
         
-        // List of existing groups
+        // Options container (below the input row)
         const optionsContainer = usedDoc.createElement("div");
         dropdown.appendChild(optionsContainer);
         
-        const renderOptions = () => {
-          colors = getThemeColors();
-          optionsContainer.innerHTML = '';
+        // Position dropdown below input
+        const positionDropdown = () => {
+          const rect = input.getBoundingClientRect();
+          dropdown.style.top = (rect.bottom + 2) + "px";
+          dropdown.style.left = rect.left + "px";
+          dropdown.style.minWidth = Math.max(rect.width, 180) + "px";
+        };
+        
+        // Cleanup function to remove dropdown from body
+        const cleanupDropdown = () => {
+          if (dropdown.parentNode) {
+            dropdown.parentNode.removeChild(dropdown);
+          }
+        };
+        
+        // Populate dropdown options
+        const renderOptions = (filter = "") => {
+          optionsContainer.innerHTML = "";
+          const filterLower = filter.toLowerCase();
+          
+          // Debug: Log what groups we have
+          console.log("[Group Editor] 🔍 Rendering options, groups:", groups, "filter:", filter);
+          
+          let visibleCount = 0;
           groups.forEach(groupValue => {
+            if (filter && !groupValue.toLowerCase().includes(filterLower)) return;
+            visibleCount++;
+            
             const option = usedDoc.createElement("div");
             option.textContent = groupValue;
-            const isSelected = groupValue === cell.getValue();
-            option.style.cssText = `padding: 8px 12px; cursor: pointer; color: ${colors.text}; background: ${isSelected ? colors.bgSelected : 'transparent'};`;
-            option.addEventListener("mouseenter", () => { if (!isSelected) option.style.background = colors.bgHover; });
-            option.addEventListener("mouseleave", () => { option.style.background = isSelected ? colors.bgSelected : 'transparent'; });
+            const isSelected = groupValue === input.value;
+            option.style.cssText = `
+              padding: 8px 12px; cursor: pointer; color: ${colors.text};
+              background: ${isSelected ? colors.bgSelected : 'transparent'};
+            `;
+            option.addEventListener("mouseenter", () => { 
+              if (!isSelected) option.style.background = colors.bgHover; 
+            });
+            option.addEventListener("mouseleave", () => { 
+              option.style.background = isSelected ? colors.bgSelected : 'transparent'; 
+            });
+            option.addEventListener("mousedown", (e) => {
+              e.preventDefault(); // ✅ CRITICAL: Prevent blur before value is set
+              e.stopPropagation();
+            });
             option.addEventListener("click", (e) => {
               e.stopPropagation();
-              cell.setValue(groupValue);
-              displayBtn.querySelector("span").textContent = groupValue;
-              dropdown.style.display = "none";
+              console.log("[Group Editor] ✅ Option selected:", groupValue);
+              input.value = groupValue;
+              cleanupDropdown();
+              success(groupValue);
             });
             optionsContainer.appendChild(option);
           });
+          
+          console.log("[Group Editor] 🔍 Rendered", visibleCount, "options");
         };
         renderOptions();
         
-        // ✅ Update styles when theme changes
-        const updateAllStyles = () => {
-          updateButtonStyle();
-          updateDropdownStyle();
-          updateInputRowStyle();
-          renderOptions();
-        };
+        // Show dropdown and position it
+        positionDropdown();
+        dropdown.style.display = "block";
         
-        // Listen for theme changes via storage event
-        const storageListener = (e) => {
-          if (e.key === 'comtrade-theme') updateAllStyles();
-        };
-        window.addEventListener('storage', storageListener);
-        
-        // Also watch for class changes on document
-        const observer = new MutationObserver(() => updateAllStyles());
-        observer.observe(usedDoc.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme-dark'] });
-        observer.observe(usedDoc.body, { attributes: true, attributeFilter: ['class'] });
-        
-        // Add new group
-        const addNewGroup = () => {
-          const newGroup = newGroupInput.value.trim();
-          if (newGroup) {
-            cell.setValue(newGroup);
-            displayBtn.querySelector("span").textContent = newGroup;
-            dropdown.style.display = "none";
-            newGroupInput.value = "";
-          }
-        };
-        
-        addBtn.addEventListener("click", (e) => { e.stopPropagation(); addNewGroup(); });
-        newGroupInput.addEventListener("keydown", (e) => {
-          e.stopPropagation();
-          if (e.key === "Enter") { e.preventDefault(); addNewGroup(); }
+        // Filter on input
+        input.addEventListener("input", () => {
+          renderOptions(input.value);
         });
         
-        // Position and toggle dropdown
-        const positionDropdown = () => {
-          const rect = displayBtn.getBoundingClientRect();
-          dropdown.style.top = rect.bottom + 2 + "px";
-          dropdown.style.left = rect.left + "px";
-          dropdown.style.minWidth = rect.width + "px";
+        // ✅ TOUCHPAD FIX: Debounced blur handling
+        // Don't cancel immediately on blur - wait to see if focus returns
+        let blurTimeout = null;
+        let isClosing = false;
+        let hasUserInteracted = false; // Track if user actually interacted
+        
+        // Mark as interacted on any real user action
+        input.addEventListener("keydown", () => { hasUserInteracted = true; });
+        input.addEventListener("input", () => { hasUserInteracted = true; });
+        dropdown.addEventListener("click", () => { hasUserInteracted = true; });
+        
+        const handleBlur = (e) => {
+          console.log("[Group Editor] 🔍 BLUR event, relatedTarget:", e.relatedTarget?.tagName);
+          
+          // ✅ FIX: Check if blur target is in container OR dropdown (dropdown is appended to body)
+          if (e.relatedTarget && (container.contains(e.relatedTarget) || dropdown.contains(e.relatedTarget))) {
+            console.log("[Group Editor] Blur to dropdown/container element, ignoring");
+            return;
+          }
+          
+          // ✅ TOUCHPAD FIX: If blur goes to BODY/undefined and user hasn't interacted,
+          // this is likely a phantom touchpad blur - ignore it completely
+          if (!e.relatedTarget || e.relatedTarget === usedDoc.body) {
+            console.log("[Group Editor] ⚠️ Blur to BODY/undefined detected");
+            
+            // If user hasn't typed or clicked anything, this is likely a phantom blur
+            // Re-focus the input after a short delay
+            blurTimeout = setTimeout(() => {
+              if (!isClosing) {
+                const activeEl = usedDoc.activeElement;
+                console.log("[Group Editor] ⏱️ Blur timeout expired, activeElement:", activeEl?.tagName);
+                
+                // ✅ FIX: Also check if active element is inside dropdown
+                if ((activeEl === usedDoc.body || !activeEl) && container.parentNode) {
+                  console.log("[Group Editor] 🔄 Re-focusing input (phantom blur recovery)");
+                  input.focus();
+                } else if (activeEl !== input && !container.contains(activeEl) && !dropdown.contains(activeEl)) {
+                  // Focus went to a real element outside editor AND dropdown - actually close
+                  console.log("[Group Editor] ❌ Cancelling edit (focus moved to:", activeEl?.tagName, ")");
+                  isClosing = true;
+                  cancel();
+                } else if (dropdown.contains(activeEl)) {
+                  // Focus is in dropdown (e.g., newGroupInput) - keep editor open
+                  console.log("[Group Editor] ✅ Focus moved to dropdown element, keeping open");
+                }
+              }
+            }, 150);
+            return;
+          }
+          
+          // ✅ FIX: Final check - if relatedTarget is in dropdown, don't close
+          if (e.relatedTarget && dropdown.contains(e.relatedTarget)) {
+            console.log("[Group Editor] Blur to dropdown element (late check), ignoring");
+            return;
+          }
+          
+          // Blur to a specific element outside editor - close immediately
+          console.log("[Group Editor] ❌ Blur to external element, cancelling");
+          isClosing = true;
+          cleanupDropdown();
+          cancel();
         };
         
-        displayBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          if (dropdown.style.display === "none") {
-            updateAllStyles(); // Refresh theme before showing
-            positionDropdown();
-            dropdown.style.display = "block";
-          } else {
-            dropdown.style.display = "none";
+        input.addEventListener("blur", handleBlur);
+        
+        // Re-focus should cancel the blur timeout
+        input.addEventListener("focus", () => {
+          console.log("[Group Editor] 🔍 FOCUS event (re-focused)");
+          if (blurTimeout) {
+            clearTimeout(blurTimeout);
+            blurTimeout = null;
           }
         });
         
-        // Stop events from bubbling to Tabulator
-        [container, dropdown, newGroupInput].forEach(el => {
-          el.addEventListener("mousedown", e => e.stopPropagation());
-          el.addEventListener("pointerdown", e => e.stopPropagation());
-        });
-        
-        // Close on outside click and cleanup
-        const closeDropdown = (e) => {
-          if (!container.contains(e.target) && !dropdown.contains(e.target)) {
-            dropdown.style.display = "none";
-          }
-        };
-        usedDoc.addEventListener("click", closeDropdown);
-        
-        // Cleanup when cell is removed
-        const cleanup = () => {
-          usedDoc.removeEventListener("click", closeDropdown);
-          window.removeEventListener('storage', storageListener);
-          observer.disconnect();
-          if (dropdown.parentNode) dropdown.parentNode.removeChild(dropdown);
-        };
-        
-        // Watch for cell removal
-        const cellObserver = new MutationObserver((mutations) => {
-          if (!usedDoc.body.contains(container)) {
-            cleanup();
-            cellObserver.disconnect();
+        // Handle Enter key
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            console.log("[Group Editor] ✅ Enter pressed, saving:", input.value);
+            isClosing = true;
+            cleanupDropdown();
+            success(input.value);
+          } else if (e.key === "Escape") {
+            e.preventDefault();
+            console.log("[Group Editor] ❌ Escape pressed, cancelling");
+            isClosing = true;
+            cleanupDropdown();
+            cancel();
           }
         });
-        cellObserver.observe(usedDoc.body, { childList: true, subtree: true });
+        
+        // Prevent container events from bubbling
+        container.addEventListener("mousedown", e => e.stopPropagation());
+        container.addEventListener("pointerdown", e => e.stopPropagation());
+        dropdown.addEventListener("mousedown", e => e.stopPropagation());
+        dropdown.addEventListener("pointerdown", e => e.stopPropagation());
+        
+        // Focus input when editor is rendered
+        onRendered(() => {
+          console.log("[Group Editor] 🎯 Editor rendered, focusing input...");
+          setTimeout(() => {
+            positionDropdown(); // Re-position after render
+            input.focus();
+            input.select();
+          }, 50); // Small delay to ensure DOM is ready
+        });
         
         return container;
+      },
+      // ✅ Logging callbacks
+      cellClick: function(e, cell) {
+        console.log("[Group Cell] 🖱️ ═══════════════════════════════════════════");
+        console.log("[Group Cell] 🖱️ CELL CLICK EVENT FIRED");
+        console.log("[Group Cell] Event type:", e.type);
+        console.log("[Group Cell] Event pointerType:", e.pointerType || "N/A");
+        console.log("[Group Cell] Event button:", e.button);
+        console.log("[Group Cell] Cell value:", cell.getValue());
+        if (e.type === 'focus') {
+          console.log("[Group Cell] ⚠️ WARNING: cellClick triggered by FOCUS event");
+        }
+        console.log("[Group Cell] ═══════════════════════════════════════════");
+      },
+      cellEditing: function(cell) {
+        console.log("[Group Cell] ✏️ CELL EDITING STARTED at", Date.now());
+      },
+      cellEditCancelled: function(cell) {
+        console.log("[Group Cell] ❌ CELL EDIT CANCELLED at", Date.now());
+      },
+      cellEdited: function(cell) {
+        console.log("[Group Cell] ✅ CELL EDITED, new value:", cell.getValue());
       },
     },
     {
@@ -2707,6 +2882,56 @@ export function createChannelList(
     // note: event handlers (cellEdited, tableBuilt) are attached below via table.on(...) to avoid
     // 'Invalid table constructor option' warnings on mismatched Tabulator builds
   });
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🔍 DEBUG: Add comprehensive event logging to debug touchpad dropdown issue
+  // ═══════════════════════════════════════════════════════════════════════════
+  console.log("[ChannelList] 🔍 Setting up cell event logging for touchpad debugging...");
+  
+  // Track all pointer/mouse events at the table root level
+  const logEvent = (eventName, e) => {
+    console.log(`[Tabulator Event] ${eventName}:`, {
+      type: e.type,
+      target: e.target?.tagName + (e.target?.className ? '.' + e.target.className.split(' ')[0] : ''),
+      pointerType: e.pointerType || 'N/A',
+      button: e.button,
+      buttons: e.buttons,
+      detail: e.detail,
+      isTrusted: e.isTrusted,
+      timeStamp: Math.round(e.timeStamp),
+      isPrimary: e.isPrimary,
+      pointerId: e.pointerId,
+    });
+  };
+  
+  // Add event listeners to track the event sequence
+  ['pointerdown', 'pointerup', 'pointercancel', 'mousedown', 'mouseup', 'click', 'dblclick'].forEach(eventName => {
+    tableRoot.addEventListener(eventName, (e) => {
+      // Only log if it's on a cell or editor element
+      const isCell = e.target.closest('.tabulator-cell');
+      const isEditor = e.target.closest('.tabulator-edit-select-list, .tabulator-editor');
+      if (isCell || isEditor) {
+        logEvent(eventName.toUpperCase(), e);
+      }
+    }, true); // Use capture phase to see events before they're handled
+  });
+  
+  // Log focus/blur events on editors
+  tableRoot.addEventListener('focusin', (e) => {
+    if (e.target.closest('.tabulator-editor, .tabulator-edit-select-list')) {
+      console.log('[Tabulator Event] FOCUSIN on editor:', e.target.tagName, e.target.className);
+    }
+  }, true);
+  
+  tableRoot.addEventListener('focusout', (e) => {
+    if (e.target.closest('.tabulator-editor, .tabulator-edit-select-list')) {
+      console.log('[Tabulator Event] FOCUSOUT from editor:', e.target.tagName, e.target.className);
+      console.log('[Tabulator Event] FOCUSOUT relatedTarget:', e.relatedTarget?.tagName, e.relatedTarget?.className);
+    }
+  }, true);
+  
+  console.log("[ChannelList] ✅ Cell event logging set up successfully");
+  // ═══════════════════════════════════════════════════════════════════════════
 
   // 🎯 Store Tabulator instance in the popup window for runtime updates
   // popupWindow is already defined earlier in this function (line 2177)

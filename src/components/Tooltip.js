@@ -1,7 +1,7 @@
 /**
  * @file Tooltip.js
- * @module components/Tooltip
- * 
+ * @module Components/UI
+ *
  * @description
  * <h3>Global Tooltip Component</h3>
  * 

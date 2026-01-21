@@ -1,5 +1,5 @@
 /**
- * @module calculateAndPublishMaxYAxes
+ * @module Utils/Grouping
  * @description Calculate the global maxYAxes count and publish to the global store
  * This is the single place where axis calculation happens
  */

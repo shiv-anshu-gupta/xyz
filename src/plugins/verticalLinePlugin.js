@@ -1,7 +1,7 @@
 /**
  * @file verticalLinePlugin.js
- * @module plugins/verticalLinePlugin
- * 
+ * @module Plugins/Chart
+ *
  * @description
  * <h3>uPlot Plugin: Vertical Line & Crosshair Points</h3>
  * 

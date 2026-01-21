@@ -1,7 +1,7 @@
 /**
  * @file ComputedChannelsSidebar.js
- * @module components/ComputedChannelsSidebar
- * 
+ * @module Components/Sidebars
+ *
  * @description
  * <h3>Computed Channels Sidebar</h3>
  * 

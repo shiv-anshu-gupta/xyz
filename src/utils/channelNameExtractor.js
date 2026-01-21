@@ -1,3 +1,8 @@
+/**
+ * @module Utils/Data
+ * @description channelNameExtractor module
+ */
+
 // File: src/utils/channelNameExtractor.js
 // Single Responsibility: Extract channel name from equations using regex
 

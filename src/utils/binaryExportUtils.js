@@ -1,4 +1,9 @@
 /**
+ * @module Utils/Data
+ * @description binaryExportUtils module
+ */
+
+/**
  * binaryExportUtils.js
  * Binary export utilities for COMTRADE 32-bit and 64-bit formats
  */

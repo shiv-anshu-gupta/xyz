@@ -3,6 +3,7 @@
 // import { createChannelList } from './ChannelList.js';
 
 // /**
+//  * @module Components/Sidebars
 //  * Opens a child window and displays the channel list.
 //  * @param {Object} channelState - State object with analog and digital channel info.
 //  * @param {Function} onChannelDrop - Callback(channelType, fromIdx, toIdx) when a channel is reordered.
@@ -64,6 +65,11 @@
 import { createChannelList } from "./ChannelList.js";
 import { autoGroupChannels } from "../utils/autoGroupChannels.js";
 import themeBroadcast from "../utils/themeBroadcast.js";
+
+/**
+ * @description showChannelListWindow module
+ */
+
 /**
  * Open a Channel List popup and initialize the child UI.
  *

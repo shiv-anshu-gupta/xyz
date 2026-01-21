@@ -1,7 +1,7 @@
 /**
  * @file renderSingleDigitalChart.js
- * @module components/renderSingleDigitalChart
- * 
+ * @module Components/ChartRendering
+ *
  * @description
  * <h3>Single Digital Chart Renderer</h3>
  * 
@@ -354,18 +354,19 @@ export function renderSingleDigitalChart(
     return null;
   }
 
-  // Filter to valid COMTRADE indices that have HIGH values
-  const validIndices = hasComtradeChannels
-    ? filterIndicesWithData(channelIndices, data.digitalData)
-    : [];
+  // ✅ Use ALL channel indices - NO filtering (we need all digital data visible)
+  // Filtering logic is available in digitalChannelUtils.js if needed elsewhere
+  const validIndices = hasComtradeChannels ? [...channelIndices] : [];
 
   // Filter computed channels with valid data
   const computedWithData = computedChannels.filter(ch => ch.data?.length > 0);
 
   if (validIndices.length === 0 && computedWithData.length === 0) {
-    console.log(`[renderSingleDigitalChart] ⏭️ Skipping group "${groupId}" - no channels with data`);
+    console.log(`[renderSingleDigitalChart] ⏭️ Skipping group "${groupId}" - no channels`);
     return null;
   }
+
+  console.log(`[renderSingleDigitalChart] ✅ Rendering ${validIndices.length} digital channels (no filtering)`);
 
   // ═══════════════════════════════════════════════════════════════════════════
   // BUILD CHANNEL INFO FROM CFG + COMPUTED
@@ -644,6 +645,11 @@ export function renderSingleDigitalChart(
   chart._type = "digital";
   chart._channelIndices = validIndices.slice();
   chart._computedChannelIds = computedWithData.map(ch => ch.id);
+  
+  // ✅ FIX: Set _seriesColors for digital channels using displayedColors (actual colors)
+  // This ensures delta table shows correct colors for digital channels
+  // (series.stroke is "transparent" for digital charts since they use fill plugin)
+  chart._seriesColors = displayedColors.slice();
 
   console.log(`[renderSingleDigitalChart] ✅ Digital chart created with ${allChannelsToShow.length} channel(s) (${validIndices.length} COMTRADE + ${computedWithData.length} computed)`);
 

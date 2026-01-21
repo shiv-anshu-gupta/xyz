@@ -4,6 +4,12 @@ import { createChartOptions } from "../components/chartComponent.js";
 import verticalLinePlugin from "../plugins/verticalLinePlugin.js";
 
 /**
+ * @module Utils/Chart
+ * @description chartCreationUtils module
+ */
+
+
+/**
  * Create chart metadata record for tracking and reference
  * @param {Object} params - Chart metadata parameters
  * @returns {Object} Metadata object from addChart

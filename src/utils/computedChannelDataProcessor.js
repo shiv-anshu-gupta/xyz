@@ -1,4 +1,9 @@
 /**
+ * @module Utils/ComputedChannels
+ * @description computedChannelDataProcessor module
+ */
+
+/**
  * OWNERSHIP RULE: Filter computed channels
  * Rule: A computed channel is "owned" by analog chart if its group ID matches an analog group
  * 

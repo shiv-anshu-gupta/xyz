@@ -1,7 +1,7 @@
 /**
  * @file setupPolarChartIntegration.js
- * @module components/setupPolarChartIntegration
- * 
+ * @module Components/PolarChart
+ *
  * @description
  * <h3>Phasor Chart Cursor Integration</h3>
  * 

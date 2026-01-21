@@ -1,7 +1,7 @@
 /**
  * @file AnalysisSidebar.js
- * @module components/AnalysisSidebar
- * 
+ * @module Components/Sidebars
+ *
  * @description
  * <h3>Analysis & Phasor Sidebar Panel</h3>
  * 

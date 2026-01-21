@@ -1,7 +1,7 @@
 /**
  * @file renderSingleAnalogChart.js
- * @module components/renderSingleAnalogChart
- * 
+ * @module Components/ChartRendering
+ *
  * @description
  * <h3>Single Analog Chart Renderer</h3>
  * 

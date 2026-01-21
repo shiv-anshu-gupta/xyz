@@ -1,7 +1,7 @@
 /**
  * @file ResizableGroup.js
- * @module components/ResizableGroup
- * 
+ * @module Components/UI
+ *
  * @description
  * <h3>Synchronized Resizable Element Group</h3>
  * 

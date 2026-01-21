@@ -1,4 +1,9 @@
 /**
+ * @module Utils/Data
+ * @description channelMerger module
+ */
+
+/**
  * Channel Merger
  * Handles combining analog and digital channels from multiple COMTRADE files
  * Renames channels with file prefixes to maintain uniqueness

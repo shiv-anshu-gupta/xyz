@@ -1,7 +1,7 @@
 /**
  * @file expressionConversion.js
- * @module services/computedChannels/expressionConversion
- * 
+ * @module Services/ComputedChannels
+ *
  * @description
  * <h3>LaTeX to Math.js Converter</h3>
  * 

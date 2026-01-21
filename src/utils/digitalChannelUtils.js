@@ -1,3 +1,8 @@
+/**
+ * @module Utils/DigitalChannels
+ * @description digitalChannelUtils module
+ */
+
 // Utility for digital channel helpers
 export function findChangedDigitalChannelIndices(digitalData) {
   if (!Array.isArray(digitalData) || digitalData.length === 0) return [];

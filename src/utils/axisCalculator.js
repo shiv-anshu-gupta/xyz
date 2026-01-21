@@ -1,6 +1,7 @@
 /**
- * @file axisCalculator.js - Y-Axis Pre-Calculation and Classification
- * @module axisCalculator
+ * @file axisCalculator.js
+ * @module Utils/Chart
+ * @description Y-Axis Pre-Calculation and Classification
  * @category Architecture / Functional Approach
  * @since 2.0.0
  *

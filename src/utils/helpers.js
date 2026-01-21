@@ -1,7 +1,7 @@
 /**
  * @file helpers.js
- * @module utils/helpers
- * 
+ * @module Utils/Helpers
+ *
  * @description
  * <h3>General-Purpose Utility Functions</h3>
  * 

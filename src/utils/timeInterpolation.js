@@ -1,8 +1,8 @@
 /**
  * @file timeInterpolation.js
+ * @module Utils/Data
  * @description Time interpolation utilities for COMTRADE data with non-uniform sampling
- * @module timeInterpolation
- */
+ * */
 
 /**
  * Find the applicable sampling rate for a given sample number

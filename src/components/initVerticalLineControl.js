@@ -1,8 +1,8 @@
 /**
- * Vertical Line Control Initialization
+ * @module Components/VerticalLine
+ * @description Vertical Line Control Initialization
  * Initializes the vertical line position control and manages its state
- * @module initVerticalLineControl
- */
+ * */
 
 import { createVerticalLineControl } from "./verticalLineControl.js";
 

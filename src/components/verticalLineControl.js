@@ -1,7 +1,7 @@
 /**
  * @file verticalLineControl.js
- * @module components/verticalLineControl
- * 
+ * @module Components/VerticalLine
+ *
  * @description
  * <h3>Vertical Line Position Control</h3>
  * 

@@ -1,5 +1,5 @@
 /**
- * @module chartAxisAlignment
+ * @module Utils/Chart
  * @description
  * Utility for calculating global Y-axis count across all chart instances.
  * Ensures that if any chart needs multiple Y-axes, all charts display

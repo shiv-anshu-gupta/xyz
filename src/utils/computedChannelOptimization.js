@@ -1,4 +1,9 @@
 /**
+ * @module Utils/ComputedChannels
+ * @description computedChannelOptimization module
+ */
+
+/**
  * Computed Channel Optimization Utilities
  * Provides caching, pre-allocation, and batching for high-performance evaluation
  */

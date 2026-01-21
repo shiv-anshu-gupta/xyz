@@ -7,6 +7,12 @@ import { createDragBar } from "./createDragBar.js";
 import { getMaxYAxes } from "../utils/maxYAxesStore.js";
 import { renderLatex } from "../utils/mathJaxLoader.js";
 import {
+
+/**
+ * @module components_renderComputedChannels_ORIGINAL
+ * @description renderComputedChannels_ORIGINAL module
+ */
+
   createChartContainer,
   initUPlotChart,
 } from "../utils/chartDomUtils.js";

@@ -1,7 +1,7 @@
 /**
  * @file index.js
- * @module services/computedChannels
- * 
+ * @module Services/ComputedChannels
+ *
  * @description
  * <h3>Computed Channel Evaluation Orchestrator</h3>
  * 

@@ -1,7 +1,7 @@
 /**
  * @file PolarChartCanvas.js
- * @module components/PolarChartCanvas
- * 
+ * @module Components/PolarChart
+ *
  * @description
  * <h3>Canvas-based Phasor Diagram Renderer</h3>
  * 

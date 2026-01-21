@@ -1,5 +1,10 @@
 /**
+ * @description themeBroadcast module
+ */
+
+/**
  * @file themeBroadcast.js
+ * @module Utils/Theme
  * @description Unified Theme Broadcast System
  * Manages theme across main window, popups, and tabs
  * ✅ Centralized theme management

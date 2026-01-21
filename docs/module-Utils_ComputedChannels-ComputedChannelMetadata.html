@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>ComputedChannelMetadata - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="/" target="_self" class="menu-item" >COMTRADE Viewer</a></h2><h3>Modules</h3><ul><li><a href="module-Components_Analysis.html">Components/Analysis</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Analysis.html#~getColorHex">getColorHex</a></li></ul></li><li></li><li></li><li></li><li><a href="module-Components_ChartCore.html">Components/ChartCore</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_ChartCore.html#~createChartOptions">createChartOptions</a></li><li data-type='method' style='display: none;'><a href="module-Components_ChartCore.html#~subscribeChartUpdates">subscribeChartUpdates</a></li></ul></li><li></li><li></li><li><a href="module-Components_ChartRendering.html">Components/ChartRendering</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_ChartRendering.html#~filterIndicesWithData">filterIndicesWithData</a></li><li data-type='method' style='display: none;'><a href="module-Components_ChartRendering.html#~hasDigitalData">hasDigitalData</a></li></ul></li><li></li><li></li><li></li><li></li><li><a href="module-Components_DragDrop.html">Components/DragDrop</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_DragDrop.html#~setupChartDragAndDrop">setupChartDragAndDrop</a></li></ul></li><li><a href="module-Components_Equation.html">Components/Equation</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~generateCFGContentBatch">generateCFGContentBatch</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~generateDATContentBatch">generateDATContentBatch</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~performExport">performExport</a></li><li data-type='method' style='display: none;'><a href="module-Components_Equation.html#~showExportFormatDialog">showExportFormatDialog</a></li></ul></li><li><a href="module-Components_PolarChart.html">Components/PolarChart</a></li><li></li><li></li><li><a href="module-Components_Sidebars.html">Components/Sidebars</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~convertLatexToMathJs">convertLatexToMathJs</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~convertLatexToPlainText">convertLatexToPlainText</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createAnalogChannelGroupMap">createAnalogChannelGroupMap</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createChannelItem">createChannelItem</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~createSimpleChannelList">createSimpleChannelList</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~detectGroupFromExpression">detectGroupFromExpression</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~evaluateAndSaveComputedChannel">evaluateAndSaveComputedChannel</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~formatEquationForLatex">formatEquationForLatex</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~generateUniqueComputedGroup">generateUniqueComputedGroup</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~getAllAvailableGroups">getAllAvailableGroups</a></li><li data-type='method' style='display: none;'><a href="module-Components_Sidebars.html#~openMathLiveEditor">openMathLiveEditor</a></li></ul></li><li></li><li></li><li><a href="module-Components_State.html">Components/State</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_State.html#~createState">createState</a></li></ul></li><li><a href="module-Components_UI.html">Components/UI</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_UI.html#~createDragBar">createDragBar</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Components_VerticalLine.html">Components/VerticalLine</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~destroy">destroy</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getElement">getElement</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getState">getState</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~getValue">getValue</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~handleVerticalLineShortcuts">handleVerticalLineShortcuts</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setEnabled">setEnabled</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setRange">setRange</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setValue">setValue</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~setVisible">setVisible</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~syncPosition">syncPosition</a></li><li data-type='method' style='display: none;'><a href="module-Components_VerticalLine.html#~updateDuration">updateDuration</a></li></ul></li><li></li><li></li><li><a href="module-Plugins_Chart.html">Plugins/Chart</a><ul class='methods'></ul></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Services_ComputedChannels.html">Services/ComputedChannels</a></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_COMTRADE.html">Utils/COMTRADE</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_COMTRADE.html#~parseCFG">parseCFG</a></li><li data-type='method' style='display: none;'><a href="module-Utils_COMTRADE.html#~parseDAT">parseDAT</a></li></ul></li><li><a href="module-Utils_Chart.html">Utils/Chart</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~applyZoom">applyZoom</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~buildCompleteAxesArray">buildCompleteAxesArray</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~calculateAxisCountForGroup">calculateAxisCountForGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~calculateAxisCountsForAllGroups">calculateAxisCountsForAllGroups</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createMultiAxisDefinition">createMultiAxisDefinition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createSeriesDefinitions">createSeriesDefinitions</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createSingleAxisDefinition">createSingleAxisDefinition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~createYAxisScales">createYAxisScales</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~didAxisCountChange">didAxisCountChange</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getAxisCount">getAxisCount</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getAxisForType">getAxisForType</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getChannelType">getChannelType</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getGroupAxisInfo">getGroupAxisInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getSeriesAxisIndex">getSeriesAxisIndex</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~getThemeColors">getThemeColors</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~handleVerticalLineAddition">handleVerticalLineAddition</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Chart.html#~updateZoomDisplay">updateZoomDisplay</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_ComputedChannels.html">Utils/ComputedChannels</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels.html#~broadcastComputedChannelChange">broadcastComputedChannelChange</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels.html#~handleComputedVerticalLineAddition">handleComputedVerticalLineAddition</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_DOM.html">Utils/DOM</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~clearChartsContainer">clearChartsContainer</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~initializeSidebarChannels">initializeSidebarChannels</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~resizeChartsToContainers">resizeChartsToContainers</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~setupMobileSidebar">setupMobileSidebar</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~showFileInfo">showFileInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~toggleChartsVisibility">toggleChartsVisibility</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~updateFileInfo">updateFileInfo</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~updateStatsCards">updateStatsCards</a></li><li data-type='method' style='display: none;'><a href="module-Utils_DOM.html#~wrapChartInSection">wrapChartInSection</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_Data.html">Utils/Data</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~formatScaledValue">formatScaledValue</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~getChannelMetadata">getChannelMetadata</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Data.html#~renameChannelWithPrefix">renameChannelWithPrefix</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_DigitalChannels.html">Utils/DigitalChannels</a></li><li><a href="module-Utils_Grouping.html">Utils/Grouping</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~analyzeGroupsAndPublishMaxYAxes">analyzeGroupsAndPublishMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~analyzeSpecificGroup">analyzeSpecificGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~getMaxYAxes">getMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~getMaxYAxesState">getMaxYAxesState</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~resetMaxYAxes">resetMaxYAxes</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Grouping.html#~setMaxYAxes">setMaxYAxes</a></li></ul></li><li></li><li></li><li></li><li></li><li><a href="module-Utils_Helpers.html">Utils/Helpers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~closeMergerWindow">closeMergerWindow</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~getMergerWindow">getMergerWindow</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~isMergerWindowOpen">isMergerWindowOpen</a></li><li data-type='method' style='display: none;'><a href="module-Utils_Helpers.html#~openMergerWindow">openMergerWindow</a></li></ul></li><li></li><li></li><li><a href="module-Utils_Theme.html">Utils/Theme</a></li><li></li><li></li></ul><h3>Classes</h3><ul><li><a href="module-Components_PolarChart.PolarChartCanvas.html">PolarChartCanvas</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#extractRealPhasorData">extractRealPhasorData</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#init">init</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#renderCanvasDebounced">renderCanvasDebounced</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#renderCanvasPolar">renderCanvasPolar</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#updateData">updateData</a></li><li data-type='method' style='display: none;'><a href="module-Components_PolarChart.PolarChartCanvas.html#updatePhasorAtTimeIndex">updatePhasorAtTimeIndex</a></li></ul></li><li><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html">ComputedChannelMetadata</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#clear">clear</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#count">count</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#fromJSON">fromJSON</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#get">get</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getAll">getAll</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getByGroup">getByGroup</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#getByName">getByName</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#has">has</a></li><li data-type='method' style='display: none;'><a href="module-Utils_ComputedChannels-ComputedChannelMetadata.html#toJSON">toJSON</a></li></ul></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">ComputedChannelMetadata</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-Utils_ComputedChannels.html">Utils/ComputedChannels</a>~</span>
+        
+        
+            ComputedChannelMetadata
+        
+        </h2>
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+    
+
+    <h4 class="name" id="ComputedChannelMetadata"><span class="type-signature"></span>new ComputedChannelMetadata<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Computed Channel Metadata Manager Class.
+Provides O(1) lookup by ID and maintains insertion order.</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const manager = new ComputedChannelMetadata();manager.set("ch1", { name: "Channel 1", color: "#FF0000" });console.log(manager.get("ch1").name); // "Channel 1"</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="clear"><span class="type-signature"></span>clear<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Clear all metadata</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="count"><span class="type-signature"></span>count<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Get count of all computed channels</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Total number of channels</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="delete"><span class="type-signature"></span>delete<span class="signature">(channelId)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Delete metadata for a channel</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channelId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Channel identifier</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>True if deleted, false if not found</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="fromJSON"><span class="type-signature"></span>fromJSON<span class="signature">(jsonString)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Import metadata from JSON</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>jsonString</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>JSON string of metadata</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(channelId)</span><span class="type-signature"> &rarr; {Object|null}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Get metadata for a specific channel</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channelId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Channel identifier</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Channel metadata or null if not found</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">null</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getAll"><span class="type-signature"></span>getAll<span class="signature">()</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Get all metadata as array</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>All channel metadata in insertion order</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getByGroup"><span class="type-signature"></span>getByGroup<span class="signature">(group)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Get all channels in a specific group</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>group</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Group name</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Channels in that group</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getByName"><span class="type-signature"></span>getByName<span class="signature">(name)</span><span class="type-signature"> &rarr; {Object|null}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Get metadata by name (case-insensitive)</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Channel name</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Channel metadata or null</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">null</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="has"><span class="type-signature"></span>has<span class="signature">(channelId)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Check if channel exists</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channelId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Channel identifier</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>True if channel exists</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="toJSON"><span class="type-signature"></span>toJSON<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Export all metadata as JSON</p></li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>JSON string of all metadata</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

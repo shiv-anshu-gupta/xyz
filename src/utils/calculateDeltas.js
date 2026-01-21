@@ -10,6 +10,12 @@ import { crosshairColors } from "./constants.js";
 import { getNearestIndex, createCustomElement } from "./helpers.js";
 
 /**
+ * @module Utils/Data
+ * @description calculateDeltas module
+ */
+
+
+/**
  * Apply unit scaling and format value with SI prefix
  * @param {number} value - Raw value from data
  * @param {number} scaleFactor - Scale factor from axesScales (e.g., 0.001)

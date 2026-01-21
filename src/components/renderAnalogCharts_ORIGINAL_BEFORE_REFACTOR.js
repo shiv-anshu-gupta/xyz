@@ -1,6 +1,12 @@
 import { createDragBar } from "./createDragBar.js";
 import { getMaxYAxes } from "../utils/maxYAxesStore.js";
 import {
+
+/**
+ * @module components_renderAnalogCharts_ORIGINAL_BEFORE_REFACTOR
+ * @description renderAnalogCharts_ORIGINAL_BEFORE_REFACTOR module
+ */
+
   buildGroupsWithUserAssignments,
   buildGroupsWithAutoGrouping,
   filterGroupsWithChannels,

@@ -1,7 +1,7 @@
 /**
  * @file EquationEvaluatorInChannelList.js
- * @module components/EquationEvaluatorInChannelList
- * 
+ * @module Components/Equation
+ *
  * @description
  * <h3>Equation Evaluator UI for Channel List</h3>
  * 

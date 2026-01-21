@@ -1,5 +1,5 @@
 /**
- * @module domUpdateQueueInit
+ * @module Utils/DOM
  * @description
  * Initializes the global DOM update queue and makes it available to createState.
  * Call this once at app startup to enable selectiveUpdate feature in bindToDOM.

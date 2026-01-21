@@ -1,7 +1,7 @@
 /**
  * @file resultProcessing.js
- * @module services/computedChannels/resultProcessing
- * 
+ * @module Services/ComputedChannels
+ *
  * @description
  * <h3>Worker Results Processing</h3>
  * 

@@ -1,7 +1,7 @@
 /**
  * @file ProgressBar.js
- * @module components/ProgressBar
- * 
+ * @module Components/UI
+ *
  * @description
  * <h3>Progress Indicator Component</h3>
  * 

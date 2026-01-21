@@ -1,5 +1,5 @@
 /**
- * @module handleVerticalLineShortcuts
+ * @module Components/VerticalLine
  * @description
  * Manages keyboard shortcuts for adding, removing, and navigating vertical line
  * markers on COMTRADE charts. Vertical lines are used to mark specific time points

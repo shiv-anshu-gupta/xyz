@@ -1,7 +1,7 @@
 /**
  * @file axisLinesPlugin.js
- * @module plugins/axisLinesPlugin
- * 
+ * @module Plugins/Chart
+ *
  * @description
  * <h3>uPlot Plugin: Y-Axis Vertical Lines</h3>
  * 

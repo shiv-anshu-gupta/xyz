@@ -6,6 +6,12 @@
 // Import the function
 import { adjustMainContent } from "./src/utils/sidebarResize.js";
 
+/**
+ * @module SIDEBAR_RESIZE_TEST
+ * @description SIDEBAR_RESIZE_TEST module
+ */
+
+
 // Test in browser console (F12)
 
 // Test 1: Open left sidebar
